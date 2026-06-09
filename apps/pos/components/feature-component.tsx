@@ -1,0 +1,156 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+import {
+  BarChart3,
+  Menu,
+  Package,
+  Receipt,
+  Settings,
+  ShoppingCart,
+  type LucideIcon,
+} from "lucide-react";
+
+const navItems = [
+  { href: "/", icon: ShoppingCart, label: "Cashier" },
+  { href: "/sale", icon: ShoppingCart, label: "New Sale" },
+  { href: "/inventory", icon: Package, label: "Inventory" },
+  { href: "/transactions", icon: Receipt, label: "Transactions" },
+  { href: "/reports", icon: BarChart3, label: "Reports" },
+  { href: "/settings", icon: Settings, label: "Settings" },
+];
+
+export function PosPageShell({
+  actions,
+  children,
+  eyebrow,
+  title,
+}: {
+  actions?: ReactNode;
+  children: ReactNode;
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <main className="min-h-screen bg-background text-slate-100">
+      <div className="flex min-h-screen">
+        <aside className="hidden w-72 shrink-0 border-r border-white/[0.08] bg-sidebar lg:flex lg:flex-col">
+          <div className="flex h-16 items-center gap-3 border-b border-white/[0.08] px-5">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500 text-white">
+              <ShoppingCart className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-sm font-black text-white">Catalyst POS</p>
+              <p className="text-xs font-semibold text-slate-500">
+                Store operations
+              </p>
+            </div>
+          </div>
+          <nav className="grid gap-1 px-4 py-5">
+            {navItems.map((item) => (
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-slate-500 transition hover:bg-white/[0.04] hover:text-slate-200"
+                href={item.href}
+                key={item.label}
+              >
+                <item.icon className="h-4 w-4" />
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="mt-auto p-4">
+            <DemoPill />
+          </div>
+        </aside>
+        <section className="w-full min-w-0 p-3 pb-40 app-fade-in sm:p-4 md:p-8 md:pb-44">
+          <div className="mb-4 flex items-center justify-between gap-3 lg:hidden">
+            <details className="relative">
+              <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] bg-surface-50 text-slate-300 [&::-webkit-details-marker]:hidden">
+                <Menu className="h-5 w-5" />
+              </summary>
+              <nav className="fixed left-3 right-3 top-16 z-30 grid max-w-sm gap-1 rounded-xl border border-white/[0.08] bg-sidebar p-2 shadow-2xl">
+                {navItems.map((item) => (
+                  <Link
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-slate-500 hover:bg-white/[0.04] hover:text-slate-200"
+                    href={item.href}
+                    key={item.label}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </details>
+            <DemoPill />
+          </div>
+          <div className="mb-6 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+            <div className="min-w-0">
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-emerald-300">
+                {eyebrow}
+              </p>
+              <h1 className="mt-2 text-2xl font-black text-white sm:text-3xl md:text-4xl">
+                {title}
+              </h1>
+            </div>
+            {actions ? <div className="w-full xl:w-auto">{actions}</div> : null}
+          </div>
+          {children}
+        </section>
+      </div>
+    </main>
+  );
+}
+
+export function PosMetric({
+  icon: Icon,
+  label,
+  note,
+  value,
+}: {
+  icon: LucideIcon;
+  label: string;
+  note: string;
+  value: string;
+}) {
+  return (
+    <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 app-card-hover">
+      <Icon className="h-5 w-5 text-emerald-300" />
+      <p className="mt-3 text-sm font-bold text-slate-500">{label}</p>
+      <p className="mt-2 text-2xl font-black text-white">{value}</p>
+      <p className="mt-2 text-xs font-semibold text-slate-500">{note}</p>
+    </div>
+  );
+}
+
+export function PosPanel({
+  children,
+  title,
+}: {
+  children: ReactNode;
+  title: string;
+}) {
+  return (
+    <section className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 app-slide-up">
+      <h2 className="mb-5 text-lg font-black text-white">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function DemoPill() {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/15 bg-emerald-500/10 px-3 py-1.5 text-xs font-black text-emerald-300">
+      <span className="h-2 w-2 rounded-full bg-emerald-400" />
+      Demo mode
+    </span>
+  );
+}
+
+export function formatCurrency(value: number) {
+  return new Intl.NumberFormat("id-ID", {
+    currency: "IDR",
+    maximumFractionDigits: 0,
+    style: "currency",
+  })
+    .format(value)
+    .replace("IDR", "Rp");
+}

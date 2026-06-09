@@ -1,0 +1,300 @@
+{
+  "locale": "en",
+  "brand": {
+    "name": "CatalystForge",
+    "tagline": "Building Digital Solutions",
+    "logoAlt": "CatalystForge logo"
+  },
+  "metadata": {
+    "title": "CatalystForge - Integrated Digital Solutions for Business",
+    "description": "CatalystForge builds enterprise systems, business applications, and digital solutions for Indonesian companies."
+  },
+  "language": {
+    "label": "Language",
+    "id": "ID",
+    "en": "EN"
+  },
+  "error": {
+    "retry": "Try Again"
+  },
+  "navbar": {
+    "about": "About",
+    "products": "Products",
+    "howWeWork": "How We Work",
+    "testimonials": "Projects",
+    "contact": "Contact",
+    "cta": "Consult"
+  },
+  "hero": {
+    "headline": "Build Websites, Operational Systems, and AI Automation Your Team Can Actually Use",
+    "subheadline": "CatalystForge helps Indonesian businesses turn digital needs into company profiles, CRM, HRIS, POS, dashboards, and workflow automation with clear scope and deployment-ready delivery.",
+    "primaryCta": "View Solution Packages",
+    "secondaryCta": "Request Estimate",
+    "trustIndicators": [
+      "Business Consulting",
+      "UI/UX & Engineering",
+      "Operational Integration",
+      "Deployment & Support"
+    ]
+  },
+  "trustBar": {
+    "items": [
+      { "value": "01", "label": "Business needs discovery" },
+      { "value": "02", "label": "System and experience design" },
+      { "value": "03", "label": "Development and integration" },
+      { "value": "04", "label": "Go-live, support, and improvement" }
+    ]
+  },
+  "about": {
+    "eyebrow": "About CatalystForge",
+    "title": "A company profile that communicates credibility, capability, and how we work",
+    "description": "We are a technology team helping businesses present a professional digital face while building internal systems that make operations faster.",
+    "highlights": [
+      "Based in Bandung and serving Indonesian businesses",
+      "Focused on web apps, dashboards, automation, and API integration",
+      "Clear communication, measurable scope, and usable outcomes"
+    ],
+    "values": [
+      {
+        "label": "Consultative",
+        "text": "We start from the business problem, not from a technology template."
+      },
+      {
+        "label": "Reliable",
+        "text": "Each solution is prepared to be stable, secure, and maintainable."
+      },
+      {
+        "label": "Scalable",
+        "text": "Architecture is built in stages so it can grow with your needs."
+      }
+    ]
+  },
+  "offers": {
+    "eyebrow": "Solution Packages",
+    "title": "Choose the delivery path closest to your business need",
+    "description": "Each package can start small and grow in phases. It works for requirement validation, management presentation, or direct production delivery.",
+    "cta": "Discuss This Package",
+    "detailCta": "View Package Detail",
+    "items": [
+      {
+        "name": "Company Profile Launch",
+        "href": "/company-profile",
+        "timeline": "2-4 weeks",
+        "bestFor": "For businesses that need stronger digital credibility fast",
+        "deliverables": [
+          "Responsive company profile website",
+          "Service structure and value proposition copy",
+          "Inquiry form, WhatsApp CTA, basic SEO",
+          "Domain deployment and content handover"
+        ]
+      },
+      {
+        "name": "Operational System MVP",
+        "href": "/custom-crm",
+        "timeline": "4-8 weeks",
+        "bestFor": "For teams replacing spreadsheets or manual processes",
+        "deliverables": [
+          "Role-based dashboard aligned to workflow",
+          "Core data CRUD and simple approval",
+          "API integration or data import/export",
+          "Deployment, documentation, and initial support"
+        ]
+      },
+      {
+        "name": "AI Automation Sprint",
+        "href": "/ai-support",
+        "timeline": "1-3 weeks",
+        "bestFor": "For customer support, knowledge base, or task automation",
+        "deliverables": [
+          "AI chatbot or automation flow",
+          "Structured prompts and knowledge base",
+          "Human handoff fallback and conversation audit",
+          "Result monitoring and response iteration"
+        ]
+      }
+    ]
+  },
+  "products": {
+    "eyebrow": "Capabilities",
+    "title": "Digital solutions mapped directly to business needs",
+    "description": "We build company profiles, operational systems, dashboards, and automation tailored to your company's workflow.",
+    "demoNote": "These demos show reference flows and interface quality. The production version is customized around your data, roles, approvals, and business process.",
+    "learnMore": "Open Demo",
+    "items": [
+      {
+        "name": "AI Support",
+        "description": "Smart AI & Chatbot Services to respond to customers faster and more consistently.",
+        "href": "https://ai.catalystforge.web.id",
+        "cta": "Open AI Support Demo"
+      },
+      {
+        "name": "CRM",
+        "description": "Customer Relationship Management to strengthen pipelines, follow-ups, and retention.",
+        "href": "https://crm.catalystforge.web.id",
+        "cta": "Open CRM Demo"
+      },
+      {
+        "name": "HRIS",
+        "description": "Integrated HR & Employee System for employee data, attendance, and administration.",
+        "href": "https://hris.catalystforge.web.id",
+        "cta": "Open HRIS Demo"
+      },
+      {
+        "name": "POS",
+        "description": "Modern Cashier & Sales System for transactions, inventory, and branch reporting.",
+        "href": "https://pos.catalystforge.web.id",
+        "cta": "Open POS Demo"
+      },
+      {
+        "name": "Company Profile",
+        "description": "Professional Corporate Website that builds credibility and market trust.",
+        "href": "https://company.catalystforge.web.id",
+        "cta": "Open Company Profile Demo"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why Choose Us",
+    "title": "A technology partner that understands corporate needs",
+    "description": "We combine a consultative approach, software engineering, and long-term support so digital solutions work in daily business operations.",
+    "items": [
+      {
+        "heading": "End-to-End Development",
+        "paragraph": "We support strategy, design, development, deployment, and continuous improvement."
+      },
+      {
+        "heading": "Local Team, Global Standards",
+        "paragraph": "An Indonesian team with international quality standards, clear communication, and local business understanding."
+      },
+      {
+        "heading": "Post-Launch Support",
+        "paragraph": "Ongoing support after launch to keep systems stable, relevant, and ready to scale."
+      },
+      {
+        "heading": "Enterprise Security",
+        "paragraph": "Architecture prepared for data security, access control, audit, and corporate compliance needs."
+      }
+    ]
+  },
+  "howWeWork": {
+    "eyebrow": "How We Work",
+    "title": "A structured process from business needs to operations",
+    "description": "Every project starts with clear understanding, followed by system design, phased development, and post go-live support.",
+    "steps": [
+      {
+        "title": "Discovery",
+        "description": "Understand business needs, internal processes, and success indicators."
+      },
+      {
+        "title": "Design",
+        "description": "Design UX/UI, system architecture, data flows, and development priorities."
+      },
+      {
+        "title": "Build",
+        "description": "Develop the solution through agile delivery with regular reviews and quality control."
+      },
+      {
+        "title": "Support",
+        "description": "Maintain the system through maintenance, monitoring, and continuous improvement."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials & Project Highlights",
+    "title": "Experience across corporate, research, and healthcare projects",
+    "description": "These projects highlight CatalystForge experience in procurement workflows, expert systems, and operational chatbot assistance.",
+    "ratingLabel": "5 out of 5 stars",
+    "items": [
+      {
+        "avatar": "https://i.pravatar.cc/100?img=1",
+        "name": "PT Patra Drilling Contractor",
+        "title": "Procurement HTE",
+        "company": "Pertamina Subholding",
+        "quote": "The Procurement HTE project supports more efficient procurement workflows with a key feature that simplifies document generation for every procurement process."
+      },
+      {
+        "avatar": "https://i.pravatar.cc/100?img=3",
+        "name": "Al Hilal Hamzi",
+        "title": "Student at Universitas Malikussaleh",
+        "company": "Vannamei Shrimp Expert System",
+        "quote": "An expert system for diagnosing vannamei shrimp diseases using Naive Bayes and Certainty Factor methods as a knowledge-based analysis support tool."
+      },
+      {
+        "avatar": "https://i.pravatar.cc/100?img=5",
+        "name": "Silfa",
+        "title": "RS Prima Inti Medika",
+        "company": "Pomeng Chatbot",
+        "quote": "Pomeng Chatbot was developed as an assistant guide to help users access directions and service information for RS Prima Inti Medika more easily."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Project Experience",
+    "title": "Case studies from real business needs",
+    "description": "Each project is summarized by its problem context, delivered solution, and intended operational impact.",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "impactLabel": "Impact",
+    "metricsLabel": "Highlights",
+    "items": [
+      {
+        "project": "Procurement HTE",
+        "client": "PT Patra Drilling Contractor",
+        "context": "Pertamina Subholding",
+        "problem": "Procurement workflows require consistent documents that are easy to prepare at every stage.",
+        "solution": "A procurement system with document generation features for each procurement process.",
+        "impact": "Procurement teams can prepare documents faster, cleaner, and with better standardization.",
+        "metrics": [
+          "Document generation for each procurement stage",
+          "More consistent document formatting",
+          "Workflow easier to explain to stakeholders"
+        ]
+      },
+      {
+        "project": "Vannamei Shrimp Expert System",
+        "client": "Al Hilal Hamzi",
+        "context": "Student at Universitas Malikussaleh",
+        "problem": "Vannamei shrimp disease diagnosis requires symptom-based analysis and confidence scoring.",
+        "solution": "An expert system using Naive Bayes and Certainty Factor methods.",
+        "impact": "Diagnosis analysis becomes more structured for research support and decision-making.",
+        "metrics": [
+          "2 knowledge-based analysis methods",
+          "Structured symptoms and confidence levels",
+          "Output supports research needs"
+        ]
+      },
+      {
+        "project": "Pomeng Chatbot",
+        "client": "Silfa",
+        "context": "RS Prima Inti Medika",
+        "problem": "Users need quick guidance to understand hospital service information and directions.",
+        "solution": "A chatbot assistant guide that answers user information needs.",
+        "impact": "Service information becomes easier, faster, and more user-friendly to access.",
+        "metrics": [
+          "Service guidance is easier to access",
+          "Question-and-answer flow is more user-friendly",
+          "Suitable for repeated questions"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Need an estimate for a website, operational system, or AI automation?",
+    "subtext": "Tell us your business context. We will help map the scope, feature priorities, and a realistic delivery path.",
+    "button": "Free Consultation via WhatsApp",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address"
+  },
+  "whatsapp": {
+    "label": "Consult via WhatsApp",
+    "message": "Hello CatalystForge, I want to discuss digital system needs."
+  },
+  "footer": {
+    "contactTitle": "Contact",
+    "contactEmail": "catalystforgetechnology@gmail.com",
+    "contactPhone": "085121379282",
+    "contactAddress": "Buah Batu, Bandung City",
+    "copyright": "Copyright 2026 CatalystForge. All rights reserved."
+  }
+}

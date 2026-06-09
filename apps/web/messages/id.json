@@ -1,0 +1,300 @@
+{
+  "locale": "id",
+  "brand": {
+    "name": "CatalystForge",
+    "tagline": "Building Digital Solutions",
+    "logoAlt": "Logo CatalystForge"
+  },
+  "metadata": {
+    "title": "CatalystForge - Solusi Digital Terpadu untuk Bisnis",
+    "description": "CatalystForge membangun sistem enterprise, aplikasi bisnis, dan solusi digital untuk perusahaan Indonesia."
+  },
+  "language": {
+    "label": "Bahasa",
+    "id": "ID",
+    "en": "EN"
+  },
+  "error": {
+    "retry": "Coba Lagi"
+  },
+  "navbar": {
+    "about": "Tentang",
+    "products": "Produk",
+    "howWeWork": "Cara Kerja",
+    "testimonials": "Project",
+    "contact": "Kontak",
+    "cta": "Konsultasi"
+  },
+  "hero": {
+    "headline": "Bangun Website, Sistem Operasional, dan Otomasi AI yang Siap Dipakai Tim Anda",
+    "subheadline": "CatalystForge membantu bisnis Indonesia mengubah kebutuhan digital menjadi company profile, CRM, HRIS, POS, dashboard, dan workflow automation yang jelas scope-nya dan siap deploy.",
+    "primaryCta": "Lihat Paket Solusi",
+    "secondaryCta": "Minta Estimasi",
+    "trustIndicators": [
+      "Konsultasi Bisnis",
+      "UI/UX & Engineering",
+      "Integrasi Operasional",
+      "Deployment & Support"
+    ]
+  },
+  "trustBar": {
+    "items": [
+      { "value": "01", "label": "Discovery kebutuhan bisnis" },
+      { "value": "02", "label": "Desain sistem dan pengalaman pengguna" },
+      { "value": "03", "label": "Pengembangan dan integrasi" },
+      { "value": "04", "label": "Go-live, support, dan improvement" }
+    ]
+  },
+  "about": {
+    "eyebrow": "Tentang CatalystForge",
+    "title": "Company profile yang menjelaskan kredibilitas, kapabilitas, dan arah kerja",
+    "description": "Kami adalah tim teknologi yang membantu bisnis menyusun wajah digital yang profesional sekaligus membangun sistem internal yang mempercepat operasional.",
+    "highlights": [
+      "Berbasis di Bandung dengan layanan untuk bisnis Indonesia",
+      "Fokus pada aplikasi web, dashboard, otomasi, dan integrasi API",
+      "Mengutamakan komunikasi jelas, scope terukur, dan hasil yang bisa dipakai"
+    ],
+    "values": [
+      {
+        "label": "Consultative",
+        "text": "Kami mulai dari masalah bisnis, bukan dari template teknologi."
+      },
+      {
+        "label": "Reliable",
+        "text": "Setiap solusi disiapkan agar stabil, aman, dan mudah dirawat."
+      },
+      {
+        "label": "Scalable",
+        "text": "Arsitektur dibuat bertahap agar bisa berkembang mengikuti kebutuhan."
+      }
+    ]
+  },
+  "offers": {
+    "eyebrow": "Paket Solusi",
+    "title": "Pilih jalur kerja yang paling dekat dengan kebutuhan bisnis Anda",
+    "description": "Setiap paket bisa dimulai kecil lalu dikembangkan bertahap. Cocok untuk validasi kebutuhan, presentasi ke manajemen, atau langsung masuk fase produksi.",
+    "cta": "Diskusikan Paket Ini",
+    "detailCta": "Lihat Detail Paket",
+    "items": [
+      {
+        "name": "Company Profile Launch",
+        "href": "/company-profile",
+        "timeline": "2-4 minggu",
+        "bestFor": "Untuk bisnis yang butuh kredibilitas digital cepat",
+        "deliverables": [
+          "Website company profile responsif",
+          "Copywriting struktur layanan dan keunggulan",
+          "Form inquiry, WhatsApp CTA, SEO dasar",
+          "Deploy domain dan handover konten"
+        ]
+      },
+      {
+        "name": "Operational System MVP",
+        "href": "/custom-crm",
+        "timeline": "4-8 minggu",
+        "bestFor": "Untuk tim yang mulai mengganti spreadsheet/manual process",
+        "deliverables": [
+          "Dashboard role-based sesuai workflow",
+          "CRUD data inti dan approval sederhana",
+          "Integrasi API atau import/export data",
+          "Deploy, dokumentasi, dan support awal"
+        ]
+      },
+      {
+        "name": "AI Automation Sprint",
+        "href": "/ai-support",
+        "timeline": "1-3 minggu",
+        "bestFor": "Untuk customer support, knowledge base, atau task automation",
+        "deliverables": [
+          "AI chatbot atau automation flow",
+          "Prompt dan knowledge base terstruktur",
+          "Fallback human handoff dan audit percakapan",
+          "Monitoring hasil dan iterasi respons"
+        ]
+      }
+    ]
+  },
+  "products": {
+    "eyebrow": "Kapabilitas",
+    "title": "Solusi digital yang bisa langsung dipetakan ke kebutuhan bisnis",
+    "description": "Kami mengerjakan company profile, sistem operasional, dashboard, dan otomasi yang dirancang sesuai alur kerja perusahaan.",
+    "demoNote": "Demo berikut adalah referensi flow dan kualitas interface. Versi produksi akan disesuaikan dengan data, role, approval, dan proses bisnis Anda.",
+    "learnMore": "Buka Demo",
+    "items": [
+      {
+        "name": "AI Support",
+        "description": "Layanan AI & Chatbot Cerdas untuk menjawab pelanggan lebih cepat dan konsisten.",
+        "href": "https://ai.catalystforge.web.id",
+        "cta": "Buka Demo AI Support"
+      },
+      {
+        "name": "CRM",
+        "description": "Manajemen Hubungan Pelanggan untuk memperkuat pipeline, follow-up, dan retensi.",
+        "href": "https://crm.catalystforge.web.id",
+        "cta": "Buka Demo CRM"
+      },
+      {
+        "name": "HRIS",
+        "description": "Sistem HR & Kepegawaian Terintegrasi untuk data karyawan, absensi, dan administrasi.",
+        "href": "https://hris.catalystforge.web.id",
+        "cta": "Buka Demo HRIS"
+      },
+      {
+        "name": "POS",
+        "description": "Sistem Kasir & Penjualan Modern untuk transaksi, stok, dan laporan cabang.",
+        "href": "https://pos.catalystforge.web.id",
+        "cta": "Buka Demo POS"
+      },
+      {
+        "name": "Company Profile",
+        "description": "Website Korporat Profesional yang membangun kredibilitas dan kepercayaan pasar.",
+        "href": "https://company.catalystforge.web.id",
+        "cta": "Buka Demo Company Profile"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "eyebrow": "Mengapa Memilih Kami",
+    "title": "Mitra teknologi yang memahami kebutuhan perusahaan",
+    "description": "Kami menggabungkan pendekatan konsultatif, rekayasa perangkat lunak, dan dukungan jangka panjang agar solusi digital benar-benar berjalan di operasional bisnis.",
+    "items": [
+      {
+        "heading": "Pengembangan End-to-End",
+        "paragraph": "Kami mendampingi dari strategi, desain, pengembangan, deployment, hingga peningkatan berkelanjutan."
+      },
+      {
+        "heading": "Tim Lokal, Standar Global",
+        "paragraph": "Tim Indonesia dengan standar kualitas internasional, komunikasi jelas, dan pemahaman konteks bisnis lokal."
+      },
+      {
+        "heading": "Dukungan Purna Jual",
+        "paragraph": "Pendampingan setelah peluncuran untuk menjaga sistem tetap stabil, relevan, dan siap berkembang."
+      },
+      {
+        "heading": "Keamanan Enterprise",
+        "paragraph": "Arsitektur yang disiapkan untuk keamanan data, kontrol akses, audit, dan kebutuhan kepatuhan perusahaan."
+      }
+    ]
+  },
+  "howWeWork": {
+    "eyebrow": "Cara Kerja",
+    "title": "Proses terstruktur dari kebutuhan bisnis hingga operasional",
+    "description": "Setiap proyek dimulai dengan pemahaman yang jelas, dilanjutkan desain sistem, pembangunan bertahap, dan dukungan setelah go-live.",
+    "steps": [
+      {
+        "title": "Discovery",
+        "description": "Memahami kebutuhan bisnis, proses internal, dan indikator keberhasilan."
+      },
+      {
+        "title": "Design",
+        "description": "Merancang UX/UI, arsitektur sistem, alur data, dan prioritas pengembangan."
+      },
+      {
+        "title": "Build",
+        "description": "Mengembangkan solusi secara agile dengan review berkala dan kontrol kualitas."
+      },
+      {
+        "title": "Support",
+        "description": "Menjaga sistem melalui maintenance, monitoring, dan peningkatan berkelanjutan."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimoni & Project Highlights",
+    "title": "Pengalaman dari proyek perusahaan, riset, dan healthcare",
+    "description": "Beberapa project berikut menunjukkan pengalaman CatalystForge dalam membangun solusi pengadaan, sistem pakar, dan chatbot operasional.",
+    "ratingLabel": "5 dari 5 bintang",
+    "items": [
+      {
+        "avatar": "https://i.pravatar.cc/100?img=1",
+        "name": "PT Patra Drilling Contractor",
+        "title": "Procurement HTE",
+        "company": "Subholding Pertamina",
+        "quote": "Project Procurement HTE membantu proses pengadaan menjadi lebih efisien dengan fitur utama untuk memudahkan generate dokumen di setiap pengadaan."
+      },
+      {
+        "avatar": "https://i.pravatar.cc/100?img=3",
+        "name": "Al Hilal Hamzi",
+        "title": "Mahasiswa Universitas Malikussaleh",
+        "company": "Sistem Pakar Udang Vaname",
+        "quote": "Sistem pakar untuk mendiagnosa penyakit udang vaname menggunakan metode Naive Bayes dan Certainty Factor sebagai pendukung analisis berbasis pengetahuan."
+      },
+      {
+        "avatar": "https://i.pravatar.cc/100?img=5",
+        "name": "Silfa",
+        "title": "RS Prima Inti Medika",
+        "company": "Pomeng Chatbot",
+        "quote": "Pomeng Chatbot dikembangkan sebagai asisten guide untuk membantu pengguna mendapatkan arahan dan informasi layanan RS Prima Inti Medika dengan lebih mudah."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Project Experience",
+    "title": "Studi kasus dari kebutuhan bisnis nyata",
+    "description": "Setiap project diringkas berdasarkan konteks masalah, solusi yang dibangun, dan dampak operasional yang dituju.",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "impactLabel": "Impact",
+    "metricsLabel": "Highlights",
+    "items": [
+      {
+        "project": "Procurement HTE",
+        "client": "PT Patra Drilling Contractor",
+        "context": "Subholding Pertamina",
+        "problem": "Proses pengadaan membutuhkan dokumen yang konsisten dan mudah disiapkan di setiap tahapan.",
+        "solution": "Sistem procurement dengan fitur generate dokumen untuk setiap pengadaan.",
+        "impact": "Tim dapat menyusun dokumen pengadaan lebih cepat, rapi, dan terstandar.",
+        "metrics": [
+          "Generate dokumen per tahapan pengadaan",
+          "Format dokumen lebih konsisten",
+          "Workflow siap dijelaskan ke stakeholder"
+        ]
+      },
+      {
+        "project": "Sistem Pakar Udang Vaname",
+        "client": "Al Hilal Hamzi",
+        "context": "Mahasiswa Universitas Malikussaleh",
+        "problem": "Diagnosa penyakit udang vaname membutuhkan pendekatan berbasis gejala dan tingkat keyakinan.",
+        "solution": "Sistem pakar menggunakan metode Naive Bayes dan Certainty Factor.",
+        "impact": "Analisis diagnosa menjadi lebih terstruktur sebagai pendukung penelitian dan pengambilan keputusan.",
+        "metrics": [
+          "2 metode analisis berbasis pengetahuan",
+          "Gejala dan tingkat keyakinan terstruktur",
+          "Output mendukung kebutuhan penelitian"
+        ]
+      },
+      {
+        "project": "Pomeng Chatbot",
+        "client": "Silfa",
+        "context": "RS Prima Inti Medika",
+        "problem": "Pengguna membutuhkan panduan cepat untuk memahami informasi dan arahan layanan rumah sakit.",
+        "solution": "Chatbot assistant guide untuk menjawab kebutuhan informasi pengguna.",
+        "impact": "Akses informasi layanan menjadi lebih mudah, cepat, dan ramah pengguna.",
+        "metrics": [
+          "Panduan layanan lebih mudah diakses",
+          "Alur tanya-jawab lebih ramah pengguna",
+          "Cocok untuk pertanyaan berulang"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Butuh estimasi untuk website, sistem operasional, atau AI automation?",
+    "subtext": "Ceritakan kondisi bisnis Anda. Kami bantu petakan scope, prioritas fitur, dan jalur delivery yang realistis.",
+    "button": "Konsultasi Gratis via WhatsApp",
+    "emailLabel": "Email",
+    "phoneLabel": "Telepon",
+    "addressLabel": "Alamat"
+  },
+  "whatsapp": {
+    "label": "Konsultasi via WhatsApp",
+    "message": "Halo CatalystForge, saya ingin diskusi kebutuhan sistem digital."
+  },
+  "footer": {
+    "contactTitle": "Kontak",
+    "contactEmail": "catalystforgetechnology@gmail.com",
+    "contactPhone": "085121379282",
+    "contactAddress": "Buah Batu, Kota Bandung",
+    "copyright": "Copyright 2026 CatalystForge. All rights reserved."
+  }
+}
