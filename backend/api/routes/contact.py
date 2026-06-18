@@ -1,10 +1,8 @@
 import html
-import json
 import time
 from typing import Annotated
-from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
 
+import httpx
 from fastapi import APIRouter, Header, HTTPException, status
 
 from core.config import settings
@@ -16,7 +14,7 @@ _request_log: dict[str, list[float]] = {}
 
 
 @router.post("/contact")
-def submit_contact(
+async def submit_contact(
     payload: ContactRequest,
     x_forwarded_for: Annotated[str | None, Header()] = None,
 ):
@@ -46,30 +44,22 @@ def submit_contact(
         "text": _build_email_text(payload),
     }
 
-    request = Request(
-        "https://api.resend.com/emails",
-        data=json.dumps(email_payload).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {settings.RESEND_API_KEY}",
-            "Content-Type": "application/json",
-            "User-Agent": "CatalystForge/1.0",
-        },
-        method="POST",
-    )
-
     try:
-        with urlopen(request, timeout=12) as response:
-            if response.status >= 400:
+        async with httpx.AsyncClient(timeout=12.0) as client:
+            response = await client.post(
+                "https://api.resend.com/emails",
+                json=email_payload,
+                headers={
+                    "Authorization": f"Bearer {settings.RESEND_API_KEY}",
+                    "User-Agent": "CatalystForge/1.0",
+                },
+            )
+            if response.status_code >= 400:
                 raise HTTPException(
                     status_code=status.HTTP_502_BAD_GATEWAY,
                     detail="Failed to send email.",
                 )
-    except HTTPError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="Failed to send email.",
-        ) from exc
-    except URLError as exc:
+    except httpx.HTTPError as exc:
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="Email service is unavailable.",
