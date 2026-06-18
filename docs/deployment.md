@@ -12,7 +12,6 @@ VPS_HOST=43.157.203.169
 VPS_USER=ubuntu
 VPS_SSH_KEY=<private key that can SSH to the VPS>
 
-NEXT_PUBLIC_API_BASE_URL=https://catalystforge.web.id
 NEXT_PUBLIC_API_URL=https://catalystforge.web.id
 BACKEND_CORS_ORIGINS=https://catalystforge.web.id,https://company.catalystforge.web.id,https://hris.catalystforge.web.id,https://crm.catalystforge.web.id,https://pos.catalystforge.web.id,https://ai.catalystforge.web.id,https://ai-support.catalystforge.web.id
 
@@ -105,7 +104,6 @@ Initial setup on the VPS:
 APP_DIR=/var/www/catalyst-forge \
 REPO_URL=https://github.com/BagasAuliaAlfasyam/portofolio-cv.git \
 BRANCH=main \
-NEXT_PUBLIC_API_BASE_URL=https://catalystforge.web.id \
 NEXT_PUBLIC_API_URL=https://catalystforge.web.id \
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX \
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=google-site-verification-token \

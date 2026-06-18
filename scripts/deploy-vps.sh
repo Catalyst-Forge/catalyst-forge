@@ -22,7 +22,7 @@ require_env "RESEND_API_KEY"
 require_env "CONTACT_FROM"
 require_env "CONTACT_TO"
 require_env "BACKEND_CORS_ORIGINS"
-require_env "NEXT_PUBLIC_API_BASE_URL"
+require_env "NEXT_PUBLIC_API_URL"
 
 env_escape() {
   printf '%s' "$1" | sed 's/\\/\\\\/g; s/"/\\"/g'
@@ -223,7 +223,7 @@ cat > "$SHARED_DIR/web.env" <<ENV
 NODE_ENV=production
 HOSTNAME=127.0.0.1
 PORT=$WEB_PORT
-NEXT_PUBLIC_API_BASE_URL="$(env_escape "$NEXT_PUBLIC_API_BASE_URL")"
+NEXT_PUBLIC_API_URL="$(env_escape "$NEXT_PUBLIC_API_URL")"
 ENV
 
 python3 -m venv "$RELEASE_DIR/backend/.venv"

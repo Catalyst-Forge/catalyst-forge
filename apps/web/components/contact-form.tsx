@@ -162,7 +162,7 @@ export function ContactForm({ messages }: ContactFormProps) {
     }
 
     try {
-      const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(
+      const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(
         /\/$/,
         "",
       );

@@ -85,8 +85,8 @@ For `apps/web`:
   but reusable API behavior should move to `packages/api`.
 - Do not scatter raw backend URL strings through components. Centralize env
   parsing in a helper or in `@repo/api`.
-- Keep `NEXT_PUBLIC_API_BASE_URL` and `NEXT_PUBLIC_API_URL` behavior in mind:
-  both exist today for deployment compatibility.
+- Keep `NEXT_PUBLIC_API_URL` behavior in mind: the centralized env parsing
+  lives in `@repo/api`.
 
 Server Component pattern:
 

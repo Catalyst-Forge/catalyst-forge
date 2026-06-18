@@ -1,7 +1,12 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        case_sensitive=True,
+        env_file=".env",
+    )
+
     PROJECT_NAME: str = "Catalyst Forge API"
     API_V1_STR: str = ""
 
@@ -14,9 +19,9 @@ class Settings(BaseSettings):
     DATABASE_URL: str = ""
     POSTGRES_SERVER: str = "localhost"
     POSTGRES_USER: str = "postgres"
-    POSTGRES_PASSWORD: str = "postgres"
+    POSTGRES_PASSWORD: str = ""
     POSTGRES_DB: str = "catalyst_forge"
-    
+
     # AI Models
     GEMINI_API_KEY: str = ""
     OPENAI_API_KEY: str = ""
@@ -33,10 +38,6 @@ class Settings(BaseSettings):
             for origin in self.BACKEND_CORS_ORIGINS.split(",")
             if origin.strip()
         ]
-
-    class Config:
-        case_sensitive = True
-        env_file = ".env"
 
 
 settings = Settings()

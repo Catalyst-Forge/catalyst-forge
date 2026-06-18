@@ -108,9 +108,7 @@ through package scripts and add a root `test` script using Turbo.
 
 ## Environment and Deployment
 
-- Public frontend API env names currently include both
-  `NEXT_PUBLIC_API_BASE_URL` and `NEXT_PUBLIC_API_URL`; keep both in sync in
-  deployment until the codebase is consolidated.
+- Public frontend API env name is `NEXT_PUBLIC_API_URL`. Keep deployment configs
 - Backend env values include `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO`,
   `BACKEND_CORS_ORIGINS`, `DATABASE_URL`, `GEMINI_API_KEY`, and
   `OPENAI_API_KEY`.
