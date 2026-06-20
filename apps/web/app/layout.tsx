@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import dynamic from "next/dynamic";
 import { Analytics } from "@/components/analytics";
+import { CookieConsentLoader } from "@/components/cookie-consent-loader";
 import { UtmCapture } from "@/components/utm-capture";
 import "./globals.css";
-
-// Dynamic import — never SSR, code-split to avoid LCP pollution
-const CookieConsent = dynamic(
-  () => import("@/components/cookie-consent").then((mod) => mod.CookieConsent),
-  { ssr: false },
-);
 
 const siteUrl = "https://catalystforge.web.id";
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -161,7 +155,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <CookieConsent />
+        <CookieConsentLoader />
         <UtmCapture />
         <script
           type="application/ld+json"
