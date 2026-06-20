@@ -122,8 +122,37 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html lang="id">
+      <head>
+        {gaId && (
+          <script
+            id="ga4-consent"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function(){window.dataLayer.push(arguments);};
+                gtag('consent', 'default', {
+                  analytics_storage: 'denied',
+                  ad_storage: 'denied',
+                  ad_user_data: 'denied',
+                  ad_personalization: 'denied',
+                });
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `,
+            }}
+          />
+        )}
+        {gaId && (
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          />
+        )}
+      </head>
       <body>
         {children}
         <CookieConsent />
