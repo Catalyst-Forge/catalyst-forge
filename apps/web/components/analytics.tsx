@@ -84,9 +84,9 @@ export function trackEvent(
   if (typeof window === "undefined") return;
   const consent = localStorage.getItem(CONSENT_KEY);
   if (consent !== "all") return;
-  const gtag = (window as Record<string, unknown>).gtag as
-    | ((...args: unknown[]) => void)
-    | undefined;
+  const gtag = (
+    window as unknown as { gtag?: (...args: unknown[]) => void }
+  ).gtag;
   if (typeof gtag === "function") {
     gtag("event", eventName, params ?? {});
   }
