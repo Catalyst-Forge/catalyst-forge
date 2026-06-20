@@ -80,7 +80,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
                     <>
                       <Icon className="h-5 w-5 shrink-0 text-[#E8531A]" />
                       <span className="min-w-0">
-                        <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#1B3A5C]/52">
+                        <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#1B3A5C]/80">
                           {item.label}
                         </span>
                         <span className="mt-1 block break-words text-base font-bold text-[#1B3A5C]">

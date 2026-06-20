@@ -64,7 +64,7 @@ export function Testimonials({ messages }: TestimonialsProps) {
                   <p className="text-lg font-bold tracking-tight text-[#1B3A5C]">
                     {item.name}
                   </p>
-                  <p className="text-base leading-relaxed text-[#1A1A2E]/68">
+                  <p className="text-base leading-relaxed text-[#1A1A2E]/75">
                     {item.title}
                   </p>
                   <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/78">

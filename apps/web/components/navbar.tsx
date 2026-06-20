@@ -32,7 +32,7 @@ export function Navbar({ messages, locale }: NavbarProps) {
               fill
               priority
               sizes="48px"
-              src="/logo_icon_only.png"
+              src="/logo_icon_only.webp"
             />
           </span>
           <span className="min-w-0 leading-tight">

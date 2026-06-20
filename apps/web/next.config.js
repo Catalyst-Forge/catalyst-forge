@@ -16,7 +16,17 @@ const nextConfig = {
     ],
   },
   transpilePackages: ["@repo/ui", "@repo/config"],
-  headers,
+  async headers() {
+    return [
+      ...(await headers()),
+      {
+        source: "/llms.txt",
+        headers: [
+          { key: "Content-Type", value: "text/markdown; charset=utf-8" },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

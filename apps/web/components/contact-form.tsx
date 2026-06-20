@@ -254,7 +254,7 @@ export function ContactForm({ messages }: ContactFormProps) {
         />
       </div>
       <label className="grid gap-2">
-        <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/58">
+        <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
           {labels.message}
         </span>
         <textarea
@@ -556,7 +556,7 @@ function Field({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/58">
+      <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
         {label}
       </span>
       <input
@@ -587,7 +587,7 @@ function SelectField({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/58">
+      <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
         {label}
       </span>
       <select

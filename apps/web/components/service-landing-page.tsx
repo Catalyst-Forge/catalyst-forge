@@ -55,7 +55,7 @@ export function ServiceLandingPage({
           fill
           priority
           sizes="100vw"
-          src="/logoBackground.png"
+          src="/logoBackground.webp"
         />
         <div className="absolute inset-0 bg-[#163453]/88" />
         <div className="section-container relative z-10 flex min-h-[78svh] items-center py-14 sm:py-16 md:py-20">

@@ -65,6 +65,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
                 </div>
 
                 <a
+                  aria-label={`${messages.offers.detailCta} ${offer.name}`}
                   className="mt-7 inline-flex items-center gap-2 text-base font-bold text-[#E8531A] transition hover:text-[#1B3A5C] lg:mt-auto lg:pt-7"
                   href={offer.href}
                 >

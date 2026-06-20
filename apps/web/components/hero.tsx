@@ -123,7 +123,7 @@ export function Hero({ messages }: HeroProps) {
                     <span className="h-3 w-3 rounded-full bg-[#F4B350]" />
                     <span className="h-3 w-3 rounded-full bg-[#3BAA72]" />
                   </div>
-                  <span className="text-sm font-bold uppercase tracking-[0.08em] text-[#1B3A5C]/60">
+                  <span className="text-sm font-bold uppercase tracking-[0.08em] text-[#1B3A5C]/80">
                     {heroLabels.preview}
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export function Hero({ messages }: HeroProps) {
                         <p className="mt-3 text-sm font-bold text-[#1B3A5C]">
                           0{index + 1}
                         </p>
-                        <p className="mt-1 text-xs font-semibold text-[#1A1A2E]/58">
+                        <p className="mt-1 text-xs font-semibold text-[#1A1A2E]/65">
                           {label}
                         </p>
                       </div>
@@ -175,7 +175,7 @@ export function Hero({ messages }: HeroProps) {
                       <span className="text-base font-bold text-[#1B3A5C]">
                         {item}
                       </span>
-                      <span className="ml-auto text-sm font-bold text-[#1B3A5C]/36">
+                      <span className="ml-auto text-sm font-bold text-[#1B3A5C]/80">
                         0{index + 1}
                       </span>
                     </div>

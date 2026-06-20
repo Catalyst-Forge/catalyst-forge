@@ -1,0 +1,32 @@
+# CatalystForge
+
+> CatalystForge builds company profiles, CRM, HRIS, POS, AI support, dashboards, and operational systems for Indonesian businesses — transforming digital needs into deploy-ready solutions.
+
+CatalystForge is a software house based in Bandung, Indonesia, serving businesses with digital transformation solutions. We combine business consulting, UI/UX design, engineering, deployment, and support into one integrated service.
+
+## Core Pages
+
+- [Home](https://catalystforge.web.id): Main landing page with service overview
+- [Privacy Policy](https://catalystforge.web.id/privacy): Kebijakan Privasi (Bahasa Indonesia)
+- [Terms of Service](https://catalystforge.web.id/terms): Ketentuan Layanan (Bahasa Indonesia)
+- [English Home](https://catalystforge.web.id/en): English version of the main site
+- [English Privacy](https://catalystforge.web.id/en/privacy): English privacy policy
+- [English Terms](https://catalystforge.web.id/en/terms): English terms of service
+
+## Product Demos
+
+- [Company Profile](https://company.catalystforge.web.id): Company profile site with about, operations, governance, sustainability, and contact pages
+- [CRM Demo](https://crm.catalystforge.web.id): CRM product demo with accounts, pipeline, tasks, and reporting
+- [HRIS Demo](https://hris.catalystforge.web.id): HRIS product demo with employees, attendance, payroll, and performance
+- [POS Demo](https://pos.catalystforge.web.id): POS product demo with sales, inventory, and transactions
+- [AI Support Demo](https://ai.catalystforge.web.id): AI support console with conversations, knowledge base, and chat integration
+
+## Contact
+
+- Email: catalystforgetechnology@gmail.com
+- Phone: +6285121379282
+- Location: Buah Batu, Kota Bandung, Indonesia
+
+## Optional
+
+- [GitHub Organization](https://github.com/Catalyst-Forge): Open-source repositories and project source code
