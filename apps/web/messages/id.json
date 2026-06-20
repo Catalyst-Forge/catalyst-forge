@@ -286,6 +286,42 @@
     "phoneLabel": "Telepon",
     "addressLabel": "Alamat"
   },
+  "aboutPage": {
+    "metadata": {
+      "title": "Tentang Kami | CatalystForge",
+      "description": "Kenali tim di balik CatalystForge — tim teknologi yang membangun solusi digital untuk bisnis Indonesia."
+    },
+    "hero": {
+      "headline": "Tim di Balik Solusi Digital Anda",
+      "subheadline": "Kami adalah tim engineer, programmer, dan spesialis teknologi yang menggabungkan keahlian AI, software engineering, dan enterprise system development untuk membangun solusi yang andal dan scalable."
+    },
+    "team": {
+      "headline": "Kenali Tim Kami",
+      "bagas": {
+        "name": "Bagas Aulia Alfasyam, S.Kom",
+        "role": "CEO",
+        "bio": "AI Engineer dengan 2+ tahun pengalaman di Machine Learning dan 3+ tahun menerapkan AI di aplikasi interaktif. Spesialisasi Python, C#, dan Dart — membangun solusi dari neural networks hingga computer vision dan NLP. Lulusan S1 Sistem Informasi Universitas Malikussaleh. Berpengalaman di 50+ project. Berbasis di Yogyakarta.",
+        "skills": ["Python", "TensorFlow", "Computer Vision", "NLP", "C#", "Unity", "Flutter"]
+      },
+      "alana": {
+        "name": "Muhammad Alana Fauzan",
+        "role": "CTO",
+        "bio": "Memimpin arsitektur teknis dan strategi teknologi di CatalystForge. Berpengalaman dalam merancang sistem enterprise yang scalable, memimpin tim engineering, dan memastikan kualitas delivery produk.",
+        "skills": ["System Architecture", "Team Leadership", "Cloud Infrastructure", "Backend Engineering"]
+      },
+      "hambali": {
+        "name": "Hambali Fadib",
+        "role": "Senior Programmer",
+        "bio": "Programmer berpengalaman dengan fokus pada business-critical systems dan enterprise application development. Memastikan kualitas kode, proses deployment yang andal, dan sistem yang stabil di bawah tekanan. Spesialisasi di business process validation dan system integration.",
+        "skills": ["Full-Stack Development", "System Integration", "Enterprise Testing", "Process Validation", "Code Quality"]
+      }
+    },
+    "cta": {
+      "headline": "Punya project yang ingin didiskusikan?",
+      "subtext": "Ceritakan kebutuhan bisnis Anda dan kami akan bantu petakan solusi digital yang tepat.",
+      "button": "Hubungi Kami"
+    }
+  },
   "whatsapp": {
     "label": "Konsultasi via WhatsApp",
     "message": "Halo CatalystForge, saya ingin diskusi kebutuhan sistem digital."
