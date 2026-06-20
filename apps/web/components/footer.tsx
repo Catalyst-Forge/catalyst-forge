@@ -31,7 +31,7 @@ export function Footer({ messages, locale }: FooterProps) {
                   className="object-cover"
                   fill
                   sizes="56px"
-                  src="/logo_icon_only.webp"
+                  src="/logo_icon_only.png"
                 />
               </span>
               <div>
