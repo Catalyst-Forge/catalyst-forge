@@ -8,6 +8,7 @@ type ConsentChoice = "all" | "essential" | null;
 const STORAGE_KEY = "cf_cookie_consent";
 
 export function CookieConsent() {
+  const [mounted, setMounted] = useState(false);
   const [choice, setChoice] = useState<ConsentChoice>(null);
 
   useEffect(() => {
@@ -15,6 +16,8 @@ export function CookieConsent() {
     if (stored === "all" || stored === "essential") {
       setChoice(stored);
     }
+    // Defer render to prevent cookie banner from becoming LCP
+    setMounted(true);
   }, []);
 
   const handleAccept = (value: "all" | "essential") => {
@@ -29,6 +32,11 @@ export function CookieConsent() {
       }),
     );
   };
+
+  // Hide until client-side mount to prevent LCP pollution
+  if (!mounted) {
+    return null;
+  }
 
   if (choice !== null) {
     return null;

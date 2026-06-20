@@ -6,6 +6,9 @@ const nextConfig = {
   output: "standalone",
   poweredByHeader: false,
   outputFileTracingRoot: path.join(__dirname, "../../"),
+  experimental: {
+    legacyBrowsers: false,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
