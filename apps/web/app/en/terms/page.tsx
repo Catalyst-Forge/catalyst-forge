@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | CatalystForge",
+  title: "Terms of Service",
   description:
     "CatalystForge terms of service — terms and conditions for using our website and services.",
   robots: "noindex, follow",

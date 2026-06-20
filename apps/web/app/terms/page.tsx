@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ketentuan Layanan | CatalystForge",
+  title: "Ketentuan Layanan",
   description:
     "Ketentuan layanan CatalystForge — syarat dan ketentuan penggunaan situs dan layanan kami.",
   robots: "noindex, follow",

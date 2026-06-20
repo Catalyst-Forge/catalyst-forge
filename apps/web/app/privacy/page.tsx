@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kebijakan Privasi | CatalystForge",
+  title: "Kebijakan Privasi",
   description:
     "Kebijakan privasi CatalystForge — bagaimana kami mengumpulkan, menggunakan, dan melindungi data Anda.",
   robots: "noindex, follow",
