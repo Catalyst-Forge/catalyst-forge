@@ -20,6 +20,14 @@ export function CookieConsent() {
   const handleAccept = (value: "all" | "essential") => {
     localStorage.setItem(STORAGE_KEY, value);
     setChoice(value);
+
+    // Notify Analytics component (same-tab consent change)
+    window.dispatchEvent(
+      new StorageEvent("storage", {
+        key: STORAGE_KEY,
+        newValue: value,
+      }),
+    );
   };
 
   if (choice !== null) {
