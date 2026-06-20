@@ -37,7 +37,7 @@ export function HowWeWork({ messages }: HowWeWorkProps) {
               key={step.title}
             >
               <article className="relative h-full text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#E8531A] text-xl font-bold tracking-tight text-white shadow-lg transition duration-300 hover:scale-105 sm:h-[72px] sm:w-[72px] sm:text-2xl">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#D0490F] text-xl font-bold tracking-tight text-white shadow-lg transition duration-300 hover:scale-105 sm:h-[72px] sm:w-[72px] sm:text-2xl">
                   {index + 1}
                 </div>
                 <h3 className="mt-5 text-xl font-bold tracking-tight text-[#1B3A5C] sm:mt-6 sm:text-2xl">

@@ -13,7 +13,7 @@ export default function Error({
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#FAF8F5] p-6">
       <button
-        className="rounded-full bg-[#E8531A] px-6 py-3 text-base font-bold text-white"
+        className="rounded-full bg-[#D0490F] px-6 py-3 text-base font-bold text-white"
         type="button"
         onClick={reset}
       >

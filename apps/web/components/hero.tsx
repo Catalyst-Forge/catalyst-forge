@@ -79,7 +79,7 @@ export function Hero({ messages }: HeroProps) {
           <Reveal delay={250} direction="left">
             <div className="mt-7 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
               <a
-                className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#E8531A] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
                 href="#offers"
               >
                 {messages.hero.primaryCta}
@@ -119,7 +119,7 @@ export function Hero({ messages }: HeroProps) {
               <div className="motion-sheen rounded-lg bg-white p-5 text-[#1A1A2E] shadow-xl">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                   <div className="flex items-center gap-2">
-                    <span className="h-3 w-3 rounded-full bg-[#E8531A]" />
+                    <span className="h-3 w-3 rounded-full bg-[#D0490F]" />
                     <span className="h-3 w-3 rounded-full bg-[#F4B350]" />
                     <span className="h-3 w-3 rounded-full bg-[#3BAA72]" />
                   </div>

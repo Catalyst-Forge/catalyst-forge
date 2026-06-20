@@ -35,7 +35,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
 
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
                 <ConversionLink
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#E8531A] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
                   eventLabel="contact_whatsapp_cta"
                   eventName="lead_click"
                   href={whatsappHref}

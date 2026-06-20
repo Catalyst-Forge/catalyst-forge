@@ -72,7 +72,7 @@ export function ServiceLandingPage({
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#E8531A] px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition hover:bg-[#F4784A] sm:px-7"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition hover:bg-[#F4784A] sm:px-7"
                 href="#contact"
               >
                 {page.primaryCta}

@@ -71,7 +71,7 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => handleAccept("all")}
-            className="rounded-full bg-[#D0490F] px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#E8531A]"
+            className="rounded-full bg-[#D0490F] px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#D0490F]"
           >
             Terima Semua
           </button>

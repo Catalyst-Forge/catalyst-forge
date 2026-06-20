@@ -68,7 +68,7 @@ export function Navbar({ messages, locale }: NavbarProps) {
             ]}
           />
           <a
-            className="hidden rounded-full bg-[#E8531A] px-5 py-3 text-base font-bold text-white shadow-md transition hover:bg-[#F4784A] xl:inline-flex"
+            className="hidden rounded-full bg-[#D0490F] px-5 py-3 text-base font-bold text-white shadow-md transition hover:bg-[#F4784A] xl:inline-flex"
             href="#contact"
           >
             {messages.navbar.cta}

@@ -40,7 +40,7 @@ export function MobileMenu({ ctaLabel, items }: MobileMenuProps) {
               </a>
             ))}
             <a
-              className="mt-2 rounded-full bg-[#E8531A] px-4 py-3 text-center text-base font-bold text-white"
+              className="mt-2 rounded-full bg-[#D0490F] px-4 py-3 text-center text-base font-bold text-white"
               href="#contact"
               onClick={() => setIsOpen(false)}
             >

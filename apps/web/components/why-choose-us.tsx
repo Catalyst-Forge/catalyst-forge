@@ -51,7 +51,7 @@ export function WhyChooseUs({ messages }: WhyChooseUsProps) {
                 key={item.heading}
               >
                 <article className="h-full rounded-lg border border-white/12 bg-white/[0.08] p-5 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.12] sm:p-7">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#E8531A]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#D0490F]">
                     <Icon className="h-7 w-7" />
                   </div>
                   <h3 className="mt-6 text-xl font-bold tracking-tight sm:text-2xl">
