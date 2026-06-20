@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_DIR="${APP_DIR:-/var/www/catalyst-forge}"
-REPO_URL="${REPO_URL:-https://github.com/BagasAuliaAlfasyam/portofolio-cv.git}"
+REPO_URL="${REPO_URL:-https://github.com/Catalyst-Forge/catalyst-forge.git}"
 BRANCH="${BRANCH:-main}"
 REPO_DIR="$APP_DIR/repo"
 SHARED_DIR="$APP_DIR/shared"

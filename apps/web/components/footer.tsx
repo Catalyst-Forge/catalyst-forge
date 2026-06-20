@@ -107,10 +107,24 @@ export function Footer({ messages, locale }: FooterProps) {
         </ScrollParallax>
       </div>
       <div className="border-t border-white/12 py-5">
-        <div className="section-container">
+        <div className="section-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-base leading-relaxed text-white/68">
             {messages.footer.copyright}
           </p>
+          <div className="flex gap-4">
+            <a
+              className="text-sm font-semibold text-white/58 transition hover:text-white"
+              href={locale === "en" ? "/en/privacy" : "/privacy"}
+            >
+              {messages.footer.privacy}
+            </a>
+            <a
+              className="text-sm font-semibold text-white/58 transition hover:text-white"
+              href={locale === "en" ? "/en/terms" : "/terms"}
+            >
+              {messages.footer.terms}
+            </a>
+          </div>
         </div>
       </div>
     </footer>

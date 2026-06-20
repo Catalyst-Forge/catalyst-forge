@@ -102,7 +102,7 @@ Initial setup on the VPS:
 
 ```bash
 APP_DIR=/var/www/catalyst-forge \
-REPO_URL=https://github.com/BagasAuliaAlfasyam/portofolio-cv.git \
+REPO_URL=https://github.com/Catalyst-Forge/catalyst-forge.git \
 BRANCH=main \
 NEXT_PUBLIC_API_URL=https://catalystforge.web.id \
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX \

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics";
+import { CookieConsent } from "@/components/cookie-consent";
 import { UtmCapture } from "@/components/utm-capture";
 import "./globals.css";
 
@@ -125,6 +126,7 @@ export default function RootLayout({
     <html lang="id">
       <body>
         {children}
+        <CookieConsent />
         <UtmCapture />
         <script
           type="application/ld+json"
