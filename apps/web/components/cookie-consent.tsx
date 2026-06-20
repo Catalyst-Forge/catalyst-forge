@@ -16,8 +16,9 @@ export function CookieConsent() {
     if (stored === "all" || stored === "essential") {
       setChoice(stored);
     }
-    // Defer render to prevent cookie banner from becoming LCP
-    setMounted(true);
+    // 2s delay ensures hero section paints first → true LCP element
+    const timer = setTimeout(() => setMounted(true), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleAccept = (value: "all" | "essential") => {
