@@ -80,10 +80,10 @@ function MemberCard({
 }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#D0490F]/30 hover:shadow-xl">
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1B3A5C]">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#1B3A5C]">
         <Image
           alt={`Foto ${name}`}
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="object-contain transition duration-500 group-hover:scale-105"
           fill
           sizes="(max-width: 1023px) 100vw, 33vw"
           src={photo}
