@@ -394,7 +394,8 @@
         "year": "2025",
         "summary": "Customer Relationship Management untuk manajemen pipeline, follow-up, dan retensi pelanggan. Dashboard role-based dengan reporting real-time.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
-        "metrics": ["Pipeline management end-to-end", "Dashboard reporting real-time", "Role-based access control"],
+        "metrics": ["Pipeline end-to-end", "Dashboard reporting real-time", "Kontrol akses berbasis peran"],
+        "image": "/images/portfolio/crm.png",
         "demoUrl": "https://crm.catalystforge.web.id"
       },
       {
@@ -405,7 +406,8 @@
         "year": "2025",
         "summary": "Human Resource Information System terintegrasi — data karyawan, absensi, payroll, performance review, dan attendance tracking.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
-        "metrics": ["Data karyawan terpusat", "Absensi & payroll terintegrasi", "Performance dashboard"],
+        "metrics": ["Data karyawan terpusat", "Absensi & payroll terintegrasi", "Dashboard performa"],
+        "image": "/images/portfolio/hris.png",
         "demoUrl": "https://hris.catalystforge.web.id"
       },
       {
@@ -417,6 +419,7 @@
         "summary": "Point of Sale modern untuk transaksi kasir, manajemen stok multi-cabang, dan laporan penjualan harian.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Transaksi kasir real-time", "Stok multi-cabang", "Laporan penjualan otomatis"],
+        "image": "/images/portfolio/pos.png",
         "demoUrl": "https://pos.catalystforge.web.id"
       },
       {
@@ -428,6 +431,7 @@
         "summary": "AI-powered customer support dashboard dengan chat interface, knowledge base management, dan conversation analytics.",
         "tech": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "FastAPI"],
         "metrics": ["Chatbot AI terintegrasi", "Knowledge base terstruktur", "Analytics percakapan"],
+        "image": "/images/portfolio/ai-support.png",
         "demoUrl": "https://ai.catalystforge.web.id"
       },
       {
@@ -438,7 +442,8 @@
         "year": "2025",
         "summary": "Website korporat profesional dengan multi-page structure — about, operations, governance, sustainability, dan contact.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        "metrics": ["Multi-page korporat", "Animasi profesional", "Mobile responsive"],
+        "metrics": ["Multi-page korporat", "Animasi profesional", "Responsif di semua device"],
+        "image": "/images/portfolio/company.png",
         "demoUrl": "https://company.catalystforge.web.id"
       }
     ]

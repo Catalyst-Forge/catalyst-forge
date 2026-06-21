@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -13,7 +14,6 @@ import {
   FileText,
   ShoppingCart,
   Target,
-  Users,
 } from "lucide-react";
 import { type Messages } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
@@ -50,7 +50,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
           <ScrollParallax maxOffset={40}>
             <Reveal direction="up">
               <Link
-                className="mb-6 inline-flex items-center gap-2 text-base font-semibold text-white/60 transition hover:text-white"
+                className="mb-6 inline-flex items-center gap-2 text-base font-semibold text-white/80 transition hover:text-white"
                 href="/"
               >
                 <ArrowLeft className="h-4 w-4" />
@@ -106,11 +106,21 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                 <article className="flex h-full flex-col rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
                   {/* Thumbnail */}
                   <div className="relative h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-[#1B3A5C] to-[#0F2440]">
-                    <div className="flex h-full items-center justify-center">
-                      <span className="text-4xl font-black text-white/10">
-                        {project.client.split(" ")[0]}
-                      </span>
-                    </div>
+                    {project.image ? (
+                      <Image
+                        alt={project.title}
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        src={project.image}
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center">
+                        <span className="text-4xl font-black text-white/10">
+                          {project.client.split(" ")[0]}
+                        </span>
+                      </div>
+                    )}
                     {project.demoUrl ? (
                       <a
                         className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-white backdrop-blur transition hover:bg-white/25"
@@ -151,7 +161,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                       <div className="mt-4 flex flex-wrap gap-1.5">
                         {project.tech.map((t) => (
                           <span
-                            className="rounded-md bg-[#FAF8F5] px-2 py-1 text-xs font-semibold text-[#1B3A5C]/65"
+                            className="rounded-md bg-[#FAF8F5] px-2 py-1 text-xs font-semibold text-[#1B3A5C]/85"
                             key={t}
                           >
                             {t}
@@ -190,7 +200,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       ) : (
-                        <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#FAF8F5] px-5 py-2.5 text-sm font-bold text-[#1B3A5C]/55">
+                        <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#FAF8F5] px-5 py-2.5 text-sm font-bold text-[#1B3A5C]/75">
                           {p.internalProject}
                         </span>
                       )}

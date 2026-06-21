@@ -395,6 +395,7 @@
         "summary": "Customer Relationship Management for pipeline management, follow-ups, and customer retention. Role-based dashboard with real-time reporting.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["End-to-end pipeline management", "Real-time dashboard reporting", "Role-based access control"],
+        "image": "/images/portfolio/crm.png",
         "demoUrl": "https://crm.catalystforge.web.id"
       },
       {
@@ -406,6 +407,7 @@
         "summary": "Integrated Human Resource Information System — employee data, attendance, payroll, performance review, and attendance tracking.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Centralized employee data", "Integrated attendance & payroll", "Performance dashboard"],
+        "image": "/images/portfolio/hris.png",
         "demoUrl": "https://hris.catalystforge.web.id"
       },
       {
@@ -417,6 +419,7 @@
         "summary": "Modern Point of Sale for cashier transactions, multi-branch inventory management, and daily sales reporting.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Real-time cashier transactions", "Multi-branch inventory", "Automated sales reports"],
+        "image": "/images/portfolio/pos.png",
         "demoUrl": "https://pos.catalystforge.web.id"
       },
       {
@@ -428,6 +431,7 @@
         "summary": "AI-powered customer support dashboard with chat interface, knowledge base management, and conversation analytics.",
         "tech": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "FastAPI"],
         "metrics": ["Integrated AI chatbot", "Structured knowledge base", "Conversation analytics"],
+        "image": "/images/portfolio/ai-support.png",
         "demoUrl": "https://ai.catalystforge.web.id"
       },
       {
@@ -439,6 +443,7 @@
         "summary": "Professional corporate website with multi-page structure — about, operations, governance, sustainability, and contact.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
         "metrics": ["Multi-page corporate site", "Professional animations", "Mobile responsive"],
+        "image": "/images/portfolio/company.png",
         "demoUrl": "https://company.catalystforge.web.id"
       }
     ]
