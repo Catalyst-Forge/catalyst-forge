@@ -62,7 +62,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
               <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-6xl">
                 {p.hero.headline}
               </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/72 sm:mt-6">
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/88 sm:mt-6">
                 {p.hero.subheadline}
               </p>
             </Reveal>
