@@ -1,4 +1,5 @@
-import { CheckCircle2, FileText, Target } from "lucide-react";
+import { ArrowRight, CheckCircle2, FileText, Target } from "lucide-react";
+import Link from "next/link";
 import { type ReactNode } from "react";
 import { type Messages } from "@/lib/i18n";
 import { Reveal } from "./reveal";
@@ -85,6 +86,18 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
             </Reveal>
           ))}
         </div>
+
+        {messages.caseStudies.portfolioCta ? (
+          <div className="mt-12 text-center">
+            <Link
+              className="inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
+              href="/portfolio"
+            >
+              {messages.caseStudies.portfolioCta}
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );
