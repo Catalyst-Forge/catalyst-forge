@@ -7,6 +7,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
   const skillsBagas = a.team.bagas.skills as string[];
   const skillsAlana = a.team.alana.skills as string[];
   const skillsHambali = a.team.hambali.skills as string[];
+  const skillsFaiz = a.team.faiz.skills as string[];
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
@@ -31,7 +32,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
           {a.team.headline}
         </h2>
 
-        <div className="mx-auto mt-14 grid max-w-6xl gap-10 sm:gap-12 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-6xl gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
           <MemberCard
             name={a.team.bagas.name}
             role={a.team.bagas.role}
@@ -53,6 +54,13 @@ export function AboutPage({ messages }: { messages: Messages }) {
             bio={a.team.hambali.bio}
             skills={skillsHambali}
             photo="/team/hambali.jpg"
+          />
+          <MemberCard
+            name={a.team.faiz.name}
+            role={a.team.faiz.role}
+            bio={a.team.faiz.bio}
+            skills={skillsFaiz}
+            photo="/team/faiz.jpg"
           />
         </div>
       </section>

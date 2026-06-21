@@ -314,6 +314,12 @@
         "role": "Senior Programmer",
         "bio": "Programmer berpengalaman dengan fokus pada business-critical systems dan enterprise application development. Memastikan kualitas kode, proses deployment yang andal, dan sistem yang stabil di bawah tekanan. Spesialisasi di business process validation dan system integration.",
         "skills": ["Full-Stack Development", "System Integration", "Enterprise Testing", "Process Validation", "Code Quality"]
+      },
+      "faiz": {
+        "name": "Faiz Al Hafid",
+        "role": "Business & Marketing Strategist",
+        "bio": "Menjembatani kebutuhan bisnis klien dengan solusi teknologi CatalystForge. Berpengalaman dalam analisis pasar, riset kompetitor, dan penyusunan strategi digital — memastikan setiap layanan yang ditawarkan tepat sasaran dan punya nilai bisnis yang jelas. Fokus pada pemahaman mendalam tentang industri klien sebelum solusi dirancang.",
+        "skills": ["Business Analysis", "Market Research", "Digital Strategy", "Client Consulting", "Project Scoping"]
       }
     },
     "cta": {

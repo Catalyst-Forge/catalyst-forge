@@ -314,6 +314,12 @@
         "role": "Senior Programmer",
         "bio": "Experienced programmer focused on business-critical systems and enterprise application development. Ensures code quality, reliable deployment processes, and stable systems under pressure. Specializes in business process validation and system integration.",
         "skills": ["Full-Stack Development", "System Integration", "Enterprise Testing", "Process Validation", "Code Quality"]
+      },
+      "faiz": {
+        "name": "Faiz Al Hafid",
+        "role": "Business & Marketing Strategist",
+        "bio": "Bridges client business needs with CatalystForge technology solutions. Experienced in market analysis, competitor research, and digital strategy — ensuring every service offered is targeted and delivers clear business value. Focuses on deep understanding of client industries before solutions are designed.",
+        "skills": ["Business Analysis", "Market Research", "Digital Strategy", "Client Consulting", "Project Scoping"]
       }
     },
     "cta": {
