@@ -362,6 +362,10 @@
         "summary": "Sistem procurement enterprise untuk Subholding Pertamina yang mengotomasi pembuatan dokumen pengadaan, tracking approval, dan manajemen vendor.",
         "tech": ["Laravel", "MySQL", "REST API", "Bootstrap"],
         "metrics": ["Generate dokumen per tahapan pengadaan", "Format dokumen konsisten & terstandar", "Workflow approval terintegrasi"],
+        "problem": "PT Patra Drilling Contractor (Subholding Pertamina) menghadapi proses pengadaan yang manual dan memakan waktu. Setiap tahapan pengadaan membutuhkan dokumen berbeda yang harus dibuat dari awal, menyebabkan inkonsistensi format dan keterlambatan approval.",
+        "solution": "Dibangun sistem Procurement HTE berbasis web dengan fitur generate dokumen otomatis per tahapan, workflow approval bertingkat, dan manajemen vendor terintegrasi. Sistem memungkinkan tim procurement membuat, mereview, dan menyetujui dokumen dalam satu platform.",
+        "impact": "Waktu pembuatan dokumen pengadaan berkurang signifikan. Format dokumen menjadi seragam di seluruh tahapan. Proses approval menjadi transparan dengan audit trail yang jelas.",
+        "features": ["Generate dokumen otomatis per tahapan", "Workflow approval multi-level", "Manajemen data vendor", "Template dokumen kustom", "Dashboard tracking pengadaan", "Export PDF/Excel"],
         "demoUrl": ""
       },
       {
@@ -373,6 +377,10 @@
         "summary": "Sistem pakar berbasis pengetahuan untuk diagnosa penyakit udang vaname menggunakan metode Naive Bayes dan Certainty Factor sebagai pendukung penelitian.",
         "tech": ["Python", "Flask", "scikit-learn", "MySQL"],
         "metrics": ["2 metode analisis berbasis pengetahuan", "Gejala & tingkat keyakinan terstruktur", "Output mendukung penelitian akademik"],
+        "problem": "Diagnosa penyakit udang vaname secara manual membutuhkan keahlian tinggi dan waktu lama. Petambak dan peneliti kesulitan mengidentifikasi penyakit berdasarkan gejala yang muncul tanpa bantuan sistem berbasis pengetahuan.",
+        "solution": "Sistem pakar dikembangkan menggunakan metode Naive Bayes untuk klasifikasi penyakit dan Certainty Factor untuk mengukur tingkat keyakinan diagnosa. Sistem menerima input gejala, memproses basis pengetahuan, dan menghasilkan diagnosa beserta tingkat keyakinannya.",
+        "impact": "Peneliti dapat melakukan analisis diagnosa lebih terstruktur dan cepat. Output sistem mendukung pengambilan keputusan dan menjadi referensi untuk penelitian lanjutan di bidang akuakultur.",
+        "features": ["Input gejala penyakit udang", "Klasifikasi Naive Bayes", "Certainty Factor scoring", "Basis pengetahuan penyakit", "Riwayat diagnosa", "Export laporan"],
         "demoUrl": ""
       },
       {
@@ -384,6 +392,10 @@
         "summary": "AI assistant guide untuk membantu pasien dan pengunjung mendapatkan informasi layanan rumah sakit — jadwal dokter, lokasi poliklinik, prosedur rawat jalan.",
         "tech": ["Node.js", "OpenAI API", "WhatsApp API", "PostgreSQL"],
         "metrics": ["Panduan layanan lebih mudah diakses", "Alur tanya-jawab ramah pengguna", "Cocok untuk pertanyaan berulang"],
+        "problem": "RS Prima Inti Medika membutuhkan sistem yang dapat membantu pasien dan pengunjung mendapatkan informasi layanan dengan cepat — jadwal dokter, lokasi poliklinik, prosedur rawat jalan — tanpa harus antre di meja informasi.",
+        "solution": "Dibangun Pomeng Chatbot berbasis AI yang terintegrasi dengan WhatsApp. Chatbot dapat menjawab pertanyaan umum seputar layanan rumah sakit, memberikan panduan lokasi, dan mengarahkan ke informasi yang relevan secara otomatis.",
+        "impact": "Beban meja informasi berkurang karena pertanyaan berulang ditangani chatbot. Pasien mendapatkan informasi lebih cepat tanpa harus menunggu. Staf dapat fokus pada pertanyaan yang lebih kompleks.",
+        "features": ["Chatbot WhatsApp 24/7", "Informasi jadwal dokter", "Panduan lokasi poliklinik", "Prosedur rawat jalan", "Fallback ke human agent", "Analytics percakapan"],
         "demoUrl": ""
       },
       {
@@ -396,6 +408,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Pipeline end-to-end", "Dashboard reporting real-time", "Kontrol akses berbasis peran"],
         "image": "/images/portfolio/crm.png",
+        "features": ["Dashboard pipeline penjualan", "Manajemen akun & kontak", "Task & follow-up tracking", "Reporting & analytics real-time", "Role-based access control", "Export data"],
         "demoUrl": "https://crm.catalystforge.web.id"
       },
       {
@@ -408,6 +421,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Data karyawan terpusat", "Absensi & payroll terintegrasi", "Dashboard performa"],
         "image": "/images/portfolio/hris.png",
+        "features": ["Data karyawan terpusat", "Absensi & attendance tracking", "Manajemen payroll", "Review performa", "Struktur organisasi", "Dashboard HR analytics"],
         "demoUrl": "https://hris.catalystforge.web.id"
       },
       {
@@ -420,6 +434,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Transaksi kasir real-time", "Stok multi-cabang", "Laporan penjualan otomatis"],
         "image": "/images/portfolio/pos.png",
+        "features": ["Transaksi kasir cepat", "Manajemen stok multi-cabang", "Laporan penjualan harian", "Manajemen produk & harga", "Multi-metode pembayaran", "Sync data real-time"],
         "demoUrl": "https://pos.catalystforge.web.id"
       },
       {
@@ -432,6 +447,7 @@
         "tech": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "FastAPI"],
         "metrics": ["Chatbot AI terintegrasi", "Knowledge base terstruktur", "Analytics percakapan"],
         "image": "/images/portfolio/ai-support.png",
+        "features": ["AI Chatbot interaktif", "Knowledge base management", "Conversation analytics", "Multi-channel support", "Human handoff", "Dashboard monitoring"],
         "demoUrl": "https://ai.catalystforge.web.id"
       },
       {
@@ -444,6 +460,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
         "metrics": ["Multi-page korporat", "Animasi profesional", "Responsif di semua device"],
         "image": "/images/portfolio/company.png",
+        "features": ["Multi-page structure", "Animasi scroll halus", "Mobile responsive", "SEO optimized", "Contact form", "Brand consistency"],
         "demoUrl": "https://company.catalystforge.web.id"
       }
     ]

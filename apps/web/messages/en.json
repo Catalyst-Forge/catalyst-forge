@@ -362,6 +362,10 @@
         "summary": "Enterprise procurement system for Pertamina Subholding that automates procurement document generation, approval tracking, and vendor management.",
         "tech": ["Laravel", "MySQL", "REST API", "Bootstrap"],
         "metrics": ["Document generation per procurement stage", "Consistent & standardized document format", "Integrated approval workflow"],
+        "problem": "PT Patra Drilling Contractor (Pertamina Subholding) faced a manual, time-consuming procurement process. Each procurement stage required different documents created from scratch, leading to format inconsistencies and approval delays.",
+        "solution": "A web-based Procurement HTE system was built with automatic document generation per stage, multi-level approval workflow, and integrated vendor management. The system enables procurement teams to create, review, and approve documents in a single platform.",
+        "impact": "Document creation time was significantly reduced. Document formats became uniform across all stages. The approval process became transparent with clear audit trails.",
+        "features": ["Automatic document generation per stage", "Multi-level approval workflow", "Vendor data management", "Custom document templates", "Procurement tracking dashboard", "PDF/Excel export"],
         "demoUrl": ""
       },
       {
@@ -373,6 +377,10 @@
         "summary": "Knowledge-based expert system for vannamei shrimp disease diagnosis using Naive Bayes and Certainty Factor methods — supporting academic research.",
         "tech": ["Python", "Flask", "scikit-learn", "MySQL"],
         "metrics": ["2 knowledge-based analysis methods", "Structured symptoms & confidence levels", "Output supports academic research"],
+        "problem": "Manual diagnosis of vannamei shrimp diseases requires high expertise and lengthy processes. Farmers and researchers struggle to identify diseases based on symptoms without a knowledge-based system.",
+        "solution": "An expert system was developed using Naive Bayes for disease classification and Certainty Factor to measure diagnostic confidence. The system accepts symptom input, processes the knowledge base, and produces diagnosis with confidence levels.",
+        "impact": "Researchers can perform more structured and faster diagnostic analysis. The system output supports decision-making and serves as a reference for further aquaculture research.",
+        "features": ["Shrimp disease symptom input", "Naive Bayes classification", "Certainty Factor scoring", "Disease knowledge base", "Diagnosis history", "Report export"],
         "demoUrl": ""
       },
       {
@@ -384,6 +392,10 @@
         "summary": "AI assistant guide helping patients & visitors access hospital service information — doctor schedules, clinic locations, outpatient procedures.",
         "tech": ["Node.js", "OpenAI API", "WhatsApp API", "PostgreSQL"],
         "metrics": ["Service guidance easier to access", "User-friendly Q&A flow", "Suitable for repeated questions"],
+        "problem": "RS Prima Inti Medika needed a system to help patients and visitors quickly access service information — doctor schedules, clinic locations, outpatient procedures — without queuing at the information desk.",
+        "solution": "An AI-powered Pomeng Chatbot integrated with WhatsApp was built. The chatbot can answer common hospital service questions, provide location guidance, and automatically direct users to relevant information.",
+        "impact": "Information desk workload decreased as repetitive questions are handled by the chatbot. Patients get information faster without waiting. Staff can focus on more complex inquiries.",
+        "features": ["24/7 WhatsApp chatbot", "Doctor schedule information", "Clinic location guidance", "Outpatient procedures", "Human agent fallback", "Conversation analytics"],
         "demoUrl": ""
       },
       {
@@ -396,6 +408,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["End-to-end pipeline management", "Real-time dashboard reporting", "Role-based access control"],
         "image": "/images/portfolio/crm.png",
+        "features": ["Sales pipeline dashboard", "Account & contact management", "Task & follow-up tracking", "Real-time reporting & analytics", "Role-based access control", "Data export"],
         "demoUrl": "https://crm.catalystforge.web.id"
       },
       {
@@ -408,6 +421,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Centralized employee data", "Integrated attendance & payroll", "Performance dashboard"],
         "image": "/images/portfolio/hris.png",
+        "features": ["Centralized employee data", "Attendance tracking", "Payroll management", "Performance review", "Organization & departments", "HR analytics dashboard"],
         "demoUrl": "https://hris.catalystforge.web.id"
       },
       {
@@ -420,6 +434,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Real-time cashier transactions", "Multi-branch inventory", "Automated sales reports"],
         "image": "/images/portfolio/pos.png",
+        "features": ["Fast checkout transactions", "Multi-branch inventory", "Daily sales reports", "Product & price management", "Multiple payment methods", "Real-time data sync"],
         "demoUrl": "https://pos.catalystforge.web.id"
       },
       {
@@ -432,6 +447,7 @@
         "tech": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "FastAPI"],
         "metrics": ["Integrated AI chatbot", "Structured knowledge base", "Conversation analytics"],
         "image": "/images/portfolio/ai-support.png",
+        "features": ["Interactive AI chatbot", "Knowledge base management", "Conversation analytics", "Multi-channel support", "Human handoff", "Monitoring dashboard"],
         "demoUrl": "https://ai.catalystforge.web.id"
       },
       {
@@ -444,6 +460,7 @@
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
         "metrics": ["Multi-page corporate site", "Professional animations", "Mobile responsive"],
         "image": "/images/portfolio/company.png",
+        "features": ["Multi-page structure", "Smooth scroll animations", "Mobile responsive", "SEO optimized", "Contact form", "Brand consistency"],
         "demoUrl": "https://company.catalystforge.web.id"
       }
     ]

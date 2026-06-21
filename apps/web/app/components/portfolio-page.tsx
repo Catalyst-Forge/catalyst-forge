@@ -103,9 +103,12 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                 direction={index % 2 === 0 ? "left" : "right"}
                 key={project.slug}
               >
-                <article className="flex h-full flex-col rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <article className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
                   {/* Thumbnail */}
-                  <div className="relative h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-[#1B3A5C] to-[#0F2440]">
+                  <Link
+                    className="relative block h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-[#1B3A5C] to-[#0F2440]"
+                    href={`/portfolio/${project.slug}`}
+                  >
                     {project.image ? (
                       <Image
                         alt={project.title}
@@ -122,17 +125,14 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                       </div>
                     )}
                     {project.demoUrl ? (
-                      <a
+                      <span
                         className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-white backdrop-blur transition hover:bg-white/25"
-                        href={project.demoUrl}
-                        rel="noopener noreferrer"
-                        target="_blank"
                       >
                         <ExternalLink className="h-3 w-3" />
                         Demo
-                      </a>
+                      </span>
                     ) : null}
-                  </div>
+                  </Link>
 
                   <div className="flex flex-1 flex-col p-5 sm:p-6">
                     <div className="flex items-center gap-2">
@@ -146,9 +146,12 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                       ) : null}
                     </div>
 
-                    <h3 className="mt-3 text-xl font-bold tracking-tight text-[#1B3A5C]">
+                    <Link
+                      className="mt-3 block text-xl font-bold tracking-tight text-[#1B3A5C] hover:text-[#E8531A] transition-colors"
+                      href={`/portfolio/${project.slug}`}
+                    >
                       {project.title}
-                    </h3>
+                    </Link>
                     <p className="mt-1 text-sm font-semibold text-[#E8531A]">
                       {project.client}
                     </p>
