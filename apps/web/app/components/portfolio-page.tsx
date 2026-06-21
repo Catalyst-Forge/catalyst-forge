@@ -190,7 +190,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                       </div>
                     </div>
 
-                    {/* CTA to detail (future) or demo */}
+                    {/* CTA to detail or demo */}
                     <div className="mt-auto pt-5">
                       {project.demoUrl ? (
                         <a
@@ -203,9 +203,13 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       ) : (
-                        <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#FAF8F5] px-5 py-2.5 text-sm font-bold text-[#1B3A5C]/75">
-                          {p.internalProject}
-                        </span>
+                        <Link
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#FAF8F5] px-5 py-2.5 text-sm font-bold text-[#1B3A5C]/75 transition hover:bg-white hover:border-[#E8531A]/30"
+                          href={`/portfolio/${project.slug}`}
+                        >
+                          {p.viewDetail}
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                       )}
                     </div>
                   </div>

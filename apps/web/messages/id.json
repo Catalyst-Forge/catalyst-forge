@@ -345,6 +345,7 @@
     "categories": ["All", "Enterprise", "Research", "Healthcare", "Product", "AI"],
     "metricsLabel": "Highlights",
     "viewDemo": "Lihat Demo",
+    "viewDetail": "Lihat Detail",
     "internalProject": "Project Internal",
     "noProjects": "Belum ada project di kategori ini.",
     "cta": {
