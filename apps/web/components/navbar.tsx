@@ -15,6 +15,7 @@ export function Navbar({ messages, locale }: NavbarProps) {
     { href: `${prefix}/#products`, label: messages.navbar.products },
     { href: `${prefix}/#process`, label: messages.navbar.howWeWork },
     { href: `${prefix}/#projects`, label: messages.navbar.testimonials },
+    { href: `${prefix}/portfolio`, label: messages.navbar.portfolio },
     { href: `${prefix}/#contact`, label: messages.navbar.contact },
   ];
 
