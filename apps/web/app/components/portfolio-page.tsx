@@ -62,7 +62,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
               <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-6xl">
                 {p.hero.headline}
               </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/88 sm:mt-6">
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90 sm:mt-6">
                 {p.hero.subheadline}
               </p>
             </Reveal>
@@ -155,7 +155,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                     <p className="mt-1 text-sm font-semibold text-[#E8531A]">
                       {project.client}
                     </p>
-                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/70">
                       {project.summary}
                     </p>
 
@@ -164,7 +164,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                       <div className="mt-4 flex flex-wrap gap-1.5">
                         {project.tech.map((t) => (
                           <span
-                            className="rounded-md bg-[#FAF8F5] px-2 py-1 text-xs font-semibold text-[#1B3A5C]/85"
+                            className="rounded-md bg-[#FAF8F5] px-2 py-1 text-xs font-semibold text-[#1B3A5C]/80"
                             key={t}
                           >
                             {t}
@@ -182,7 +182,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                         {project.metrics.map((m) => (
                           <div className="flex gap-2" key={m}>
                             <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#E8531A]" />
-                            <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
+                            <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/75">
                               {m}
                             </span>
                           </div>
@@ -234,7 +234,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
               <h2 className="text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
                 {p.cta.headline}
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#1A1A2E]/72">
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#1A1A2E]/70">
                 {p.cta.subtext}
               </p>
               <a
