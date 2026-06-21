@@ -1,4 +1,5 @@
-import { CheckCircle2, MapPin, Network, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, Network, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 import { type Messages } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
@@ -39,6 +40,14 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
                 </div>
               ))}
             </div>
+
+            <Link
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98] sm:px-7 sm:py-4"
+              href="/about"
+            >
+              {messages.about.teamCta}
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </Reveal>
         </ScrollParallax>
 
