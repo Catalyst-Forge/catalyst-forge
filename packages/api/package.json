@@ -10,7 +10,7 @@
     "lint": "eslint . --max-warnings 0"
   },
   "peerDependencies": {
-    "react": "^19.1.0"
+    "react": "^19.2.7"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
