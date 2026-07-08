@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n";
 import { ProjectDetailPage } from "@/app/components/project-detail-page";
 import { Navbar } from "@/components/navbar";
