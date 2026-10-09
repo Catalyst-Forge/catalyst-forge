@@ -303,25 +303,25 @@
       "bagas": {
         "name": "Bagas Aulia Alfasyam Selian, S.Kom",
         "role": "CEO",
-        "bio": "The best digital solutions start with understanding the business problem, not the technology.",
+        "bio": "Technology is only the tool. What we truly build is our clients' business growth.",
         "skills": ["Business Strategy", "Project Leadership", "Digital Transformation", "Client Partnership"]
       },
       "alana": {
         "name": "Muhammad Alana Fauzan",
         "role": "CTO",
-        "bio": "A solid architecture today is the freedom to grow tomorrow.",
+        "bio": "Great systems aren't the most complex ones, but the ones that stay reliable as the business scales.",
         "skills": ["System Architecture", "Team Leadership", "Cloud Infrastructure", "Backend Engineering"]
       },
       "hambali": {
         "name": "Hambali Fadib",
         "role": "COO",
-        "bio": "Strong systems are built from small details, done with care.",
+        "bio": "A vision is only as good as its execution. Every promise to a client must land on time, on quality.",
         "skills": ["Operations Management", "Process Optimization", "Project Delivery", "Team Coordination"]
       },
       "faiz": {
         "name": "Faiz Al Hafid",
         "role": "Business & Marketing Strategist",
-        "bio": "The right strategy starts with understanding the client before offering a solution.",
+        "bio": "The best solutions come from asking the right questions, not from assumptions.",
         "skills": ["Business Analysis", "Market Research", "Digital Strategy", "Client Consulting", "Project Scoping"]
       }
     },

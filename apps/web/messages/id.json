@@ -303,25 +303,25 @@
       "bagas": {
         "name": "Bagas Aulia Alfasyam Selian, S.Kom",
         "role": "CEO",
-        "bio": "Solusi digital terbaik dimulai dari memahami masalah bisnis, bukan dari teknologinya.",
+        "bio": "Teknologi hanyalah alat. Yang sebenarnya kami bangun adalah pertumbuhan bisnis klien.",
         "skills": ["Business Strategy", "Project Leadership", "Digital Transformation", "Client Partnership"]
       },
       "alana": {
         "name": "Muhammad Alana Fauzan",
         "role": "CTO",
-        "bio": "Arsitektur yang kokoh hari ini adalah kebebasan untuk berkembang besok.",
+        "bio": "Sistem yang hebat bukan yang paling rumit, tapi yang tetap andal saat bisnis tumbuh berkali lipat.",
         "skills": ["System Architecture", "Team Leadership", "Cloud Infrastructure", "Backend Engineering"]
       },
       "hambali": {
         "name": "Hambali Fadib",
         "role": "COO",
-        "bio": "Sistem yang kuat lahir dari detail kecil yang dikerjakan dengan sungguh-sungguh.",
+        "bio": "Visi hanya bernilai jika dieksekusi. Setiap janji ke klien harus sampai tepat waktu dan tepat mutu.",
         "skills": ["Operations Management", "Process Optimization", "Project Delivery", "Team Coordination"]
       },
       "faiz": {
         "name": "Faiz Al Hafid",
         "role": "Business & Marketing Strategist",
-        "bio": "Strategi yang tepat dimulai dari memahami klien sebelum menawarkan solusi.",
+        "bio": "Solusi terbaik lahir dari pertanyaan yang tepat, bukan dari asumsi.",
         "skills": ["Business Analysis", "Market Research", "Digital Strategy", "Client Consulting", "Project Scoping"]
       }
     },
