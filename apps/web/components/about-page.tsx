@@ -4,10 +4,13 @@ import { CtaSection } from "@/components/cta-section";
 
 export function AboutPage({ messages }: { messages: Messages }) {
   const a = messages.aboutPage;
-  const skillsBagas = a.team.bagas.skills as string[];
-  const skillsAlana = a.team.alana.skills as string[];
-  const skillsHambali = a.team.hambali.skills as string[];
-  const skillsFaiz = a.team.faiz.skills as string[];
+
+  const members = [
+    { ...a.team.bagas, photo: "/team/bagas.jpg" },
+    { ...a.team.alana },
+    { ...a.team.hambali, photo: "/team/hambali-avatar.jpg" },
+    { ...a.team.faiz },
+  ];
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
@@ -27,41 +30,29 @@ export function AboutPage({ messages }: { messages: Messages }) {
       </section>
 
       {/* Team Section */}
-      <section className="section-container pb-20">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-[#1B3A5C] sm:text-4xl">
-          {a.team.headline}
-        </h2>
+      <section className="section-container pb-20 sm:pb-24">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-[#1B3A5C] sm:text-4xl">
+            {a.team.headline}
+          </h2>
+          <div
+            aria-hidden="true"
+            className="mx-auto mt-4 h-1 w-14 rounded-full bg-[#D0490F]"
+          />
+        </div>
 
-        <div className="mx-auto mt-14 grid max-w-6xl gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <MemberCard
-            name={a.team.bagas.name}
-            role={a.team.bagas.role}
-            bio={a.team.bagas.bio}
-            skills={skillsBagas}
-            photo="/team/bagas.jpg"
-            priority
-          />
-          <MemberCard
-            name={a.team.alana.name}
-            role={a.team.alana.role}
-            bio={a.team.alana.bio}
-            skills={skillsAlana}
-            photo="/team/alana.jpg"
-          />
-          <MemberCard
-            name={a.team.hambali.name}
-            role={a.team.hambali.role}
-            bio={a.team.hambali.bio}
-            skills={skillsHambali}
-            photo="/team/hambali.jpg"
-          />
-          <MemberCard
-            name={a.team.faiz.name}
-            role={a.team.faiz.role}
-            bio={a.team.faiz.bio}
-            skills={skillsFaiz}
-            photo="/team/faiz.jpg"
-          />
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:gap-8 md:grid-cols-2">
+          {members.map((member, index) => (
+            <MemberCard
+              key={member.name}
+              name={member.name}
+              role={member.role}
+              bio={member.bio}
+              skills={member.skills as string[]}
+              photo={"photo" in member ? member.photo : undefined}
+              priority={index < 2}
+            />
+          ))}
         </div>
       </section>
 
@@ -69,6 +60,17 @@ export function AboutPage({ messages }: { messages: Messages }) {
       <CtaSection messages={messages} />
     </main>
   );
+}
+
+function getInitials(name: string) {
+  return name
+    .replace(/,.*$/, "")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
 }
 
 function MemberCard({
@@ -83,44 +85,61 @@ function MemberCard({
   role: string;
   bio: string;
   skills: string[];
-  photo: string;
+  photo?: string;
   priority?: boolean;
 }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#D0490F]/30 hover:shadow-xl">
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#1B3A5C]">
-        <Image
-          alt={`Foto ${name}`}
-          className="object-contain transition duration-500 group-hover:scale-105"
-          fill
-          sizes="(max-width: 1023px) 100vw, 33vw"
-          src={photo}
-          priority={priority}
-        />
-      </div>
-      <div className="flex flex-1 flex-col gap-4 p-6 sm:p-7">
-        <div>
-          <h3 className="text-xl font-bold tracking-tight text-[#1B3A5C]">
+    <article className="group flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#D0490F]/30 hover:shadow-xl sm:p-8">
+      <div className="flex items-center gap-5">
+        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-[#1B3A5C] ring-4 ring-[#FFF4EF] sm:h-28 sm:w-28">
+          {photo ? (
+            <Image
+              alt={`Foto ${name}`}
+              className="object-cover object-top"
+              fill
+              priority={priority}
+              sizes="112px"
+              src={photo}
+            />
+          ) : (
+            <span
+              aria-hidden="true"
+              className="flex h-full w-full items-center justify-center text-3xl font-extrabold tracking-wide text-[#F4784A]"
+            >
+              {getInitials(name)}
+            </span>
+          )}
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-xl font-bold leading-snug tracking-tight text-[#1B3A5C] sm:text-2xl">
             {name}
           </h3>
-          <p className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-[#D0490F]">
+          <p className="mt-1.5 text-sm font-semibold uppercase tracking-[0.12em] text-[#D0490F]">
             {role}
           </p>
         </div>
-        <p className="flex-1 text-sm leading-relaxed text-[#1A1A2E]/78">
+      </div>
+
+      {bio.length <= 120 ? (
+        <blockquote className="flex-1 border-l-4 border-[#D0490F] pl-4 text-lg font-medium italic leading-relaxed text-[#1B3A5C]">
+          &ldquo;{bio}&rdquo;
+        </blockquote>
+      ) : (
+        <p className="flex-1 text-base leading-relaxed text-[#1A1A2E]/80">
           {bio}
         </p>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="rounded-full border border-[#D0490F]/20 bg-[#FFF4EF] px-3 py-1 text-xs font-semibold text-[#D0490F]"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
+      )}
+
+      <ul className="flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <li
+            key={skill}
+            className="rounded-full border border-[#D0490F]/20 bg-[#FFF4EF] px-3 py-1 text-xs font-semibold text-[#D0490F]"
+          >
+            {skill}
+          </li>
+        ))}
+      </ul>
     </article>
   );
 }
