@@ -303,25 +303,25 @@
       "bagas": {
         "name": "Bagas Aulia Alfasyam Selian, S.Kom",
         "role": "CEO",
-        "bio": "Leads CatalystForge with a vision to build affordable and impactful digital solutions for Indonesian businesses. Experienced in handling 50+ projects across various industries — ensuring every solution aligns with client business needs, not just technology. Information Systems graduate from Malikussaleh University (Lhokseumawe). CatalystForge is based in Bandung.",
+        "bio": "The best digital solutions start with understanding the business problem, not the technology.",
         "skills": ["Business Strategy", "Project Leadership", "Digital Transformation", "Client Partnership"]
       },
       "alana": {
         "name": "Muhammad Alana Fauzan",
         "role": "CTO",
-        "bio": "Leads technical architecture and technology strategy at CatalystForge. Experienced in designing scalable enterprise systems, leading engineering teams, and ensuring product delivery quality.",
+        "bio": "A solid architecture today is the freedom to grow tomorrow.",
         "skills": ["System Architecture", "Team Leadership", "Cloud Infrastructure", "Backend Engineering"]
       },
       "hambali": {
         "name": "Hambali Fadib",
         "role": "COO",
         "bio": "Strong systems are built from small details, done with care.",
-        "skills": ["Full-Stack Development", "System Integration", "Enterprise Testing", "Process Validation", "Code Quality"]
+        "skills": ["Operations Management", "Process Optimization", "Project Delivery", "Team Coordination"]
       },
       "faiz": {
         "name": "Faiz Al Hafid",
         "role": "Business & Marketing Strategist",
-        "bio": "Bridges client business needs with CatalystForge technology solutions. Experienced in market analysis, competitor research, and digital strategy — ensuring every service offered is targeted and delivers clear business value. Focuses on deep understanding of client industries before solutions are designed.",
+        "bio": "The right strategy starts with understanding the client before offering a solution.",
         "skills": ["Business Analysis", "Market Research", "Digital Strategy", "Client Consulting", "Project Scoping"]
       }
     },

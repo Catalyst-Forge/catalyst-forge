@@ -303,25 +303,25 @@
       "bagas": {
         "name": "Bagas Aulia Alfasyam Selian, S.Kom",
         "role": "CEO",
-        "bio": "Memimpin CatalystForge dengan visi membangun solusi digital yang terjangkau dan berdampak untuk bisnis Indonesia. Berpengalaman menangani 50+ project dari berbagai industri — memastikan setiap solusi selaras dengan kebutuhan bisnis klien, bukan sekadar teknologi. Berlatar belakang Sistem Informasi dari Universitas Malikussaleh (Lhokseumawe). CatalystForge berbasis di Bandung.",
+        "bio": "Solusi digital terbaik dimulai dari memahami masalah bisnis, bukan dari teknologinya.",
         "skills": ["Business Strategy", "Project Leadership", "Digital Transformation", "Client Partnership"]
       },
       "alana": {
         "name": "Muhammad Alana Fauzan",
         "role": "CTO",
-        "bio": "Memimpin arsitektur teknis dan strategi teknologi di CatalystForge. Berpengalaman dalam merancang sistem enterprise yang scalable, memimpin tim engineering, dan memastikan kualitas delivery produk.",
+        "bio": "Arsitektur yang kokoh hari ini adalah kebebasan untuk berkembang besok.",
         "skills": ["System Architecture", "Team Leadership", "Cloud Infrastructure", "Backend Engineering"]
       },
       "hambali": {
         "name": "Hambali Fadib",
         "role": "COO",
         "bio": "Sistem yang kuat lahir dari detail kecil yang dikerjakan dengan sungguh-sungguh.",
-        "skills": ["Full-Stack Development", "System Integration", "Enterprise Testing", "Process Validation", "Code Quality"]
+        "skills": ["Operations Management", "Process Optimization", "Project Delivery", "Team Coordination"]
       },
       "faiz": {
         "name": "Faiz Al Hafid",
         "role": "Business & Marketing Strategist",
-        "bio": "Menjembatani kebutuhan bisnis klien dengan solusi teknologi CatalystForge. Berpengalaman dalam analisis pasar, riset kompetitor, dan penyusunan strategi digital — memastikan setiap layanan yang ditawarkan tepat sasaran dan punya nilai bisnis yang jelas. Fokus pada pemahaman mendalam tentang industri klien sebelum solusi dirancang.",
+        "bio": "Strategi yang tepat dimulai dari memahami klien sebelum menawarkan solusi.",
         "skills": ["Business Analysis", "Market Research", "Digital Strategy", "Client Consulting", "Project Scoping"]
       }
     },
