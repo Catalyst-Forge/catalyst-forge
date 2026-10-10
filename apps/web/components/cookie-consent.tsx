@@ -44,7 +44,9 @@ export function CookieConsent() {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[9999] border-t border-slate-200 bg-white/95 shadow-2xl backdrop-blur">
+    // cookie-banner-enter fades in from opacity 0, which also keeps this
+    // late-appearing overlay from being measured as the page's LCP element.
+    <div className="cookie-banner-enter fixed inset-x-0 bottom-0 z-[9999] border-t border-slate-200 bg-white/95 shadow-2xl backdrop-blur">
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:py-4">
         <div className="min-w-0 text-sm leading-relaxed text-[#1A1A2E]/78">
           <span className="font-bold text-[#1B3A5C]">
