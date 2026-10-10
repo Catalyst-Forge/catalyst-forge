@@ -1,20 +1,23 @@
 import type { MetadataRoute } from "next";
+import { getAllPortfolioProjectPaths } from "@/lib/portfolio-paths";
 import { serviceSlugs } from "@/lib/service-pages";
 
 const siteUrl = "https://catalystforge.web.id";
 const lastModified = new Date();
 
+// /products, /process, /testimonials and /contact only redirect to sections
+// of the homepage, so they are intentionally left out.
 const routes = [
   { path: "", priority: 1 },
   { path: "/en", priority: 0.9 },
-  { path: "/products", priority: 0.8 },
-  { path: "/process", priority: 0.7 },
-  { path: "/testimonials", priority: 0.7 },
-  { path: "/contact", priority: 0.8 },
-  { path: "/en/products", priority: 0.7 },
-  { path: "/en/process", priority: 0.6 },
-  { path: "/en/testimonials", priority: 0.6 },
-  { path: "/en/contact", priority: 0.7 },
+  { path: "/about", priority: 0.7 },
+  { path: "/en/about", priority: 0.6 },
+  { path: "/portfolio", priority: 0.8 },
+  { path: "/en/portfolio", priority: 0.7 },
+  ...getAllPortfolioProjectPaths().map((path) => ({
+    path,
+    priority: path.startsWith("/en/") ? 0.5 : 0.6,
+  })),
   ...serviceSlugs.map((slug) => ({
     path: `/${slug}`,
     priority: 0.85,

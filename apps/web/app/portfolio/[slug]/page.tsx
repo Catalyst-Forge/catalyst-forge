@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
+import { getPortfolioProjectPaths } from "@/lib/portfolio-paths";
 import { ProjectDetailPage } from "@/app/components/project-detail-page";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -26,7 +27,7 @@ export async function generateMetadata({
     description: project.summary,
     locale: "id",
     path: `/portfolio/${slug}`,
-    languages: { id: `/portfolio/${slug}`, en: `/en/portfolio/${slug}` },
+    languages: getPortfolioProjectPaths("id", slug),
   });
 }
 
