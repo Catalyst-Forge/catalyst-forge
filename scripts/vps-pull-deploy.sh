@@ -257,12 +257,29 @@ WantedBy=multi-user.target
 SERVICE
 }
 
-sudo apt-get update
-sudo apt-get install -y ca-certificates curl git nginx openssl python3-venv
+REQUIRED_PACKAGES=(ca-certificates curl git nginx openssl python3-venv)
+
+missing_packages() {
+  local pkg
+  for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    if ! dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q "install ok installed"; then
+      echo "$pkg"
+    fi
+  done
+}
+
+# Only touch apt when something is actually missing, and never without a time
+# limit: an apt-get update stuck on a slow mirror once held the deploy lock for
+# days, silently skipping every deploy triggered in the meantime.
+mapfile -t MISSING_PACKAGES < <(missing_packages)
+if (( ${#MISSING_PACKAGES[@]} > 0 )); then
+  sudo timeout 300 apt-get update
+  sudo timeout 600 apt-get install -y "${MISSING_PACKAGES[@]}"
+fi
 
 if ! command -v node >/dev/null 2>&1; then
-  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-  sudo apt-get install -y nodejs
+  curl -fsSL --max-time 120 https://deb.nodesource.com/setup_22.x | sudo -E bash -
+  sudo timeout 600 apt-get install -y nodejs
 fi
 
 sudo mkdir -p "$APP_DIR"
@@ -274,7 +291,7 @@ require_file "$SHARED_DIR/backend.env"
 require_file "$SHARED_DIR/web.env"
 
 cd "$REPO_DIR"
-git fetch origin "$BRANCH"
+timeout 300 git fetch origin "$BRANCH"
 REMOTE_SHA="$(git rev-parse "origin/$BRANCH")"
 DEPLOYED_SHA="$(cat "$DEPLOYED_SHA_FILE" 2>/dev/null || true)"
 
