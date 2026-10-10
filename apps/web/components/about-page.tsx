@@ -50,6 +50,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
               bio={member.bio}
               skills={member.skills as string[]}
               photo={"photo" in member ? member.photo : undefined}
+              photoAlt={a.team.photoAlt.replace("{name}", member.name)}
               priority={index < 2}
             />
           ))}
@@ -79,6 +80,7 @@ function MemberCard({
   bio,
   skills,
   photo,
+  photoAlt,
   priority = false,
 }: {
   name: string;
@@ -86,6 +88,7 @@ function MemberCard({
   bio: string;
   skills: string[];
   photo?: string;
+  photoAlt: string;
   priority?: boolean;
 }) {
   return (
@@ -94,7 +97,7 @@ function MemberCard({
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-[#1B3A5C] ring-4 ring-[#FFF4EF] sm:h-28 sm:w-28">
           {photo ? (
             <Image
-              alt={`Foto ${name}`}
+              alt={photoAlt}
               className="object-cover object-top"
               fill
               priority={priority}

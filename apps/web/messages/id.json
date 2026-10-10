@@ -301,6 +301,7 @@
     },
     "team": {
       "headline": "Kenali Tim Kami",
+      "photoAlt": "Foto {name}",
       "bagas": {
         "name": "Bagas Aulia Alfasyam Selian, S.Kom",
         "role": "CEO",
