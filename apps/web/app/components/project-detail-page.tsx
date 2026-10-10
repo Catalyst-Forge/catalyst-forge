@@ -38,7 +38,7 @@ export function ProjectDetailPage({
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1B3A5C] via-[#1B3A5C] to-[#0F2440] pt-24 pb-14 sm:pt-32 sm:pb-20">
         <div className="section-container relative z-10">
           <ScrollParallax maxOffset={40}>
-            <Reveal direction="up">
+            <Reveal direction="up" instant>
               <Link
                 className="mb-6 inline-flex items-center gap-2 text-base font-semibold text-white/80 transition hover:text-white"
                 href={getPortfolioPath(locale)}
@@ -70,8 +70,8 @@ export function ProjectDetailPage({
       {/* Screenshot + Overview */}
       <section className="py-12 sm:py-16">
         <div className="section-container grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
-          {/* Screenshot */}
-          <Reveal direction="left">
+          {/* Screenshot (first screen on every device, so no scroll reveal) */}
+          <Reveal direction="left" instant>
             <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
               {project.image ? (
                 <Image
@@ -94,7 +94,7 @@ export function ProjectDetailPage({
           </Reveal>
 
           {/* Overview */}
-          <Reveal direction="right">
+          <Reveal direction="right" instant>
             <div className="space-y-6">
               <div>
                 <h2 className="text-lg font-bold uppercase tracking-[0.14em] text-[#E8531A]">

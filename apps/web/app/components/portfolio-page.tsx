@@ -30,7 +30,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1B3A5C] via-[#1B3A5C] to-[#0F2440] pt-24 pb-14 sm:pt-32 sm:pb-20">
         <div className="section-container relative z-10">
           <ScrollParallax maxOffset={40}>
-            <Reveal direction="up">
+            <Reveal direction="up" instant>
               <Link
                 className="mb-6 inline-flex items-center gap-2 text-base font-semibold text-white/80 transition hover:text-white"
                 href="/"

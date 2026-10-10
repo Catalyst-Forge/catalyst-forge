@@ -59,7 +59,7 @@ export function ServiceLandingPage({
         />
         <div className="absolute inset-0 bg-[#163453]/88" />
         <div className="section-container relative z-10 flex min-h-[78svh] items-center py-14 sm:py-16 md:py-20">
-          <Reveal className="max-w-4xl" direction="up">
+          <Reveal className="max-w-4xl" direction="up" instant>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#FFB79C] sm:text-base">
               {page.eyebrow}
             </p>

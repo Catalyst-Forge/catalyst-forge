@@ -120,6 +120,13 @@ export default function RootLayout({
     // Locale layouts correct `lang` before hydration (see HtmlLang).
     <html lang="id" suppressHydrationWarning>
       <head>
+        {/* Lets scroll reveals hide content only when JavaScript runs; if the
+            bundle never hydrates, drop the class so nothing stays hidden. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("reveal-ready");setTimeout(function(){if(!window.__revealHydrated)document.documentElement.classList.remove("reveal-ready")},4000);`,
+          }}
+        />
         {gaId && (
           <script
             id="ga4-consent"

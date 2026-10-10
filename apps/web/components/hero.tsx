@@ -55,28 +55,28 @@ export function Hero({ messages }: HeroProps) {
 
       <div className="section-container relative grid min-h-0 items-center gap-10 py-11 min-[390px]:py-12 sm:min-h-[calc(100svh-5rem)] sm:py-20 lg:min-h-[680px] lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:py-28">
         <ParallaxLayer
-          className="fade-in max-w-4xl"
+          className="max-w-4xl"
           maxOffset={64}
           speed={-0.08}
         >
-          <Reveal direction="left">
+          <Reveal instant direction="left">
             <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-tight text-white sm:mb-8 sm:gap-3 sm:px-5 sm:py-3 sm:text-base">
               <Building2 className="h-4 w-4 shrink-0 text-[#F4784A] sm:h-5 sm:w-5" />
               {heroLabels.badge}
             </div>
           </Reveal>
-          <Reveal delay={90} direction="left">
+          <Reveal instant delay={90} direction="left">
             <h1 className="max-w-4xl text-[1.9rem] font-bold leading-[1.1] tracking-tight min-[390px]:text-3xl sm:text-5xl lg:text-6xl">
               {messages.hero.headline}
             </h1>
           </Reveal>
-          <Reveal delay={170} direction="left">
+          <Reveal instant delay={170} direction="left">
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/88 sm:mt-7 md:text-xl">
               {messages.hero.subheadline}
             </p>
           </Reveal>
 
-          <Reveal delay={250} direction="left">
+          <Reveal instant delay={250} direction="left">
             <div className="mt-7 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
               <a
                 className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
@@ -97,6 +97,7 @@ export function Hero({ messages }: HeroProps) {
           <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-9 sm:gap-3">
             {messages.hero.trustIndicators.map((indicator, index) => (
               <Reveal
+                instant
                 delay={320 + index * 70}
                 direction={index % 2 === 0 ? "left" : "right"}
                 key={indicator}
@@ -114,7 +115,7 @@ export function Hero({ messages }: HeroProps) {
           maxOffset={88}
           speed={0.12}
         >
-          <Reveal direction="right">
+          <Reveal instant direction="right">
             <div className="motion-float-slow relative rounded-lg border border-white/16 bg-white/10 p-4 shadow-2xl backdrop-blur">
               <div className="motion-sheen rounded-lg bg-white p-5 text-[#1A1A2E] shadow-xl">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4">

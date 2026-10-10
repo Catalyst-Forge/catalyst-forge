@@ -123,40 +123,73 @@
     opacity: 1;
   }
 
+  /*
+   * Scroll reveals only hide content once the root layout's inline script has
+   * marked <html> with .reveal-ready, i.e. JavaScript is running. Without it
+   * (no JS, or the bundle failed to load) everything stays visible.
+   */
   .reveal-motion {
-    opacity: 0;
     transition:
       opacity 720ms cubic-bezier(0.2, 0.8, 0.2, 1),
       transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .reveal-ready .reveal-motion:not(.is-visible) {
+    opacity: 0;
     will-change: opacity, transform;
   }
 
-  .reveal-motion.is-visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  .reveal-left {
+  .reveal-ready .reveal-left:not(.is-visible) {
     transform: translate3d(-54px, 0, 0) scale(0.985);
   }
 
-  .reveal-right {
+  .reveal-ready .reveal-right:not(.is-visible) {
     transform: translate3d(54px, 0, 0) scale(0.985);
   }
 
-  .reveal-up {
+  .reveal-ready .reveal-up:not(.is-visible) {
     transform: translate3d(0, 34px, 0) scale(0.985);
   }
 
-  .reveal-fade {
+  .reveal-ready .reveal-fade:not(.is-visible) {
     transform: scale(0.99);
+  }
+
+  /*
+   * Above-the-fold content: visible from the first paint (so it can count as
+   * the LCP element) with a CSS-only slide that needs no JavaScript.
+   */
+  .reveal-instant {
+    animation: reveal-slide 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .reveal-instant-left {
+    --reveal-from: translate3d(-24px, 0, 0);
+  }
+
+  .reveal-instant-right {
+    --reveal-from: translate3d(24px, 0, 0);
+  }
+
+  .reveal-instant-up {
+    --reveal-from: translate3d(0, 16px, 0);
+  }
+
+  .reveal-instant-fade {
+    --reveal-from: scale(0.99);
   }
 }
 
 @media (max-width: 767px) {
-  .reveal-left,
-  .reveal-right {
+  .reveal-ready .reveal-left:not(.is-visible),
+  .reveal-ready .reveal-right:not(.is-visible) {
     transform: translate3d(0, 26px, 0) scale(0.99);
+  }
+}
+
+@keyframes reveal-slide {
+  from {
+    transform: var(--reveal-from, translate3d(0, 16px, 0));
   }
 }
 
@@ -213,7 +246,8 @@
   .motion-float-slow,
   .motion-rise,
   .product-card-motion,
-  .reveal-motion {
+  .reveal-motion,
+  .reveal-instant {
     animation: none;
     opacity: 1;
     transform: none;

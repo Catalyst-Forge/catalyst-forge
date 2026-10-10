@@ -16,18 +16,37 @@ type RevealProps = {
   className?: string;
   delay?: number;
   direction?: RevealDirection;
+  /**
+   * For above-the-fold content: render visible immediately with a CSS-only
+   * entrance instead of waiting for hydration and the IntersectionObserver.
+   */
+  instant?: boolean;
 };
+
+declare global {
+  interface Window {
+    __revealHydrated?: boolean;
+  }
+}
 
 export function Reveal({
   children,
   className,
   delay = 0,
   direction = "up",
+  instant = false,
 }: RevealProps) {
   const elementRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Tells the root layout's fallback timer that reveals are working.
+    window.__revealHydrated = true;
+
+    if (instant) {
+      return;
+    }
+
     const element = elementRef.current;
 
     if (!element) {
@@ -52,7 +71,22 @@ export function Reveal({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [instant]);
+
+  if (instant) {
+    return (
+      <div
+        className={cn(
+          "reveal-instant",
+          `reveal-instant-${direction}`,
+          className,
+        )}
+        style={{ animationDelay: `${delay}ms` } as CSSProperties}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div
