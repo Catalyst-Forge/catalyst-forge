@@ -117,7 +117,8 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="id">
+    // Locale layouts correct `lang` before hydration (see HtmlLang).
+    <html lang="id" suppressHydrationWarning>
       <head>
         {gaId && (
           <script
