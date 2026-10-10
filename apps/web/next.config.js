@@ -18,6 +18,20 @@ const nextConfig = {
   },
   transpilePackages: ["@repo/ui", "@repo/config"],
   headers,
+  // Old standalone pages that now live as sections of the homepage.
+  async redirects() {
+    const sections = {
+      products: "products",
+      process: "process",
+      testimonials: "projects",
+      contact: "contact",
+    };
+
+    return Object.entries(sections).flatMap(([path, section]) => [
+      { source: `/${path}`, destination: `/#${section}`, permanent: true },
+      { source: `/en/${path}`, destination: `/en#${section}`, permanent: true },
+    ]);
+  },
 };
 
 module.exports = nextConfig;
