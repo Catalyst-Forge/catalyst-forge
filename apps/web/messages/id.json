@@ -292,12 +292,17 @@
   "aboutPage": {
     "metadata": {
       "title": "Tentang Kami",
-      "description": "Kenali tim di balik CatalystForge — tim teknologi yang membangun solusi digital untuk bisnis Indonesia."
+      "description": "Kenali tim CatalystForge: kepemimpinan bisnis, arsitektur teknologi, operasional, dan strategi yang membangun solusi digital untuk bisnis Indonesia."
     },
     "hero": {
       "eyebrow": "Tentang Kami",
       "headline": "Tim di Balik Solusi Digital Anda",
-      "subheadline": "Kami adalah tim engineer, programmer, dan spesialis teknologi yang menggabungkan keahlian AI, software engineering, dan enterprise system development untuk membangun solusi yang andal dan scalable."
+      "subheadline": "Kepemimpinan bisnis, arsitektur teknologi, eksekusi operasional, dan strategi pasar dalam satu tim yang terlibat langsung di setiap project, dari diskusi pertama sampai sistem berjalan.",
+      "stats": [
+        { "value": "50+", "label": "Project dari berbagai industri" },
+        { "value": "5", "label": "Lini solusi: website, CRM, HRIS, POS, dan AI" },
+        { "value": "Bandung", "label": "Basis tim, melayani seluruh Indonesia" }
+      ]
     },
     "team": {
       "headline": "Kenali Tim Kami",

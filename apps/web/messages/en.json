@@ -292,12 +292,17 @@
   "aboutPage": {
     "metadata": {
       "title": "About Us",
-      "description": "Meet the team behind CatalystForge — the tech team building digital solutions for Indonesian businesses."
+      "description": "Meet the CatalystForge team: business leadership, technology architecture, operations, and strategy building digital solutions for Indonesian businesses."
     },
     "hero": {
       "eyebrow": "About Us",
       "headline": "The Team Behind Your Digital Solutions",
-      "subheadline": "We are a team of engineers, programmers, and technology specialists combining AI, software engineering, and enterprise system development expertise to build reliable and scalable solutions."
+      "subheadline": "Business leadership, technology architecture, operational execution, and market strategy in one team that is hands-on in every project, from the first conversation to a running system.",
+      "stats": [
+        { "value": "50+", "label": "Projects across industries" },
+        { "value": "5", "label": "Solution lines: websites, CRM, HRIS, POS, and AI" },
+        { "value": "Bandung", "label": "Home base, serving all of Indonesia" }
+      ]
     },
     "team": {
       "headline": "Meet Our Team",

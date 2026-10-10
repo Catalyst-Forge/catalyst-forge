@@ -27,6 +27,22 @@ export function AboutPage({ messages }: { messages: Messages }) {
             {a.hero.subheadline}
           </p>
         </div>
+
+        <dl className="mx-auto mt-12 grid max-w-4xl gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
+          {a.hero.stats.map((stat) => (
+            <div
+              key={stat.value}
+              className="flex flex-col-reverse items-center gap-1 bg-white px-6 py-6 text-center"
+            >
+              <dt className="text-sm leading-snug text-[#1A1A2E]/70">
+                {stat.label}
+              </dt>
+              <dd className="font-heading text-3xl font-extrabold tracking-tight text-[#1B3A5C]">
+                {stat.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Team Section */}
