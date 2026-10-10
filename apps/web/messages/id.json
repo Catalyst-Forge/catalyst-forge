@@ -348,13 +348,19 @@
       "headline": "Project yang Kami Bangun",
       "subheadline": "Dari sistem procurement enterprise hingga AI chatbot — setiap project dirancang untuk menyelesaikan masalah bisnis nyata dengan hasil yang terukur."
     },
-    "catAll": "Semua",
-    "categories": ["All", "Enterprise", "Research", "Healthcare", "Product", "AI"],
+    "clientSection": {
+      "eyebrow": "Project Klien",
+      "headline": "Dibangun untuk klien kami",
+      "subtext": "Sistem yang dipakai organisasi nyata, dari enterprise dan riset hingga layanan kesehatan."
+    },
+    "productSection": {
+      "eyebrow": "Produk & Demo",
+      "headline": "Produk yang bisa Anda coba langsung",
+      "subtext": "Sistem siap pakai buatan CatalystForge yang bisa disesuaikan dengan proses bisnis Anda."
+    },
     "metricsLabel": "Highlights",
     "viewDemo": "Lihat Demo",
     "viewDetail": "Lihat Detail",
-    "internalProject": "Project Internal",
-    "noProjects": "Belum ada project di kategori ini.",
     "cta": {
       "headline": "Punya ide project seperti di atas?",
       "subtext": "Ceritakan kebutuhan bisnis Anda. Kami bantu realisasikan dari konsep sampai production.",
@@ -363,6 +369,7 @@
     "projects": [
       {
         "slug": "procurement-hte",
+        "kind": "client",
         "title": "Procurement HTE",
         "client": "PT Patra Drilling Contractor",
         "category": "Enterprise",
@@ -378,6 +385,7 @@
       },
       {
         "slug": "sistem-pakar-udang",
+        "kind": "client",
         "title": "Sistem Pakar Udang Vaname",
         "client": "Al Hilal Hamzi — Universitas Malikussaleh",
         "category": "Research",
@@ -393,6 +401,7 @@
       },
       {
         "slug": "pomeng-chatbot",
+        "kind": "client",
         "title": "Pomeng Chatbot",
         "client": "RS Prima Inti Medika",
         "category": "Healthcare",
@@ -408,6 +417,7 @@
       },
       {
         "slug": "crm-demo",
+        "kind": "product",
         "title": "CRM System",
         "client": "CatalystForge",
         "category": "Product",
@@ -421,6 +431,7 @@
       },
       {
         "slug": "hris-demo",
+        "kind": "product",
         "title": "HRIS System",
         "client": "CatalystForge",
         "category": "Product",
@@ -434,6 +445,7 @@
       },
       {
         "slug": "pos-demo",
+        "kind": "product",
         "title": "POS System",
         "client": "CatalystForge",
         "category": "Product",
@@ -447,6 +459,7 @@
       },
       {
         "slug": "ai-support-demo",
+        "kind": "product",
         "title": "AI Support Console",
         "client": "CatalystForge",
         "category": "AI",
@@ -460,6 +473,7 @@
       },
       {
         "slug": "company-profile-demo",
+        "kind": "product",
         "title": "Company Profile System",
         "client": "CatalystForge",
         "category": "Product",
