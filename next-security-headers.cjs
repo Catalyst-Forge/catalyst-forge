@@ -1,8 +1,12 @@
+// Next.js only needs eval() in development (React Refresh). Production builds
+// run without it, so keep 'unsafe-eval' out of the policy they ship with.
+const scriptEval = process.env.NODE_ENV === "production" ? "" : " 'unsafe-eval'";
+
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.resend.com https://generativelanguage.googleapis.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+      `default-src 'self'; script-src 'self' 'unsafe-inline'${scriptEval} https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.resend.com https://generativelanguage.googleapis.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';`,
   },
   {
     key: "X-Content-Type-Options",
