@@ -13,6 +13,7 @@ import { type Messages } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 import { ScrollParallax } from "@/components/scroll-parallax";
 import { getPortfolioPath } from "@/lib/locale-paths";
+import { ProjectCover } from "@/app/components/project-cover";
 
 type ProjectDetailPageProps = {
   messages: Messages;
@@ -81,10 +82,12 @@ export function ProjectDetailPage({
                   width={900}
                 />
               ) : (
-                <div className="flex h-[300px] items-center justify-center bg-gradient-to-br from-[#1B3A5C] to-[#0F2440]">
-                  <span className="text-5xl font-black text-white/8">
-                    {project.client.split(" ")[0]}
-                  </span>
+                <div className="h-[300px]">
+                  <ProjectCover
+                    category={project.category}
+                    client={project.client}
+                    size="large"
+                  />
                 </div>
               )}
             </div>

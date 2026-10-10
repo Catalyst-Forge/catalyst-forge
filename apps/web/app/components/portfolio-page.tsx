@@ -10,6 +10,7 @@ import { type Messages } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 import { ScrollParallax } from "@/components/scroll-parallax";
 import { getPortfolioPath } from "@/lib/locale-paths";
+import { ProjectCover } from "@/app/components/project-cover";
 
 type PortfolioPageProps = {
   messages: Messages;
@@ -183,11 +184,10 @@ function ProjectCard({
               src={project.image}
             />
           ) : (
-            <div className="flex h-full items-center justify-center">
-              <span className="text-4xl font-black text-white/10">
-                {project.client.split(" ")[0]}
-              </span>
-            </div>
+            <ProjectCover
+              category={project.category}
+              client={project.client}
+            />
           )}
           {project.demoUrl ? (
             <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-white backdrop-blur transition hover:bg-white/25">
