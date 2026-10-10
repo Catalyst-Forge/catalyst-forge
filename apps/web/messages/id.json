@@ -295,6 +295,7 @@
       "description": "Kenali tim di balik CatalystForge — tim teknologi yang membangun solusi digital untuk bisnis Indonesia."
     },
     "hero": {
+      "eyebrow": "Tentang Kami",
       "headline": "Tim di Balik Solusi Digital Anda",
       "subheadline": "Kami adalah tim engineer, programmer, dan spesialis teknologi yang menggabungkan keahlian AI, software engineering, dan enterprise system development untuk membangun solusi yang andal dan scalable."
     },

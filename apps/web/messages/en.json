@@ -295,6 +295,7 @@
       "description": "Meet the team behind CatalystForge — the tech team building digital solutions for Indonesian businesses."
     },
     "hero": {
+      "eyebrow": "About Us",
       "headline": "The Team Behind Your Digital Solutions",
       "subheadline": "We are a team of engineers, programmers, and technology specialists combining AI, software engineering, and enterprise system development expertise to build reliable and scalable solutions."
     },

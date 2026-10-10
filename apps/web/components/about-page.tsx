@@ -18,7 +18,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
       <section className="section-container section-padding">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-base font-bold uppercase tracking-[0.16em] text-[#D0490F]">
-            About
+            {a.hero.eyebrow}
           </p>
           <h1 className="mt-4 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-[#1B3A5C] sm:text-5xl lg:text-6xl">
             {a.hero.headline}
