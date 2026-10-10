@@ -74,7 +74,11 @@ export function Navbar({ messages, locale }: NavbarProps) {
           >
             {messages.navbar.cta}
           </a>
-          <MobileMenu ctaLabel={messages.navbar.cta} items={navItems} />
+          <MobileMenu
+            ctaHref={`${prefix}/#contact`}
+            ctaLabel={messages.navbar.cta}
+            items={navItems}
+          />
         </div>
       </div>
     </header>

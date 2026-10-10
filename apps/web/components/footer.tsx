@@ -11,12 +11,14 @@ type FooterProps = {
 };
 
 export function Footer({ messages, locale }: FooterProps) {
+  // Absolute paths so the links also work on pages other than the homepage.
+  const prefix = locale === "en" ? "/en" : "";
   const navItems = [
-    { href: "#about", label: messages.navbar.about },
-    { href: "#products", label: messages.navbar.products },
-    { href: "#process", label: messages.navbar.howWeWork },
-    { href: "#projects", label: messages.navbar.testimonials },
-    { href: "#contact", label: messages.navbar.contact },
+    { href: `${prefix}/#about`, label: messages.navbar.about },
+    { href: `${prefix}/#products`, label: messages.navbar.products },
+    { href: `${prefix}/#process`, label: messages.navbar.howWeWork },
+    { href: `${prefix}/#projects`, label: messages.navbar.testimonials },
+    { href: `${prefix}/#contact`, label: messages.navbar.contact },
   ];
 
   return (

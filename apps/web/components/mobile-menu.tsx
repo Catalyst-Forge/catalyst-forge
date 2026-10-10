@@ -5,13 +5,14 @@ import { Menu, X } from "lucide-react";
 
 type MobileMenuProps = {
   ctaLabel: string;
+  ctaHref: string;
   items: Array<{
     href: string;
     label: string;
   }>;
 };
 
-export function MobileMenu({ ctaLabel, items }: MobileMenuProps) {
+export function MobileMenu({ ctaLabel, ctaHref, items }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -41,7 +42,7 @@ export function MobileMenu({ ctaLabel, items }: MobileMenuProps) {
             ))}
             <a
               className="mt-2 rounded-full bg-[#D0490F] px-4 py-3 text-center text-base font-bold text-white"
-              href="#contact"
+              href={ctaHref}
               onClick={() => setIsOpen(false)}
             >
               {ctaLabel}
