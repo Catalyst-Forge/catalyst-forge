@@ -9,7 +9,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
     { ...a.team.bagas, photo: "/team/bagas.jpg" },
     { ...a.team.alana },
     { ...a.team.hambali, photo: "/team/hambali-avatar.jpg" },
-    { ...a.team.faiz },
+    { ...a.team.faiz, photo: "/team/faiz-avatar.jpg" },
   ];
 
   return (
