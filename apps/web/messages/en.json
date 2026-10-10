@@ -415,7 +415,7 @@
         "summary": "Customer Relationship Management for pipeline management, follow-ups, and customer retention. Role-based dashboard with real-time reporting.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["End-to-end pipeline management", "Real-time dashboard reporting", "Role-based access control"],
-        "image": "/images/portfolio/crm.png",
+        "image": "/images/portfolio/crm.webp",
         "features": ["Sales pipeline dashboard", "Account & contact management", "Task & follow-up tracking", "Real-time reporting & analytics", "Role-based access control", "Data export"],
         "demoUrl": "https://crm.catalystforge.web.id"
       },
@@ -428,7 +428,7 @@
         "summary": "Integrated Human Resource Information System — employee data, attendance, payroll, performance review, and attendance tracking.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Centralized employee data", "Integrated attendance & payroll", "Performance dashboard"],
-        "image": "/images/portfolio/hris.png",
+        "image": "/images/portfolio/hris.webp",
         "features": ["Centralized employee data", "Attendance tracking", "Payroll management", "Performance review", "Organization & departments", "HR analytics dashboard"],
         "demoUrl": "https://hris.catalystforge.web.id"
       },
@@ -441,7 +441,7 @@
         "summary": "Modern Point of Sale for cashier transactions, multi-branch inventory management, and daily sales reporting.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "FastAPI"],
         "metrics": ["Real-time cashier transactions", "Multi-branch inventory", "Automated sales reports"],
-        "image": "/images/portfolio/pos.png",
+        "image": "/images/portfolio/pos.webp",
         "features": ["Fast checkout transactions", "Multi-branch inventory", "Daily sales reports", "Product & price management", "Multiple payment methods", "Real-time data sync"],
         "demoUrl": "https://pos.catalystforge.web.id"
       },
@@ -454,7 +454,7 @@
         "summary": "AI-powered customer support dashboard with chat interface, knowledge base management, and conversation analytics.",
         "tech": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "FastAPI"],
         "metrics": ["Integrated AI chatbot", "Structured knowledge base", "Conversation analytics"],
-        "image": "/images/portfolio/ai-support.png",
+        "image": "/images/portfolio/ai-support.webp",
         "features": ["Interactive AI chatbot", "Knowledge base management", "Conversation analytics", "Multi-channel support", "Human handoff", "Monitoring dashboard"],
         "demoUrl": "https://ai.catalystforge.web.id"
       },
@@ -467,7 +467,7 @@
         "summary": "Professional corporate website with multi-page structure — about, operations, governance, sustainability, and contact.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
         "metrics": ["Multi-page corporate site", "Professional animations", "Mobile responsive"],
-        "image": "/images/portfolio/company.png",
+        "image": "/images/portfolio/company.webp",
         "features": ["Multi-page structure", "Smooth scroll animations", "Mobile responsive", "SEO optimized", "Contact form", "Brand consistency"],
         "demoUrl": "https://company.catalystforge.web.id"
       }
