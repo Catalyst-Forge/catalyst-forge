@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
 import { getPortfolioProjectPaths } from "@/lib/portfolio-paths";
@@ -8,6 +9,14 @@ import { Footer } from "@/components/footer";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 
 type Params = { slug: string; locale: string };
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getMessages("en").portfolioPage.projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -42,13 +51,14 @@ export default async function ProjectDetailEnPage({
     (p) => p.slug === slug,
   );
 
+  if (!project) notFound();
+
   return (
     <>
       <Navbar messages={messages} locale="en" />
       <ProjectDetailPage
         locale="en"
         messages={messages}
-        notFound={!project}
         slug={slug}
       />
       <Footer messages={messages} locale="en" />

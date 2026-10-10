@@ -18,39 +18,18 @@ type ProjectDetailPageProps = {
   messages: Messages;
   locale: "id" | "en";
   slug: string;
-  notFound: boolean;
 };
 
 export function ProjectDetailPage({
   messages,
   locale,
   slug,
-  notFound,
 }: ProjectDetailPageProps) {
   const p = messages.portfolioPage;
   const project = p.projects.find((proj) => proj.slug === slug);
 
-  if (notFound || !project) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-[#FAF8F5]">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#1B3A5C]">404</h1>
-          <p className="mt-3 text-lg text-[#1A1A2E]/60">
-            {locale === "id"
-              ? "Project tidak ditemukan."
-              : "Project not found."}
-          </p>
-          <Link
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#D0490F] px-6 py-3 text-base font-bold text-white transition hover:bg-[#F4784A]"
-            href={getPortfolioPath(locale)}
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {locale === "id" ? "Kembali ke Portfolio" : "Back to Portfolio"}
-          </Link>
-        </div>
-      </main>
-    );
-  }
+  // The route calls notFound() before rendering an unknown slug.
+  if (!project) return null;
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
@@ -64,9 +43,7 @@ export function ProjectDetailPage({
                 href={getPortfolioPath(locale)}
               >
                 <ArrowLeft className="h-4 w-4" />
-                {locale === "id"
-                  ? "Kembali ke Portfolio"
-                  : "Back to Portfolio"}
+                {locale === "id" ? "Kembali ke Portfolio" : "Back to Portfolio"}
               </Link>
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-[#FFF4EF] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#E8531A]">
@@ -160,7 +137,7 @@ export function ProjectDetailPage({
       </section>
 
       {/* Problem / Solution / Impact */}
-      {(project.problem || project.solution || project.impact) ? (
+      {project.problem || project.solution || project.impact ? (
         <section className="py-12 sm:py-16 bg-white">
           <div className="section-container grid gap-8 md:grid-cols-3">
             {project.problem ? (

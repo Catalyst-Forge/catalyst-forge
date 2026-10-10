@@ -16,7 +16,6 @@ import {
   DEFAULT_LOCALE,
   getMessages,
   isLocale,
-  LOCALES,
   type Locale,
 } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
@@ -26,14 +25,6 @@ type LocalePageProps = {
     locale: string;
   }>;
 };
-
-export function generateStaticParams() {
-  return LOCALES.filter((locale) => locale !== DEFAULT_LOCALE).map(
-    (locale) => ({
-      locale,
-    }),
-  );
-}
 
 export async function generateMetadata({
   params,

@@ -27,10 +27,19 @@ const nextConfig = {
       contact: "contact",
     };
 
-    return Object.entries(sections).flatMap(([path, section]) => [
-      { source: `/${path}`, destination: `/#${section}`, permanent: true },
-      { source: `/en/${path}`, destination: `/en#${section}`, permanent: true },
-    ]);
+    return [
+      ...Object.entries(sections).flatMap(([path, section]) => [
+        { source: `/${path}`, destination: `/#${section}`, permanent: true },
+        {
+          source: `/en/${path}`,
+          destination: `/en#${section}`,
+          permanent: true,
+        },
+      ]),
+      // Indonesian is served without a prefix.
+      { source: "/id", destination: "/", permanent: true },
+      { source: "/id/:path*", destination: "/:path*", permanent: true },
+    ];
   },
 };
 
