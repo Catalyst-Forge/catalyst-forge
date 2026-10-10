@@ -15,9 +15,11 @@ export function Footer({ messages, locale }: FooterProps) {
   const prefix = locale === "en" ? "/en" : "";
   const navItems = [
     { href: `${prefix}/#about`, label: messages.navbar.about },
+    { href: `${prefix}/about`, label: messages.navbar.team },
     { href: `${prefix}/#products`, label: messages.navbar.products },
     { href: `${prefix}/#process`, label: messages.navbar.howWeWork },
     { href: `${prefix}/#projects`, label: messages.navbar.testimonials },
+    { href: `${prefix}/portfolio`, label: messages.navbar.portfolio },
     { href: `${prefix}/#contact`, label: messages.navbar.contact },
   ];
 
