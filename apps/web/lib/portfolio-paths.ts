@@ -1,8 +1,5 @@
 import { getMessages, LOCALES, type Locale } from "@/lib/i18n";
-
-function projectPath(locale: Locale, slug: string) {
-  return locale === "id" ? `/portfolio/${slug}` : `/${locale}/portfolio/${slug}`;
-}
+import { getPortfolioPath } from "@/lib/locale-paths";
 
 /**
  * Paths of every language version of a portfolio project. Projects are paired
@@ -23,7 +20,9 @@ export function getPortfolioProjectPaths(
 
   for (const candidate of LOCALES) {
     const counterpart = getMessages(candidate).portfolioPage.projects[index];
-    if (counterpart) paths[candidate] = projectPath(candidate, counterpart.slug);
+    if (counterpart) {
+      paths[candidate] = getPortfolioPath(candidate, counterpart.slug);
+    }
   }
 
   return paths;
@@ -33,7 +32,7 @@ export function getPortfolioProjectPaths(
 export function getAllPortfolioProjectPaths(): string[] {
   return LOCALES.flatMap((locale) =>
     getMessages(locale).portfolioPage.projects.map((project) =>
-      projectPath(locale, project.slug),
+      getPortfolioPath(locale, project.slug),
     ),
   );
 }

@@ -12,6 +12,7 @@ import {
 import { type Messages } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 import { ScrollParallax } from "@/components/scroll-parallax";
+import { getPortfolioPath } from "@/lib/locale-paths";
 
 type ProjectDetailPageProps = {
   messages: Messages;
@@ -41,7 +42,7 @@ export function ProjectDetailPage({
           </p>
           <Link
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#D0490F] px-6 py-3 text-base font-bold text-white transition hover:bg-[#F4784A]"
-            href="/portfolio"
+            href={getPortfolioPath(locale)}
           >
             <ArrowLeft className="h-4 w-4" />
             {locale === "id" ? "Kembali ke Portfolio" : "Back to Portfolio"}
@@ -60,7 +61,7 @@ export function ProjectDetailPage({
             <Reveal direction="up">
               <Link
                 className="mb-6 inline-flex items-center gap-2 text-base font-semibold text-white/80 transition hover:text-white"
-                href="/portfolio"
+                href={getPortfolioPath(locale)}
               >
                 <ArrowLeft className="h-4 w-4" />
                 {locale === "id"

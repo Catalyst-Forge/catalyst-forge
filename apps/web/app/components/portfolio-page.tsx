@@ -18,6 +18,7 @@ import {
 import { type Messages } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 import { ScrollParallax } from "@/components/scroll-parallax";
+import { getPortfolioPath } from "@/lib/locale-paths";
 
 type PortfolioPageProps = {
   messages: Messages;
@@ -107,7 +108,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                   {/* Thumbnail */}
                   <Link
                     className="relative block h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-[#1B3A5C] to-[#0F2440]"
-                    href={`/portfolio/${project.slug}`}
+                    href={getPortfolioPath(locale, project.slug)}
                   >
                     {project.image ? (
                       <Image
@@ -148,7 +149,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
 
                     <Link
                       className="mt-3 block text-xl font-bold tracking-tight text-[#1B3A5C] hover:text-[#E8531A] transition-colors"
-                      href={`/portfolio/${project.slug}`}
+                      href={getPortfolioPath(locale, project.slug)}
                     >
                       {project.title}
                     </Link>
@@ -205,7 +206,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                       ) : (
                         <Link
                           className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#FAF8F5] px-5 py-2.5 text-sm font-bold text-[#1B3A5C]/75 transition hover:bg-white hover:border-[#E8531A]/30"
-                          href={`/portfolio/${project.slug}`}
+                          href={getPortfolioPath(locale, project.slug)}
                         >
                           {p.viewDetail}
                           <ArrowRight className="h-4 w-4" />
