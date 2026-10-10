@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import { getMessages } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/page-metadata";
 import { PortfolioPage } from "@/app/components/portfolio-page";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Project Portfolio | CatalystForge",
   description:
     "CatalystForge project showcase — from enterprise systems & research to healthcare solutions.",
-};
+  locale: "en",
+  path: "/en/portfolio",
+  languages: { id: "/portfolio", en: "/en/portfolio" },
+});
 
 export default function PortfolioEnPage() {
   const messages = getMessages("en");

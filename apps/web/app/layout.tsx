@@ -25,13 +25,6 @@ export const metadata: Metadata = {
     "POS",
     "AI automation",
   ],
-  alternates: {
-    canonical: "/",
-    languages: {
-      id: "/",
-      en: "/en",
-    },
-  },
   openGraph: {
     title: "CatalystForge | Solusi Digital Terpadu",
     description:
@@ -45,7 +38,6 @@ export const metadata: Metadata = {
       },
     ],
     locale: "id_ID",
-    url: siteUrl,
     siteName: "CatalystForge",
     type: "website",
   },

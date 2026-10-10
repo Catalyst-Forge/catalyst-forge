@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Ketentuan Layanan",
   description:
     "Ketentuan layanan CatalystForge — syarat dan ketentuan penggunaan situs dan layanan kami.",
+  locale: "id",
+  path: "/terms",
+  languages: { id: "/terms", en: "/en/terms" },
   robots: "noindex, follow",
-};
+});
 
 export default function TermsPage() {
   return (

@@ -4,14 +4,18 @@ import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { getMessages } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/page-metadata";
 
 const locale = "en" as const;
 const messages = getMessages(locale);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: messages.aboutPage.metadata.title,
   description: messages.aboutPage.metadata.description,
-};
+  locale,
+  path: "/en/about",
+  languages: { id: "/about", en: "/en/about" },
+});
 
 export default function AboutEn() {
   return (

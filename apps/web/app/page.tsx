@@ -12,13 +12,17 @@ import { Products } from "@/components/products";
 import { TrustBar } from "@/components/trust-bar";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { DEFAULT_LOCALE, getMessages } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/page-metadata";
 
 const messages = getMessages(DEFAULT_LOCALE);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: messages.metadata.title,
   description: messages.metadata.description,
-};
+  locale: DEFAULT_LOCALE,
+  path: "/",
+  languages: { id: "/", en: "/en" },
+});
 
 export default function Home() {
   return (

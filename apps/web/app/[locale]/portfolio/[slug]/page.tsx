@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getMessages } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/page-metadata";
 import { ProjectDetailPage } from "@/app/components/project-detail-page";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -20,10 +21,13 @@ export async function generateMetadata({
 
   if (!project) return { title: "404 | CatalystForge" };
 
-  return {
+  return createPageMetadata({
     title: `${project.title} — ${project.client} | CatalystForge Portfolio`,
     description: project.summary,
-  };
+    locale: "en",
+    path: `/en/portfolio/${slug}`,
+    languages: { id: `/portfolio/${slug}`, en: `/en/portfolio/${slug}` },
+  });
 }
 
 export default async function ProjectDetailEnPage({

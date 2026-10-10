@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Kebijakan Privasi",
   description:
     "Kebijakan privasi CatalystForge — bagaimana kami mengumpulkan, menggunakan, dan melindungi data Anda.",
+  locale: "id",
+  path: "/privacy",
+  languages: { id: "/privacy", en: "/en/privacy" },
   robots: "noindex, follow",
-};
+});
 
 export default function PrivacyPage() {
   return (

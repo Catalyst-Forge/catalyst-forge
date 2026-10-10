@@ -19,6 +19,7 @@ import {
   LOCALES,
   type Locale,
 } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/page-metadata";
 
 type LocalePageProps = {
   params: Promise<{
@@ -45,10 +46,13 @@ export async function generateMetadata({
 
   const messages = getMessages(localeParam);
 
-  return {
+  return createPageMetadata({
     title: messages.metadata.title,
     description: messages.metadata.description,
-  };
+    locale: localeParam,
+    path: `/${localeParam}`,
+    languages: { id: "/", [localeParam]: `/${localeParam}` },
+  });
 }
 
 export default async function LocalePage({ params }: LocalePageProps) {
