@@ -93,11 +93,13 @@ cert_covers_names() {
   local cert_file="/etc/letsencrypt/live/$primary_server_name/fullchain.pem"
   local name
 
-  [[ -f "$cert_file" ]] || return 1
+  # /etc/letsencrypt/live is root-only (0700). Without sudo this check fails
+  # when the script runs as ubuntu, and nginx gets an HTTP-only config.
+  sudo test -f "$cert_file" || return 1
   command -v openssl >/dev/null 2>&1 || return 1
 
   for name in $server_names; do
-    if ! openssl x509 -in "$cert_file" -noout -checkhost "$name" 2>/dev/null | grep -q "does match"; then
+    if ! sudo openssl x509 -in "$cert_file" -noout -checkhost "$name" 2>/dev/null | grep -q "does match"; then
       return 1
     fi
   done
