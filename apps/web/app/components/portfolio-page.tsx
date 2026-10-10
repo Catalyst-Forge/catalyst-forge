@@ -253,11 +253,19 @@ function ProjectCard({
             </div>
           </div>
 
-          {/* CTA to detail or demo */}
+          {/* Client work leads to its case study; demos are a secondary action. */}
           <div className="mt-auto pt-5">
-            {project.demoUrl ? (
-              <a
+            {project.kind === "client" ? (
+              <Link
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#D0490F] px-5 py-2.5 text-sm font-bold text-white shadow transition hover:bg-[#F4784A]"
+                href={getPortfolioPath(locale, project.slug)}
+              >
+                {messages.portfolioPage.viewCaseStudy}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            ) : project.demoUrl ? (
+              <a
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#D0490F]/40 bg-white px-5 py-2.5 text-sm font-bold text-[#D0490F] transition hover:border-[#D0490F] hover:bg-[#FFF4EF]"
                 href={project.demoUrl}
                 rel="noopener noreferrer"
                 target="_blank"
