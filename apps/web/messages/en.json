@@ -501,5 +501,12 @@
     "copyright": "Copyright 2026 CatalystForge. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "cookieConsent": {
+    "title": "This site uses cookies.",
+    "body": "We only use essential cookies for basic site functions. By clicking “Accept All”, you also agree to optional analytics cookies in the future.",
+    "privacy": "Privacy Policy",
+    "essentialOnly": "Essential Only",
+    "acceptAll": "Accept All"
   }
 }

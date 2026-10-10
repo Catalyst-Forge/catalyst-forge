@@ -501,5 +501,12 @@
     "copyright": "Copyright 2026 CatalystForge. All rights reserved.",
     "privacy": "Kebijakan Privasi",
     "terms": "Ketentuan Layanan"
+  },
+  "cookieConsent": {
+    "title": "Situs ini menggunakan cookie.",
+    "body": "Kami hanya menggunakan cookie esensial untuk fungsi dasar situs. Dengan mengklik “Terima Semua”, Anda juga menyetujui cookie analitik opsional di masa mendatang.",
+    "privacy": "Kebijakan Privasi",
+    "essentialOnly": "Hanya Esensial",
+    "acceptAll": "Terima Semua"
   }
 }

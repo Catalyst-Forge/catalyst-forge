@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics";
 import { CookieConsentLoader } from "@/components/cookie-consent-loader";
 import { UtmCapture } from "@/components/utm-capture";
+import { getMessages } from "@/lib/i18n";
 import "./globals.css";
 
 const siteUrl = "https://catalystforge.web.id";
@@ -155,7 +156,12 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <CookieConsentLoader />
+        <CookieConsentLoader
+          copy={{
+            id: getMessages("id").cookieConsent,
+            en: getMessages("en").cookieConsent,
+          }}
+        />
         <UtmCapture />
         <script
           type="application/ld+json"

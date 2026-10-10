@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { CookieConsentCopy } from "@/components/cookie-consent";
 
 // Dynamic import with ssr:false — must live in a Client Component
 // in Next.js 15+ App Router. This ensures the cookie consent
@@ -12,6 +13,6 @@ const CookieConsent = dynamic(
   { ssr: false },
 );
 
-export function CookieConsentLoader() {
-  return <CookieConsent />;
+export function CookieConsentLoader({ copy }: { copy: CookieConsentCopy }) {
+  return <CookieConsent copy={copy} />;
 }

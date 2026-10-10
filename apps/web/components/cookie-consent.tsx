@@ -1,13 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import type { Locale, Messages } from "@/lib/i18n";
 
 type ConsentChoice = "all" | "essential" | null;
 
+/** Banner copy for every locale, passed down from the server layout. */
+export type CookieConsentCopy = Record<Locale, Messages["cookieConsent"]>;
+
 const STORAGE_KEY = "cf_cookie_consent";
 
-export function CookieConsent() {
+export function CookieConsent({ copy }: { copy: CookieConsentCopy }) {
+  const pathname = usePathname();
+  const locale: Locale =
+    pathname === "/en" || pathname.startsWith("/en/") ? "en" : "id";
+  const t = copy[locale];
   const [mounted, setMounted] = useState(false);
   const [choice, setChoice] = useState<ConsentChoice>(null);
 
@@ -49,17 +58,13 @@ export function CookieConsent() {
     <div className="cookie-banner-enter fixed inset-x-0 bottom-0 z-[9999] border-t border-slate-200 bg-white/95 shadow-2xl backdrop-blur">
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:py-4">
         <div className="min-w-0 text-sm leading-relaxed text-[#1A1A2E]/78">
-          <span className="font-bold text-[#1B3A5C]">
-            Situs ini menggunakan cookie.
-          </span>{" "}
-          Kami hanya menggunakan cookie esensial untuk fungsi dasar situs.
-          Dengan mengklik &ldquo;Terima Semua&rdquo;, Anda juga menyetujui
-          cookie analitik opsional di masa mendatang.{" "}
+          <span className="font-bold text-[#1B3A5C]">{t.title}</span>{" "}
+          {t.body}{" "}
           <Link
-            href="/privacy"
+            href={locale === "en" ? "/en/privacy" : "/privacy"}
             className="whitespace-nowrap font-semibold text-[#E8531A] underline transition hover:text-[#1B3A5C]"
           >
-            Kebijakan Privasi
+            {t.privacy}
           </Link>
         </div>
         <div className="flex shrink-0 items-center gap-2">
@@ -68,14 +73,14 @@ export function CookieConsent() {
             onClick={() => handleAccept("essential")}
             className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-[#1A1A2E] transition hover:bg-[#FAF8F5]"
           >
-            Hanya Esensial
+            {t.essentialOnly}
           </button>
           <button
             type="button"
             onClick={() => handleAccept("all")}
             className="rounded-full bg-[#D0490F] px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#D0490F]"
           >
-            Terima Semua
+            {t.acceptAll}
           </button>
         </div>
       </div>
