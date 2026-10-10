@@ -49,7 +49,7 @@
   },
   "about": {
     "eyebrow": "Tentang CatalystForge",
-    "title": "Company profile yang menjelaskan kredibilitas, kapabilitas, dan arah kerja",
+    "title": "Satu tim untuk wajah digital dan sistem internal bisnis Anda",
     "description": "Kami adalah tim teknologi yang membantu bisnis menyusun wajah digital yang profesional sekaligus membangun sistem internal yang mempercepat operasional.",
     "highlights": [
       "Berbasis di Bandung dengan layanan untuk bisnis Indonesia",
@@ -58,15 +58,15 @@
     ],
     "values": [
       {
-        "label": "Consultative",
+        "label": "Konsultatif",
         "text": "Kami mulai dari masalah bisnis, bukan dari template teknologi."
       },
       {
-        "label": "Reliable",
+        "label": "Andal",
         "text": "Setiap solusi disiapkan agar stabil, aman, dan mudah dirawat."
       },
       {
-        "label": "Scalable",
+        "label": "Skalabel",
         "text": "Arsitektur dibuat bertahap agar bisa berkembang mengikuti kebutuhan."
       }
     ],
@@ -232,13 +232,13 @@
     ]
   },
   "caseStudies": {
-    "eyebrow": "Project Experience",
+    "eyebrow": "Pengalaman Project",
     "title": "Studi kasus dari kebutuhan bisnis nyata",
     "description": "Setiap project diringkas berdasarkan konteks masalah, solusi yang dibangun, dan dampak operasional yang dituju.",
-    "problemLabel": "Problem",
-    "solutionLabel": "Solution",
-    "impactLabel": "Impact",
-    "metricsLabel": "Highlights",
+    "problemLabel": "Masalah",
+    "solutionLabel": "Solusi",
+    "impactLabel": "Dampak",
+    "metricsLabel": "Poin Utama",
     "portfolioCta": "Lihat Portfolio Lengkap",
     "items": [
       {
@@ -359,7 +359,7 @@
       "headline": "Produk yang bisa Anda coba langsung",
       "subtext": "Sistem siap pakai buatan CatalystForge yang bisa disesuaikan dengan proses bisnis Anda."
     },
-    "metricsLabel": "Highlights",
+    "metricsLabel": "Poin Utama",
     "viewDemo": "Coba Demo",
     "viewCaseStudy": "Lihat Studi Kasus",
     "viewDetail": "Lihat Detail",
