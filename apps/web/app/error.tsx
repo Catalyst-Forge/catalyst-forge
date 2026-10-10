@@ -1,8 +1,14 @@
 "use client";
 
-import { getMessages, DEFAULT_LOCALE } from "@/lib/i18n";
+import { usePathname } from "next/navigation";
+import type { Locale } from "@/lib/locales";
 
-const messages = getMessages(DEFAULT_LOCALE);
+// Kept out of messages/*.json on purpose: this boundary's chunk loads on every
+// page, and importing the dictionaries here would ship both of them with it.
+const retryLabel: Record<Locale, string> = {
+  id: "Coba Lagi",
+  en: "Try Again",
+};
 
 export default function Error({
   reset,
@@ -10,6 +16,10 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const pathname = usePathname();
+  const locale: Locale =
+    pathname === "/en" || pathname.startsWith("/en/") ? "en" : "id";
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#FAF8F5] p-6">
       <button
@@ -17,7 +27,7 @@ export default function Error({
         type="button"
         onClick={reset}
       >
-        {messages.error.retry}
+        {retryLabel[locale]}
       </button>
     </div>
   );

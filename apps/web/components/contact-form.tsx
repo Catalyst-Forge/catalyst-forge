@@ -8,7 +8,7 @@ import {
   MessageCircle,
   Send,
 } from "lucide-react";
-import { type Messages } from "@/lib/i18n";
+import type { Messages } from "@/lib/i18n";
 import { UTM_STORAGE_KEY, type StoredUtm } from "./utm-capture";
 
 type ContactFormProps = {
