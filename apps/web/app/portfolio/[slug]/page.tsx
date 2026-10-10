@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!project) return { title: "404 | CatalystForge" };
 
   return createPageMetadata({
-    title: `${project.title} — ${project.client} | Portfolio CatalystForge`,
+    title: `${project.title} — ${project.client} | Portofolio`,
     description: project.summary,
     locale: "id",
     path: `/portfolio/${slug}`,

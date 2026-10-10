@@ -27,8 +27,14 @@ export function createPageMetadata({
   languages,
   robots,
 }: PageMetadataInput): Metadata {
+  // Bypass the layout's "%s | CatalystForge" template so the brand never
+  // appears twice, and reuse the same full title for social cards.
+  const fullTitle = title.includes("CatalystForge")
+    ? title
+    : `${title} | CatalystForge`;
+
   return {
-    title,
+    title: { absolute: fullTitle },
     description,
     ...(robots ? { robots } : {}),
     alternates: {
@@ -43,7 +49,7 @@ export function createPageMetadata({
         : {}),
     },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       images: [
         {
@@ -60,7 +66,7 @@ export function createPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: ["/twitter-image"],
     },

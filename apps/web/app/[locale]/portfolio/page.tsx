@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Project Portfolio | CatalystForge",
+  title: "Project Portfolio",
   description:
     "CatalystForge project showcase — from enterprise systems & research to healthcare solutions.",
   locale: "en",
