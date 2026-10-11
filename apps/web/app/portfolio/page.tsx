@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 
+const alternateHrefs = { id: "/portfolio", en: "/en/portfolio" };
+
 export const metadata: Metadata = createPageMetadata({
   title: "Portofolio Project",
   description:
@@ -20,9 +22,9 @@ export default function PortfolioIdPage() {
 
   return (
     <>
-      <Navbar messages={messages} locale="id" />
+      <Navbar alternateHrefs={alternateHrefs} messages={messages} locale="id" />
       <PortfolioPage messages={messages} locale="id" />
-      <Footer messages={messages} locale="id" />
+      <Footer alternateHrefs={alternateHrefs} messages={messages} locale="id" />
       <FloatingWhatsapp messages={messages} />
     </>
   );

@@ -5,6 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
 
+const alternateHrefs = { id: "/privacy", en: "/en/privacy" };
+
 const messages = getMessages("en");
 
 export const metadata: Metadata = createPageMetadata({
@@ -21,7 +23,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function PrivacyPageEn() {
   return (
     <>
-      <Navbar messages={messages} locale="en" />
+      <Navbar alternateHrefs={alternateHrefs} messages={messages} locale="en" />
       <main
         className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
         id="main-content"
@@ -37,7 +39,9 @@ export default function PrivacyPageEn() {
 
           <section className="mt-10 space-y-8">
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">1. Data We Collect</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                1. Data We Collect
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 When you fill out the contact form on this site, we collect:
               </p>
@@ -48,13 +52,15 @@ export default function PrivacyPageEn() {
               </ul>
               <p className="mt-2 leading-relaxed text-[#1A1A2E]/78">
                 We do <strong>not</strong> collect sensitive data, payment
-                information, or personally identifiable information beyond what is
-                listed above.
+                information, or personally identifiable information beyond what
+                is listed above.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">2. Purpose of Data Collection</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                2. Purpose of Data Collection
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 The data you provide is used solely to:
               </p>
@@ -66,23 +72,27 @@ export default function PrivacyPageEn() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">3. Cookies and Tracking</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                3. Cookies and Tracking
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 This site only uses essential cookies required for basic site
                 functionality (such as language preferences). We do{" "}
                 <strong>not</strong> use third-party tracking cookies for
-                advertising unless you provide explicit consent through the cookie
-                banner.
+                advertising unless you provide explicit consent through the
+                cookie banner.
               </p>
               <p className="mt-2 leading-relaxed text-[#1A1A2E]/78">
-                If we enable analytics services (such as Google Analytics) in the
-                future, data will only be collected after you provide consent
-                through an opt-in mechanism.
+                If we enable analytics services (such as Google Analytics) in
+                the future, data will only be collected after you provide
+                consent through an opt-in mechanism.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">4. Data Storage and Security</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                4. Data Storage and Security
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Contact data is stored on our servers located on a VPS with
                 restricted access. We implement technical and organizational
@@ -92,19 +102,23 @@ export default function PrivacyPageEn() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">5. Data Sharing with Third Parties</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                5. Data Sharing with Third Parties
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                We do <strong>not</strong> sell, rent, or share your personal data
-                with third parties for marketing purposes. Data may only be shared
-                if required by applicable law or regulation.
+                We do <strong>not</strong> sell, rent, or share your personal
+                data with third parties for marketing purposes. Data may only be
+                shared if required by applicable law or regulation.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">6. Your Rights</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                6. Your Rights
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                Under Indonesia&apos;s Personal Data Protection Law (UU PDP), you have
-                the right to:
+                Under Indonesia&apos;s Personal Data Protection Law (UU PDP),
+                you have the right to:
               </p>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/78">
                 <li>Access your personal data we hold</li>
@@ -117,8 +131,8 @@ export default function PrivacyPageEn() {
             <div>
               <h2 className="text-xl font-bold text-[#1B3A5C]">7. Contact</h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                For questions about this privacy policy or data-related requests,
-                contact us at:
+                For questions about this privacy policy or data-related
+                requests, contact us at:
               </p>
               <p className="mt-2 font-semibold text-[#C4430D]">
                 catalystforgetechnology@gmail.com
@@ -127,7 +141,7 @@ export default function PrivacyPageEn() {
           </section>
         </article>
       </main>
-      <Footer messages={messages} locale="en" />
+      <Footer alternateHrefs={alternateHrefs} messages={messages} locale="en" />
       <FloatingWhatsapp messages={messages} />
     </>
   );

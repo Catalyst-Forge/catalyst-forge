@@ -5,6 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { DEFAULT_LOCALE, getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
 
+const alternateHrefs = { id: "/terms", en: "/en/terms" };
+
 const messages = getMessages(DEFAULT_LOCALE);
 
 export const metadata: Metadata = createPageMetadata({
@@ -21,7 +23,11 @@ export const metadata: Metadata = createPageMetadata({
 export default function TermsPage() {
   return (
     <>
-      <Navbar messages={messages} locale={DEFAULT_LOCALE} />
+      <Navbar
+        alternateHrefs={alternateHrefs}
+        messages={messages}
+        locale={DEFAULT_LOCALE}
+      />
       <main
         className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
         id="main-content"
@@ -37,17 +43,21 @@ export default function TermsPage() {
 
           <section className="mt-10 space-y-8">
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">1. Penerimaan Ketentuan</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                1. Penerimaan Ketentuan
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Dengan mengakses dan menggunakan situs CatalystForge
                 (catalystforge.web.id), Anda setuju untuk terikat oleh ketentuan
-                layanan ini. Jika Anda tidak setuju, mohon tidak menggunakan situs
-                ini.
+                layanan ini. Jika Anda tidak setuju, mohon tidak menggunakan
+                situs ini.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">2. Deskripsi Layanan</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                2. Deskripsi Layanan
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 CatalystForge menyediakan layanan pengembangan perangkat lunak
                 meliputi company profile, CRM, HRIS, POS, AI support, dashboard,
@@ -58,7 +68,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">3. Kekayaan Intelektual</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                3. Kekayaan Intelektual
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Seluruh konten di situs ini — termasuk teks, desain, logo, dan
                 kode demo — adalah milik CatalystForge dan dilindungi oleh hukum
@@ -69,26 +81,33 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">4. Batasan Tanggung Jawab</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                4. Batasan Tanggung Jawab
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                Situs dan kontennya disediakan &ldquo;sebagaimana adanya&rdquo; tanpa jaminan
-                apa pun. CatalystForge tidak bertanggung jawab atas kerugian
-                langsung, tidak langsung, insidental, atau konsekuensial yang
-                timbul dari penggunaan atau ketidakmampuan menggunakan situs ini.
+                Situs dan kontennya disediakan &ldquo;sebagaimana adanya&rdquo;
+                tanpa jaminan apa pun. CatalystForge tidak bertanggung jawab
+                atas kerugian langsung, tidak langsung, insidental, atau
+                konsekuensial yang timbul dari penggunaan atau ketidakmampuan
+                menggunakan situs ini.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">5. Tautan ke Situs Pihak Ketiga</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                5. Tautan ke Situs Pihak Ketiga
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                Situs ini mungkin berisi tautan ke situs pihak ketiga. Kami tidak
-                mengontrol dan tidak bertanggung jawab atas konten atau praktik
-                privasi situs tersebut.
+                Situs ini mungkin berisi tautan ke situs pihak ketiga. Kami
+                tidak mengontrol dan tidak bertanggung jawab atas konten atau
+                praktik privasi situs tersebut.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">6. Perubahan Ketentuan</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                6. Perubahan Ketentuan
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Kami berhak mengubah ketentuan ini sewaktu-waktu. Perubahan akan
                 berlaku segera setelah dipublikasikan di halaman ini. Penggunaan
@@ -98,7 +117,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">7. Hukum yang Berlaku</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                7. Hukum yang Berlaku
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Ketentuan ini diatur oleh dan ditafsirkan sesuai dengan hukum
                 Republik Indonesia. Setiap sengketa akan diselesaikan melalui
@@ -118,7 +139,11 @@ export default function TermsPage() {
           </section>
         </article>
       </main>
-      <Footer messages={messages} locale={DEFAULT_LOCALE} />
+      <Footer
+        alternateHrefs={alternateHrefs}
+        messages={messages}
+        locale={DEFAULT_LOCALE}
+      />
       <FloatingWhatsapp messages={messages} />
     </>
   );

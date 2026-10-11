@@ -25,9 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const messages = getMessages("en");
-  const project = messages.portfolioPage.projects.find(
-    (p) => p.slug === slug,
-  );
+  const project = messages.portfolioPage.projects.find((p) => p.slug === slug);
 
   if (!project) return { title: "404 | CatalystForge" };
 
@@ -46,22 +44,17 @@ export default async function ProjectDetailEnPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
+  const alternateHrefs = getPortfolioProjectPaths("en", slug);
   const messages = getMessages("en");
-  const project = messages.portfolioPage.projects.find(
-    (p) => p.slug === slug,
-  );
+  const project = messages.portfolioPage.projects.find((p) => p.slug === slug);
 
   if (!project) notFound();
 
   return (
     <>
-      <Navbar messages={messages} locale="en" />
-      <ProjectDetailPage
-        locale="en"
-        messages={messages}
-        slug={slug}
-      />
-      <Footer messages={messages} locale="en" />
+      <Navbar alternateHrefs={alternateHrefs} messages={messages} locale="en" />
+      <ProjectDetailPage locale="en" messages={messages} slug={slug} />
+      <Footer alternateHrefs={alternateHrefs} messages={messages} locale="en" />
       <FloatingWhatsapp messages={messages} />
     </>
   );

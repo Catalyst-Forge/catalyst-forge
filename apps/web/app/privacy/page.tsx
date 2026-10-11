@@ -5,6 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { DEFAULT_LOCALE, getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
 
+const alternateHrefs = { id: "/privacy", en: "/en/privacy" };
+
 const messages = getMessages(DEFAULT_LOCALE);
 
 export const metadata: Metadata = createPageMetadata({
@@ -21,7 +23,11 @@ export const metadata: Metadata = createPageMetadata({
 export default function PrivacyPage() {
   return (
     <>
-      <Navbar messages={messages} locale={DEFAULT_LOCALE} />
+      <Navbar
+        alternateHrefs={alternateHrefs}
+        messages={messages}
+        locale={DEFAULT_LOCALE}
+      />
       <main
         className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
         id="main-content"
@@ -37,9 +43,12 @@ export default function PrivacyPage() {
 
           <section className="mt-10 space-y-8">
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">1. Data yang Kami Kumpulkan</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                1. Data yang Kami Kumpulkan
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                Saat Anda mengisi formulir kontak di situs ini, kami mengumpulkan:
+                Saat Anda mengisi formulir kontak di situs ini, kami
+                mengumpulkan:
               </p>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/78">
                 <li>Nama lengkap</li>
@@ -54,35 +63,44 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">2. Tujuan Pengumpulan Data</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                2. Tujuan Pengumpulan Data
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Data yang Anda berikan digunakan semata-mata untuk:
               </p>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/78">
                 <li>Menanggapi pertanyaan atau permintaan estimasi Anda</li>
-                <li>Mengirim informasi layanan yang relevan jika Anda menyetujuinya</li>
+                <li>
+                  Mengirim informasi layanan yang relevan jika Anda
+                  menyetujuinya
+                </li>
                 <li>Meningkatkan kualitas layanan kami</li>
               </ul>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">3. Cookie dan Tracking</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                3. Cookie dan Tracking
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
-                Situs ini hanya menggunakan cookie esensial yang diperlukan untuk
-                fungsi dasar situs (seperti preferensi bahasa). Kami{" "}
+                Situs ini hanya menggunakan cookie esensial yang diperlukan
+                untuk fungsi dasar situs (seperti preferensi bahasa). Kami{" "}
                 <strong>tidak</strong> menggunakan cookie pelacakan pihak ketiga
-                untuk iklan, kecuali Anda memberikan persetujuan eksplisit melalui
-                banner cookie.
+                untuk iklan, kecuali Anda memberikan persetujuan eksplisit
+                melalui banner cookie.
               </p>
               <p className="mt-2 leading-relaxed text-[#1A1A2E]/78">
-                Jika di masa mendatang kami mengaktifkan layanan analitik (seperti
-                Google Analytics), data akan dikumpulkan hanya setelah Anda
-                memberikan persetujuan melalui mekanisme opt-in.
+                Jika di masa mendatang kami mengaktifkan layanan analitik
+                (seperti Google Analytics), data akan dikumpulkan hanya setelah
+                Anda memberikan persetujuan melalui mekanisme opt-in.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">4. Penyimpanan dan Keamanan Data</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                4. Penyimpanan dan Keamanan Data
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Data kontak disimpan di server kami yang berlokasi di VPS dengan
                 akses terbatas. Kami menerapkan langkah keamanan teknis dan
@@ -92,12 +110,14 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#1B3A5C]">5. Berbagi Data dengan Pihak Ketiga</h2>
+              <h2 className="text-xl font-bold text-[#1B3A5C]">
+                5. Berbagi Data dengan Pihak Ketiga
+              </h2>
               <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
                 Kami <strong>tidak</strong> menjual, menyewakan, atau membagikan
-                data pribadi Anda kepada pihak ketiga untuk tujuan pemasaran. Data
-                hanya dapat dibagikan jika diwajibkan oleh hukum atau peraturan
-                yang berlaku.
+                data pribadi Anda kepada pihak ketiga untuk tujuan pemasaran.
+                Data hanya dapat dibagikan jika diwajibkan oleh hukum atau
+                peraturan yang berlaku.
               </p>
             </div>
 
@@ -128,7 +148,11 @@ export default function PrivacyPage() {
           </section>
         </article>
       </main>
-      <Footer messages={messages} locale={DEFAULT_LOCALE} />
+      <Footer
+        alternateHrefs={alternateHrefs}
+        messages={messages}
+        locale={DEFAULT_LOCALE}
+      />
       <FloatingWhatsapp messages={messages} />
     </>
   );

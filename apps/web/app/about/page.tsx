@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { DEFAULT_LOCALE, getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
 
+const alternateHrefs = { id: "/about", en: "/en/about" };
+
 const messages = getMessages(DEFAULT_LOCALE);
 
 export const metadata: Metadata = createPageMetadata({
@@ -19,9 +21,17 @@ export const metadata: Metadata = createPageMetadata({
 export default function About() {
   return (
     <>
-      <Navbar messages={messages} locale={DEFAULT_LOCALE} />
+      <Navbar
+        alternateHrefs={alternateHrefs}
+        messages={messages}
+        locale={DEFAULT_LOCALE}
+      />
       <AboutPage messages={messages} />
-      <Footer messages={messages} locale={DEFAULT_LOCALE} />
+      <Footer
+        alternateHrefs={alternateHrefs}
+        messages={messages}
+        locale={DEFAULT_LOCALE}
+      />
       <FloatingWhatsapp messages={messages} />
     </>
   );
