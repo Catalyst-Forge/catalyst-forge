@@ -8,6 +8,9 @@ type TrustBarProps = {
 
 export function TrustBar({ messages }: TrustBarProps) {
   const t = messages.trustBar;
+  const clients = messages.portfolioPage.projects.filter(
+    (project) => project.kind === "client",
+  );
 
   return (
     <section className="border-b border-slate-200 bg-white">
@@ -32,10 +35,10 @@ export function TrustBar({ messages }: TrustBarProps) {
             {t.clientsLabel}
           </p>
           <ul className="mt-4 grid gap-5 sm:grid-cols-3 sm:gap-8">
-            {t.clients.map((client) => (
-              <li className="min-w-0" key={client.name}>
+            {clients.map((client) => (
+              <li className="min-w-0" key={client.slug}>
                 <p className="text-base font-bold leading-snug tracking-tight text-[#1B3A5C] sm:text-lg">
-                  {client.name}
+                  {client.client}
                 </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#D0490F]/80">
                   {client.sector}

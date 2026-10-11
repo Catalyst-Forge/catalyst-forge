@@ -1,7 +1,8 @@
-import { ArrowRight, CheckCircle2, FileText, Target } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import { type ReactNode } from "react";
 import { type Messages } from "@/lib/i18n";
+import { getPortfolioPath } from "@/lib/locale-paths";
+import { isLocale } from "@/lib/locales";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
 
@@ -10,6 +11,12 @@ type CaseStudiesProps = {
 };
 
 export function CaseStudies({ messages }: CaseStudiesProps) {
+  const locale = isLocale(messages.locale) ? messages.locale : "id";
+  // Client projects from the portfolio are the single source for these cards.
+  const projects = messages.portfolioPage.projects.filter(
+    (project) => project.kind === "client",
+  );
+
   return (
     <section className="section-padding overflow-hidden bg-[#FAF8F5]">
       <div className="section-container">
@@ -32,47 +39,33 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
         </ScrollParallax>
 
         <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
-          {messages.caseStudies.items.map((item, index) => (
+          {projects.map((project, index) => (
             <Reveal
               className="h-full"
               delay={index * 120}
               direction={index % 2 === 0 ? "left" : "right"}
-              key={`${item.project}-${item.client}`}
+              key={project.slug}
             >
-              <article className="h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl sm:p-7">
-                <p className="text-base font-bold uppercase tracking-[0.14em] text-[#E8531A]">
-                  {item.context}
+              <article className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl sm:p-7">
+                <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#E8531A]">
+                  {project.sector}
                 </p>
                 <h3 className="mt-4 text-xl font-bold tracking-tight text-[#1B3A5C] sm:text-2xl">
-                  {item.project}
+                  {project.title}
                 </h3>
                 <p className="mt-2 text-base font-semibold leading-relaxed text-[#1A1A2E]/72">
-                  {item.client}
+                  {project.client}
+                </p>
+                <p className="mt-5 border-t border-slate-200 pt-5 text-base leading-relaxed text-[#1A1A2E]/74">
+                  {project.summary}
                 </p>
 
-                <div className="mt-7 grid gap-5 border-t border-slate-200 pt-6">
-                  <CaseStudyPoint
-                    icon={<Target className="h-5 w-5" />}
-                    label={messages.caseStudies.problemLabel}
-                    text={item.problem}
-                  />
-                  <CaseStudyPoint
-                    icon={<FileText className="h-5 w-5" />}
-                    label={messages.caseStudies.solutionLabel}
-                    text={item.solution}
-                  />
-                  <CaseStudyPoint
-                    icon={<CheckCircle2 className="h-5 w-5" />}
-                    label={messages.caseStudies.impactLabel}
-                    text={item.impact}
-                  />
-                </div>
                 <div className="mt-6 rounded-lg border border-[#E8531A]/12 bg-[#FFF4EF] p-4">
                   <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#E8531A]">
                     {messages.caseStudies.metricsLabel}
                   </p>
                   <div className="mt-3 grid gap-2">
-                    {item.metrics.map((metric) => (
+                    {project.metrics.map((metric) => (
                       <div className="flex gap-2" key={metric}>
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#E8531A]" />
                         <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
@@ -82,47 +75,29 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
                     ))}
                   </div>
                 </div>
+
+                <Link
+                  className="mt-auto inline-flex items-center gap-2 pt-6 text-base font-bold text-[#D0490F] transition hover:text-[#1B3A5C]"
+                  href={getPortfolioPath(locale, project.slug)}
+                >
+                  {messages.portfolioPage.viewCaseStudy}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </article>
             </Reveal>
           ))}
         </div>
 
-        {messages.caseStudies.portfolioCta ? (
-          <div className="mt-12 text-center">
-            <Link
-              className="inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
-              href="/portfolio"
-            >
-              {messages.caseStudies.portfolioCta}
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
-        ) : null}
+        <div className="mt-12 text-center">
+          <Link
+            className="inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
+            href={getPortfolioPath(locale)}
+          >
+            {messages.caseStudies.portfolioCta}
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
       </div>
     </section>
-  );
-}
-
-function CaseStudyPoint({
-  icon,
-  label,
-  text,
-}: {
-  icon: ReactNode;
-  label: string;
-  text: string;
-}) {
-  return (
-    <div className="flex gap-4">
-      <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FAF8F5] text-[#E8531A]">
-        {icon}
-      </div>
-      <div>
-        <p className="text-base font-bold text-[#1B3A5C]">{label}</p>
-        <p className="mt-1 text-base leading-relaxed text-[#1A1A2E]/74">
-          {text}
-        </p>
-      </div>
-    </div>
   );
 }

@@ -40,12 +40,7 @@
       { "value": "50+", "label": "Projects across industries" },
       { "value": "5", "label": "Solution lines ready to extend" }
     ],
-    "clientsLabel": "Trusted by",
-    "clients": [
-      { "name": "PT Patra Drilling Contractor", "sector": "Pertamina Subholding" },
-      { "name": "RS Prima Inti Medika", "sector": "Healthcare Services" },
-      { "name": "Universitas Malikussaleh", "sector": "Aquaculture Research" }
-    ]
+    "clientsLabel": "Trusted by"
   },
   "about": {
     "eyebrow": "About CatalystForge",
@@ -205,53 +200,9 @@
   "caseStudies": {
     "eyebrow": "Project Experience",
     "title": "Case studies from real business needs",
-    "description": "Each project is summarized by its problem context, delivered solution, and intended operational impact.",
-    "problemLabel": "Problem",
-    "solutionLabel": "Solution",
-    "impactLabel": "Impact",
+    "description": "A summary of the projects we built for clients. Open a case study to see the problem, the solution, and the impact.",
     "metricsLabel": "Highlights",
-    "portfolioCta": "View Full Portfolio",
-    "items": [
-      {
-        "project": "Procurement HTE",
-        "client": "PT Patra Drilling Contractor",
-        "context": "Pertamina Subholding",
-        "problem": "Procurement workflows require consistent documents that are easy to prepare at every stage.",
-        "solution": "A procurement system with document generation features for each procurement process.",
-        "impact": "Procurement teams can prepare documents faster, cleaner, and with better standardization.",
-        "metrics": [
-          "Document generation for each procurement stage",
-          "More consistent document formatting",
-          "Workflow easier to explain to stakeholders"
-        ]
-      },
-      {
-        "project": "Vannamei Shrimp Expert System",
-        "client": "Universitas Malikussaleh",
-        "context": "Aquaculture Research",
-        "problem": "Vannamei shrimp disease diagnosis requires symptom-based analysis and confidence scoring.",
-        "solution": "An expert system using Naive Bayes and Certainty Factor methods.",
-        "impact": "Diagnosis analysis becomes more structured for research support and decision-making.",
-        "metrics": [
-          "2 knowledge-based analysis methods",
-          "Structured symptoms and confidence levels",
-          "Output supports research needs"
-        ]
-      },
-      {
-        "project": "Pomeng Chatbot",
-        "client": "RS Prima Inti Medika",
-        "context": "Healthcare Services",
-        "problem": "Users need quick guidance to understand hospital service information and directions.",
-        "solution": "A chatbot assistant guide that answers user information needs.",
-        "impact": "Service information becomes easier, faster, and more user-friendly to access.",
-        "metrics": [
-          "Service guidance is easier to access",
-          "Question-and-answer flow is more user-friendly",
-          "Suitable for repeated questions"
-        ]
-      }
-    ]
+    "portfolioCta": "View Full Portfolio"
   },
   "cta": {
     "headline": "Need an estimate for a website, operational system, or AI automation?",
@@ -346,6 +297,7 @@
         "kind": "client",
         "title": "Procurement HTE",
         "client": "PT Patra Drilling Contractor",
+        "sector": "Pertamina Subholding",
         "category": "Enterprise",
         "year": "2024",
         "summary": "Enterprise procurement system for Pertamina Subholding that automates procurement document generation, approval tracking, and vendor management.",
@@ -362,6 +314,7 @@
         "kind": "client",
         "title": "Vannamei Shrimp Expert System",
         "client": "Universitas Malikussaleh",
+        "sector": "Aquaculture Research",
         "category": "Research",
         "year": "2024",
         "summary": "Knowledge-based expert system for vannamei shrimp disease diagnosis using Naive Bayes and Certainty Factor methods — supporting academic research.",
@@ -378,6 +331,7 @@
         "kind": "client",
         "title": "Pomeng Chatbot",
         "client": "RS Prima Inti Medika",
+        "sector": "Healthcare Services",
         "category": "Healthcare",
         "year": "2025",
         "summary": "AI assistant guide helping patients & visitors access hospital service information — doctor schedules, clinic locations, outpatient procedures.",

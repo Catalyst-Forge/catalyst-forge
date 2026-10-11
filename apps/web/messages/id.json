@@ -40,12 +40,7 @@
       { "value": "50+", "label": "Project dari berbagai industri" },
       { "value": "5", "label": "Lini solusi siap dikembangkan" }
     ],
-    "clientsLabel": "Dipercaya oleh",
-    "clients": [
-      { "name": "PT Patra Drilling Contractor", "sector": "Subholding Pertamina" },
-      { "name": "RS Prima Inti Medika", "sector": "Layanan Kesehatan" },
-      { "name": "Universitas Malikussaleh", "sector": "Riset Akuakultur" }
-    ]
+    "clientsLabel": "Dipercaya oleh"
   },
   "about": {
     "eyebrow": "Tentang CatalystForge",
@@ -205,53 +200,9 @@
   "caseStudies": {
     "eyebrow": "Pengalaman Project",
     "title": "Studi kasus dari kebutuhan bisnis nyata",
-    "description": "Setiap project diringkas berdasarkan konteks masalah, solusi yang dibangun, dan dampak operasional yang dituju.",
-    "problemLabel": "Masalah",
-    "solutionLabel": "Solusi",
-    "impactLabel": "Dampak",
+    "description": "Ringkasan project yang kami bangun untuk klien. Buka studi kasusnya untuk melihat masalah, solusi, dan dampaknya.",
     "metricsLabel": "Poin Utama",
-    "portfolioCta": "Lihat Portfolio Lengkap",
-    "items": [
-      {
-        "project": "Procurement HTE",
-        "client": "PT Patra Drilling Contractor",
-        "context": "Subholding Pertamina",
-        "problem": "Proses pengadaan membutuhkan dokumen yang konsisten dan mudah disiapkan di setiap tahapan.",
-        "solution": "Sistem procurement dengan fitur generate dokumen untuk setiap pengadaan.",
-        "impact": "Tim dapat menyusun dokumen pengadaan lebih cepat, rapi, dan terstandar.",
-        "metrics": [
-          "Generate dokumen per tahapan pengadaan",
-          "Format dokumen lebih konsisten",
-          "Workflow siap dijelaskan ke stakeholder"
-        ]
-      },
-      {
-        "project": "Sistem Pakar Udang Vaname",
-        "client": "Universitas Malikussaleh",
-        "context": "Riset Akuakultur",
-        "problem": "Diagnosa penyakit udang vaname membutuhkan pendekatan berbasis gejala dan tingkat keyakinan.",
-        "solution": "Sistem pakar menggunakan metode Naive Bayes dan Certainty Factor.",
-        "impact": "Analisis diagnosa menjadi lebih terstruktur sebagai pendukung penelitian dan pengambilan keputusan.",
-        "metrics": [
-          "2 metode analisis berbasis pengetahuan",
-          "Gejala dan tingkat keyakinan terstruktur",
-          "Output mendukung kebutuhan penelitian"
-        ]
-      },
-      {
-        "project": "Pomeng Chatbot",
-        "client": "RS Prima Inti Medika",
-        "context": "Layanan Kesehatan",
-        "problem": "Pengguna membutuhkan panduan cepat untuk memahami informasi dan arahan layanan rumah sakit.",
-        "solution": "Chatbot assistant guide untuk menjawab kebutuhan informasi pengguna.",
-        "impact": "Akses informasi layanan menjadi lebih mudah, cepat, dan ramah pengguna.",
-        "metrics": [
-          "Panduan layanan lebih mudah diakses",
-          "Alur tanya-jawab lebih ramah pengguna",
-          "Cocok untuk pertanyaan berulang"
-        ]
-      }
-    ]
+    "portfolioCta": "Lihat Portfolio Lengkap"
   },
   "cta": {
     "headline": "Butuh estimasi untuk website, sistem operasional, atau AI automation?",
@@ -346,6 +297,7 @@
         "kind": "client",
         "title": "Procurement HTE",
         "client": "PT Patra Drilling Contractor",
+        "sector": "Subholding Pertamina",
         "category": "Enterprise",
         "year": "2024",
         "summary": "Sistem procurement enterprise untuk Subholding Pertamina yang mengotomasi pembuatan dokumen pengadaan, tracking approval, dan manajemen vendor.",
@@ -362,6 +314,7 @@
         "kind": "client",
         "title": "Sistem Pakar Udang Vaname",
         "client": "Universitas Malikussaleh",
+        "sector": "Riset Akuakultur",
         "category": "Research",
         "year": "2024",
         "summary": "Sistem pakar berbasis pengetahuan untuk diagnosa penyakit udang vaname menggunakan metode Naive Bayes dan Certainty Factor sebagai pendukung penelitian.",
@@ -378,6 +331,7 @@
         "kind": "client",
         "title": "Pomeng Chatbot",
         "client": "RS Prima Inti Medika",
+        "sector": "Layanan Kesehatan",
         "category": "Healthcare",
         "year": "2025",
         "summary": "AI assistant guide untuk membantu pasien dan pengunjung mendapatkan informasi layanan rumah sakit — jadwal dokter, lokasi poliklinik, prosedur rawat jalan.",
