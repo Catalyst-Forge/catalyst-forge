@@ -24,6 +24,12 @@
     "cta": "Konsultasi"
   },
   "hero": {
+    "badge": "Solusi Digital untuk Bisnis",
+    "preview": {
+      "label": "crm.catalystforge.web.id",
+      "alt": "Dashboard CRM buatan CatalystForge",
+      "cta": "Lihat demo CRM"
+    },
     "headline": "Bangun Website, Sistem Operasional, dan Otomasi AI yang Siap Dipakai Tim Anda",
     "subheadline": "CatalystForge membantu bisnis Indonesia mengubah kebutuhan digital menjadi company profile, CRM, HRIS, POS, dashboard, dan workflow automation yang jelas scope-nya dan siap deploy.",
     "primaryCta": "Lihat Paket Solusi",

@@ -1,13 +1,9 @@
-import {
-  ArrowRight,
-  BarChart3,
-  Building2,
-  CheckCircle2,
-  Layers3,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Building2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { type Messages } from "@/lib/i18n";
+import { getPortfolioPath } from "@/lib/locale-paths";
+import { isLocale } from "@/lib/locales";
 import { ParallaxLayer } from "./parallax-layer";
 import { Reveal } from "./reveal";
 
@@ -16,25 +12,8 @@ type HeroProps = {
 };
 
 export function Hero({ messages }: HeroProps) {
-  const heroLabels =
-    messages.locale === "id"
-      ? {
-          badge: "Solusi Digital untuk Bisnis",
-          preview: "Snapshot Proyek",
-          dashboard: "Digital Delivery",
-          scope: "Scope",
-          sprint: "Sprint",
-          security: "Review",
-        }
-      : {
-          badge: "Building Digital Solutions",
-          preview: "Project Snapshot",
-          dashboard: "Digital Delivery",
-          scope: "Scope",
-          sprint: "Sprint",
-          security: "Review",
-        };
-  const previewItems = messages.hero.trustIndicators.slice(0, 3);
+  const locale = isLocale(messages.locale) ? messages.locale : "id";
+  const preview = messages.hero.preview;
 
   return (
     <section
@@ -54,15 +33,11 @@ export function Hero({ messages }: HeroProps) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(244,120,74,0.18),transparent_30%),linear-gradient(135deg,rgba(27,58,92,0.86),rgba(27,58,92,0.76))]" />
 
       <div className="section-container relative grid min-h-0 items-center gap-10 py-11 min-[390px]:py-12 sm:min-h-[calc(100svh-5rem)] sm:py-20 lg:min-h-[680px] lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:py-28">
-        <ParallaxLayer
-          className="max-w-4xl"
-          maxOffset={64}
-          speed={-0.08}
-        >
+        <ParallaxLayer className="max-w-4xl" maxOffset={64} speed={-0.08}>
           <Reveal instant direction="left">
             <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-tight text-white sm:mb-8 sm:gap-3 sm:px-5 sm:py-3 sm:text-base">
               <Building2 className="h-4 w-4 shrink-0 text-[#F4784A] sm:h-5 sm:w-5" />
-              {heroLabels.badge}
+              {messages.hero.badge}
             </div>
           </Reveal>
           <Reveal instant delay={90} direction="left">
@@ -116,74 +91,42 @@ export function Hero({ messages }: HeroProps) {
           speed={0.12}
         >
           <Reveal instant direction="right">
-            <div className="motion-float-slow relative rounded-lg border border-white/16 bg-white/10 p-4 shadow-2xl backdrop-blur">
-              <div className="motion-sheen rounded-lg bg-white p-5 text-[#1A1A2E] shadow-xl">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="h-3 w-3 rounded-full bg-[#D0490F]" />
-                    <span className="h-3 w-3 rounded-full bg-[#F4B350]" />
-                    <span className="h-3 w-3 rounded-full bg-[#3BAA72]" />
+            {/* A real product screen instead of an abstract mock-up. */}
+            <figure className="motion-float-slow relative">
+              <div className="overflow-hidden rounded-xl border border-white/20 bg-white shadow-2xl ring-1 ring-black/5">
+                <div className="flex items-center gap-3 border-b border-slate-200 bg-[#F4F5F7] px-4 py-3">
+                  <div aria-hidden="true" className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#D0490F]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F4B350]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#3BAA72]" />
                   </div>
-                  <span className="text-sm font-bold uppercase tracking-[0.08em] text-[#1B3A5C]/80">
-                    {heroLabels.preview}
+                  <span className="flex-1 truncate rounded-md bg-white px-3 py-1 text-center text-xs font-medium text-slate-500">
+                    {preview.label}
                   </span>
                 </div>
-
-                <div className="mt-6 rounded-lg border border-slate-200 bg-[#FAF8F5] p-5">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#E8531A]">
-                        {heroLabels.dashboard}
-                      </p>
-                      <p className="mt-2 text-2xl font-bold text-[#1B3A5C]">
-                        {messages.products.eyebrow}
-                      </p>
-                    </div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white text-[#E8531A] shadow-sm">
-                      <BarChart3 className="h-6 w-6" />
-                    </div>
-                  </div>
-
-                  <div className="mt-5 grid grid-cols-3 gap-3">
-                    {[
-                      { icon: Layers3, label: heroLabels.scope },
-                      { icon: Sparkles, label: heroLabels.sprint },
-                      { icon: ShieldCheck, label: heroLabels.security },
-                    ].map(({ icon: Icon, label }, index) => (
-                      <div
-                        className="rounded-md bg-white p-3 shadow-sm"
-                        key={label}
-                      >
-                        <Icon className="h-5 w-5 text-[#E8531A]" />
-                        <p className="mt-3 text-sm font-bold text-[#1B3A5C]">
-                          0{index + 1}
-                        </p>
-                        <p className="mt-1 text-xs font-semibold text-[#1A1A2E]/65">
-                          {label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-5 grid gap-3">
-                  {previewItems.map((item, index) => (
-                    <div
-                      className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#E8531A]/40"
-                      key={item}
-                    >
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-[#E8531A]" />
-                      <span className="text-base font-bold text-[#1B3A5C]">
-                        {item}
-                      </span>
-                      <span className="ml-auto text-sm font-bold text-[#1B3A5C]/80">
-                        0{index + 1}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <Image
+                  alt={preview.alt}
+                  className="block h-auto w-full"
+                  height={720}
+                  sizes="(min-width: 1024px) 560px, 1px"
+                  src="/images/portfolio/crm.webp"
+                  width={1280}
+                />
               </div>
-            </div>
+              <figcaption className="absolute -bottom-5 left-6">
+                <Link
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#1B3A5C] shadow-xl ring-1 ring-black/5 transition hover:text-[#D0490F]"
+                  href={getPortfolioPath(locale, "crm-demo")}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="h-2 w-2 rounded-full bg-[#3BAA72]"
+                  />
+                  {preview.cta}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </figcaption>
+            </figure>
           </Reveal>
         </ParallaxLayer>
       </div>
