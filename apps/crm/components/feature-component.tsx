@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import { ShellNavLink } from "./shell-nav-link";
 import {
   BarChart3,
   Building2,
@@ -48,14 +48,16 @@ export function CrmPageShell({
           </div>
           <nav className="grid gap-1 px-4 py-5">
             {navItems.map((item) => (
-              <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-slate-600 transition hover:bg-slate-100"
+              <ShellNavLink
+                activeClassName="bg-[#1B3A5C] text-white"
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold transition"
                 href={item.href}
+                inactiveClassName="text-slate-600 hover:bg-slate-100"
                 key={item.label}
               >
                 <item.icon className="h-4 w-4" />
                 {item.label}
-              </Link>
+              </ShellNavLink>
             ))}
           </nav>
           <div className="mt-auto p-4">
@@ -70,14 +72,16 @@ export function CrmPageShell({
               </summary>
               <nav className="fixed left-3 right-3 top-16 z-30 grid max-w-sm gap-1 rounded-xl border border-slate-200 bg-white p-2 shadow-2xl">
                 {navItems.map((item) => (
-                  <Link
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-slate-600 hover:bg-slate-100"
+                  <ShellNavLink
+                    activeClassName="bg-[#1B3A5C] text-white"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold"
                     href={item.href}
+                    inactiveClassName="text-slate-600 hover:bg-slate-100"
                     key={item.label}
                   >
                     <item.icon className="h-4 w-4" />
                     {item.label}
-                  </Link>
+                  </ShellNavLink>
                 ))}
               </nav>
             </details>

@@ -57,7 +57,7 @@ const stages: Stage[] = ["Lead", "Qualified", "Proposal", "Negotiation", "Won"];
 
 const deals: Deal[] = [
   {
-    company: "PT Patra Drilling Contractor",
+    company: "PT Bumi Energi Persada",
     contact: "Procurement Team",
     due: "Today, 15:00",
     owner: "Bagas",
@@ -65,8 +65,8 @@ const deals: Deal[] = [
     value: 420000000,
   },
   {
-    company: "RS Prima Inti Medika",
-    contact: "Silfa",
+    company: "RS Sehat Sentosa",
+    contact: "Maya Lestari",
     due: "Tomorrow",
     owner: "Bagas",
     stage: "Proposal",
@@ -97,8 +97,8 @@ const deals: Deal[] = [
     value: 310000000,
   },
   {
-    company: "Universitas Malikussaleh",
-    contact: "Al Hilal Hamzi",
+    company: "Universitas Nusa Cendekia",
+    contact: "Rizal Hakim",
     due: "Overdue",
     owner: "Bagas",
     stage: "Proposal",
@@ -108,13 +108,13 @@ const deals: Deal[] = [
 
 const activities: Activity[] = [
   {
-    company: "PT Patra Drilling Contractor",
+    company: "PT Bumi Energi Persada",
     due: "Today 15:00",
     title: "Send revised commercial proposal",
     type: "Email",
   },
   {
-    company: "RS Prima Inti Medika",
+    company: "RS Sehat Sentosa",
     due: "Tomorrow 10:30",
     title: "Confirm chatbot escalation flow",
     type: "Call",

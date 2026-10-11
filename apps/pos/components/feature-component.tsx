@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import { ShellNavLink } from "./shell-nav-link";
 import {
   BarChart3,
   Menu,
@@ -47,14 +47,16 @@ export function PosPageShell({
           </div>
           <nav className="grid gap-1 px-4 py-5">
             {navItems.map((item) => (
-              <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-slate-500 transition hover:bg-white/[0.04] hover:text-slate-200"
+              <ShellNavLink
+                activeClassName="border border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold transition"
                 href={item.href}
+                inactiveClassName="text-slate-500 hover:bg-white/[0.04] hover:text-slate-200"
                 key={item.label}
               >
                 <item.icon className="h-4 w-4" />
                 {item.label}
-              </Link>
+              </ShellNavLink>
             ))}
           </nav>
           <div className="mt-auto p-4">
@@ -69,14 +71,16 @@ export function PosPageShell({
               </summary>
               <nav className="fixed left-3 right-3 top-16 z-30 grid max-w-sm gap-1 rounded-xl border border-white/[0.08] bg-sidebar p-2 shadow-2xl">
                 {navItems.map((item) => (
-                  <Link
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-slate-500 hover:bg-white/[0.04] hover:text-slate-200"
+                  <ShellNavLink
+                    activeClassName="border border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold"
                     href={item.href}
+                    inactiveClassName="text-slate-500 hover:bg-white/[0.04] hover:text-slate-200"
                     key={item.label}
                   >
                     <item.icon className="h-4 w-4" />
                     {item.label}
-                  </Link>
+                  </ShellNavLink>
                 ))}
               </nav>
             </details>

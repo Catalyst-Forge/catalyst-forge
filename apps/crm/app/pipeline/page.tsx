@@ -25,15 +25,15 @@ const columns = [
   },
   {
     deals: [
-      ["RS Prima Inti Medika", "AI support chatbot", "Rp 160M"],
-      ["Universitas Malikussaleh", "Research decision support", "Rp 45M"],
+      ["RS Sehat Sentosa", "AI support chatbot", "Rp 160M"],
+      ["Universitas Nusa Cendekia", "Research decision support", "Rp 45M"],
     ],
     name: "Proposal",
     value: "Rp 205M",
   },
   {
     deals: [
-      ["PT Patra Drilling Contractor", "Procurement workflow", "Rp 420M"],
+      ["PT Bumi Energi Persada", "Procurement workflow", "Rp 420M"],
     ],
     name: "Negotiation",
     value: "Rp 420M",

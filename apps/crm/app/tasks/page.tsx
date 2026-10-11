@@ -8,15 +8,15 @@ import {
 
 const tasks = [
   [
-    "Send revised HTE procurement scope",
-    "PT Patra Drilling Contractor",
+    "Send revised procurement scope",
+    "PT Bumi Energi Persada",
     "Email",
     "Today 15:00",
     "High",
   ],
   [
     "Follow up chatbot flow approval",
-    "RS Prima Inti Medika",
+    "RS Sehat Sentosa",
     "Call",
     "Tomorrow 10:30",
     "Medium",

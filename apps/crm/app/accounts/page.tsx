@@ -8,13 +8,13 @@ import {
 
 const accounts = [
   [
-    "PT Patra Drilling Contractor",
+    "PT Bumi Energi Persada",
     "Energy",
     "Procurement Team",
     "Negotiation",
     "Bagas",
   ],
-  ["RS Prima Inti Medika", "Healthcare", "Silfa", "Proposal", "Bagas"],
+  ["RS Sehat Sentosa", "Healthcare", "Maya Lestari", "Proposal", "Bagas"],
   [
     "PT Sinar Teknologi Nusantara",
     "Distribution",
