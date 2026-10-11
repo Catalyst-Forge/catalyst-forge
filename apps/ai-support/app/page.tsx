@@ -214,12 +214,14 @@ export default function AiSupportApp() {
           </div>
           <div className="flex shrink-0 items-center gap-1 sm:gap-2">
             <Link
+              aria-label="Analytics"
               href="/analytics"
               className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.04]"
             >
               <BarChart3 className="w-4 h-4" />
             </Link>
             <Link
+              aria-label="Settings"
               href="/settings"
               className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.04]"
             >
