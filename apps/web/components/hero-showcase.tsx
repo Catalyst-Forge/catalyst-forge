@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, type FocusEvent } from "react";
+import { useEffect, useState, type CSSProperties, type FocusEvent } from "react";
 import { cn } from "@repo/ui/lib/utils";
 
 export type ShowcaseSlide = {
@@ -17,129 +17,163 @@ export type ShowcaseSlide = {
 
 type HeroShowcaseProps = {
   slides: ShowcaseSlide[];
-  switchLabel: string;
+  label: string;
 };
 
-const INTERVAL_MS = 4500;
+const INTERVAL_MS = 4200;
 
 /**
- * Rotates through the product demos so the hero doesn't read as "CRM only".
- * Hovering or focusing pauses it; picking a product stops it for good, and
- * it never auto-rotates for visitors who prefer reduced motion.
+ * Where a card sits relative to the front one: the next two peek out behind
+ * it, the one that just left slides off to the left, the rest wait hidden.
  */
-export function HeroShowcase({ slides, switchLabel }: HeroShowcaseProps) {
+function cardStyle(offset: number, count: number): CSSProperties {
+  if (offset === 0) {
+    return { transform: "translate3d(0, 0, 0) scale(1)", opacity: 1, zIndex: 30 };
+  }
+  if (offset === count - 1) {
+    return {
+      // Short exit so the card never drifts over the headline.
+      transform: "translate3d(-9%, 5%, 0) scale(0.9) rotate(-4deg)",
+      opacity: 0,
+      zIndex: 40,
+    };
+  }
+  // Scaled from the top-right corner, so each card behind shows a strip
+  // above and to the right of the one in front of it.
+  const depth = Math.min(offset, 3);
+  return {
+    transform: `translate3d(${depth * 4.5}%, ${depth * -7}%, 0) scale(${1 - depth * 0.08})`,
+    opacity: depth > 2 ? 0 : 1 - depth * 0.3,
+    zIndex: 30 - depth,
+  };
+}
+
+/**
+ * A stack of product screens that deals itself: every few seconds the front
+ * card slides away and the next one moves up, so the hero shows the whole
+ * range rather than one product. Hover or focus pauses it; it stays still for
+ * visitors who prefer reduced motion.
+ */
+export function HeroShowcase({ slides, label }: HeroShowcaseProps) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [stopped, setStopped] = useState(false);
+  const [still, setStill] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setStopped(true);
+      setStill(true);
     }
   }, []);
 
   const slide = slides[active] ?? slides[0];
   if (!slide) return null;
 
-  const resumeWhenFocusLeaves = (event: FocusEvent<HTMLDivElement>) => {
+  const next = () => setActive((value) => (value + 1) % slides.length);
+  const resumeWhenFocusLeaves = (event: FocusEvent<HTMLElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       setPaused(false);
     }
   };
 
   return (
-    <div
+    <section
+      aria-label={label}
+      className="relative pr-[9%] pt-[16%]"
       onBlur={resumeWhenFocusLeaves}
       onFocus={() => setPaused(true)}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <figure className="motion-float-slow relative">
-        <div className="overflow-hidden rounded-xl border border-white/20 bg-white shadow-2xl ring-1 ring-black/5">
-          <div className="flex items-center gap-3 border-b border-slate-200 bg-[#F4F5F7] px-4 py-3">
-            <div aria-hidden="true" className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#D0490F]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#F4B350]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#3BAA72]" />
-            </div>
-            <span className="flex-1 truncate rounded-md bg-white px-3 py-1 text-center text-xs font-medium text-slate-500">
-              {slide.host}
-            </span>
-          </div>
-          <div className="relative aspect-[16/9] bg-[#0B1220]">
-            {slides.map((item, index) => (
-              <Image
-                alt={index === active ? item.alt : ""}
-                aria-hidden={index !== active}
-                className={cn(
-                  "object-cover object-top transition-opacity duration-700",
-                  index === active ? "opacity-100" : "opacity-0",
-                )}
-                fill
-                key={item.image}
-                sizes="(min-width: 1024px) 560px, 1px"
-                src={item.image}
-              />
-            ))}
-          </div>
-        </div>
-        <figcaption className="absolute -bottom-5 left-6">
-          <Link
-            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#1B3A5C] shadow-xl ring-1 ring-black/5 transition hover:text-[#C4430D]"
-            href={slide.href}
-          >
-            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[#3BAA72]" />
-            {slide.cta}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </figcaption>
-      </figure>
-
-      <div
-        aria-label={switchLabel}
-        className="mt-10 flex flex-wrap justify-end gap-2"
-        role="group"
-      >
+      <div className="relative aspect-[16/10]">
         {slides.map((item, index) => {
-          const current = index === active;
+          const offset = (index - active + slides.length) % slides.length;
+          const front = offset === 0;
 
           return (
-            <button
-              aria-pressed={current}
-              className={cn(
-                "relative overflow-hidden rounded-full px-3.5 py-1.5 text-sm font-bold transition",
-                current
-                  ? "bg-white text-[#1B3A5C]"
-                  : "bg-white/10 text-white/85 hover:bg-white/20",
-              )}
-              key={item.name}
-              onClick={() => {
-                setActive(index);
-                setStopped(true);
-              }}
-              type="button"
+            <div
+              aria-hidden={!front}
+              className="absolute inset-0 origin-top-right transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+              key={item.image}
+              style={cardStyle(offset, slides.length)}
             >
-              {item.name}
-              {current && !stopped ? (
-                // The progress bar drives the rotation: it restarts per slide
-                // (key), freezes while paused, and advances when it ends.
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-[#E8531A]"
-                  key={active}
-                  onAnimationEnd={() =>
-                    setActive((value) => (value + 1) % slides.length)
-                  }
-                  style={{
-                    animation: `showcase-progress ${INTERVAL_MS}ms linear both`,
-                    animationPlayState: paused ? "paused" : "running",
-                  }}
-                />
-              ) : null}
-            </button>
+              <div
+                className={cn(
+                  "flex h-full flex-col overflow-hidden rounded-xl border border-white/20 bg-white ring-1 ring-black/5 transition-shadow duration-700",
+                  front ? "shadow-2xl" : "shadow-lg",
+                )}
+              >
+                <div className="flex items-center gap-3 border-b border-slate-200 bg-[#F4F5F7] px-4 py-3">
+                  <div aria-hidden="true" className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#D0490F]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F4B350]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#3BAA72]" />
+                  </div>
+                  <span className="flex-1 truncate rounded-md bg-white px-3 py-1 text-center text-xs font-medium text-slate-500">
+                    {item.host}
+                  </span>
+                </div>
+                <div className="relative flex-1 bg-[#0B1220]">
+                  {/* Every card is on screen in the stack, so none can wait
+                      for lazy loading; the first one is preloaded. */}
+                  <Image
+                    alt={front ? item.alt : ""}
+                    className="object-cover object-top"
+                    fill
+                    loading={index === 0 ? undefined : "eager"}
+                    priority={index === 0}
+                    sizes="(min-width: 1024px) 560px, 1px"
+                    src={item.image}
+                  />
+                  {/* Cards behind the front one sit in its shade. */}
+                  <div
+                    aria-hidden="true"
+                    className={cn(
+                      "absolute inset-0 bg-[#0F2440] transition-opacity duration-700",
+                      front ? "opacity-0" : "opacity-30",
+                    )}
+                  />
+                </div>
+                {front && !still ? (
+                  // The bar drives the rotation: it restarts per card (key),
+                  // freezes while paused, and deals the next card when done.
+                  <span
+                    aria-hidden="true"
+                    className="h-1 origin-left bg-[#E8531A]"
+                    key={active}
+                    onAnimationEnd={next}
+                    style={{
+                      animation: `showcase-progress ${INTERVAL_MS}ms linear both`,
+                      animationPlayState: paused ? "paused" : "running",
+                    }}
+                  />
+                ) : null}
+              </div>
+            </div>
           );
         })}
       </div>
-    </div>
+
+      <div className="relative z-50 -mt-5 flex items-center justify-between gap-4 pl-6">
+        <Link
+          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#1B3A5C] shadow-xl ring-1 ring-black/5 transition hover:text-[#C4430D]"
+          href={slide.href}
+        >
+          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[#3BAA72]" />
+          {slide.cta}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+        <div aria-hidden="true" className="mt-5 flex items-center gap-1.5">
+          {slides.map((item, index) => (
+            <span
+              className={cn(
+                "h-1.5 rounded-full transition-all duration-500",
+                index === active ? "w-6 bg-[#F4784A]" : "w-1.5 bg-white/35",
+              )}
+              key={item.name}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

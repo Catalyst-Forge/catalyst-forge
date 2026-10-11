@@ -108,7 +108,7 @@ export function Hero({ messages }: HeroProps) {
           speed={0.12}
         >
           <Reveal instant direction="right">
-            <HeroShowcase slides={slides} switchLabel={preview.switchLabel} />
+            <HeroShowcase label={preview.showcaseLabel} slides={slides} />
           </Reveal>
         </ParallaxLayer>
       </div>
