@@ -169,9 +169,11 @@ function MemberCard({
 
       <ul className="flex flex-wrap gap-2">
         {skills.map((skill) => (
+          // The skill tags are English phrases in both dictionaries.
           <li
             key={skill}
             className="rounded-full border border-[#D0490F]/20 bg-[#FFF4EF] px-3 py-1 text-xs font-semibold text-[#C4430D]"
+            lang="en"
           >
             {skill}
           </li>

@@ -133,7 +133,8 @@ export function Footer({ messages, locale }: FooterProps) {
       </div>
       <div className="border-t border-white/12 py-5">
         <div className="section-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-base leading-relaxed text-white/68">
+          {/* The copyright line is English in both dictionaries. */}
+          <p className="text-base leading-relaxed text-white/68" lang="en">
             {messages.footer.copyright}
           </p>
           <div className="flex gap-4 sm:pr-16">
