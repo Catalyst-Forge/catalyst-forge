@@ -37,11 +37,15 @@
     ]
   },
   "trustBar": {
-    "items": [
-      { "value": "01", "label": "Business needs discovery" },
-      { "value": "02", "label": "System and experience design" },
-      { "value": "03", "label": "Development and integration" },
-      { "value": "04", "label": "Go-live, support, and improvement" }
+    "stats": [
+      { "value": "50+", "label": "Projects across industries" },
+      { "value": "5", "label": "Solution lines ready to extend" }
+    ],
+    "clientsLabel": "Trusted by",
+    "clients": [
+      { "name": "PT Patra Drilling Contractor", "sector": "Pertamina Subholding" },
+      { "name": "RS Prima Inti Medika", "sector": "Healthcare Services" },
+      { "name": "Universitas Malikussaleh", "sector": "Aquaculture Research" }
     ]
   },
   "about": {

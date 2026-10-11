@@ -37,11 +37,15 @@
     ]
   },
   "trustBar": {
-    "items": [
-      { "value": "01", "label": "Discovery kebutuhan bisnis" },
-      { "value": "02", "label": "Desain sistem dan pengalaman pengguna" },
-      { "value": "03", "label": "Pengembangan dan integrasi" },
-      { "value": "04", "label": "Go-live, support, dan improvement" }
+    "stats": [
+      { "value": "50+", "label": "Project dari berbagai industri" },
+      { "value": "5", "label": "Lini solusi siap dikembangkan" }
+    ],
+    "clientsLabel": "Dipercaya oleh",
+    "clients": [
+      { "name": "PT Patra Drilling Contractor", "sector": "Subholding Pertamina" },
+      { "name": "RS Prima Inti Medika", "sector": "Layanan Kesehatan" },
+      { "name": "Universitas Malikussaleh", "sector": "Riset Akuakultur" }
     ]
   },
   "about": {
