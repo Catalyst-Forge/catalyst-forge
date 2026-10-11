@@ -15,7 +15,11 @@ export function AboutPage({ messages }: { messages: Messages }) {
   ];
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
+    <main
+      className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
+      id="main-content"
+      tabIndex={-1}
+    >
       {/* Hero Section */}
       <section className="section-container section-padding">
         <Reveal

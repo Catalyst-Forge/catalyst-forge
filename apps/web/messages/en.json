@@ -21,7 +21,9 @@
     "howWeWork": "How We Work",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "cta": "Consult"
+    "cta": "Consult",
+    "skipToContent": "Skip to main content",
+    "navLabel": "Main navigation"
   },
   "hero": {
     "badge": "Building Digital Solutions",
@@ -432,7 +434,8 @@
     "contactAddress": "Buah Batu, Bandung City",
     "copyright": "Copyright 2026 CatalystForge. All rights reserved.",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "navLabel": "Footer navigation"
   },
   "cookieConsent": {
     "title": "This site uses cookies.",

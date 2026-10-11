@@ -64,19 +64,25 @@ function MarketingPage({ locale }: { locale: Locale }) {
   const messages = getMessages(locale);
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
+    <>
       <Navbar messages={messages} locale={locale} />
-      <Hero messages={messages} />
-      <TrustBar messages={messages} />
-      <AboutCompany messages={messages} />
-      <OfferPackages messages={messages} />
-      <Products messages={messages} />
-      <WhyChooseUs messages={messages} />
-      <HowWeWork messages={messages} />
-      <CaseStudies messages={messages} />
-      <CtaSection messages={messages} />
+      <main
+        className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
+        id="main-content"
+        tabIndex={-1}
+      >
+        <Hero messages={messages} />
+        <TrustBar messages={messages} />
+        <AboutCompany messages={messages} />
+        <OfferPackages messages={messages} />
+        <Products messages={messages} />
+        <WhyChooseUs messages={messages} />
+        <HowWeWork messages={messages} />
+        <CaseStudies messages={messages} />
+        <CtaSection messages={messages} />
+      </main>
       <Footer messages={messages} locale={locale} />
       <FloatingWhatsapp messages={messages} />
-    </main>
+    </>
   );
 }

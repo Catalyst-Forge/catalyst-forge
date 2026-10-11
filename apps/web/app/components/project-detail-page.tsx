@@ -33,7 +33,11 @@ export function ProjectDetailPage({
   if (!project) return null;
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
+    <main
+      className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
+      id="main-content"
+      tabIndex={-1}
+    >
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1B3A5C] via-[#1B3A5C] to-[#0F2440] pt-24 pb-14 sm:pt-32 sm:pb-20">
         <div className="section-container relative z-10">

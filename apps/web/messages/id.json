@@ -21,7 +21,9 @@
     "howWeWork": "Cara Kerja",
     "portfolio": "Portfolio",
     "contact": "Kontak",
-    "cta": "Konsultasi"
+    "cta": "Konsultasi",
+    "skipToContent": "Lewati ke konten utama",
+    "navLabel": "Navigasi utama"
   },
   "hero": {
     "badge": "Solusi Digital untuk Bisnis",
@@ -432,7 +434,8 @@
     "contactAddress": "Buah Batu, Kota Bandung",
     "copyright": "Copyright 2026 CatalystForge. All rights reserved.",
     "privacy": "Kebijakan Privasi",
-    "terms": "Ketentuan Layanan"
+    "terms": "Ketentuan Layanan",
+    "navLabel": "Navigasi footer"
   },
   "cookieConsent": {
     "title": "Situs ini menggunakan cookie.",

@@ -54,7 +54,10 @@ export function Footer({ messages, locale }: FooterProps) {
 
         <ScrollParallax direction="up" maxOffset={34}>
           <Reveal delay={100} direction="up">
-            <nav className="grid content-start gap-4">
+            <nav
+              aria-label={messages.footer.navLabel}
+              className="grid content-start gap-4"
+            >
               {navItems.map((item) => (
                 <a
                   className="text-base font-semibold text-white/78 transition hover:text-[#F58A60]"

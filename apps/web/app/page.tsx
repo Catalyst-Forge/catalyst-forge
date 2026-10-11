@@ -26,19 +26,25 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
+    <>
       <Navbar messages={messages} locale={DEFAULT_LOCALE} />
-      <Hero messages={messages} />
-      <TrustBar messages={messages} />
-      <AboutCompany messages={messages} />
-      <OfferPackages messages={messages} />
-      <Products messages={messages} />
-      <WhyChooseUs messages={messages} />
-      <HowWeWork messages={messages} />
-      <CaseStudies messages={messages} />
-      <CtaSection messages={messages} />
+      <main
+        className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
+        id="main-content"
+        tabIndex={-1}
+      >
+        <Hero messages={messages} />
+        <TrustBar messages={messages} />
+        <AboutCompany messages={messages} />
+        <OfferPackages messages={messages} />
+        <Products messages={messages} />
+        <WhyChooseUs messages={messages} />
+        <HowWeWork messages={messages} />
+        <CaseStudies messages={messages} />
+        <CtaSection messages={messages} />
+      </main>
       <Footer messages={messages} locale={DEFAULT_LOCALE} />
       <FloatingWhatsapp messages={messages} />
-    </main>
+    </>
   );
 }
