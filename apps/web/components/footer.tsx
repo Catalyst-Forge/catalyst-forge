@@ -136,7 +136,7 @@ export function Footer({ messages, locale }: FooterProps) {
           <p className="text-base leading-relaxed text-white/68">
             {messages.footer.copyright}
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 sm:pr-16">
             <a
               className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
               href={locale === "en" ? "/en/privacy" : "/privacy"}
