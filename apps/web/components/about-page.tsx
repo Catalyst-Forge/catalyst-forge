@@ -9,7 +9,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
 
   const members = [
     { ...a.team.bagas, photo: "/team/bagas-avatar.jpg" },
-    { ...a.team.alana },
+    { ...a.team.alana, photo: "/team/alana-avatar.jpg" },
     { ...a.team.hambali, photo: "/team/hambali-avatar.jpg" },
     { ...a.team.faiz, photo: "/team/faiz-avatar.jpg" },
   ];
