@@ -73,7 +73,9 @@ export function ServiceLandingPage({
             sizes="100vw"
             src="/logo-background.webp"
           />
-          <div className="absolute inset-0 bg-[#163453]/88" />
+          {/* /88 is not on Tailwind's opacity scale, so that class was never
+              generated and the watermark showed through at full strength. */}
+          <div className="absolute inset-0 bg-[#163453]/90" />
           <div className="section-container relative z-10 flex min-h-[78svh] items-center py-12 sm:py-16 md:py-20">
             <Reveal className="max-w-4xl" direction="up" instant>
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#FFB79C] sm:text-base">
