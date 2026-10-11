@@ -1,9 +1,8 @@
 import { ArrowRight, Building2, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import { type Messages } from "@/lib/i18n";
 import { getPortfolioPath } from "@/lib/locale-paths";
 import { isLocale } from "@/lib/locales";
+import { HeroShowcase, type ShowcaseSlide } from "./hero-showcase";
 import { ParallaxLayer } from "./parallax-layer";
 import { Reveal } from "./reveal";
 
@@ -14,6 +13,21 @@ type HeroProps = {
 export function Hero({ messages }: HeroProps) {
   const locale = isLocale(messages.locale) ? messages.locale : "id";
   const preview = messages.hero.preview;
+  // One slide per product demo, linking to its case study in the portfolio.
+  const slides: ShowcaseSlide[] = messages.products.items.map((product) => {
+    const project = messages.portfolioPage.projects.find(
+      (item) => "demoUrl" in item && item.demoUrl === product.href,
+    );
+
+    return {
+      name: product.name,
+      host: new URL(product.href).host,
+      image: product.image,
+      alt: preview.alt.replace("{name}", product.name),
+      cta: preview.cta.replace("{name}", product.name),
+      href: project ? getPortfolioPath(locale, project.slug) : product.href,
+    };
+  });
 
   return (
     <section
@@ -94,42 +108,7 @@ export function Hero({ messages }: HeroProps) {
           speed={0.12}
         >
           <Reveal instant direction="right">
-            {/* A real product screen instead of an abstract mock-up. */}
-            <figure className="motion-float-slow relative">
-              <div className="overflow-hidden rounded-xl border border-white/20 bg-white shadow-2xl ring-1 ring-black/5">
-                <div className="flex items-center gap-3 border-b border-slate-200 bg-[#F4F5F7] px-4 py-3">
-                  <div aria-hidden="true" className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#D0490F]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#F4B350]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#3BAA72]" />
-                  </div>
-                  <span className="flex-1 truncate rounded-md bg-white px-3 py-1 text-center text-xs font-medium text-slate-500">
-                    {preview.label}
-                  </span>
-                </div>
-                <Image
-                  alt={preview.alt}
-                  className="block h-auto w-full"
-                  height={720}
-                  sizes="(min-width: 1024px) 560px, 1px"
-                  src="/images/portfolio/crm.webp"
-                  width={1280}
-                />
-              </div>
-              <figcaption className="absolute -bottom-5 left-6">
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#1B3A5C] shadow-xl ring-1 ring-black/5 transition hover:text-[#C4430D]"
-                  href={getPortfolioPath(locale, "crm-demo")}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 rounded-full bg-[#3BAA72]"
-                  />
-                  {preview.cta}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </figcaption>
-            </figure>
+            <HeroShowcase slides={slides} switchLabel={preview.switchLabel} />
           </Reveal>
         </ParallaxLayer>
       </div>

@@ -31,9 +31,9 @@
   "hero": {
     "badge": "Building Digital Solutions",
     "preview": {
-      "label": "crm.catalystforge.web.id",
-      "alt": "CRM dashboard built by CatalystForge",
-      "cta": "View the CRM demo"
+      "alt": "{name} screen built by CatalystForge",
+      "cta": "View the {name} demo",
+      "switchLabel": "Choose which product to show"
     },
     "headline": "Build Websites, Operational Systems, and AI Automation Your Team Can Actually Use",
     "subheadline": "CatalystForge helps Indonesian businesses turn digital needs into company profiles, CRM, HRIS, POS, dashboards, and workflow automation with clear scope and deployment-ready delivery.",
