@@ -31,6 +31,14 @@ URL intent yang sudah masuk sitemap:
 - `https://catalystforge.web.id/custom-pos`
 - `https://catalystforge.web.id/ai-support`
 
+Versi bahasa Inggris (saling terhubung lewat hreflang dengan versi Indonesia):
+
+- `https://catalystforge.web.id/en/company-profile`
+- `https://catalystforge.web.id/en/custom-crm`
+- `https://catalystforge.web.id/en/custom-hris`
+- `https://catalystforge.web.id/en/custom-pos`
+- `https://catalystforge.web.id/en/ai-support`
+
 ## URL Inspection
 
 Gunakan URL Inspection untuk halaman prioritas:

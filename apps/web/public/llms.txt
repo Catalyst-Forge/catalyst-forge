@@ -13,6 +13,16 @@ CatalystForge is a software house based in Bandung, Indonesia, serving businesse
 - [English Privacy](https://catalystforge.web.id/en/privacy): English privacy policy
 - [English Terms](https://catalystforge.web.id/en/terms): English terms of service
 
+## Services
+
+Each service page is available in Indonesian and English and links to its demo and case study.
+
+- [Company Profile Website](https://catalystforge.web.id/en/company-profile): Corporate website development ([Bahasa Indonesia](https://catalystforge.web.id/company-profile))
+- [Custom CRM](https://catalystforge.web.id/en/custom-crm): Sales pipeline, follow-up, and customer data systems ([Bahasa Indonesia](https://catalystforge.web.id/custom-crm))
+- [Custom HRIS](https://catalystforge.web.id/en/custom-hris): Employee data, attendance, leave, and payroll summary systems ([Bahasa Indonesia](https://catalystforge.web.id/custom-hris))
+- [Custom POS](https://catalystforge.web.id/en/custom-pos): Checkout, inventory, and sales reporting systems ([Bahasa Indonesia](https://catalystforge.web.id/custom-pos))
+- [AI Support](https://catalystforge.web.id/en/ai-support): AI chatbots with knowledge base and human handoff ([Bahasa Indonesia](https://catalystforge.web.id/ai-support))
+
 ## Product Demos
 
 - [Company Profile](https://company.catalystforge.web.id): Company profile site with about, operations, governance, sustainability, and contact pages
