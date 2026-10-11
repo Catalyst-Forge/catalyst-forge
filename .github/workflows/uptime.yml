@@ -8,7 +8,7 @@ on:
   schedule:
     # Every 15 minutes, but not on :00, when GitHub is busiest and may delay or
     # drop scheduled runs.
-    - cron: "3,18,33,48 * * * *"
+    - cron: "4,19,34,49 * * * *"
   workflow_dispatch:
 
 # The job only makes outbound requests, so it needs no token permissions.
