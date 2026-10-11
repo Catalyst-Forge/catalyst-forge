@@ -126,7 +126,7 @@ function Hero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=2200&q=80')",
+            "url('https://images.unsplash.com/photo-1781453642131-831ca8f70536?auto=format&fit=crop&w=2200&q=80')",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#112617]/95 via-[#17341f]/82 to-[#17341f]/35" />
@@ -395,7 +395,7 @@ function Sustainability() {
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80')",
+            "url('https://images.unsplash.com/photo-1760440415591-f5d23cdab608?auto=format&fit=crop&w=1800&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
