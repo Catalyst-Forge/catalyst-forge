@@ -1,50 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const CONSENT_KEY = "cf_cookie_consent";
 
 /**
- * Runtime consent updater.
+ * Forwards the cookie banner's choice to Google Consent Mode.
  *
- * GA4 tag is loaded server-side in layout.tsx (always present in HTML source).
- * This client component reads stored consent and calls gtag('consent','update').
- * Consent default = denied → cookieless pings until user clicks "Terima Semua".
+ * layout.tsx defines `gtag` in <head>, denies every consent type and applies a
+ * stored "all" choice before `config`. gtag.js itself is injected after the
+ * page has loaded; until then `gtag()` only queues commands in `dataLayer`,
+ * and gtag.js replays that queue in order. A choice made before or after the
+ * script arrives therefore reaches GA the same way.
  */
 export function Analytics() {
-  const [consent, setConsent] = useState<string>("denied");
-
   useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (stored) setConsent(stored === "all" ? "granted" : "denied");
+    if (!GA_ID) return;
 
+    // The banner dispatches this event in the same tab after writing storage;
+    // the browser also fires it when another tab changes the choice.
     const handleStorage = (e: StorageEvent) => {
-      if (e.key === CONSENT_KEY && e.newValue) {
-        const next = e.newValue === "all" ? "granted" : "denied";
-        setConsent(next);
+      if (e.key !== CONSENT_KEY || !e.newValue) return;
+      const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void })
+        .gtag;
+      if (typeof gtag === "function") {
+        gtag("consent", "update", {
+          analytics_storage: e.newValue === "all" ? "granted" : "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+        });
       }
     };
     window.addEventListener("storage", handleStorage);
     return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
-  // Update consent state when user accepts/rejects
-  const grant = consent === "granted";
-  useEffect(() => {
-    const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void })
-      .gtag;
-    if (typeof gtag === "function") {
-      gtag("consent", "update", {
-        analytics_storage: grant ? "granted" : "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-      });
-    }
-  }, [grant]);
-
-  if (!GA_ID) return null;
   return null;
 }
 
