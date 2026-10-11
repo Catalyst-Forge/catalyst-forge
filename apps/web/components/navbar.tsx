@@ -50,7 +50,7 @@ export function Navbar({ messages, locale }: NavbarProps) {
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <a
-              className="text-base font-semibold text-[#1A1A2E] transition-colors hover:text-[#E8531A]"
+              className="nav-link text-base font-semibold text-[#1A1A2E] transition-colors hover:text-[#E8531A]"
               href={item.href}
               key={item.href}
             >
