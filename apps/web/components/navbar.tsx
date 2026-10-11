@@ -23,8 +23,9 @@ export function Navbar({ messages, locale, alternateHrefs }: NavbarProps) {
 
   return (
     <>
+      {/* focus-visible: keyboard users get it, focus the browser restores on its own does not. */}
       <a
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:rounded-full focus:bg-[#1B3A5C] focus:px-5 focus:py-3 focus:text-base focus:font-bold focus:text-white focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#1B3A5C]"
+        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:left-4 focus-visible:top-4 focus-visible:z-[10000] focus-visible:rounded-full focus-visible:bg-[#1B3A5C] focus-visible:px-5 focus-visible:py-3 focus-visible:text-base focus-visible:font-bold focus-visible:text-white focus-visible:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
         href="#main-content"
       >
         {messages.navbar.skipToContent}
