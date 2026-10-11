@@ -88,6 +88,8 @@ export function Navbar({ messages, locale }: NavbarProps) {
               ctaHref={`${prefix}/#contact`}
               ctaLabel={messages.navbar.cta}
               items={navItems}
+              menuLabel={messages.navbar.menuLabel}
+              navLabel={messages.navbar.navLabel}
             />
           </div>
         </div>

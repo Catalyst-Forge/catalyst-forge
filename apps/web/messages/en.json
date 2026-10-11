@@ -23,7 +23,8 @@
     "contact": "Contact",
     "cta": "Consult",
     "skipToContent": "Skip to main content",
-    "navLabel": "Main navigation"
+    "navLabel": "Main navigation",
+    "menuLabel": "Navigation menu"
   },
   "hero": {
     "badge": "Building Digital Solutions",

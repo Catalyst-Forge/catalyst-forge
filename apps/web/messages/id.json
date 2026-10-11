@@ -23,7 +23,8 @@
     "contact": "Kontak",
     "cta": "Konsultasi",
     "skipToContent": "Lewati ke konten utama",
-    "navLabel": "Navigasi utama"
+    "navLabel": "Navigasi utama",
+    "menuLabel": "Menu navigasi"
   },
   "hero": {
     "badge": "Solusi Digital untuk Bisnis",
