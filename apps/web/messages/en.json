@@ -203,35 +203,6 @@
       }
     ]
   },
-  "testimonials": {
-    "eyebrow": "Testimonials & Project Highlights",
-    "title": "Experience across corporate, research, and healthcare projects",
-    "description": "These projects highlight CatalystForge experience in procurement workflows, expert systems, and operational chatbot assistance.",
-    "ratingLabel": "5 out of 5 stars",
-    "items": [
-      {
-        "avatar": "https://i.pravatar.cc/100?img=1",
-        "name": "PT Patra Drilling Contractor",
-        "title": "Procurement HTE",
-        "company": "Pertamina Subholding",
-        "quote": "The Procurement HTE project supports more efficient procurement workflows with a key feature that simplifies document generation for every procurement process."
-      },
-      {
-        "avatar": "https://i.pravatar.cc/100?img=3",
-        "name": "Universitas Malikussaleh",
-        "title": "Aquaculture Research",
-        "company": "Vannamei Shrimp Expert System",
-        "quote": "An expert system for diagnosing vannamei shrimp diseases using Naive Bayes and Certainty Factor methods as a knowledge-based analysis support tool."
-      },
-      {
-        "avatar": "https://i.pravatar.cc/100?img=5",
-        "name": "RS Prima Inti Medika",
-        "title": "Healthcare Services",
-        "company": "Pomeng Chatbot",
-        "quote": "Pomeng Chatbot was developed as an assistant guide to help users access directions and service information for RS Prima Inti Medika more easily."
-      }
-    ]
-  },
   "caseStudies": {
     "eyebrow": "Project Experience",
     "title": "Case studies from real business needs",

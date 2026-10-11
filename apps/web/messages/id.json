@@ -203,35 +203,6 @@
       }
     ]
   },
-  "testimonials": {
-    "eyebrow": "Testimoni & Project Highlights",
-    "title": "Pengalaman dari proyek perusahaan, riset, dan healthcare",
-    "description": "Beberapa project berikut menunjukkan pengalaman CatalystForge dalam membangun solusi pengadaan, sistem pakar, dan chatbot operasional.",
-    "ratingLabel": "5 dari 5 bintang",
-    "items": [
-      {
-        "avatar": "https://i.pravatar.cc/100?img=1",
-        "name": "PT Patra Drilling Contractor",
-        "title": "Procurement HTE",
-        "company": "Subholding Pertamina",
-        "quote": "Project Procurement HTE membantu proses pengadaan menjadi lebih efisien dengan fitur utama untuk memudahkan generate dokumen di setiap pengadaan."
-      },
-      {
-        "avatar": "https://i.pravatar.cc/100?img=3",
-        "name": "Universitas Malikussaleh",
-        "title": "Riset Akuakultur",
-        "company": "Sistem Pakar Udang Vaname",
-        "quote": "Sistem pakar untuk mendiagnosa penyakit udang vaname menggunakan metode Naive Bayes dan Certainty Factor sebagai pendukung analisis berbasis pengetahuan."
-      },
-      {
-        "avatar": "https://i.pravatar.cc/100?img=5",
-        "name": "RS Prima Inti Medika",
-        "title": "Layanan Kesehatan",
-        "company": "Pomeng Chatbot",
-        "quote": "Pomeng Chatbot dikembangkan sebagai asisten guide untuk membantu pengguna mendapatkan arahan dan informasi layanan RS Prima Inti Medika dengan lebih mudah."
-      }
-    ]
-  },
   "caseStudies": {
     "eyebrow": "Pengalaman Project",
     "title": "Studi kasus dari kebutuhan bisnis nyata",

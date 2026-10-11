@@ -9,12 +9,6 @@ const nextConfig = {
   experimental: {},
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-    ],
   },
   transpilePackages: ["@repo/ui", "@repo/config"],
   headers,
