@@ -187,6 +187,7 @@ function ProjectCard({
             <ProjectCover
               category={project.category}
               client={project.client}
+              ndaNote={messages.portfolioPage.ndaNote}
             />
           )}
           {project.demoUrl ? (

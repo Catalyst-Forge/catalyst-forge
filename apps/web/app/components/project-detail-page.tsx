@@ -86,6 +86,7 @@ export function ProjectDetailPage({
                   <ProjectCover
                     category={project.category}
                     client={project.client}
+                    ndaNote={p.ndaNote}
                     size="large"
                   />
                 </div>
