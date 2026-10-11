@@ -47,11 +47,11 @@ export function ProjectDetailPage({
                 {locale === "id" ? "Kembali ke Portfolio" : "Back to Portfolio"}
               </Link>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-[#FFF4EF] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#E8531A]">
+                <span className="rounded-full bg-[#FFF4EF] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#C4430D]">
                   {project.category}
                 </span>
                 {project.year ? (
-                  <span className="text-sm font-semibold text-white/50">
+                  <span className="text-sm font-semibold text-white/70">
                     {project.year}
                   </span>
                 ) : null}
@@ -98,7 +98,7 @@ export function ProjectDetailPage({
           <Reveal direction="right" instant>
             <div className="space-y-6">
               <div>
-                <h2 className="text-lg font-bold uppercase tracking-[0.14em] text-[#E8531A]">
+                <h2 className="text-lg font-bold uppercase tracking-[0.14em] text-[#C4430D]">
                   {locale === "id" ? "Ringkasan" : "Overview"}
                 </h2>
                 <p className="mt-3 text-lg leading-relaxed text-[#1A1A2E]/78">
@@ -108,7 +108,7 @@ export function ProjectDetailPage({
 
               {project.tech.length > 0 ? (
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-[#1B3A5C]/50">
+                  <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-[#1B3A5C]/80">
                     Tech Stack
                   </h3>
                   <div className="mt-3 flex flex-wrap gap-2">
@@ -126,7 +126,7 @@ export function ProjectDetailPage({
 
               {project.demoUrl ? (
                 <a
-                  className="inline-flex items-center gap-2 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B]"
                   href={project.demoUrl}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -255,7 +255,7 @@ export function ProjectDetailPage({
                 {p.cta.subtext}
               </p>
               <a
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] hover:scale-[1.02] active:scale-[0.98]"
                 href={`https://wa.me/6285121145387?text=${encodeURIComponent(
                   locale === "id"
                     ? `Halo CatalystForge, saya tertarik dengan project ${project.title}`

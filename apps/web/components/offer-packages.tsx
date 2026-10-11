@@ -15,7 +15,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
       <div className="section-container">
         <ScrollParallax className="max-w-3xl scroll-mt-40" id="offers">
           <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               {messages.offers.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -66,7 +66,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
 
                 <a
                   aria-label={`${messages.offers.detailCta} ${offer.name}`}
-                  className="mt-7 inline-flex items-center gap-2 text-base font-bold text-[#E8531A] transition hover:text-[#1B3A5C] lg:mt-auto lg:pt-7"
+                  className="mt-7 inline-flex items-center gap-2 text-base font-bold text-[#C4430D] transition hover:text-[#1B3A5C] lg:mt-auto lg:pt-7"
                   href={offer.href}
                 >
                   {messages.offers.detailCta}

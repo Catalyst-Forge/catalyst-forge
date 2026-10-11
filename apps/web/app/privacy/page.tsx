@@ -109,7 +109,7 @@ export default function PrivacyPage() {
               Untuk pertanyaan tentang kebijakan privasi ini atau permintaan
               terkait data Anda, hubungi kami di:
             </p>
-            <p className="mt-2 font-semibold text-[#E8531A]">
+            <p className="mt-2 font-semibold text-[#C4430D]">
               catalystforgetechnology@gmail.com
             </p>
           </div>

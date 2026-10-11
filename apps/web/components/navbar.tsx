@@ -49,7 +49,7 @@ export function Navbar({ messages, locale }: NavbarProps) {
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <a
-              className="nav-link text-base font-semibold text-[#1A1A2E] transition-colors hover:text-[#E8531A]"
+              className="nav-link text-base font-semibold text-[#1A1A2E] transition-colors hover:text-[#C4430D]"
               href={item.href}
               key={item.href}
             >
@@ -69,7 +69,7 @@ export function Navbar({ messages, locale }: NavbarProps) {
             ]}
           />
           <a
-            className="hidden rounded-full bg-[#D0490F] px-5 py-3 text-base font-bold text-white shadow-md transition hover:bg-[#F4784A] xl:inline-flex"
+            className="hidden rounded-full bg-[#D0490F] px-5 py-3 text-base font-bold text-white shadow-md transition hover:bg-[#B83D0B] xl:inline-flex"
             href={`${prefix}/#contact`}
           >
             {messages.navbar.cta}

@@ -40,13 +40,13 @@ export function ProjectCover({
             <Icon aria-hidden="true" className="h-8 w-8 text-[#F4B350]" />
           </span>
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/60">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/70">
               {category}
             </p>
             <p className="mt-1 text-2xl font-bold leading-snug sm:text-3xl">
               {client}
             </p>
-            <p className="mt-4 flex items-center gap-2 text-sm text-white/60">
+            <p className="mt-4 flex items-center gap-2 text-sm text-white/70">
               <Lock aria-hidden="true" className="h-4 w-4 shrink-0" />
               {ndaNote}
             </p>

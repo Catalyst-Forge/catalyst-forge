@@ -26,7 +26,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
           maxOffset={38}
         >
           <Reveal direction="up">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               {messages.caseStudies.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -47,7 +47,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
               key={project.slug}
             >
               <article className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl sm:p-7">
-                <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#E8531A]">
+                <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#C4430D]">
                   {project.sector}
                 </p>
                 <h3 className="mt-4 text-xl font-bold tracking-tight text-[#1B3A5C] sm:text-2xl">
@@ -61,7 +61,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
                 </p>
 
                 <div className="mt-6 rounded-lg border border-[#E8531A]/12 bg-[#FFF4EF] p-4">
-                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#E8531A]">
+                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#C4430D]">
                     {messages.caseStudies.metricsLabel}
                   </p>
                   <div className="mt-3 grid gap-2">
@@ -77,7 +77,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
                 </div>
 
                 <Link
-                  className="mt-auto inline-flex items-center gap-2 pt-6 text-base font-bold text-[#D0490F] transition hover:text-[#1B3A5C]"
+                  className="mt-auto inline-flex items-center gap-2 pt-6 text-base font-bold text-[#C4430D] transition hover:text-[#1B3A5C]"
                   href={getPortfolioPath(locale, project.slug)}
                 >
                   {messages.portfolioPage.viewCaseStudy}
@@ -90,7 +90,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
 
         <div className="mt-12 text-center">
           <Link
-            className="inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] hover:scale-[1.02] active:scale-[0.98]"
             href={getPortfolioPath(locale)}
           >
             {messages.caseStudies.portfolioCta}

@@ -23,7 +23,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
         >
           <ScrollParallax maxOffset={38}>
             <Reveal direction="left">
-              <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+              <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
                 {messages.navbar.contact}
               </p>
               <h2 className="mt-4 max-w-3xl text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -35,7 +35,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
 
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
                 <ConversionLink
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] sm:w-auto sm:px-7 sm:py-4"
                   eventLabel="contact_whatsapp_cta"
                   eventName="lead_click"
                   href={whatsappHref}
@@ -46,7 +46,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
                   {messages.cta.button}
                 </ConversionLink>
                 <ConversionLink
-                  className="inline-flex w-full min-w-0 items-center justify-center gap-3 break-all rounded-full border border-[#1B3A5C]/20 px-6 py-3.5 text-center text-base font-bold text-[#1B3A5C] transition hover:border-[#E8531A] hover:text-[#E8531A] sm:w-auto sm:px-7 sm:py-4"
+                  className="inline-flex w-full min-w-0 items-center justify-center gap-3 break-all rounded-full border border-[#1B3A5C]/20 px-6 py-3.5 text-center text-base font-bold text-[#1B3A5C] transition hover:border-[#E8531A] hover:text-[#C4430D] sm:w-auto sm:px-7 sm:py-4"
                   eventLabel="contact_email_cta"
                   eventName="lead_click"
                   href={`mailto:${messages.footer.contactEmail}`}

@@ -20,7 +20,7 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
           maxOffset={34}
         >
           <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               {messages.about.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -42,7 +42,7 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
             </div>
 
             <Link
-              className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98] sm:px-7 sm:py-4"
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] hover:scale-[1.02] active:scale-[0.98] sm:px-7 sm:py-4"
               href="/about"
             >
               {messages.about.teamCta}

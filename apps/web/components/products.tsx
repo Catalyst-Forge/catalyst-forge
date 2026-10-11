@@ -34,7 +34,7 @@ export function Products({ messages }: ProductsProps) {
           maxOffset={38}
         >
           <Reveal direction="up">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               {messages.products.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -71,7 +71,7 @@ export function Products({ messages }: ProductsProps) {
                     {product.description}
                   </p>
                   <ConversionLink
-                    className="relative mt-6 inline-flex items-center gap-2 text-base font-bold text-[#E8531A] transition group-hover:text-[#1B3A5C] md:mt-auto md:pt-6"
+                    className="relative mt-6 inline-flex items-center gap-2 text-base font-bold text-[#C4430D] transition group-hover:text-[#1B3A5C] md:mt-auto md:pt-6"
                     eventLabel={`demo_${product.name}`}
                     eventName="demo_click"
                     href={product.href}

@@ -16,7 +16,7 @@ export function HowWeWork({ messages }: HowWeWorkProps) {
           maxOffset={38}
         >
           <Reveal direction="up">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               {messages.howWeWork.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">

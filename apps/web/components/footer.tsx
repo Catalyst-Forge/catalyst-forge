@@ -57,7 +57,7 @@ export function Footer({ messages, locale }: FooterProps) {
             <nav className="grid content-start gap-4">
               {navItems.map((item) => (
                 <a
-                  className="text-base font-semibold text-white/78 transition hover:text-[#F4784A]"
+                  className="text-base font-semibold text-white/78 transition hover:text-[#F58A60]"
                   href={item.href}
                   key={item.href}
                 >
@@ -76,7 +76,7 @@ export function Footer({ messages, locale }: FooterProps) {
               </h2>
               <div className="mt-5 grid gap-3 text-base leading-relaxed text-white/78">
                 <a
-                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F4784A]"
+                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
                   href={`mailto:${messages.footer.contactEmail}`}
                 >
                   <Mail className="h-5 w-5 shrink-0" />
@@ -85,7 +85,7 @@ export function Footer({ messages, locale }: FooterProps) {
                   </span>
                 </a>
                 <a
-                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F4784A]"
+                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
                   href={`tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`}
                 >
                   <Phone className="h-5 w-5 shrink-0" />

@@ -54,7 +54,7 @@ export function Hero({ messages }: HeroProps) {
           <Reveal instant delay={250} direction="left">
             <div className="mt-7 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
               <a
-                className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] sm:w-auto sm:px-7 sm:py-4"
                 href="#offers"
               >
                 {messages.hero.primaryCta}
@@ -115,7 +115,7 @@ export function Hero({ messages }: HeroProps) {
               </div>
               <figcaption className="absolute -bottom-5 left-6">
                 <Link
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#1B3A5C] shadow-xl ring-1 ring-black/5 transition hover:text-[#D0490F]"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#1B3A5C] shadow-xl ring-1 ring-black/5 transition hover:text-[#C4430D]"
                   href={getPortfolioPath(locale, "crm-demo")}
                 >
                   <span

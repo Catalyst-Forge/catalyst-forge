@@ -27,7 +27,7 @@ export function WhyChooseUs({ messages }: WhyChooseUsProps) {
       <div className="section-container relative">
         <ScrollParallax className="max-w-3xl" maxOffset={38}>
           <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#F4784A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#F58A60]">
               {messages.whyChooseUs.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl">

@@ -97,7 +97,7 @@ export default function TermsPageEn() {
             <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
               For questions about these terms, contact:
             </p>
-            <p className="mt-2 font-semibold text-[#E8531A]">
+            <p className="mt-2 font-semibold text-[#C4430D]">
               catalystforgetechnology@gmail.com
             </p>
           </div>

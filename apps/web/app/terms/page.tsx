@@ -99,7 +99,7 @@ export default function TermsPage() {
             <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
               Untuk pertanyaan tentang ketentuan ini, hubungi:
             </p>
-            <p className="mt-2 font-semibold text-[#E8531A]">
+            <p className="mt-2 font-semibold text-[#C4430D]">
               catalystforgetechnology@gmail.com
             </p>
           </div>

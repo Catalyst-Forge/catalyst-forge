@@ -32,7 +32,7 @@ export function MobileMenu({ ctaLabel, ctaHref, items }: MobileMenuProps) {
           <nav className="grid gap-2">
             {items.map((item) => (
               <a
-                className="rounded-md px-4 py-3 text-base font-semibold text-[#1A1A2E] hover:bg-[#FAF8F5] hover:text-[#E8531A]"
+                className="rounded-md px-4 py-3 text-base font-semibold text-[#1A1A2E] hover:bg-[#FAF8F5] hover:text-[#C4430D]"
                 href={item.href}
                 key={item.href}
                 onClick={() => setIsOpen(false)}

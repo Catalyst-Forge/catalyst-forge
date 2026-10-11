@@ -72,7 +72,7 @@ export function ServiceLandingPage({
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition hover:bg-[#F4784A] sm:px-7"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition hover:bg-[#B83D0B] sm:px-7"
                 href="#contact"
               >
                 {page.primaryCta}
@@ -120,7 +120,7 @@ export function ServiceLandingPage({
       >
         <div className="section-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               Rumusan Masalah
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -156,7 +156,7 @@ export function ServiceLandingPage({
       >
         <div className="section-container">
           <Reveal className="max-w-3xl" direction="up">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               Output Solusi
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -214,7 +214,7 @@ export function ServiceLandingPage({
       >
         <div className="section-container">
           <Reveal className="max-w-3xl" direction="up">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               Cara Eksekusi
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -277,7 +277,7 @@ export function ServiceLandingPage({
                 {page.caseStudy.summary}
               </p>
               <div className="mt-6 rounded-lg border border-white/15 bg-white/10 p-4">
-                <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#FFD3C2]">
                   Dampak yang dituju
                 </p>
                 <p className="mt-2 text-base font-semibold leading-relaxed text-white/86">
@@ -292,7 +292,7 @@ export function ServiceLandingPage({
       <section className="section-padding overflow-hidden bg-white">
         <div className="section-container grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               FAQ
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">

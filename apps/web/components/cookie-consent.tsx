@@ -62,7 +62,7 @@ export function CookieConsent({ copy }: { copy: CookieConsentCopy }) {
           {t.body}{" "}
           <Link
             href={locale === "en" ? "/en/privacy" : "/privacy"}
-            className="whitespace-nowrap font-semibold text-[#E8531A] underline transition hover:text-[#1B3A5C]"
+            className="whitespace-nowrap font-semibold text-[#C4430D] underline transition hover:text-[#1B3A5C]"
           >
             {t.privacy}
           </Link>
@@ -78,7 +78,7 @@ export function CookieConsent({ copy }: { copy: CookieConsentCopy }) {
           <button
             type="button"
             onClick={() => handleAccept("all")}
-            className="rounded-full bg-[#D0490F] px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#D0490F]"
+            className="rounded-full bg-[#D0490F] px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#B83D0B]"
           >
             {t.acceptAll}
           </button>
