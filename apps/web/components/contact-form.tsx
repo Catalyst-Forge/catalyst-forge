@@ -501,11 +501,16 @@ type FieldErrorProps = {
   invalid: boolean;
 };
 
-/** Marks a control invalid and ties it to the error message that explains why. */
+/**
+ * Marks a control invalid and ties it to the error message that explains why.
+ * aria-invalid is always explicit: left out, Chrome reports an untouched
+ * required <select> as "invalid entry" before the visitor has done anything.
+ */
 function describeError({ errorMessageId, invalid }: FieldErrorProps) {
-  return invalid
-    ? { "aria-describedby": errorMessageId, "aria-invalid": true as const }
-    : {};
+  return {
+    "aria-describedby": invalid ? errorMessageId : undefined,
+    "aria-invalid": invalid,
+  };
 }
 
 function LabelText({
