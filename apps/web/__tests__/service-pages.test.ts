@@ -216,6 +216,8 @@ describe("homepage links to service pages", () => {
       const valid = servicePaths(locale);
 
       for (const offer of messages.offers.items) {
+        // Packages spanning several services point at a homepage section.
+        if (offer.href.startsWith("#")) continue;
         expect(valid, `${locale} offer ${offer.name}`).toContain(offer.href);
       }
       for (const product of messages.products.items) {
