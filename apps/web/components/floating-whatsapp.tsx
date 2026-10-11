@@ -4,13 +4,18 @@ import { ConversionLink } from "./conversion-link";
 
 type FloatingWhatsappProps = {
   messages: Messages;
+  /** Prefilled text for pages about one service; defaults to the generic one. */
+  message?: string;
 };
 
 const WHATSAPP_NUMBER = "6285121145387";
 
-export function FloatingWhatsapp({ messages }: FloatingWhatsappProps) {
+export function FloatingWhatsapp({
+  messages,
+  message = messages.whatsapp.message,
+}: FloatingWhatsappProps) {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    messages.whatsapp.message,
+    message,
   )}`;
 
   return (

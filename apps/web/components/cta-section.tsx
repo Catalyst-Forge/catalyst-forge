@@ -1,5 +1,6 @@
 import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { type Messages } from "@/lib/i18n";
+import type { ServiceSlug } from "@/lib/service-pages";
 import { ContactForm } from "./contact-form";
 import { ConversionLink } from "./conversion-link";
 import { Reveal } from "./reveal";
@@ -7,11 +8,23 @@ import { ScrollParallax } from "./scroll-parallax";
 
 type CtaSectionProps = {
   messages: Messages;
+  /** Service page overrides; the homepage copy applies when omitted. */
+  headline?: string;
+  subtext?: string;
+  whatsappMessage?: string;
+  /** Preselects the matching "main need" in the contact form. */
+  defaultNeed?: ServiceSlug;
 };
 
-export function CtaSection({ messages }: CtaSectionProps) {
+export function CtaSection({
+  messages,
+  headline = messages.cta.headline,
+  subtext = messages.cta.subtext,
+  whatsappMessage = messages.whatsapp.message,
+  defaultNeed,
+}: CtaSectionProps) {
   const whatsappHref = `https://wa.me/6285121145387?text=${encodeURIComponent(
-    messages.whatsapp.message,
+    whatsappMessage,
   )}`;
 
   return (
@@ -27,10 +40,10 @@ export function CtaSection({ messages }: CtaSectionProps) {
                 {messages.navbar.contact}
               </p>
               <h2 className="mt-4 max-w-3xl text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
-                {messages.cta.headline}
+                {headline}
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#1A1A2E]/72 sm:mt-6 sm:text-lg">
-                {messages.cta.subtext}
+                {subtext}
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
@@ -60,7 +73,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
 
           <Reveal className="min-w-0" direction="right">
             <div className="rounded-lg border border-slate-200 bg-[#FAF8F5] p-4 shadow-sm sm:p-6 md:p-8">
-              <ContactForm messages={messages} />
+              <ContactForm defaultNeed={defaultNeed} messages={messages} />
               <div className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
                 {[
                   {

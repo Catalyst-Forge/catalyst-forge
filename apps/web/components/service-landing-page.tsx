@@ -5,48 +5,60 @@ import {
   Clock3,
   ExternalLink,
   FileCheck2,
-  ShieldCheck,
   Sparkles,
   Target,
 } from "lucide-react";
-import { type ServicePage } from "@/lib/service-pages";
-import { DEFAULT_LOCALE, type Messages } from "@/lib/i18n";
+import { type Locale, type Messages } from "@/lib/i18n";
+import { getServicePath } from "@/lib/locale-paths";
+import {
+  createServiceJsonLd,
+  getServiceLanguagePaths,
+} from "@/lib/service-page-metadata";
+import {
+  getServicePage,
+  getServiceProofProjects,
+  getServiceUi,
+  serviceSlugs,
+  type ServiceSlug,
+} from "@/lib/service-pages";
 import { ConversionLink } from "./conversion-link";
 import { CtaSection } from "./cta-section";
 import { FloatingWhatsapp } from "./floating-whatsapp";
 import { Footer } from "./footer";
 import { Navbar } from "./navbar";
 import { Reveal } from "./reveal";
+import { ServiceProofCard } from "./service-proof";
 
 type ServiceLandingPageProps = {
+  locale: Locale;
   messages: Messages;
-  page: ServicePage;
+  slug: ServiceSlug;
 };
 
-const siteUrl = "https://catalystforge.web.id";
-
 export function ServiceLandingPage({
+  locale,
   messages,
-  page,
+  slug,
 }: ServiceLandingPageProps) {
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    areaServed: "Indonesia",
-    description: page.description,
-    name: page.metaTitle,
-    provider: {
-      "@type": "Organization",
-      name: "CatalystForge",
-      url: siteUrl,
-    },
-    serviceType: page.eyebrow,
-    url: `${siteUrl}/${page.slug}`,
-  };
+  const page = getServicePage(locale, slug);
+  const ui = getServiceUi(locale);
+  const proofProjects = getServiceProofProjects(locale, slug);
+  const alternateHrefs = getServiceLanguagePaths(slug);
+  const otherServices = serviceSlugs.filter((other) => other !== slug);
+
+  // "<" is escaped so no copy can ever close the script tag early.
+  const jsonLd = JSON.stringify(createServiceJsonLd(locale, slug)).replace(
+    /</g,
+    "\\u003c",
+  );
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
-      <Navbar messages={messages} locale={DEFAULT_LOCALE} />
+      <Navbar
+        alternateHrefs={alternateHrefs}
+        locale={locale}
+        messages={messages}
+      />
 
       <section className="relative isolate overflow-hidden bg-[#163453] text-white">
         <Image
@@ -58,7 +70,7 @@ export function ServiceLandingPage({
           src="/logo-background.webp"
         />
         <div className="absolute inset-0 bg-[#163453]/88" />
-        <div className="section-container relative z-10 flex min-h-[78svh] items-center py-14 sm:py-16 md:py-20">
+        <div className="section-container relative z-10 flex min-h-[78svh] items-center py-12 sm:py-16 md:py-20">
           <Reveal className="max-w-4xl" direction="up" instant>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#FFB79C] sm:text-base">
               {page.eyebrow}
@@ -67,7 +79,7 @@ export function ServiceLandingPage({
               {page.headline}
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/78 sm:text-xl">
-              {page.description}
+              {page.lede}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -86,86 +98,78 @@ export function ServiceLandingPage({
                 rel="noreferrer"
                 target="_blank"
               >
-                {page.secondaryCta}
+                {page.demoCta}
                 <ExternalLink className="h-5 w-5" />
               </ConversionLink>
             </div>
 
-            <div className="mt-9 grid gap-3 sm:grid-cols-3">
+            <dl className="mt-6 grid gap-3 sm:mt-9 sm:grid-cols-[1fr_2fr]">
               {[
-                { label: "Estimasi", value: page.timeline },
-                { label: "Cocok untuk", value: page.bestFor },
-                { label: "Output", value: page.deliverables[0] },
+                { label: ui.estimate, value: page.timeline },
+                { label: ui.bestFor, value: page.bestFor },
               ].map((item) => (
                 <div
-                  className="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur"
+                  className="rounded-lg border border-white/15 bg-white/10 p-3.5 backdrop-blur sm:p-4"
                   key={item.label}
                 >
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
+                  <dt className="text-xs font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
                     {item.label}
-                  </p>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-white/86">
+                  </dt>
+                  <dd className="mt-2 text-sm font-semibold leading-6 text-white/86">
                     {item.value}
-                  </p>
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </Reveal>
         </div>
       </section>
 
       <section
         className="section-padding scroll-mt-40 overflow-hidden bg-white"
-        id="about"
+        id="problems"
       >
         <div className="section-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal direction="left">
             <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
-              Rumusan Masalah
+              {ui.problemsEyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
-              Kenapa bisnis biasanya mulai butuh solusi ini?
+              {page.problemsTitle}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:text-lg">
-              Halaman ini dibuat untuk prospek yang sudah punya masalah
-              operasional atau kredibilitas digital yang jelas, lalu butuh
-              partner untuk memetakan scope dan delivery.
-            </p>
           </Reveal>
 
-          <div className="grid gap-4">
+          <ul className="grid gap-4">
             {page.problems.map((problem, index) => (
-              <Reveal delay={index * 90} direction="right" key={problem}>
-                <div className="flex gap-4 rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
-                    <Target className="h-5 w-5" />
-                  </span>
-                  <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/78">
-                    {problem}
-                  </p>
-                </div>
-              </Reveal>
+              <li key={problem}>
+                <Reveal delay={index * 90} direction="right">
+                  <div className="flex gap-4 rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
+                      <Target className="h-5 w-5" />
+                    </span>
+                    <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/78">
+                      {problem}
+                    </p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       <section
         className="section-padding scroll-mt-40 overflow-hidden bg-[#FAF8F5]"
-        id="products"
+        id="scope"
       >
         <div className="section-container">
           <Reveal className="max-w-3xl" direction="up">
             <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
-              Output Solusi
+              {ui.scopeEyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
-              Yang bisnis Anda dapatkan
+              {ui.scopeTitle}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:text-lg">
-              Fokusnya bukan sekadar tampilan, tapi aset digital yang bisa
-              dipakai untuk penjualan, operasional, dan pengambilan keputusan.
-            </p>
           </Reveal>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -176,14 +180,14 @@ export function ServiceLandingPage({
                     <Sparkles className="h-5 w-5" />
                   </span>
                   <h3 className="text-xl font-bold text-[#1B3A5C]">
-                    Outcome bisnis
+                    {ui.outcomesTitle}
                   </h3>
                 </div>
-                <div className="mt-6 grid gap-4">
+                <ul className="mt-6 grid gap-4">
                   {page.outcomes.map((outcome) => (
                     <Point key={outcome} text={outcome} />
                   ))}
-                </div>
+                </ul>
               </div>
             </Reveal>
 
@@ -194,14 +198,14 @@ export function ServiceLandingPage({
                     <FileCheck2 className="h-5 w-5" />
                   </span>
                   <h3 className="text-xl font-bold text-[#1B3A5C]">
-                    Deliverables
+                    {ui.deliverablesTitle}
                   </h3>
                 </div>
-                <div className="mt-6 grid gap-4">
+                <ul className="mt-6 grid gap-4">
                   {page.deliverables.map((deliverable) => (
                     <Point key={deliverable} text={deliverable} />
                   ))}
-                </div>
+                </ul>
               </div>
             </Reveal>
           </div>
@@ -215,88 +219,90 @@ export function ServiceLandingPage({
         <div className="section-container">
           <Reveal className="max-w-3xl" direction="up">
             <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
-              Cara Eksekusi
+              {ui.processEyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
-              Dari masalah sampai siap dipakai
+              {ui.processTitle}
             </h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <ol className="mt-10 grid gap-5 md:grid-cols-3">
             {page.workflow.map((step, index) => (
-              <Reveal delay={index * 100} direction="up" key={step.label}>
-                <div className="h-full rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm sm:p-6">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/12 bg-white px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
-                    <Clock3 className="h-4 w-4 text-[#E8531A]" />
-                    Step {index + 1}
-                  </span>
-                  <h3 className="mt-5 text-xl font-bold text-[#1B3A5C]">
-                    {step.label}
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
-                    {step.text}
-                  </p>
-                </div>
-              </Reveal>
+              <li key={step.label}>
+                <Reveal className="h-full" delay={index * 100} direction="up">
+                  <div className="h-full rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm sm:p-6">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/12 bg-white px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
+                      <Clock3 className="h-4 w-4 text-[#E8531A]" />
+                      {ui.step} {index + 1}
+                    </span>
+                    <h3 className="mt-5 text-xl font-bold text-[#1B3A5C]">
+                      {step.label}
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                      {step.text}
+                    </p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
+
+      {proofProjects.length > 0 ? (
+        <section
+          className="section-padding scroll-mt-40 overflow-hidden bg-[#1B3A5C] text-white"
+          id="proof"
+        >
+          <div className="section-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <Reveal direction="left">
+              <p className="text-base font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
+                {ui.proofEyebrow}
+              </p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl">
+                {page.proofTitle}
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-white/74 sm:text-lg">
+                {page.proofText}
+              </p>
+              {proofProjects.some((project) => project.demoUrl) ? (
+                <p className="mt-5 rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold leading-6 text-white/80">
+                  {ui.demoNote}
+                </p>
+              ) : null}
+            </Reveal>
+
+            <div className="grid gap-5">
+              {proofProjects.map((project, index) => (
+                <Reveal
+                  delay={index * 100}
+                  direction="right"
+                  key={project.slug}
+                >
+                  <ServiceProofCard
+                    locale={locale}
+                    project={project}
+                    service={slug}
+                    ui={ui}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section
-        className="section-padding scroll-mt-40 overflow-hidden bg-[#1B3A5C] text-white"
-        id="projects"
+        className="section-padding scroll-mt-40 overflow-hidden bg-white"
+        id="faq"
       >
-        <div className="section-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
-              Bukti dan Kesesuaian
-            </p>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl">
-              Relevan untuk kebutuhan nyata
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-white/74 sm:text-lg">
-              Kami memulai dari proses bisnis dan konteks pengguna, lalu
-              menerjemahkannya menjadi aplikasi atau website yang mudah
-              dijelaskan ke stakeholder.
-            </p>
-          </Reveal>
-
-          <Reveal direction="right">
-            <article className="rounded-lg border border-white/15 bg-white/10 p-5 shadow-lg backdrop-blur sm:p-7">
-              <div className="flex items-center gap-3 text-[#FFB79C]">
-                <ShieldCheck className="h-6 w-6" />
-                <p className="text-sm font-bold uppercase tracking-[0.16em]">
-                  {page.caseStudy.context}
-                </p>
-              </div>
-              <h3 className="mt-5 text-2xl font-bold tracking-tight">
-                {page.caseStudy.title}
-              </h3>
-              <p className="mt-4 text-base leading-relaxed text-white/78">
-                {page.caseStudy.summary}
-              </p>
-              <div className="mt-6 rounded-lg border border-white/15 bg-white/10 p-4">
-                <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
-                  Dampak yang dituju
-                </p>
-                <p className="mt-2 text-base font-semibold leading-relaxed text-white/86">
-                  {page.caseStudy.impact}
-                </p>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section-padding overflow-hidden bg-white">
         <div className="section-container grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <Reveal direction="left">
             <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
-              FAQ
+              {ui.faqEyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
-              Pertanyaan awal yang sering muncul
+              {ui.faqTitle}
             </h2>
           </Reveal>
           <div className="grid gap-4">
@@ -316,14 +322,66 @@ export function ServiceLandingPage({
         </div>
       </section>
 
-      <CtaSection messages={messages} />
-      <Footer messages={messages} locale={DEFAULT_LOCALE} />
-      <FloatingWhatsapp messages={messages} />
+      <section
+        className="section-padding scroll-mt-40 overflow-hidden bg-[#FAF8F5]"
+        id="related"
+      >
+        <div className="section-container">
+          <Reveal className="max-w-3xl" direction="up">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+              {ui.relatedEyebrow}
+            </p>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
+              {ui.relatedTitle}
+            </h2>
+          </Reveal>
+
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {otherServices.map((other, index) => {
+              const service = getServicePage(locale, other);
+
+              return (
+                <li key={other}>
+                  <Reveal className="h-full" delay={index * 80} direction="up">
+                    <a
+                      className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#E8531A]/30 hover:shadow-lg"
+                      href={getServicePath(locale, other)}
+                    >
+                      <h3 className="text-xl font-bold text-[#1B3A5C]">
+                        {service.shortName}
+                      </h3>
+                      <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                        {service.summary}
+                      </p>
+                      <span className="mt-auto inline-flex items-center gap-2 pt-5 text-base font-bold text-[#D0490F] transition group-hover:text-[#1B3A5C]">
+                        {ui.relatedCta}
+                        <ArrowRight className="h-5 w-5" />
+                      </span>
+                    </a>
+                  </Reveal>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      <CtaSection
+        defaultNeed={slug}
+        headline={page.ctaHeadline}
+        messages={messages}
+        subtext={page.ctaSubtext}
+        whatsappMessage={page.whatsappMessage}
+      />
+      <Footer
+        alternateHrefs={alternateHrefs}
+        locale={locale}
+        messages={messages}
+      />
+      <FloatingWhatsapp message={page.whatsappMessage} messages={messages} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceJsonLd),
-        }}
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
     </main>
   );
@@ -331,11 +389,11 @@ export function ServiceLandingPage({
 
 function Point({ text }: { text: string }) {
   return (
-    <div className="flex gap-3">
+    <li className="flex gap-3">
       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
       <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/76">
         {text}
       </p>
-    </div>
+    </li>
   );
 }

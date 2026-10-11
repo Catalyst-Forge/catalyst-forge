@@ -1,14 +1,18 @@
 import { ServiceLandingPage } from "@/components/service-landing-page";
 import { DEFAULT_LOCALE, getMessages } from "@/lib/i18n";
 import { createServicePageMetadata } from "@/lib/service-page-metadata";
-import { servicePages } from "@/lib/service-pages";
 
-const page = servicePages["company-profile"];
-
-export const metadata = createServicePageMetadata(page);
+export const metadata = createServicePageMetadata(
+  DEFAULT_LOCALE,
+  "company-profile",
+);
 
 export default function CompanyProfilePage() {
   return (
-    <ServiceLandingPage messages={getMessages(DEFAULT_LOCALE)} page={page} />
+    <ServiceLandingPage
+      locale={DEFAULT_LOCALE}
+      messages={getMessages(DEFAULT_LOCALE)}
+      slug="company-profile"
+    />
   );
 }
