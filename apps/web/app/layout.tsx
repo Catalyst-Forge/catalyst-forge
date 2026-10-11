@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics";
 import { CookieConsentLoader } from "@/components/cookie-consent-loader";
@@ -128,6 +129,11 @@ export default function RootLayout({
             __html: `document.documentElement.classList.add("reveal-ready");setTimeout(function(){if(!window.__revealHydrated)document.documentElement.classList.remove("reveal-ready")},4000);`,
           }}
         />
+        {/* Consent Mode bootstrap. It only queues commands in `dataLayer`;
+            gtag.js is injected after the page has loaded (lazyOnload <Script>
+            in <body>) and replays the queue in order. Consent defaults and a
+            stored "all" choice (cookie-consent.tsx) therefore always precede
+            `config`, so a returning visitor's first page view is granted. */}
         {gaId && (
           <script
             id="ga4-consent"
@@ -141,16 +147,15 @@ export default function RootLayout({
                   ad_user_data: 'denied',
                   ad_personalization: 'denied',
                 });
+                try {
+                  if (localStorage.getItem('cf_cookie_consent') === 'all') {
+                    gtag('consent', 'update', { analytics_storage: 'granted' });
+                  }
+                } catch (e) {}
                 gtag('js', new Date());
                 gtag('config', '${gaId}');
               `,
             }}
-          />
-        )}
-        {gaId && (
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
           />
         )}
       </head>
@@ -170,6 +175,12 @@ export default function RootLayout({
           }}
         />
         <Analytics />
+        {gaId && (
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            strategy="lazyOnload"
+          />
+        )}
       </body>
     </html>
   );
