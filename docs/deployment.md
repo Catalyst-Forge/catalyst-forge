@@ -151,3 +151,60 @@ sudo systemctl set-environment FORCE_DEPLOY=1
 sudo systemctl start catalyst-pull-deploy.service
 sudo systemctl unset-environment FORCE_DEPLOY
 ```
+
+## Uptime Monitor
+
+`.github/workflows/uptime.yml` checks the live site every 15 minutes from
+GitHub Actions. It needs no secrets and no third-party service. A failed check
+fails the run, and that failed run is the alert.
+
+What it checks, each with a short timeout and 3 attempts (10 seconds apart) so
+a single network blip does not alert:
+
+- `https://catalystforge.web.id/`, `https://www.catalystforge.web.id/`,
+  `/about`, `/portfolio` and `/en` return `200`.
+- `http://catalystforge.web.id/` answers `301` with a `Location` on
+  `https://catalystforge.web.id/`.
+- `https://catalystforge.web.id/health` returns `200` and a body containing
+  `"status":"ok"`, which proves the FastAPI backend is up.
+- The TLS certificate for `catalystforge.web.id` has more than 14 days left.
+- In a separate step, `https://{company,hris,crm,pos,ai}.catalystforge.web.id/`
+  return `200`. Delete that step if demo downtime should not alert.
+
+Every run writes a table to the run's summary page (Actions tab, open the run).
+Failed rows show the URL, the status code or error, and the certificate days
+left.
+
+### Who gets the email
+
+For scheduled runs, GitHub emails the person who last changed the `cron` line
+of the workflow file, not the whole team. To change who is notified, that
+person edits the cron line (for example, moves the minutes) and commits it. The
+recipient also needs email enabled for Actions in their GitHub account, under
+`Settings -> Notifications -> System`. A run that is started by hand notifies
+whoever started it.
+
+An outage that lasts keeps failing every run, so expect one email per failed
+run until it is fixed.
+
+### Keeping the schedule running
+
+- GitHub only runs schedules from the default branch (`main`).
+- On public repositories GitHub disables scheduled workflows after 60 days
+  without repository activity. When that happens the monitor stops silently.
+  Re-enable it from the Actions tab: select `Uptime monitor` in the sidebar,
+  then `Enable workflow`.
+- Scheduled runs can start a few minutes late when GitHub is busy.
+
+### Run it manually
+
+From the Actions tab, select `Uptime monitor`, then `Run workflow`. From a
+terminal with the GitHub CLI:
+
+```bash
+gh workflow run uptime.yml
+gh run watch
+```
+
+The thresholds (`ATTEMPTS`, `RETRY_DELAY`, `MIN_CERT_DAYS`) are set in the job's
+`env` block at the top of the workflow.

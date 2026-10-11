@@ -1,0 +1,203 @@
+# Uptime monitor for https://catalystforge.web.id.
+#
+# A failing run is the alert: for scheduled runs GitHub emails the person who
+# last changed the cron line below. See "Uptime Monitor" in docs/deployment.md.
+name: Uptime monitor
+
+on:
+  schedule:
+    # Every 15 minutes, but not on :00, when GitHub is busiest and may delay or
+    # drop scheduled runs.
+    - cron: "3,18,33,48 * * * *"
+  workflow_dispatch:
+
+# The job only makes outbound requests, so it needs no token permissions.
+permissions: {}
+
+# Never run two checks at once; never cancel a check that may be about to
+# report a failure.
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Uptime check
+    runs-on: ubuntu-latest
+    # Worst case (every request hangs) is about 11 minutes, under the 15 minute cadence.
+    timeout-minutes: 14
+    env:
+      HOST: catalystforge.web.id
+      ATTEMPTS: "3" # tries per check before it counts as a failure
+      RETRY_DELAY: "10" # seconds between tries; packet loss comes in bursts, so not too short
+      MIN_CERT_DAYS: "14"
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # Steps are separate so the Actions UI shows which group failed, but they
+      # share these helpers through a file. Every check function retries, then
+      # records PASS/FAIL in the job summary; `finish` fails the step if any failed.
+      - name: Prepare helpers and summary
+        run: |
+          cat > "$RUNNER_TEMP/uptime-lib.sh" <<'LIB'
+          BODY="$RUNNER_TEMP/uptime-body.txt"
+          FAILURES=0
+          CHECK=""
+          DETAIL=""
+
+          # Own retry loop instead of curl --retry: that one cannot retry on a
+          # wrong status code or a missing body match.
+          retry() {
+            local i
+            for ((i = 1; i <= ATTEMPTS; i++)); do
+              if "$@"; then return 0; fi
+              if ((i < ATTEMPTS)); then
+                echo "  $CHECK: attempt $i/$ATTEMPTS failed ($DETAIL), retrying in ${RETRY_DELAY}s"
+                sleep "$RETRY_DELAY"
+              fi
+            done
+            return 1
+          }
+
+          # run_check NAME CMD...: retry CMD (it sets $DETAIL), then record the verdict.
+          run_check() {
+            local verdict=PASS
+            CHECK=$1 # global: retry() names it in its log lines
+            shift
+            if ! retry "$@"; then
+              verdict=FAIL
+              FAILURES=$((FAILURES + 1))
+              echo "::error title=Uptime check failed::$CHECK: $DETAIL"
+            fi
+            echo "[$verdict] $CHECK: $DETAIL"
+            printf '| %s | %s | %s |\n' "$verdict" "$CHECK" "${DETAIL//|/\\|}" >> "$GITHUB_STEP_SUMMARY"
+          }
+
+          # One request. Sets CODE and REDIRECT, saves the body in $BODY.
+          # Succeeds when the status is the expected one.
+          http_once() { # URL EXPECTED_CODE
+            local out rc=0
+            out=$(curl --silent --output "$BODY" --connect-timeout 5 --max-time 10 \
+              --user-agent "catalystforge-uptime-monitor (GitHub Actions)" \
+              --write-out '%{http_code} %{redirect_url}' "$1") || rc=$?
+            CODE=${out%% *}
+            REDIRECT=${out#* }
+            if ((rc != 0)); then
+              DETAIL="no complete response (curl exit $rc)"
+              return 1
+            fi
+            if [[ $CODE != "$2" ]]; then
+              DETAIL="got HTTP $CODE, expected $2"
+              return 1
+            fi
+            DETAIL="HTTP $CODE"
+          }
+
+          # Plain HTTP must answer 301 and send visitors to the https:// site.
+          https_redirect_once() { # URL
+            http_once "$1" 301 || return 1
+            if [[ $REDIRECT != "https://$HOST/"* ]]; then
+              DETAIL="HTTP 301 but Location is '$REDIRECT'"
+              return 1
+            fi
+            DETAIL="HTTP 301 to $REDIRECT"
+          }
+
+          # The page checks pass even if the FastAPI backend is dead, so also
+          # look at what /health says.
+          health_once() { # URL
+            http_once "$1" 200 || return 1
+            if ! grep -Eq '"status"[[:space:]]*:[[:space:]]*"ok"' "$BODY"; then
+              DETAIL="HTTP 200 but no \"status\":\"ok\" in body: $(head -c 80 "$BODY" | tr -cd '[:print:]')"
+              return 1
+            fi
+            DETAIL='HTTP 200, "status":"ok"'
+          }
+
+          # Needs GNU date and timeout (present on ubuntu runners).
+          cert_once() { # HOST MIN_DAYS
+            local notafter expiry now days min=$2
+            if ! notafter=$(timeout 15 openssl s_client -connect "$1:443" -servername "$1" </dev/null 2>/dev/null |
+              openssl x509 -noout -enddate); then
+              DETAIL="could not read the certificate from $1:443"
+              return 1
+            fi
+            notafter=${notafter#notAfter=}
+            if ! expiry=$(date -d "$notafter" +%s); then
+              DETAIL="could not parse the certificate expiry '$notafter'"
+              return 1
+            fi
+            now=$(date +%s)
+            days=$(((expiry - now) / 86400))
+            DETAIL="expires $notafter ($days days left, need more than $min)"
+            ((expiry - now > min * 86400))
+          }
+
+          check_status() { run_check "$1" http_once "$1" "${2:-200}"; }
+          check_redirect() { run_check "$1 redirects to https" https_redirect_once "$1"; }
+          check_health() { run_check "$1" health_once "$1"; }
+          check_cert() { run_check "TLS certificate for $1" cert_once "$1" "$MIN_CERT_DAYS"; }
+          finish() { ((FAILURES == 0)) || exit 1; }
+          LIB
+
+          {
+            echo "## Uptime check for $HOST"
+            echo
+            echo "Run at $(date -u '+%Y-%m-%d %H:%M:%S UTC')."
+            echo
+            echo "| Result | Check | Detail |"
+            echo "| --- | --- | --- |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check public pages return 200
+        if: ${{ !cancelled() }}
+        run: |
+          source "$RUNNER_TEMP/uptime-lib.sh"
+          check_status "https://$HOST/"
+          check_status "https://www.$HOST/"
+          check_status "https://$HOST/about"
+          check_status "https://$HOST/portfolio"
+          check_status "https://$HOST/en"
+          finish
+
+      - name: Check HTTP redirects to HTTPS
+        if: ${{ !cancelled() }}
+        run: |
+          source "$RUNNER_TEMP/uptime-lib.sh"
+          check_redirect "http://$HOST/"
+          finish
+
+      - name: Check backend health
+        if: ${{ !cancelled() }}
+        run: |
+          source "$RUNNER_TEMP/uptime-lib.sh"
+          check_health "https://$HOST/health"
+          finish
+
+      - name: Check TLS certificate expiry
+        if: ${{ !cancelled() }}
+        run: |
+          source "$RUNNER_TEMP/uptime-lib.sh"
+          check_cert "$HOST"
+          finish
+
+      # Delete this step, or add `continue-on-error: true`, if demo downtime
+      # should not send an alert.
+      - name: Check demo subdomains (company, hris, crm, pos, ai)
+        if: ${{ !cancelled() }}
+        run: |
+          source "$RUNNER_TEMP/uptime-lib.sh"
+          for app in company hris crm pos ai; do
+            check_status "https://$app.$HOST/"
+          done
+          finish
+
+      - name: Write failure summary
+        if: ${{ failure() }}
+        run: |
+          {
+            echo
+            echo "**Uptime check FAILED.** Rows marked FAIL above name the URL and why."
+          } >> "$GITHUB_STEP_SUMMARY"
