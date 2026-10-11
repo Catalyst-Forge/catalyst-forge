@@ -221,6 +221,63 @@
     "phoneLabel": "Phone",
     "addressLabel": "Address"
   },
+  "contactForm": {
+    "requiredNote": "Fields marked with * are required.",
+    "budgetRange": "Estimated Budget",
+    "company": "Company",
+    "email": "Email",
+    "message": "Message",
+    "name": "Name",
+    "needType": "Main Need",
+    "phone": "WhatsApp Number",
+    "timeline": "Target Timeline",
+    "budgetRangeOptions": [
+      "Not decided / need guidance",
+      "< IDR 10 million",
+      "IDR 10-25 million",
+      "IDR 25-50 million",
+      "IDR 50 million+"
+    ],
+    "needTypeOptions": [
+      "Company Profile / Website",
+      "Custom CRM",
+      "Custom HRIS",
+      "Custom POS",
+      "AI Support / Chatbot",
+      "Dashboard / Internal System"
+    ],
+    "timelineOptions": [
+      "As soon as possible",
+      "1 month",
+      "2-3 months",
+      "3+ months",
+      "Still exploring"
+    ],
+    "placeholderCompany": "Company name",
+    "placeholderBudgetRange": "Choose budget estimate",
+    "placeholderEmail": "name@company.com",
+    "placeholderMessage": "Tell us about your system or website needs...",
+    "placeholderName": "Full name",
+    "placeholderNeedType": "Choose main need",
+    "placeholderPhone": "+62...",
+    "placeholderTimeline": "Choose target timeline",
+    "send": "Send Inquiry",
+    "sending": "Sending...",
+    "successTitle": "Inquiry sent",
+    "success": "Thank you. CatalystForge team will contact you shortly.",
+    "successNext": "While waiting for our email reply, you can continue on WhatsApp so we can review the requirement faster.",
+    "whatsappCta": "Continue on WhatsApp",
+    "emailCta": "Send extra email",
+    "errorTitle": "Message not sent",
+    "error": "Message not sent. Please try again or use WhatsApp.",
+    "invalidName": "Name must be at least 2 characters.",
+    "invalidEmail": "Email address is invalid.",
+    "invalidPhone": "WhatsApp number must contain at least 8 digits.",
+    "invalidMessage": "Message must be at least 10 characters for clear context.",
+    "invalidNeedType": "Choose the main need.",
+    "invalidBudgetRange": "Choose the budget estimate.",
+    "invalidTimeline": "Choose the target timeline."
+  },
   "aboutPage": {
     "metadata": {
       "title": "About Us",
