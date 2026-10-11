@@ -137,20 +137,22 @@ export function ServiceLandingPage({
               </p>
             </Reveal>
 
-            <div className="grid gap-4">
+            <ul className="grid gap-4">
               {page.problems.map((problem, index) => (
-                <Reveal delay={index * 90} direction="right" key={problem}>
-                  <div className="flex gap-4 rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
-                      <Target className="h-5 w-5" />
-                    </span>
-                    <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/78">
-                      {problem}
-                    </p>
-                  </div>
-                </Reveal>
+                <li key={problem}>
+                  <Reveal delay={index * 90} direction="right">
+                    <div className="flex gap-4 rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
+                        <Target className="h-5 w-5" />
+                      </span>
+                      <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/78">
+                        {problem}
+                      </p>
+                    </div>
+                  </Reveal>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
@@ -183,11 +185,11 @@ export function ServiceLandingPage({
                       Outcome bisnis
                     </h3>
                   </div>
-                  <div className="mt-6 grid gap-4">
+                  <ul className="mt-6 grid gap-4">
                     {page.outcomes.map((outcome) => (
                       <Point key={outcome} text={outcome} />
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </Reveal>
 
@@ -201,11 +203,11 @@ export function ServiceLandingPage({
                       Deliverables
                     </h3>
                   </div>
-                  <div className="mt-6 grid gap-4">
+                  <ul className="mt-6 grid gap-4">
                     {page.deliverables.map((deliverable) => (
                       <Point key={deliverable} text={deliverable} />
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </Reveal>
             </div>
@@ -226,24 +228,26 @@ export function ServiceLandingPage({
               </h2>
             </Reveal>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <ol className="mt-10 grid gap-5 md:grid-cols-3">
               {page.workflow.map((step, index) => (
-                <Reveal delay={index * 100} direction="up" key={step.label}>
-                  <div className="h-full rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm sm:p-6">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/12 bg-white px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
-                      <Clock3 className="h-4 w-4 text-[#E8531A]" />
-                      Step {index + 1}
-                    </span>
-                    <h3 className="mt-5 text-xl font-bold text-[#1B3A5C]">
-                      {step.label}
-                    </h3>
-                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
-                      {step.text}
-                    </p>
-                  </div>
-                </Reveal>
+                <li key={step.label}>
+                  <Reveal className="h-full" delay={index * 100} direction="up">
+                    <div className="h-full rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm sm:p-6">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/12 bg-white px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
+                        <Clock3 className="h-4 w-4 text-[#E8531A]" />
+                        Step {index + 1}
+                      </span>
+                      <h3 className="mt-5 text-xl font-bold text-[#1B3A5C]">
+                        {step.label}
+                      </h3>
+                      <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                        {step.text}
+                      </p>
+                    </div>
+                  </Reveal>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
@@ -336,11 +340,11 @@ export function ServiceLandingPage({
 
 function Point({ text }: { text: string }) {
   return (
-    <div className="flex gap-3">
+    <li className="flex gap-3">
       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
       <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/76">
         {text}
       </p>
-    </div>
+    </li>
   );
 }

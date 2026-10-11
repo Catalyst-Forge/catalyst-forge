@@ -61,7 +61,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
           <Reveal className="min-w-0" direction="right">
             <div className="rounded-lg border border-slate-200 bg-[#FAF8F5] p-4 shadow-sm sm:p-6 md:p-8">
               <ContactForm messages={messages} />
-              <div className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
+              <ul className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
                 {[
                   {
                     href: `tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`,
@@ -92,35 +92,31 @@ export function CtaSection({ messages }: CtaSectionProps) {
 
                   if (item.href) {
                     return (
-                      <Reveal
-                        delay={index * 80}
-                        direction="right"
-                        key={item.label}
-                      >
-                        <a
-                          className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 transition hover:shadow-md"
-                          href={item.href}
-                        >
-                          {content}
-                          <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-[#E8531A]" />
-                        </a>
-                      </Reveal>
+                      <li key={item.label}>
+                        <Reveal delay={index * 80} direction="right">
+                          <a
+                            className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 transition hover:shadow-md"
+                            href={item.href}
+                          >
+                            {content}
+                            <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-[#E8531A]" />
+                          </a>
+                        </Reveal>
+                      </li>
                     );
                   }
 
                   return (
-                    <Reveal
-                      delay={index * 80}
-                      direction="right"
-                      key={item.label}
-                    >
-                      <div className="flex items-center gap-3 rounded-lg bg-white px-4 py-3">
-                        {content}
-                      </div>
-                    </Reveal>
+                    <li key={item.label}>
+                      <Reveal delay={index * 80} direction="right">
+                        <div className="flex items-center gap-3 rounded-lg bg-white px-4 py-3">
+                          {content}
+                        </div>
+                      </Reveal>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           </Reveal>
         </div>

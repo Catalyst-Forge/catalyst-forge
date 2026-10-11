@@ -115,16 +115,16 @@ export function ProjectDetailPage({
                   <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-[#1B3A5C]/80">
                     Tech Stack
                   </h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <ul className="mt-3 flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <span
+                      <li
                         className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-[#1B3A5C]"
                         key={t}
                       >
                         {t}
-                      </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               ) : null}
 
@@ -154,9 +154,9 @@ export function ProjectDetailPage({
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
                     <Lightbulb className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-[#1B3A5C]">
+                  <h2 className="mt-4 text-lg font-bold text-[#1B3A5C]">
                     {locale === "id" ? "Masalah" : "Problem"}
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/74">
                     {project.problem}
                   </p>
@@ -169,9 +169,9 @@ export function ProjectDetailPage({
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#E8F5E9] text-[#2E7D32]">
                     <FileText className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-[#1B3A5C]">
+                  <h2 className="mt-4 text-lg font-bold text-[#1B3A5C]">
                     {locale === "id" ? "Solusi" : "Solution"}
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/74">
                     {project.solution}
                   </p>
@@ -184,9 +184,9 @@ export function ProjectDetailPage({
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#E3F2FD] text-[#1565C0]">
                     <Target className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-[#1B3A5C]">
+                  <h2 className="mt-4 text-lg font-bold text-[#1B3A5C]">
                     {locale === "id" ? "Dampak" : "Impact"}
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/74">
                     {project.impact}
                   </p>
@@ -206,18 +206,20 @@ export function ProjectDetailPage({
                 {locale === "id" ? "Fitur Utama" : "Key Features"}
               </h2>
             </Reveal>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {project.features.map((f, i) => (
-                <Reveal delay={i * 60} direction="up" key={f}>
-                  <div className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
-                    <span className="text-base font-semibold text-[#1A1A2E]/78">
-                      {f}
-                    </span>
-                  </div>
-                </Reveal>
+                <li key={f}>
+                  <Reveal delay={i * 60} direction="up">
+                    <div className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
+                      <span className="text-base font-semibold text-[#1A1A2E]/78">
+                        {f}
+                      </span>
+                    </div>
+                  </Reveal>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
       ) : null}
@@ -230,20 +232,26 @@ export function ProjectDetailPage({
               {p.metricsLabel}
             </h2>
           </Reveal>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {project.metrics.map((m, i) => (
-              <Reveal delay={i * 80} direction="up" key={m}>
-                <div className="rounded-xl border border-[#E8531A]/12 bg-[#FFF4EF] p-6">
-                  <span className="text-3xl font-black text-[#E8531A]/20">
-                    0{i + 1}
-                  </span>
-                  <p className="mt-2 text-base font-bold leading-relaxed text-[#1B3A5C]">
-                    {m}
-                  </p>
-                </div>
-              </Reveal>
+              <li key={m}>
+                <Reveal delay={i * 80} direction="up">
+                  <div className="rounded-xl border border-[#E8531A]/12 bg-[#FFF4EF] p-6">
+                    {/* Decorative index; the list already numbers the items. */}
+                    <span
+                      aria-hidden="true"
+                      className="text-3xl font-black text-[#E8531A]/20"
+                    >
+                      0{i + 1}
+                    </span>
+                    <p className="mt-2 text-base font-bold leading-relaxed text-[#1B3A5C]">
+                      {m}
+                    </p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

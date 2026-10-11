@@ -30,16 +30,16 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
               {messages.about.description}
             </p>
 
-            <div className="mt-7 grid gap-4 sm:mt-8">
+            <ul className="mt-7 grid gap-4 sm:mt-8">
               {messages.about.highlights.map((highlight) => (
-                <div className="flex gap-3" key={highlight}>
+                <li className="flex gap-3" key={highlight}>
                   <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#E8531A]" />
                   <p className="text-base leading-relaxed text-[#1A1A2E]/76">
                     {highlight}
                   </p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
             <Link
               className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] hover:scale-[1.02] active:scale-[0.98] sm:px-7 sm:py-4"

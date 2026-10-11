@@ -53,16 +53,16 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
                   {offer.bestFor}
                 </p>
 
-                <div className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
+                <ul className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
                   {offer.deliverables.map((item) => (
-                    <div className="flex gap-3" key={item}>
+                    <li className="flex gap-3" key={item}>
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
                       <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
                         {item}
                       </span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
                 <a
                   aria-label={`${messages.offers.detailCta} ${offer.name}`}

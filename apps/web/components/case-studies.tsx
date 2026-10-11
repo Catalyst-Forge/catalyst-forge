@@ -64,19 +64,20 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
                   <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#C4430D]">
                     {messages.caseStudies.metricsLabel}
                   </p>
-                  <div className="mt-3 grid gap-2">
+                  <ul className="mt-3 grid gap-2">
                     {project.metrics.map((metric) => (
-                      <div className="flex gap-2" key={metric}>
+                      <li className="flex gap-2" key={metric}>
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#E8531A]" />
                         <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
                           {metric}
                         </span>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
 
                 <Link
+                  aria-label={`${messages.portfolioPage.viewCaseStudy} ${project.title}`}
                   className="mt-auto inline-flex items-center gap-2 pt-6 text-base font-bold text-[#C4430D] transition hover:text-[#1B3A5C]"
                   href={getPortfolioPath(locale, project.slug)}
                 >

@@ -28,27 +28,37 @@ export function HowWeWork({ messages }: HowWeWorkProps) {
           </Reveal>
         </ScrollParallax>
 
-        <div className="relative mt-10 grid gap-8 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
-          <div className="absolute left-[12.5%] right-[12.5%] top-9 hidden border-t-2 border-dotted border-[#E8531A]/35 lg:block" />
-          {messages.howWeWork.steps.map((step, index) => (
-            <Reveal
-              delay={index * 110}
-              direction={index % 2 === 0 ? "left" : "right"}
-              key={step.title}
-            >
-              <article className="relative h-full text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#D0490F] text-xl font-bold tracking-tight text-white shadow-lg transition duration-300 hover:scale-105 sm:h-[72px] sm:w-[72px] sm:text-2xl">
-                  {index + 1}
-                </div>
-                <h3 className="mt-5 text-xl font-bold tracking-tight text-[#1B3A5C] sm:mt-6 sm:text-2xl">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-[#1A1A2E]/72">
-                  {step.description}
-                </p>
-              </article>
-            </Reveal>
-          ))}
+        <div className="relative mt-10 md:mt-16">
+          <div
+            aria-hidden="true"
+            className="absolute left-[12.5%] right-[12.5%] top-9 hidden border-t-2 border-dotted border-[#E8531A]/35 lg:block"
+          />
+          <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {messages.howWeWork.steps.map((step, index) => (
+              <li key={step.title}>
+                <Reveal
+                  className="h-full"
+                  delay={index * 110}
+                  direction={index % 2 === 0 ? "left" : "right"}
+                >
+                  <article className="relative h-full text-center">
+                    <div
+                      aria-hidden="true"
+                      className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#D0490F] text-xl font-bold tracking-tight text-white shadow-lg transition duration-300 hover:scale-105 sm:h-[72px] sm:w-[72px] sm:text-2xl"
+                    >
+                      {index + 1}
+                    </div>
+                    <h3 className="mt-5 text-xl font-bold tracking-tight text-[#1B3A5C] sm:mt-6 sm:text-2xl">
+                      {step.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-relaxed text-[#1A1A2E]/72">
+                      {step.description}
+                    </p>
+                  </article>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

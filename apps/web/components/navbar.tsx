@@ -55,17 +55,20 @@ export function Navbar({ messages, locale }: NavbarProps) {
 
           <nav
             aria-label={messages.navbar.navLabel}
-            className="hidden items-center gap-8 lg:flex"
+            className="hidden items-center lg:flex"
           >
-            {navItems.map((item) => (
-              <a
-                className="nav-link text-base font-semibold text-[#1A1A2E] transition-colors hover:text-[#C4430D]"
-                href={item.href}
-                key={item.href}
-              >
-                {item.label}
-              </a>
-            ))}
+            <ul className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    className="nav-link block text-base font-semibold text-[#1A1A2E] transition-colors hover:text-[#C4430D]"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
 
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">

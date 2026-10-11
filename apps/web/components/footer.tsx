@@ -54,19 +54,19 @@ export function Footer({ messages, locale }: FooterProps) {
 
         <ScrollParallax direction="up" maxOffset={34}>
           <Reveal delay={100} direction="up">
-            <nav
-              aria-label={messages.footer.navLabel}
-              className="grid content-start gap-4"
-            >
-              {navItems.map((item) => (
-                <a
-                  className="text-base font-semibold text-white/78 transition hover:text-[#F58A60]"
-                  href={item.href}
-                  key={item.href}
-                >
-                  {item.label}
-                </a>
-              ))}
+            <nav aria-label={messages.footer.navLabel}>
+              <ul className="grid content-start gap-4">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      className="block text-base font-semibold text-white/78 transition hover:text-[#F58A60]"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </nav>
           </Reveal>
         </ScrollParallax>
@@ -77,28 +77,32 @@ export function Footer({ messages, locale }: FooterProps) {
               <h2 className="text-2xl font-bold tracking-tight">
                 {messages.footer.contactTitle}
               </h2>
-              <div className="mt-5 grid gap-3 text-base leading-relaxed text-white/78">
-                <a
-                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
-                  href={`mailto:${messages.footer.contactEmail}`}
-                >
-                  <Mail className="h-5 w-5 shrink-0" />
-                  <span className="min-w-0 break-all">
-                    {messages.footer.contactEmail}
-                  </span>
-                </a>
-                <a
-                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
-                  href={`tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`}
-                >
-                  <Phone className="h-5 w-5 shrink-0" />
-                  <span>{messages.footer.contactPhone}</span>
-                </a>
-                <p className="flex min-w-0 items-center gap-3">
+              <ul className="mt-5 grid gap-3 text-base leading-relaxed text-white/78">
+                <li>
+                  <a
+                    className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
+                    href={`mailto:${messages.footer.contactEmail}`}
+                  >
+                    <Mail className="h-5 w-5 shrink-0" />
+                    <span className="min-w-0 break-all">
+                      {messages.footer.contactEmail}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
+                    href={`tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`}
+                  >
+                    <Phone className="h-5 w-5 shrink-0" />
+                    <span>{messages.footer.contactPhone}</span>
+                  </a>
+                </li>
+                <li className="flex min-w-0 items-center gap-3">
                   <MapPin className="h-5 w-5 shrink-0" />
                   <span>{messages.footer.contactAddress}</span>
-                </p>
-              </div>
+                </li>
+              </ul>
               <LanguageSwitcher
                 ariaLabel={messages.language.label}
                 className="mt-6"

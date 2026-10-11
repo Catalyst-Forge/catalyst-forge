@@ -69,20 +69,21 @@ export function Hero({ messages }: HeroProps) {
             </div>
           </Reveal>
 
-          <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-9 sm:gap-3">
+          <ul className="mt-6 flex flex-wrap gap-2.5 sm:mt-9 sm:gap-3">
             {messages.hero.trustIndicators.map((indicator, index) => (
-              <Reveal
-                instant
-                delay={320 + index * 70}
-                direction={index % 2 === 0 ? "left" : "right"}
-                key={indicator}
-              >
-                <span className="block rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white sm:px-5 sm:py-3 sm:text-base">
-                  {indicator}
-                </span>
-              </Reveal>
+              <li key={indicator}>
+                <Reveal
+                  instant
+                  delay={320 + index * 70}
+                  direction={index % 2 === 0 ? "left" : "right"}
+                >
+                  <span className="block rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white sm:px-5 sm:py-3 sm:text-base">
+                    {indicator}
+                  </span>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </ParallaxLayer>
 
         <ParallaxLayer
