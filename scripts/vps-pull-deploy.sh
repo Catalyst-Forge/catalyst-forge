@@ -339,6 +339,11 @@ python3 -m venv "$RELEASE_DIR/backend/.venv"
 "$RELEASE_DIR/backend/.venv/bin/pip" install --upgrade pip
 "$RELEASE_DIR/backend/.venv/bin/pip" install -r "$RELEASE_DIR/backend/requirements.txt"
 
+# The timer runs this as root, but the services run as ubuntu and write
+# .next/cache (optimised images). Hand the release over before they start,
+# not on the next run.
+sudo chown -R ubuntu:ubuntu "$RELEASE_DIR"
+
 ln -sfn "$RELEASE_DIR" "$APP_DIR/current"
 
 sudo tee /etc/systemd/system/catalyst-backend.service >/dev/null <<SERVICE
