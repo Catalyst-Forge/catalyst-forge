@@ -6,3 +6,8 @@ export function getPortfolioPath(locale: Locale, slug?: string) {
     locale === DEFAULT_LOCALE ? "/portfolio" : `/${locale}/portfolio`;
   return slug ? `${base}/${slug}` : base;
 }
+
+/** Path of a service landing page, e.g. "/custom-crm" or "/en/custom-crm". */
+export function getServicePath(locale: Locale, slug: string) {
+  return locale === DEFAULT_LOCALE ? `/${slug}` : `/${locale}/${slug}`;
+}

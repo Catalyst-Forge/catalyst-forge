@@ -82,7 +82,7 @@
     "items": [
       {
         "name": "Company Profile Launch",
-        "href": "/company-profile",
+        "href": "/en/company-profile",
         "timeline": "2-4 weeks",
         "bestFor": "For businesses that need stronger digital credibility fast",
         "deliverables": [
@@ -94,7 +94,7 @@
       },
       {
         "name": "Operational System MVP",
-        "href": "/custom-crm",
+        "href": "/en/custom-crm",
         "timeline": "4-8 weeks",
         "bestFor": "For teams replacing spreadsheets or manual processes",
         "deliverables": [
@@ -106,7 +106,7 @@
       },
       {
         "name": "AI Automation Sprint",
-        "href": "/ai-support",
+        "href": "/en/ai-support",
         "timeline": "1-3 weeks",
         "bestFor": "For customer support, knowledge base, or task automation",
         "deliverables": [
@@ -124,36 +124,42 @@
     "description": "We build company profiles, operational systems, dashboards, and automation tailored to your company's workflow.",
     "demoNote": "These demos show reference flows and interface quality. The production version is customized around your data, roles, approvals, and business process.",
     "learnMore": "Open Demo",
+    "serviceCta": "View Service",
     "items": [
       {
         "name": "AI Support",
         "description": "Smart AI & Chatbot Services to respond to customers faster and more consistently.",
         "href": "https://ai.catalystforge.web.id",
-        "cta": "Open AI Support Demo"
+        "cta": "Open AI Support Demo",
+        "serviceHref": "/en/ai-support"
       },
       {
         "name": "CRM",
         "description": "Customer Relationship Management to strengthen pipelines, follow-ups, and retention.",
         "href": "https://crm.catalystforge.web.id",
-        "cta": "Open CRM Demo"
+        "cta": "Open CRM Demo",
+        "serviceHref": "/en/custom-crm"
       },
       {
         "name": "HRIS",
         "description": "Integrated HR & Employee System for employee data, attendance, and administration.",
         "href": "https://hris.catalystforge.web.id",
-        "cta": "Open HRIS Demo"
+        "cta": "Open HRIS Demo",
+        "serviceHref": "/en/custom-hris"
       },
       {
         "name": "POS",
         "description": "Modern Cashier & Sales System for transactions, inventory, and branch reporting.",
         "href": "https://pos.catalystforge.web.id",
-        "cta": "Open POS Demo"
+        "cta": "Open POS Demo",
+        "serviceHref": "/en/custom-pos"
       },
       {
         "name": "Company Profile",
         "description": "Professional Corporate Website that builds credibility and market trust.",
         "href": "https://company.catalystforge.web.id",
-        "cta": "Open Company Profile Demo"
+        "cta": "Open Company Profile Demo",
+        "serviceHref": "/en/company-profile"
       }
     ]
   },

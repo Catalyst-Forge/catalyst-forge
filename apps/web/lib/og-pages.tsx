@@ -1,5 +1,10 @@
 import { getMessages, type Locale } from "@/lib/i18n";
 import { renderOgImage } from "@/lib/og-image";
+import {
+  getServicePage,
+  getServiceUi,
+  type ServiceSlug,
+} from "@/lib/service-pages";
 
 const homeCard: Record<Locale, { title: string; description: string }> = {
   id: {
@@ -61,5 +66,17 @@ export function renderProjectOgImage(locale: Locale, slug: string) {
       ? `${project.client} — ${project.sector}`
       : project.client,
     chips: project.tech,
+  });
+}
+
+export function renderServiceOgImage(locale: Locale, slug: ServiceSlug) {
+  const page = getServicePage(locale, slug);
+  const ui = getServiceUi(locale);
+
+  return renderOgImage({
+    eyebrow: page.eyebrow,
+    title: page.metaTitle,
+    description: page.summary,
+    chips: [`${ui.estimate}: ${page.timeline}`],
   });
 }

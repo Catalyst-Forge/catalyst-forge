@@ -6,9 +6,11 @@ import { MobileMenu } from "./mobile-menu";
 type NavbarProps = {
   messages: Messages;
   locale: Locale;
+  /** Where the language switcher goes on pages that exist in every language. */
+  alternateHrefs?: Partial<Record<Locale, string>>;
 };
 
-export function Navbar({ messages, locale }: NavbarProps) {
+export function Navbar({ messages, locale, alternateHrefs }: NavbarProps) {
   const prefix = locale === "en" ? "/en" : "";
   const navItems = [
     { href: `${prefix}/#about`, label: messages.navbar.about },
@@ -64,8 +66,16 @@ export function Navbar({ messages, locale }: NavbarProps) {
             className="shrink-0 p-0.5 [&_a]:px-2 [&_a]:py-1.5 [&_a]:text-xs sm:p-1 sm:[&_a]:px-3 sm:[&_a]:text-sm"
             currentLocale={locale}
             locales={[
-              { code: "id", href: "/", label: messages.language.id },
-              { code: "en", href: "/en", label: messages.language.en },
+              {
+                code: "id",
+                href: alternateHrefs?.id ?? "/",
+                label: messages.language.id,
+              },
+              {
+                code: "en",
+                href: alternateHrefs?.en ?? "/en",
+                label: messages.language.en,
+              },
             ]}
           />
           <a

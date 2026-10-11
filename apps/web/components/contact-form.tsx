@@ -9,10 +9,13 @@ import {
   Send,
 } from "lucide-react";
 import type { Messages } from "@/lib/i18n";
+import type { ServiceSlug } from "@/lib/service-pages";
 import { UTM_STORAGE_KEY, type StoredUtm } from "./utm-capture";
 
 type ContactFormProps = {
   messages: Messages;
+  /** Service page the form sits on; preselects the matching "main need". */
+  defaultNeed?: ServiceSlug;
 };
 
 const contactLinks = {
@@ -20,7 +23,16 @@ const contactLinks = {
   whatsapp: "https://wa.me/6285121145387",
 };
 
-export function ContactForm({ messages }: ContactFormProps) {
+// Position of each service in `needTypeOptions` below.
+const needOptionIndex: Record<ServiceSlug, number> = {
+  "company-profile": 0,
+  "custom-crm": 1,
+  "custom-hris": 2,
+  "custom-pos": 3,
+  "ai-support": 4,
+};
+
+export function ContactForm({ messages, defaultNeed }: ContactFormProps) {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -232,6 +244,11 @@ export function ContactForm({ messages }: ContactFormProps) {
       </div>
       <div className="grid gap-4 lg:grid-cols-3">
         <SelectField
+          defaultValue={
+            defaultNeed
+              ? labels.needTypeOptions[needOptionIndex[defaultNeed]]
+              : ""
+          }
           label={labels.needType}
           name="needType"
           options={labels.needTypeOptions}
@@ -573,12 +590,14 @@ function Field({
 }
 
 function SelectField({
+  defaultValue = "",
   label,
   name,
   options,
   placeholder,
   required,
 }: {
+  defaultValue?: string;
   label: string;
   name: ContactFormField;
   options: string[];
@@ -592,6 +611,7 @@ function SelectField({
       </span>
       <select
         className="h-12 min-w-0 rounded-lg border border-slate-200 bg-white px-4 text-base text-[#1A1A2E] outline-none transition focus:border-[#E8531A] focus:ring-4 focus:ring-[#E8531A]/12"
+        defaultValue={defaultValue}
         name={name}
         required={required}
       >

@@ -8,9 +8,11 @@ import { ScrollParallax } from "./scroll-parallax";
 type FooterProps = {
   messages: Messages;
   locale: Locale;
+  /** Where the language switcher goes on pages that exist in every language. */
+  alternateHrefs?: Partial<Record<Locale, string>>;
 };
 
-export function Footer({ messages, locale }: FooterProps) {
+export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
   // Absolute paths so the links also work on pages other than the homepage.
   const prefix = locale === "en" ? "/en" : "";
   const navItems = [
@@ -101,8 +103,16 @@ export function Footer({ messages, locale }: FooterProps) {
                 className="mt-6"
                 currentLocale={locale}
                 locales={[
-                  { code: "id", href: "/", label: messages.language.id },
-                  { code: "en", href: "/en", label: messages.language.en },
+                  {
+                    code: "id",
+                    href: alternateHrefs?.id ?? "/",
+                    label: messages.language.id,
+                  },
+                  {
+                    code: "en",
+                    href: alternateHrefs?.en ?? "/en",
+                    label: messages.language.en,
+                  },
                 ]}
               />
             </div>
