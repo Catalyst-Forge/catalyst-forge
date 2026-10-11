@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics";
 import { CookieConsentLoader } from "@/components/cookie-consent-loader";
 import { UtmCapture } from "@/components/utm-capture";
-import { GITHUB_URL, LINKEDIN_URL } from "@/lib/company";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/company";
 import { getMessages } from "@/lib/i18n";
 import "./globals.css";
 
@@ -84,14 +84,14 @@ const organizationJsonLd = {
     {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "catalystforgetechnology@gmail.com",
+      email: CONTACT_EMAIL,
       telephone: "+6285121145387",
       availableLanguage: ["id", "en"],
     },
   ],
   description:
     "CatalystForge membangun company profile, CRM, HRIS, POS, AI support, dashboard, dan sistem operasional untuk bisnis Indonesia.",
-  email: "catalystforgetechnology@gmail.com",
+  email: CONTACT_EMAIL,
   logo: `${siteUrl}/logo_icon_only.png`,
   name: "CatalystForge",
   // Official profiles only; the demo subdomains are not the same entity.

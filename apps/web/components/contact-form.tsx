@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import { cn } from "@repo/ui/lib/utils";
+import { CONTACT_EMAIL } from "@/lib/company";
 import type { Messages } from "@/lib/i18n";
 import type { ServiceSlug } from "@/lib/service-pages";
 import { UTM_STORAGE_KEY, type StoredUtm } from "./utm-capture";
@@ -20,7 +21,7 @@ type ContactFormProps = {
 };
 
 const contactLinks = {
-  email: "mailto:catalystforgetechnology@gmail.com",
+  email: `mailto:${CONTACT_EMAIL}`,
   whatsapp: "https://wa.me/6285121145387",
 };
 

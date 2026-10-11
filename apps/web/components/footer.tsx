@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LanguageSwitcher } from "@repo/ui/language-switcher";
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { LINKEDIN_URL } from "@/lib/company";
+import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/company";
 import { type Locale, type Messages } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
@@ -87,11 +87,11 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
                 <li>
                   <a
                     className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
-                    href={`mailto:${messages.footer.contactEmail}`}
+                    href={`mailto:${CONTACT_EMAIL}`}
                   >
                     <Mail className="h-5 w-5 shrink-0" />
                     <span className="min-w-0 break-all">
-                      {messages.footer.contactEmail}
+                      {CONTACT_EMAIL}
                     </span>
                   </a>
                 </li>

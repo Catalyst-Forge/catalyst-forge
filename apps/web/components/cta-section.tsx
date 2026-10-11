@@ -1,4 +1,5 @@
 import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/company";
 import { type Messages } from "@/lib/i18n";
 import type { ServiceSlug } from "@/lib/service-pages";
 import { ContactForm } from "./contact-form";
@@ -62,10 +63,10 @@ export function CtaSection({
                   className="inline-flex w-full min-w-0 items-center justify-center gap-3 break-all rounded-full border border-[#1B3A5C]/20 px-6 py-3.5 text-center text-base font-bold text-[#1B3A5C] transition hover:border-[#E8531A] hover:text-[#C4430D] sm:w-auto sm:px-7 sm:py-4"
                   eventLabel="contact_email_cta"
                   eventName="lead_click"
-                  href={`mailto:${messages.footer.contactEmail}`}
+                  href={`mailto:${CONTACT_EMAIL}`}
                 >
                   <Mail className="h-5 w-5" />
-                  {messages.footer.contactEmail}
+                  {CONTACT_EMAIL}
                 </ConversionLink>
               </div>
             </Reveal>

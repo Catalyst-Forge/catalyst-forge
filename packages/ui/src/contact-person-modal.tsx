@@ -20,7 +20,7 @@ type ContactPersonModalProps = {
 };
 
 const contact = {
-  email: "catalystforgetechnology@gmail.com",
+  email: "hello@catalystforge.web.id",
   phone: "+62 851-2114-5387",
   whatsappUrl: "https://wa.me/6285121145387",
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { CONTACT_EMAIL } from "@/lib/company";
 import { DEFAULT_LOCALE, getMessages } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/page-metadata";
 
@@ -141,9 +142,12 @@ export default function PrivacyPage() {
                 Untuk pertanyaan tentang kebijakan privasi ini atau permintaan
                 terkait data Anda, hubungi kami di:
               </p>
-              <p className="mt-2 font-semibold text-[#C4430D]">
-                catalystforgetechnology@gmail.com
-              </p>
+              <a
+                className="mt-2 inline-block font-semibold text-[#C4430D] underline-offset-4 hover:underline"
+                href={`mailto:${CONTACT_EMAIL}`}
+              >
+                {CONTACT_EMAIL}
+              </a>
             </div>
           </section>
         </article>
