@@ -4,7 +4,12 @@ import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics";
 import { CookieConsentLoader } from "@/components/cookie-consent-loader";
 import { UtmCapture } from "@/components/utm-capture";
-import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/company";
+import {
+  CONTACT_EMAIL,
+  GITHUB_URL,
+  LEGAL_NAME,
+  LINKEDIN_URL,
+} from "@/lib/company";
 import { getMessages } from "@/lib/i18n";
 import "./globals.css";
 
@@ -92,7 +97,9 @@ const organizationJsonLd = {
   description:
     "CatalystForge membangun company profile, CRM, HRIS, POS, AI support, dashboard, dan sistem operasional untuk bisnis Indonesia.",
   email: CONTACT_EMAIL,
-  logo: `${siteUrl}/logo_icon_only.png`,
+  legalName: LEGAL_NAME,
+  // Google needs at least 112x112 for the logo; the 96px favicon is too small.
+  logo: `${siteUrl}/logo-icon-512.png`,
   name: "CatalystForge",
   // Official profiles only; the demo subdomains are not the same entity.
   sameAs: [LINKEDIN_URL, GITHUB_URL],
