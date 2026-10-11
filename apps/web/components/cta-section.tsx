@@ -36,7 +36,7 @@ export function CtaSection({
         >
           <ScrollParallax maxOffset={38}>
             <Reveal direction="left">
-              <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+              <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
                 {messages.navbar.contact}
               </p>
               <h2 className="mt-4 max-w-3xl text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -48,7 +48,7 @@ export function CtaSection({
 
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
                 <ConversionLink
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] sm:w-auto sm:px-7 sm:py-4"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] sm:w-auto sm:px-7 sm:py-4"
                   eventLabel="contact_whatsapp_cta"
                   eventName="lead_click"
                   href={whatsappHref}
@@ -59,7 +59,7 @@ export function CtaSection({
                   {messages.cta.button}
                 </ConversionLink>
                 <ConversionLink
-                  className="inline-flex w-full min-w-0 items-center justify-center gap-3 break-all rounded-full border border-[#1B3A5C]/20 px-6 py-3.5 text-center text-base font-bold text-[#1B3A5C] transition hover:border-[#E8531A] hover:text-[#E8531A] sm:w-auto sm:px-7 sm:py-4"
+                  className="inline-flex w-full min-w-0 items-center justify-center gap-3 break-all rounded-full border border-[#1B3A5C]/20 px-6 py-3.5 text-center text-base font-bold text-[#1B3A5C] transition hover:border-[#E8531A] hover:text-[#C4430D] sm:w-auto sm:px-7 sm:py-4"
                   eventLabel="contact_email_cta"
                   eventName="lead_click"
                   href={`mailto:${messages.footer.contactEmail}`}
@@ -74,7 +74,7 @@ export function CtaSection({
           <Reveal className="min-w-0" direction="right">
             <div className="rounded-lg border border-slate-200 bg-[#FAF8F5] p-4 shadow-sm sm:p-6 md:p-8">
               <ContactForm defaultNeed={defaultNeed} messages={messages} />
-              <div className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
+              <ul className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
                 {[
                   {
                     href: `tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`,
@@ -105,35 +105,31 @@ export function CtaSection({
 
                   if (item.href) {
                     return (
-                      <Reveal
-                        delay={index * 80}
-                        direction="right"
-                        key={item.label}
-                      >
-                        <a
-                          className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 transition hover:shadow-md"
-                          href={item.href}
-                        >
-                          {content}
-                          <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-[#E8531A]" />
-                        </a>
-                      </Reveal>
+                      <li key={item.label}>
+                        <Reveal delay={index * 80} direction="right">
+                          <a
+                            className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 transition hover:shadow-md"
+                            href={item.href}
+                          >
+                            {content}
+                            <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-[#E8531A]" />
+                          </a>
+                        </Reveal>
+                      </li>
                     );
                   }
 
                   return (
-                    <Reveal
-                      delay={index * 80}
-                      direction="right"
-                      key={item.label}
-                    >
-                      <div className="flex items-center gap-3 rounded-lg bg-white px-4 py-3">
-                        {content}
-                      </div>
-                    </Reveal>
+                    <li key={item.label}>
+                      <Reveal delay={index * 80} direction="right">
+                        <div className="flex items-center gap-3 rounded-lg bg-white px-4 py-3">
+                          {content}
+                        </div>
+                      </Reveal>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           </Reveal>
         </div>

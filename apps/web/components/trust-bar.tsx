@@ -31,7 +31,7 @@ export function TrustBar({ messages }: TrustBarProps) {
         </Reveal>
 
         <Reveal delay={120} direction="up">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1A1A2E]/50">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1A1A2E]/65">
             {t.clientsLabel}
           </p>
           <ul className="mt-4 grid gap-5 sm:grid-cols-3 sm:gap-8">
@@ -40,7 +40,7 @@ export function TrustBar({ messages }: TrustBarProps) {
                 <p className="text-base font-bold leading-snug tracking-tight text-[#1B3A5C] sm:text-lg">
                   {client.client}
                 </p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#D0490F]/80">
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#C4430D]">
                   {client.sector}
                 </p>
               </li>

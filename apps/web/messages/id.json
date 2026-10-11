@@ -12,7 +12,9 @@
   "language": {
     "label": "Bahasa",
     "id": "ID",
-    "en": "EN"
+    "en": "EN",
+    "idName": "Bahasa Indonesia",
+    "enName": "English"
   },
   "navbar": {
     "about": "Tentang",
@@ -21,7 +23,10 @@
     "howWeWork": "Cara Kerja",
     "portfolio": "Portfolio",
     "contact": "Kontak",
-    "cta": "Konsultasi"
+    "cta": "Konsultasi",
+    "skipToContent": "Lewati ke konten utama",
+    "navLabel": "Navigasi utama",
+    "menuLabel": "Menu navigasi"
   },
   "hero": {
     "badge": "Solusi Digital untuk Bisnis",
@@ -223,6 +228,63 @@
     "emailLabel": "Email",
     "phoneLabel": "Telepon",
     "addressLabel": "Alamat"
+  },
+  "contactForm": {
+    "requiredNote": "Kolom bertanda * wajib diisi.",
+    "budgetRange": "Estimasi Budget",
+    "company": "Perusahaan",
+    "email": "Email",
+    "message": "Pesan",
+    "name": "Nama",
+    "needType": "Kebutuhan Utama",
+    "phone": "Nomor WhatsApp",
+    "timeline": "Target Waktu",
+    "budgetRangeOptions": [
+      "Belum ditentukan / butuh arahan",
+      "< Rp10 juta",
+      "Rp10-25 juta",
+      "Rp25-50 juta",
+      "Rp50 juta+"
+    ],
+    "needTypeOptions": [
+      "Company Profile / Website",
+      "Custom CRM",
+      "Custom HRIS",
+      "Custom POS",
+      "AI Support / Chatbot",
+      "Dashboard / Sistem Internal"
+    ],
+    "timelineOptions": [
+      "Secepatnya",
+      "1 bulan",
+      "2-3 bulan",
+      "3+ bulan",
+      "Masih eksplorasi"
+    ],
+    "placeholderCompany": "Nama perusahaan",
+    "placeholderBudgetRange": "Pilih estimasi budget",
+    "placeholderEmail": "nama@perusahaan.com",
+    "placeholderMessage": "Ceritakan kebutuhan sistem atau website Anda...",
+    "placeholderName": "Nama lengkap",
+    "placeholderNeedType": "Pilih kebutuhan utama",
+    "placeholderPhone": "08xxxxxxxxxx",
+    "placeholderTimeline": "Pilih target waktu",
+    "send": "Kirim Inquiry",
+    "sending": "Mengirim...",
+    "successTitle": "Inquiry terkirim",
+    "success": "Terima kasih. Tim CatalystForge akan menghubungi Anda secepatnya.",
+    "successNext": "Sambil menunggu balasan email, Anda juga bisa lanjutkan percakapan lewat WhatsApp agar kami bisa review kebutuhan lebih cepat.",
+    "whatsappCta": "Lanjut WhatsApp",
+    "emailCta": "Kirim email tambahan",
+    "errorTitle": "Belum bisa dikirim",
+    "error": "Pesan belum terkirim. Coba lagi atau gunakan WhatsApp.",
+    "invalidName": "Nama minimal 2 karakter.",
+    "invalidEmail": "Email belum valid.",
+    "invalidPhone": "Nomor WhatsApp minimal 8 digit.",
+    "invalidMessage": "Pesan minimal 10 karakter agar konteksnya jelas.",
+    "invalidNeedType": "Pilih kebutuhan utama.",
+    "invalidBudgetRange": "Pilih estimasi budget.",
+    "invalidTimeline": "Pilih target waktu."
   },
   "aboutPage": {
     "metadata": {
@@ -438,7 +500,8 @@
     "contactAddress": "Buah Batu, Kota Bandung",
     "copyright": "Copyright 2026 CatalystForge. All rights reserved.",
     "privacy": "Kebijakan Privasi",
-    "terms": "Ketentuan Layanan"
+    "terms": "Ketentuan Layanan",
+    "navLabel": "Navigasi footer"
   },
   "cookieConsent": {
     "title": "Situs ini menggunakan cookie.",

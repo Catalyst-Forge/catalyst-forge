@@ -10,6 +10,12 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
+    /*
+     * Keeps keyboard-focused elements clear of the floating WhatsApp button
+     * and, while it is showing, the cookie banner (CookieConsent publishes
+     * its height as --cookie-banner-offset).
+     */
+    scroll-padding-bottom: calc(5rem + var(--cookie-banner-offset, 0px));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -17,6 +23,8 @@
   body {
     min-width: 320px;
     overflow-x: hidden;
+    /* Room for the fixed cookie banner so the footer can scroll above it. */
+    padding-bottom: var(--cookie-banner-offset, 0px);
     background: #faf8f5;
     color: #1a1a2e;
     font-family: Arial, Helvetica, system-ui, sans-serif;
@@ -310,6 +318,10 @@ a:focus-visible .lucide-external-link {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .fade-in,
   .motion-float,
   .motion-float-slow,

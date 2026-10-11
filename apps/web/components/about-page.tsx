@@ -15,7 +15,11 @@ export function AboutPage({ messages }: { messages: Messages }) {
   ];
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
+    <main
+      className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
+      id="main-content"
+      tabIndex={-1}
+    >
       {/* Hero Section */}
       <section className="section-container section-padding">
         <Reveal
@@ -23,7 +27,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
           direction="up"
           instant
         >
-          <p className="text-base font-bold uppercase tracking-[0.16em] text-[#D0490F]">
+          <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
             {a.hero.eyebrow}
           </p>
           <h1 className="mt-4 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-[#1B3A5C] sm:text-5xl lg:text-6xl">
@@ -147,7 +151,7 @@ function MemberCard({
           <h3 className="text-xl font-bold leading-snug tracking-tight text-[#1B3A5C] sm:text-2xl">
             {name}
           </h3>
-          <p className="mt-1.5 text-sm font-semibold uppercase tracking-[0.12em] text-[#D0490F]">
+          <p className="mt-1.5 text-sm font-semibold uppercase tracking-[0.12em] text-[#C4430D]">
             {role}
           </p>
         </div>
@@ -165,9 +169,11 @@ function MemberCard({
 
       <ul className="flex flex-wrap gap-2">
         {skills.map((skill) => (
+          // The skill tags are English phrases in both dictionaries.
           <li
             key={skill}
-            className="rounded-full border border-[#D0490F]/20 bg-[#FFF4EF] px-3 py-1 text-xs font-semibold text-[#D0490F]"
+            className="rounded-full border border-[#D0490F]/20 bg-[#FFF4EF] px-3 py-1 text-xs font-semibold text-[#C4430D]"
+            lang="en"
           >
             {skill}
           </li>

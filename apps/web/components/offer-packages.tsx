@@ -15,7 +15,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
       <div className="section-container">
         <ScrollParallax className="max-w-3xl scroll-mt-40" id="offers">
           <Reveal direction="left">
-            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#E8531A]">
+            <p className="text-base font-bold uppercase tracking-[0.16em] text-[#C4430D]">
               {messages.offers.eyebrow}
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
@@ -53,20 +53,20 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
                   {offer.bestFor}
                 </p>
 
-                <div className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
+                <ul className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
                   {offer.deliverables.map((item) => (
-                    <div className="flex gap-3" key={item}>
+                    <li className="flex gap-3" key={item}>
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
                       <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
                         {item}
                       </span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
                 <a
                   aria-label={`${messages.offers.detailCta} ${offer.name}`}
-                  className="mt-7 inline-flex items-center gap-2 text-base font-bold text-[#E8531A] transition hover:text-[#1B3A5C] lg:mt-auto lg:pt-7"
+                  className="mt-7 inline-flex items-center gap-2 text-base font-bold text-[#C4430D] transition hover:text-[#1B3A5C] lg:mt-auto lg:pt-7"
                   href={offer.href}
                 >
                   {messages.offers.detailCta}

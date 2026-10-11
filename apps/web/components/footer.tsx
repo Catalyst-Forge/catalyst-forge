@@ -43,7 +43,10 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
                 <p className="text-xl font-bold tracking-tight sm:text-2xl">
                   {messages.brand.name}
                 </p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-white/62 sm:text-base sm:tracking-[0.14em]">
+                <p
+                  className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-white/62 sm:text-base sm:tracking-[0.14em]"
+                  lang="en"
+                >
                   {messages.brand.tagline}
                 </p>
               </div>
@@ -56,16 +59,19 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
 
         <ScrollParallax direction="up" maxOffset={34}>
           <Reveal delay={100} direction="up">
-            <nav className="grid content-start gap-4">
-              {navItems.map((item) => (
-                <a
-                  className="text-base font-semibold text-white/78 transition hover:text-[#F4784A]"
-                  href={item.href}
-                  key={item.href}
-                >
-                  {item.label}
-                </a>
-              ))}
+            <nav aria-label={messages.footer.navLabel}>
+              <ul className="grid content-start gap-4">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      className="block text-base font-semibold text-white/78 transition hover:text-[#F58A60]"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </nav>
           </Reveal>
         </ScrollParallax>
@@ -76,42 +82,50 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
               <h2 className="text-2xl font-bold tracking-tight">
                 {messages.footer.contactTitle}
               </h2>
-              <div className="mt-5 grid gap-3 text-base leading-relaxed text-white/78">
-                <a
-                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F4784A]"
-                  href={`mailto:${messages.footer.contactEmail}`}
-                >
-                  <Mail className="h-5 w-5 shrink-0" />
-                  <span className="min-w-0 break-all">
-                    {messages.footer.contactEmail}
-                  </span>
-                </a>
-                <a
-                  className="flex min-w-0 items-center gap-3 transition hover:text-[#F4784A]"
-                  href={`tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`}
-                >
-                  <Phone className="h-5 w-5 shrink-0" />
-                  <span>{messages.footer.contactPhone}</span>
-                </a>
-                <p className="flex min-w-0 items-center gap-3">
+              <ul className="mt-5 grid gap-3 text-base leading-relaxed text-white/78">
+                <li>
+                  <a
+                    className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
+                    href={`mailto:${messages.footer.contactEmail}`}
+                  >
+                    <Mail className="h-5 w-5 shrink-0" />
+                    <span className="min-w-0 break-all">
+                      {messages.footer.contactEmail}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
+                    href={`tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`}
+                  >
+                    <Phone className="h-5 w-5 shrink-0" />
+                    <span>{messages.footer.contactPhone}</span>
+                  </a>
+                </li>
+                <li className="flex min-w-0 items-center gap-3">
                   <MapPin className="h-5 w-5 shrink-0" />
                   <span>{messages.footer.contactAddress}</span>
-                </p>
-              </div>
+                </li>
+              </ul>
               <LanguageSwitcher
                 ariaLabel={messages.language.label}
                 className="mt-6"
                 currentLocale={locale}
                 locales={[
                   {
+                    ariaLabel: `${messages.language.id} - ${messages.language.idName}`,
                     code: "id",
                     href: alternateHrefs?.id ?? "/",
                     label: messages.language.id,
+                    lang: "id",
                   },
                   {
+                    ariaLabel: `${messages.language.en} - ${messages.language.enName}`,
                     code: "en",
                     href: alternateHrefs?.en ?? "/en",
                     label: messages.language.en,
+                    lang: "en",
                   },
                 ]}
               />
@@ -121,18 +135,19 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
       </div>
       <div className="border-t border-white/12 py-5">
         <div className="section-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-base leading-relaxed text-white/68">
+          {/* The copyright line is English in both dictionaries. */}
+          <p className="text-base leading-relaxed text-white/68" lang="en">
             {messages.footer.copyright}
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 sm:pr-16">
             <a
-              className="text-sm font-semibold text-white/58 transition hover:text-white"
+              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
               href={locale === "en" ? "/en/privacy" : "/privacy"}
             >
               {messages.footer.privacy}
             </a>
             <a
-              className="text-sm font-semibold text-white/58 transition hover:text-white"
+              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
               href={locale === "en" ? "/en/terms" : "/terms"}
             >
               {messages.footer.terms}

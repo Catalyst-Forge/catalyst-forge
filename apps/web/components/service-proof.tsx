@@ -43,7 +43,7 @@ export function ServiceProofCard({
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-bold uppercase tracking-[0.14em] text-[#FFB79C]">
           <span>{kind}</span>
           {project.year ? (
-            <span className="text-white/60">{project.year}</span>
+            <span className="text-white/70">{project.year}</span>
           ) : null}
         </div>
         <h3 className="mt-3 text-2xl font-bold tracking-tight">
@@ -73,7 +73,7 @@ export function ServiceProofCard({
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a
             aria-label={`${ui.viewCaseStudy}: ${project.title}`}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#D0490F] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#F4784A]"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#D0490F] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#B83D0B]"
             href={getPortfolioPath(locale, project.slug)}
           >
             {ui.viewCaseStudy}

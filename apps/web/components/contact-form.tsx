@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent, type ReactNode } from "react";
 import {
   AlertTriangle,
   CheckCircle2,
@@ -8,6 +8,7 @@ import {
   MessageCircle,
   Send,
 } from "lucide-react";
+import { cn } from "@repo/ui/lib/utils";
 import type { Messages } from "@/lib/i18n";
 import type { ServiceSlug } from "@/lib/service-pages";
 import { UTM_STORAGE_KEY, type StoredUtm } from "./utm-capture";
@@ -23,7 +24,13 @@ const contactLinks = {
   whatsapp: "https://wa.me/6285121145387",
 };
 
-// Position of each service in `needTypeOptions` below.
+// The 1px border is the only thing that outlines a field on the white/cream
+// card, so it has to reach 3:1 (#7F8CA0 is 3.4:1 on white, 3.2:1 on #FAF8F5).
+// Placeholder text is real text: 65% of the ink colour is 5.3:1 on white.
+const controlClassName =
+  "min-w-0 rounded-lg border border-[#7F8CA0] bg-white px-4 text-base text-[#1A1A2E] outline-none transition placeholder:text-[#1A1A2E]/65 focus:border-[#C4430D] focus:ring-2 focus:ring-[#C4430D] aria-[invalid=true]:border-red-700";
+
+// Position of each service in `needTypeOptions`.
 const needOptionIndex: Record<ServiceSlug, number> = {
   "company-profile": 0,
   "custom-crm": 1,
@@ -33,151 +40,50 @@ const needOptionIndex: Record<ServiceSlug, number> = {
 };
 
 export function ContactForm({ messages, defaultNeed }: ContactFormProps) {
+  const labels = messages.contactForm;
+  const errorMessageId = useId();
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const labels =
-    messages.locale === "id"
-      ? {
-          budgetRange: "Estimasi Budget",
-          company: "Perusahaan",
-          email: "Email",
-          message: "Pesan",
-          name: "Nama",
-          needType: "Kebutuhan Utama",
-          phone: "Nomor WhatsApp",
-          timeline: "Target Waktu",
-          budgetRangeOptions: [
-            "Belum ditentukan / butuh arahan",
-            "< Rp10 juta",
-            "Rp10-25 juta",
-            "Rp25-50 juta",
-            "Rp50 juta+",
-          ],
-          needTypeOptions: [
-            "Company Profile / Website",
-            "Custom CRM",
-            "Custom HRIS",
-            "Custom POS",
-            "AI Support / Chatbot",
-            "Dashboard / Sistem Internal",
-          ],
-          timelineOptions: [
-            "Secepatnya",
-            "1 bulan",
-            "2-3 bulan",
-            "3+ bulan",
-            "Masih eksplorasi",
-          ],
-          placeholderCompany: "Nama perusahaan",
-          placeholderBudgetRange: "Pilih estimasi budget",
-          placeholderEmail: "nama@perusahaan.com",
-          placeholderMessage: "Ceritakan kebutuhan sistem atau website Anda...",
-          placeholderName: "Nama lengkap",
-          placeholderNeedType: "Pilih kebutuhan utama",
-          placeholderPhone: "08xxxxxxxxxx",
-          placeholderTimeline: "Pilih target waktu",
-          send: "Kirim Inquiry",
-          sending: "Mengirim...",
-          successTitle: "Inquiry terkirim",
-          success:
-            "Terima kasih. Tim CatalystForge akan menghubungi Anda secepatnya.",
-          successNext:
-            "Sambil menunggu balasan email, Anda juga bisa lanjutkan percakapan lewat WhatsApp agar kami bisa review kebutuhan lebih cepat.",
-          whatsappCta: "Lanjut WhatsApp",
-          emailCta: "Kirim email tambahan",
-          errorTitle: "Belum bisa dikirim",
-          error: "Pesan belum terkirim. Coba lagi atau gunakan WhatsApp.",
-          invalidName: "Nama minimal 2 karakter.",
-          invalidEmail: "Email belum valid.",
-          invalidPhone: "Nomor WhatsApp minimal 8 digit.",
-          invalidMessage: "Pesan minimal 10 karakter agar konteksnya jelas.",
-          invalidNeedType: "Pilih kebutuhan utama.",
-          invalidBudgetRange: "Pilih estimasi budget.",
-          invalidTimeline: "Pilih target waktu.",
-        }
-      : {
-          budgetRange: "Estimated Budget",
-          company: "Company",
-          email: "Email",
-          message: "Message",
-          name: "Name",
-          needType: "Main Need",
-          phone: "WhatsApp Number",
-          timeline: "Target Timeline",
-          budgetRangeOptions: [
-            "Not decided / need guidance",
-            "< IDR 10 million",
-            "IDR 10-25 million",
-            "IDR 25-50 million",
-            "IDR 50 million+",
-          ],
-          needTypeOptions: [
-            "Company Profile / Website",
-            "Custom CRM",
-            "Custom HRIS",
-            "Custom POS",
-            "AI Support / Chatbot",
-            "Dashboard / Internal System",
-          ],
-          timelineOptions: [
-            "As soon as possible",
-            "1 month",
-            "2-3 months",
-            "3+ months",
-            "Still exploring",
-          ],
-          placeholderCompany: "Company name",
-          placeholderBudgetRange: "Choose budget estimate",
-          placeholderEmail: "name@company.com",
-          placeholderMessage: "Tell us about your system or website needs...",
-          placeholderName: "Full name",
-          placeholderNeedType: "Choose main need",
-          placeholderPhone: "+62...",
-          placeholderTimeline: "Choose target timeline",
-          send: "Send Inquiry",
-          sending: "Sending...",
-          successTitle: "Inquiry sent",
-          success: "Thank you. CatalystForge team will contact you shortly.",
-          successNext:
-            "While waiting for our email reply, you can continue on WhatsApp so we can review the requirement faster.",
-          whatsappCta: "Continue on WhatsApp",
-          emailCta: "Send extra email",
-          errorTitle: "Message not sent",
-          error: "Message not sent. Please try again or use WhatsApp.",
-          invalidName: "Name must be at least 2 characters.",
-          invalidEmail: "Email address is invalid.",
-          invalidPhone: "WhatsApp number must contain at least 8 digits.",
-          invalidMessage:
-            "Message must be at least 10 characters for clear context.",
-          invalidNeedType: "Choose the main need.",
-          invalidBudgetRange: "Choose the budget estimate.",
-          invalidTimeline: "Choose the target timeline.",
-        };
+  const [errorField, setErrorField] = useState<ContactFormField | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
-    setStatus("sending");
-    setErrorMessage("");
 
+    // aria-disabled (rather than disabled) keeps the button focusable while
+    // sending, so guard against a second submit here.
+    if (status === "sending") {
+      return;
+    }
+
+    const form = event.currentTarget;
     const formData = new FormData(form);
     const payload = createContactPayload(formData);
     const validationError = validateContactPayload(payload, labels);
 
     if (validationError) {
       setStatus("error");
-      setErrorMessage(validationError);
+      setErrorMessage(validationError.message);
+      setErrorField(validationError.field);
+
+      // Take the user to the field the message is about; it points back at
+      // the message through aria-describedby.
+      const control = form.elements.namedItem(validationError.field);
+
+      if (control instanceof HTMLElement) {
+        control.focus();
+      }
+
       return;
     }
 
+    setStatus("sending");
+    setErrorMessage("");
+    setErrorField(null);
+
     try {
-      const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(
-        /\/$/,
-        "",
-      );
+      const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "");
       const endpoint = apiBaseUrl
         ? `${apiBaseUrl}/api/contact`
         : "/api/contact";
@@ -204,112 +110,159 @@ export function ContactForm({ messages, defaultNeed }: ContactFormProps) {
     }
   }
 
+  // Once the field a message was about is edited, the message no longer
+  // applies, so drop it (and aria-invalid with it).
+  function handleChange(event: FormEvent<HTMLFormElement>) {
+    if (
+      errorField &&
+      event.target instanceof HTMLElement &&
+      event.target.getAttribute("name") === errorField
+    ) {
+      setStatus("idle");
+      setErrorMessage("");
+      setErrorField(null);
+    }
+  }
+
+  const fieldProps = (name: ContactFormField) => ({
+    errorMessageId,
+    invalid: errorField === name,
+  });
+
   return (
-    <form className="grid min-w-0 gap-4" onSubmit={handleSubmit}>
-      <input
-        autoComplete="off"
-        className="hidden"
-        name="website"
-        tabIndex={-1}
-      />
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field
-          label={labels.name}
-          name="name"
-          placeholder={labels.placeholderName}
-          required
+    <form className="min-w-0" onChange={handleChange} onSubmit={handleSubmit}>
+      <div className="grid gap-4">
+        <input
+          autoComplete="off"
+          className="hidden"
+          name="website"
+          tabIndex={-1}
         />
-        <Field
-          label={labels.email}
-          name="email"
-          placeholder={labels.placeholderEmail}
-          required
-          type="email"
-        />
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field
-          label={labels.phone}
-          minLength={8}
-          name="phone"
-          placeholder={labels.placeholderPhone}
-          required
-          type="tel"
-        />
-        <Field
-          label={labels.company}
-          name="company"
-          placeholder={labels.placeholderCompany}
-        />
-      </div>
-      <div className="grid gap-4 lg:grid-cols-3">
-        <SelectField
-          defaultValue={
-            defaultNeed
-              ? labels.needTypeOptions[needOptionIndex[defaultNeed]]
-              : ""
-          }
-          label={labels.needType}
-          name="needType"
-          options={labels.needTypeOptions}
-          placeholder={labels.placeholderNeedType}
-          required
-        />
-        <SelectField
-          label={labels.budgetRange}
-          name="budgetRange"
-          options={labels.budgetRangeOptions}
-          placeholder={labels.placeholderBudgetRange}
-          required
-        />
-        <SelectField
-          label={labels.timeline}
-          name="timeline"
-          options={labels.timelineOptions}
-          placeholder={labels.placeholderTimeline}
-          required
-        />
-      </div>
-      <label className="grid gap-2">
-        <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
-          {labels.message}
-        </span>
-        <textarea
-          className="min-h-36 resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-base leading-relaxed text-[#1A1A2E] outline-none transition focus:border-[#E8531A] focus:ring-4 focus:ring-[#E8531A]/12"
-          maxLength={2000}
-          minLength={10}
-          name="message"
-          placeholder={labels.placeholderMessage}
-          required
-        />
-      </label>
+        <p className="text-sm font-semibold text-[#1A1A2E]/70">
+          {labels.requiredNote}
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Field
+            {...fieldProps("name")}
+            autoComplete="name"
+            label={labels.name}
+            name="name"
+            placeholder={labels.placeholderName}
+            required
+          />
+          <Field
+            {...fieldProps("email")}
+            autoComplete="email"
+            label={labels.email}
+            name="email"
+            placeholder={labels.placeholderEmail}
+            required
+            type="email"
+          />
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Field
+            {...fieldProps("phone")}
+            autoComplete="tel"
+            label={labels.phone}
+            minLength={8}
+            name="phone"
+            placeholder={labels.placeholderPhone}
+            required
+            type="tel"
+          />
+          <Field
+            {...fieldProps("company")}
+            autoComplete="organization"
+            label={labels.company}
+            name="company"
+            placeholder={labels.placeholderCompany}
+          />
+        </div>
+        <div className="grid gap-4 lg:grid-cols-3">
+          <SelectField
+            {...fieldProps("needType")}
+            defaultValue={
+              defaultNeed
+                ? labels.needTypeOptions[needOptionIndex[defaultNeed]]
+                : ""
+            }
+            label={labels.needType}
+            name="needType"
+            options={labels.needTypeOptions}
+            placeholder={labels.placeholderNeedType}
+            required
+          />
+          <SelectField
+            {...fieldProps("budgetRange")}
+            label={labels.budgetRange}
+            name="budgetRange"
+            options={labels.budgetRangeOptions}
+            placeholder={labels.placeholderBudgetRange}
+            required
+          />
+          <SelectField
+            {...fieldProps("timeline")}
+            label={labels.timeline}
+            name="timeline"
+            options={labels.timelineOptions}
+            placeholder={labels.placeholderTimeline}
+            required
+          />
+        </div>
+        <label className="grid gap-2">
+          <LabelText required>{labels.message}</LabelText>
+          <textarea
+            {...describeError(fieldProps("message"))}
+            className={cn(
+              controlClassName,
+              "min-h-36 resize-none py-3 leading-relaxed",
+            )}
+            maxLength={2000}
+            minLength={10}
+            name="message"
+            placeholder={labels.placeholderMessage}
+            required
+          />
+        </label>
 
-      <button
-        className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-7 py-3 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
-        disabled={status === "sending"}
-        type="submit"
-      >
-        <Send className="h-5 w-5" />
-        {status === "sending" ? labels.sending : labels.send}
-      </button>
+        <button
+          aria-disabled={status === "sending"}
+          className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-[#D0490F] px-7 py-3 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] aria-disabled:cursor-not-allowed aria-disabled:opacity-70 sm:w-auto"
+          type="submit"
+        >
+          <Send className="h-5 w-5" />
+          {status === "sending" ? labels.sending : labels.send}
+        </button>
+      </div>
 
-      {status === "success" ? (
-        <FormAlert
-          emailCta={labels.emailCta}
-          message={labels.success}
-          nextMessage={labels.successNext}
-          title={labels.successTitle}
-          tone="success"
-          whatsappCta={labels.whatsappCta}
-        />
-      ) : null}
-      {status === "error" ? (
-        <FormAlert
-          message={errorMessage || labels.error}
-          title={labels.errorTitle}
-          tone="error"
-        />
-      ) : null}
+      {/* The live regions stay mounted so the messages inserted into them are
+          announced reliably; they take no space while empty. */}
+      <div aria-atomic="true" role="status">
+        {status === "sending" ? (
+          <p className="sr-only">{labels.sending}</p>
+        ) : null}
+        {status === "success" ? (
+          <FormAlert
+            emailCta={labels.emailCta}
+            message={labels.success}
+            nextMessage={labels.successNext}
+            title={labels.successTitle}
+            tone="success"
+            whatsappCta={labels.whatsappCta}
+          />
+        ) : null}
+      </div>
+      <div aria-atomic="true" role="alert">
+        {status === "error" ? (
+          <FormAlert
+            message={errorMessage || labels.error}
+            messageId={errorMessageId}
+            title={labels.errorTitle}
+            tone="error"
+          />
+        ) : null}
+      </div>
     </form>
   );
 }
@@ -422,50 +375,47 @@ function getStoredString(source: Record<string, unknown>, key: string) {
   return typeof value === "string" ? value.slice(0, 120) : "";
 }
 
+type ContactValidationError = {
+  field: ContactFormField;
+  message: string;
+};
+
+// Checked in the order the fields appear on screen, so focus lands on the
+// first field that needs attention.
 function validateContactPayload(
   payload: ContactPayload,
-  labels: ContactValidationLabels,
-) {
+  labels: Messages["contactForm"],
+): ContactValidationError | null {
   if (payload.name.length < 2) {
-    return labels.invalidName;
+    return { field: "name", message: labels.invalidName };
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
-    return labels.invalidEmail;
+    return { field: "email", message: labels.invalidEmail };
   }
 
   if (payload.phone.replace(/\D/g, "").length < 8) {
-    return labels.invalidPhone;
-  }
-
-  if (payload.message.length < 10) {
-    return labels.invalidMessage;
+    return { field: "phone", message: labels.invalidPhone };
   }
 
   if (!payload.needType) {
-    return labels.invalidNeedType;
+    return { field: "needType", message: labels.invalidNeedType };
   }
 
   if (!payload.budgetRange) {
-    return labels.invalidBudgetRange;
+    return { field: "budgetRange", message: labels.invalidBudgetRange };
   }
 
   if (!payload.timeline) {
-    return labels.invalidTimeline;
+    return { field: "timeline", message: labels.invalidTimeline };
   }
 
-  return "";
-}
+  if (payload.message.length < 10) {
+    return { field: "message", message: labels.invalidMessage };
+  }
 
-type ContactValidationLabels = {
-  invalidEmail: string;
-  invalidMessage: string;
-  invalidName: string;
-  invalidNeedType: string;
-  invalidPhone: string;
-  invalidBudgetRange: string;
-  invalidTimeline: string;
-};
+  return null;
+}
 
 function getContactErrorMessage(
   data: ContactErrorResponse | null,
@@ -490,6 +440,7 @@ function getContactErrorMessage(
 function FormAlert({
   emailCta,
   message,
+  messageId,
   nextMessage,
   title,
   tone,
@@ -497,6 +448,8 @@ function FormAlert({
 }: {
   emailCta?: string;
   message: string;
+  /** Lets a field point at this message with aria-describedby. */
+  messageId?: string;
   nextMessage?: string;
   title: string;
   tone: "error" | "success";
@@ -508,12 +461,11 @@ function FormAlert({
   return (
     <div
       className={[
-        "flex items-start gap-3 rounded-xl border px-4 py-4 shadow-sm",
+        "mt-4 flex items-start gap-3 rounded-xl border px-4 py-4 shadow-sm",
         isSuccess
           ? "border-emerald-200 bg-emerald-50 text-emerald-900"
           : "border-red-200 bg-red-50 text-red-900",
       ].join(" ")}
-      role={isSuccess ? "status" : "alert"}
     >
       <span
         className={[
@@ -527,13 +479,15 @@ function FormAlert({
         <span className="text-sm font-bold uppercase tracking-[0.12em]">
           {title}
         </span>
-        <span className="text-sm font-semibold leading-relaxed">{message}</span>
+        <span className="text-sm font-semibold leading-relaxed" id={messageId}>
+          {message}
+        </span>
         {isSuccess && nextMessage ? (
           <>
             <span className="mt-2 text-sm leading-relaxed">{nextMessage}</span>
             <span className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-4 py-2 text-center text-sm font-bold text-white transition hover:bg-emerald-700"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 px-4 py-2 text-center text-sm font-bold text-white transition hover:bg-emerald-800"
                 href={contactLinks.whatsapp}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -556,14 +510,55 @@ function FormAlert({
   );
 }
 
+type FieldErrorProps = {
+  errorMessageId: string;
+  invalid: boolean;
+};
+
+/**
+ * Marks a control invalid and ties it to the error message that explains why.
+ * aria-invalid is always explicit: left out, Chrome reports an untouched
+ * required <select> as "invalid entry" before the visitor has done anything.
+ */
+function describeError({ errorMessageId, invalid }: FieldErrorProps) {
+  return {
+    "aria-describedby": invalid ? errorMessageId : undefined,
+    "aria-invalid": invalid,
+  };
+}
+
+function LabelText({
+  children,
+  required,
+}: {
+  children: ReactNode;
+  required?: boolean;
+}) {
+  return (
+    <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
+      {children}
+      {required ? (
+        // The control itself carries `required`, so the star is visual only.
+        <span aria-hidden="true" className="ml-1 text-[#C4430D]">
+          *
+        </span>
+      ) : null}
+    </span>
+  );
+}
+
 function Field({
+  autoComplete,
+  errorMessageId,
+  invalid,
   label,
   minLength,
   name,
   placeholder,
   required,
   type = "text",
-}: {
+}: FieldErrorProps & {
+  autoComplete?: string;
   label: string;
   minLength?: number;
   name: string;
@@ -573,11 +568,11 @@ function Field({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
-        {label}
-      </span>
+      <LabelText required={required}>{label}</LabelText>
       <input
-        className="h-12 min-w-0 rounded-lg border border-slate-200 bg-white px-4 text-base text-[#1A1A2E] outline-none transition focus:border-[#E8531A] focus:ring-4 focus:ring-[#E8531A]/12"
+        {...describeError({ errorMessageId, invalid })}
+        autoComplete={autoComplete}
+        className={cn(controlClassName, "h-12")}
         maxLength={120}
         minLength={minLength}
         name={name}
@@ -591,12 +586,14 @@ function Field({
 
 function SelectField({
   defaultValue = "",
+  errorMessageId,
+  invalid,
   label,
   name,
   options,
   placeholder,
   required,
-}: {
+}: FieldErrorProps & {
   defaultValue?: string;
   label: string;
   name: ContactFormField;
@@ -606,11 +603,10 @@ function SelectField({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-sm font-bold uppercase tracking-[0.12em] text-[#1B3A5C]/80">
-        {label}
-      </span>
+      <LabelText required={required}>{label}</LabelText>
       <select
-        className="h-12 min-w-0 rounded-lg border border-slate-200 bg-white px-4 text-base text-[#1A1A2E] outline-none transition focus:border-[#E8531A] focus:ring-4 focus:ring-[#E8531A]/12"
+        {...describeError({ errorMessageId, invalid })}
+        className={cn(controlClassName, "h-12")}
         defaultValue={defaultValue}
         name={name}
         required={required}

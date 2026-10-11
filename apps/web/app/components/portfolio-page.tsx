@@ -25,7 +25,11 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
   const productProjects = p.projects.filter((proj) => proj.kind === "product");
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E]">
+    <main
+      className="min-h-screen bg-[#FAF8F5] text-[#1A1A2E] outline-none"
+      id="main-content"
+      tabIndex={-1}
+    >
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1B3A5C] via-[#1B3A5C] to-[#0F2440] pt-24 pb-14 sm:pt-32 sm:pb-20">
         <div className="section-container relative z-10">
@@ -97,7 +101,7 @@ export function PortfolioPage({ messages, locale }: PortfolioPageProps) {
                 {p.cta.subtext}
               </p>
               <a
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#B83D0B] hover:scale-[1.02] active:scale-[0.98]"
                 href={`https://wa.me/6285121145387?text=${encodeURIComponent(
                   locale === "id"
                     ? "Halo CatalystForge, saya tertarik dengan portfolio project Anda"
@@ -134,7 +138,7 @@ function ProjectSection({
     <section className={`section-padding ${className}`}>
       <div className="section-container">
         <Reveal direction="up">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#D0490F]">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#C4430D]">
             {eyebrow}
           </p>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-4xl">
@@ -170,14 +174,17 @@ function ProjectCard({
       direction={index % 2 === 0 ? "left" : "right"}
     >
       <article className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-        {/* Thumbnail */}
+        {/* Thumbnail: the title below is the card's link for keyboard and
+            screen reader users, so this one is skipped rather than repeated. */}
         <Link
+          aria-hidden="true"
           className="relative block h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-[#1B3A5C] to-[#0F2440]"
           href={getPortfolioPath(locale, project.slug)}
+          tabIndex={-1}
         >
           {project.image ? (
             <Image
-              alt={project.title}
+              alt=""
               className="object-cover transition duration-500 group-hover:scale-105"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -191,7 +198,7 @@ function ProjectCard({
             />
           )}
           {project.demoUrl ? (
-            <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-white backdrop-blur transition hover:bg-white/25">
+            <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-[#1B3A5C]/90 px-3 py-1.5 text-xs font-bold text-white backdrop-blur transition hover:bg-[#1B3A5C]">
               <ExternalLink className="h-3 w-3" />
               Demo
             </span>
@@ -200,23 +207,25 @@ function ProjectCard({
 
         <div className="flex flex-1 flex-col p-5 sm:p-6">
           <div className="flex items-center gap-2">
-            <span className="rounded-full bg-[#FFF4EF] px-2.5 py-0.5 text-xs font-bold uppercase tracking-[0.12em] text-[#E8531A]">
+            <span className="rounded-full bg-[#FFF4EF] px-2.5 py-0.5 text-xs font-bold uppercase tracking-[0.12em] text-[#C4430D]">
               {project.category}
             </span>
             {project.year ? (
-              <span className="text-xs font-semibold text-[#1A1A2E]/45">
+              <span className="text-xs font-semibold text-[#1A1A2E]/65">
                 {project.year}
               </span>
             ) : null}
           </div>
 
-          <Link
-            className="mt-3 block text-xl font-bold tracking-tight text-[#1B3A5C] hover:text-[#E8531A] transition-colors"
-            href={getPortfolioPath(locale, project.slug)}
-          >
-            {project.title}
-          </Link>
-          <p className="mt-1 text-sm font-semibold text-[#E8531A]">
+          <h3 className="mt-3 text-xl font-bold tracking-tight">
+            <Link
+              className="block text-[#1B3A5C] transition-colors hover:text-[#C4430D]"
+              href={getPortfolioPath(locale, project.slug)}
+            >
+              {project.title}
+            </Link>
+          </h3>
+          <p className="mt-1 text-sm font-semibold text-[#C4430D]">
             {project.client}
           </p>
           <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/70">
@@ -225,40 +234,41 @@ function ProjectCard({
 
           {/* Tech Stack */}
           {project.tech.length > 0 ? (
-            <div className="mt-4 flex flex-wrap gap-1.5">
+            <ul className="mt-4 flex flex-wrap gap-1.5">
               {project.tech.map((t) => (
-                <span
+                <li
                   className="rounded-md bg-[#FAF8F5] px-2 py-1 text-xs font-semibold text-[#1B3A5C]/80"
                   key={t}
                 >
                   {t}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           ) : null}
 
           {/* Metrics */}
           <div className="mt-5 rounded-lg border border-[#E8531A]/12 bg-[#FFF4EF] p-4">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#E8531A]">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#C4430D]">
               {messages.portfolioPage.metricsLabel}
             </p>
-            <div className="mt-2.5 grid gap-1.5">
+            <ul className="mt-2.5 grid gap-1.5">
               {project.metrics.map((m) => (
-                <div className="flex gap-2" key={m}>
+                <li className="flex gap-2" key={m}>
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#E8531A]" />
                   <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/75">
                     {m}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Client work leads to its case study; demos are a secondary action. */}
           <div className="mt-auto pt-5">
             {project.kind === "client" ? (
               <Link
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#D0490F] px-5 py-2.5 text-sm font-bold text-white shadow transition hover:bg-[#F4784A]"
+                aria-label={`${messages.portfolioPage.viewCaseStudy} ${project.title}`}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#D0490F] px-5 py-2.5 text-sm font-bold text-white shadow transition hover:bg-[#B83D0B]"
                 href={getPortfolioPath(locale, project.slug)}
               >
                 {messages.portfolioPage.viewCaseStudy}
@@ -266,7 +276,8 @@ function ProjectCard({
               </Link>
             ) : project.demoUrl ? (
               <a
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#D0490F]/40 bg-white px-5 py-2.5 text-sm font-bold text-[#D0490F] transition hover:border-[#D0490F] hover:bg-[#FFF4EF]"
+                aria-label={`${messages.portfolioPage.viewDemo} ${project.title}`}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#D0490F]/40 bg-white px-5 py-2.5 text-sm font-bold text-[#C4430D] transition hover:border-[#D0490F] hover:bg-[#FFF4EF]"
                 href={project.demoUrl}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -276,6 +287,7 @@ function ProjectCard({
               </a>
             ) : (
               <Link
+                aria-label={`${messages.portfolioPage.viewDetail} ${project.title}`}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#FAF8F5] px-5 py-2.5 text-sm font-bold text-[#1B3A5C]/75 transition hover:bg-white hover:border-[#E8531A]/30"
                 href={getPortfolioPath(locale, project.slug)}
               >

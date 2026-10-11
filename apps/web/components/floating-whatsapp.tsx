@@ -21,7 +21,7 @@ export function FloatingWhatsapp({
   return (
     <ConversionLink
       aria-label={messages.whatsapp.label}
-      className="fixed bottom-4 right-4 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-[#D0490F] text-white shadow-xl shadow-[#E8531A]/30 transition hover:-translate-y-1 hover:bg-[#F4784A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 sm:bottom-5 sm:right-5 sm:inline-flex sm:h-14 sm:w-14"
+      className="fixed bottom-4 right-4 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-[#D0490F] text-white shadow-xl shadow-[#E8531A]/30 transition hover:-translate-y-1 hover:bg-[#B83D0B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 sm:bottom-[calc(1.25rem+var(--cookie-banner-offset,0px))] sm:right-5 sm:inline-flex sm:h-14 sm:w-14"
       eventLabel="floating_whatsapp"
       eventName="lead_click"
       href={href}
