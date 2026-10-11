@@ -33,7 +33,8 @@
     "preview": {
       "alt": "Tampilan {name} buatan CatalystForge",
       "cta": "Lihat demo {name}",
-      "showcaseLabel": "Cuplikan demo produk CatalystForge"
+      "showcaseLabel": "Cuplikan demo produk CatalystForge",
+      "next": "Berikutnya: {name}"
     },
     "headline": "Bangun Website, Sistem Operasional, dan Otomasi AI yang Siap Dipakai Tim Anda",
     "subheadline": "CatalystForge membantu bisnis Indonesia mengubah kebutuhan digital menjadi company profile, CRM, HRIS, POS, dashboard, dan workflow automation yang jelas scope-nya dan siap deploy.",

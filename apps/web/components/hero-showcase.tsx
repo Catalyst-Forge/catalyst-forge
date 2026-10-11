@@ -18,6 +18,8 @@ export type ShowcaseSlide = {
 type HeroShowcaseProps = {
   slides: ShowcaseSlide[];
   label: string;
+  /** "Next: {name}", shown on hover and used as the front card's button label. */
+  nextLabel: string;
 };
 
 const INTERVAL_MS = 4200;
@@ -51,10 +53,11 @@ function cardStyle(offset: number, count: number): CSSProperties {
 /**
  * A stack of product screens that deals itself: every few seconds the front
  * card slides away and the next one moves up, so the hero shows the whole
- * range rather than one product. Hover or focus pauses it; it stays still for
- * visitors who prefer reduced motion.
+ * range rather than one product. Clicking the front card deals the next one and
+ * clicking a card behind brings it forward. Hover or focus pauses the timer;
+ * it stays still for visitors who prefer reduced motion.
  */
-export function HeroShowcase({ slides, label }: HeroShowcaseProps) {
+export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [still, setStill] = useState(false);
@@ -69,6 +72,10 @@ export function HeroShowcase({ slides, label }: HeroShowcaseProps) {
   if (!slide) return null;
 
   const next = () => setActive((value) => (value + 1) % slides.length);
+  const upNext = nextLabel.replace(
+    "{name}",
+    slides[(active + 1) % slides.length]?.name ?? "",
+  );
   const resumeWhenFocusLeaves = (event: FocusEvent<HTMLElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       setPaused(false);
@@ -88,12 +95,19 @@ export function HeroShowcase({ slides, label }: HeroShowcaseProps) {
         {slides.map((item, index) => {
           const offset = (index - active + slides.length) % slides.length;
           const front = offset === 0;
+          // The two cards peeking out behind can be clicked to bring them up.
+          const peeking = offset === 1 || offset === 2;
 
           return (
             <div
               aria-hidden={!front}
-              className="absolute inset-0 origin-top-right transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+              className={cn(
+                "group absolute inset-0 origin-top-right transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
+                peeking && "cursor-pointer",
+                !front && !peeking && "pointer-events-none",
+              )}
               key={item.image}
+              onClick={peeking ? () => setActive(index) : undefined}
               style={cardStyle(offset, slides.length)}
             >
               <div
@@ -111,6 +125,14 @@ export function HeroShowcase({ slides, label }: HeroShowcaseProps) {
                   <span className="flex-1 truncate rounded-md bg-white px-3 py-1 text-center text-xs font-medium text-slate-500">
                     {item.host}
                   </span>
+                  {front ? (
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-xs font-bold text-[#C4430D] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
+                    >
+                      {upNext} →
+                    </span>
+                  ) : null}
                 </div>
                 <div className="relative flex-1 bg-[#0B1220]">
                   {/* Every card is on screen in the stack, so none can wait
@@ -148,6 +170,14 @@ export function HeroShowcase({ slides, label }: HeroShowcaseProps) {
                   />
                 ) : null}
               </div>
+              {front ? (
+                <button
+                  aria-label={upNext}
+                  className="absolute inset-0 cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F4784A]/60"
+                  onClick={next}
+                  type="button"
+                />
+              ) : null}
             </div>
           );
         })}
