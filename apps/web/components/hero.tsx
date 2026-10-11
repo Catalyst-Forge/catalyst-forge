@@ -102,8 +102,9 @@ export function Hero({ messages }: HeroProps) {
           </Reveal>
         </ParallaxLayer>
 
+        {/* Shown on phones too: visitors from WhatsApp links land on mobile. */}
         <ParallaxLayer
-          className="fade-in hidden lg:block"
+          className="fade-in mx-auto w-full max-w-md lg:max-w-none"
           maxOffset={88}
           speed={0.12}
         >

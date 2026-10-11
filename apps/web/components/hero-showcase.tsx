@@ -3,7 +3,14 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, type CSSProperties, type FocusEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type FocusEvent,
+  type TouchEvent,
+} from "react";
 import { cn } from "@repo/ui/lib/utils";
 
 export type ShowcaseSlide = {
@@ -54,13 +61,15 @@ function cardStyle(offset: number, count: number): CSSProperties {
  * A stack of product screens that deals itself: every few seconds the front
  * card slides away and the next one moves up, so the hero shows the whole
  * range rather than one product. Clicking the front card deals the next one and
- * clicking a card behind brings it forward. Hover or focus pauses the timer;
- * it stays still for visitors who prefer reduced motion.
+ * clicking a card behind brings it forward; on touch screens a swipe moves it
+ * either way. Mouse hover or keyboard focus pauses the timer, and it stays
+ * still for visitors who prefer reduced motion.
  */
 export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [still, setStill] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -81,15 +90,38 @@ export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
       setPaused(false);
     }
   };
+  const swipe = (event: TouchEvent<HTMLElement>) => {
+    const start = touchStartX.current;
+    touchStartX.current = null;
+    if (start === null) return;
+    const distance = (event.changedTouches[0]?.clientX ?? start) - start;
+    if (Math.abs(distance) < 40) return;
+    const step = distance < 0 ? 1 : -1;
+    setActive((value) => (value + step + slides.length) % slides.length);
+  };
 
   return (
     <section
       aria-label={label}
-      className="relative pr-[9%] pt-[16%]"
+      className="relative pr-[9%] pt-[11%]"
       onBlur={resumeWhenFocusLeaves}
-      onFocus={() => setPaused(true)}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      // Taps fire focus and mouse events too; only a real mouse or keyboard
+      // focus should hold the stack still.
+      onFocus={(event) => {
+        if ((event.target as HTMLElement).matches(":focus-visible")) {
+          setPaused(true);
+        }
+      }}
+      onPointerEnter={(event) => {
+        if (event.pointerType === "mouse") setPaused(true);
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "mouse") setPaused(false);
+      }}
+      onTouchEnd={swipe}
+      onTouchStart={(event) => {
+        touchStartX.current = event.touches[0]?.clientX ?? null;
+      }}
     >
       <div className="relative aspect-[16/10]">
         {slides.map((item, index) => {
@@ -128,7 +160,7 @@ export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
                   {front ? (
                     <span
                       aria-hidden="true"
-                      className="shrink-0 text-xs font-bold text-[#C4430D] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
+                      className="hidden shrink-0 text-xs font-bold text-[#C4430D] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 lg:inline"
                     >
                       {upNext} →
                     </span>
@@ -143,7 +175,7 @@ export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
                     fill
                     loading={index === 0 ? undefined : "eager"}
                     priority={index === 0}
-                    sizes="(min-width: 1024px) 560px, 1px"
+                    sizes="(min-width: 1024px) 560px, (min-width: 768px) 448px, 90vw"
                     src={item.image}
                   />
                   {/* Cards behind the front one sit in its shade. */}
