@@ -9,6 +9,7 @@ export const metadata: Metadata = createPageMetadata({
   path: "/en/terms",
   languages: { id: "/terms", en: "/en/terms" },
   robots: "noindex, follow",
+  defaultImage: true,
 });
 
 export default function TermsPageEn() {

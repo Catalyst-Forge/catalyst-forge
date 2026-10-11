@@ -17,6 +17,12 @@ type PageMetadataInput = {
   /** Paths of every language version of this page, including this one. */
   languages?: Partial<Record<Locale, string>>;
   robots?: Metadata["robots"];
+  /**
+   * Use the site-wide card. Needed for pages whose segment has no
+   * opengraph-image file: defining openGraph here replaces the parent's,
+   * so the root image is not inherited.
+   */
+  defaultImage?: boolean;
 };
 
 export function createPageMetadata({
@@ -26,6 +32,7 @@ export function createPageMetadata({
   path,
   languages,
   robots,
+  defaultImage = false,
 }: PageMetadataInput): Metadata {
   // Bypass the layout's "%s | CatalystForge" template so the brand never
   // appears twice, and reuse the same full title for social cards.
@@ -33,6 +40,8 @@ export function createPageMetadata({
     ? title
     : `${title} | CatalystForge`;
 
+  // Images come from the nearest opengraph-image / twitter-image file, so
+  // pages with their own card (team, portfolio, projects) get it automatically.
   return {
     title: { absolute: fullTitle },
     description,
@@ -51,14 +60,18 @@ export function createPageMetadata({
     openGraph: {
       title: fullTitle,
       description,
-      images: [
-        {
-          alt: "CatalystForge digital solution services",
-          height: 630,
-          url: "/opengraph-image",
-          width: 1200,
-        },
-      ],
+      ...(defaultImage
+        ? {
+            images: [
+              {
+                alt: "CatalystForge digital solution services",
+                height: 630,
+                url: "/opengraph-image",
+                width: 1200,
+              },
+            ],
+          }
+        : {}),
       locale: ogLocales[locale],
       siteName: "CatalystForge",
       type: "website",
@@ -68,7 +81,7 @@ export function createPageMetadata({
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: ["/twitter-image"],
+      ...(defaultImage ? { images: ["/twitter-image"] } : {}),
     },
   };
 }

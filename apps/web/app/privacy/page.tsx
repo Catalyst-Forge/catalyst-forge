@@ -9,6 +9,7 @@ export const metadata: Metadata = createPageMetadata({
   path: "/privacy",
   languages: { id: "/privacy", en: "/en/privacy" },
   robots: "noindex, follow",
+  defaultImage: true,
 });
 
 export default function PrivacyPage() {
