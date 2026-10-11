@@ -256,7 +256,7 @@ export function ProjectDetailPage({
               </p>
               <a
                 className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D0490F] px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[#F4784A] hover:scale-[1.02] active:scale-[0.98]"
-                href={`https://wa.me/6285121379282?text=${encodeURIComponent(
+                href={`https://wa.me/6285121145387?text=${encodeURIComponent(
                   locale === "id"
                     ? `Halo CatalystForge, saya tertarik dengan project ${project.title}`
                     : `Hello CatalystForge, I'm interested in the ${project.title} project`,

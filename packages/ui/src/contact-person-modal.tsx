@@ -21,8 +21,8 @@ type ContactPersonModalProps = {
 
 const contact = {
   email: "catalystforgetechnology@gmail.com",
-  phone: "085121379282",
-  whatsappUrl: "https://wa.me/6285121379282",
+  phone: "+62 851-2114-5387",
+  whatsappUrl: "https://wa.me/6285121145387",
 };
 
 const implementationSteps = [
@@ -158,7 +158,7 @@ export function ContactPersonModal({
               {contact.email}
             </a>
             <a
-              href="tel:+6285121379282"
+              href="tel:+6285121145387"
               className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-slate-200 transition hover:bg-white/[0.08]"
             >
               <Phone className="h-5 w-5 text-cyan-300" />

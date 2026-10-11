@@ -17,7 +17,7 @@ type ContactFormProps = {
 
 const contactLinks = {
   email: "mailto:catalystforgetechnology@gmail.com",
-  whatsapp: "https://wa.me/6285121379282",
+  whatsapp: "https://wa.me/6285121145387",
 };
 
 export function ContactForm({ messages }: ContactFormProps) {

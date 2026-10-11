@@ -6,7 +6,7 @@ type FloatingWhatsappProps = {
   messages: Messages;
 };
 
-const WHATSAPP_NUMBER = "6285121379282";
+const WHATSAPP_NUMBER = "6285121145387";
 
 export function FloatingWhatsapp({ messages }: FloatingWhatsappProps) {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(

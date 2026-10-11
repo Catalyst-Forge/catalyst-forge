@@ -83,7 +83,7 @@ const organizationJsonLd = {
       "@type": "ContactPoint",
       contactType: "sales",
       email: "catalystforgetechnology@gmail.com",
-      telephone: "+6285121379282",
+      telephone: "+6285121145387",
       availableLanguage: ["id", "en"],
     },
   ],

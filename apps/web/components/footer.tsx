@@ -87,7 +87,7 @@ export function Footer({ messages, locale }: FooterProps) {
                 </a>
                 <a
                   className="flex min-w-0 items-center gap-3 transition hover:text-[#F4784A]"
-                  href={`tel:${messages.footer.contactPhone.replaceAll(" ", "")}`}
+                  href={`tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`}
                 >
                   <Phone className="h-5 w-5 shrink-0" />
                   <span>{messages.footer.contactPhone}</span>

@@ -10,7 +10,7 @@ type CtaSectionProps = {
 };
 
 export function CtaSection({ messages }: CtaSectionProps) {
-  const whatsappHref = `https://wa.me/6285121379282?text=${encodeURIComponent(
+  const whatsappHref = `https://wa.me/6285121145387?text=${encodeURIComponent(
     messages.whatsapp.message,
   )}`;
 
@@ -64,7 +64,7 @@ export function CtaSection({ messages }: CtaSectionProps) {
               <div className="mt-6 grid gap-3 border-t border-slate-200 pt-6">
                 {[
                   {
-                    href: `tel:${messages.footer.contactPhone.replaceAll(" ", "")}`,
+                    href: `tel:${messages.footer.contactPhone.replace(/[\s-]/g, "")}`,
                     icon: Phone,
                     label: messages.cta.phoneLabel,
                     value: messages.footer.contactPhone,
