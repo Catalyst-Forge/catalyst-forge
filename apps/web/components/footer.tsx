@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { LanguageSwitcher } from "@repo/ui/language-switcher";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { LINKEDIN_URL } from "@/lib/company";
 import { type Locale, type Messages } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
@@ -101,6 +102,18 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
                   >
                     <Phone className="h-5 w-5 shrink-0" />
                     <span>{messages.footer.contactPhone}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-label={messages.footer.linkedinLabel}
+                    className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
+                    href={LINKEDIN_URL}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Linkedin aria-hidden="true" className="h-5 w-5 shrink-0" />
+                    <span>LinkedIn</span>
                   </a>
                 </li>
                 <li className="flex min-w-0 items-center gap-3">

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Analytics } from "@/components/analytics";
 import { CookieConsentLoader } from "@/components/cookie-consent-loader";
 import { UtmCapture } from "@/components/utm-capture";
+import { GITHUB_URL, LINKEDIN_URL } from "@/lib/company";
 import { getMessages } from "@/lib/i18n";
 import "./globals.css";
 
@@ -93,13 +94,8 @@ const organizationJsonLd = {
   email: "catalystforgetechnology@gmail.com",
   logo: `${siteUrl}/logo_icon_only.png`,
   name: "CatalystForge",
-  sameAs: [
-    "https://company.catalystforge.web.id",
-    "https://crm.catalystforge.web.id",
-    "https://hris.catalystforge.web.id",
-    "https://pos.catalystforge.web.id",
-    "https://ai.catalystforge.web.id",
-  ],
+  // Official profiles only; the demo subdomains are not the same entity.
+  sameAs: [LINKEDIN_URL, GITHUB_URL],
   url: siteUrl,
 };
 
