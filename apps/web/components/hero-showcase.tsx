@@ -12,6 +12,7 @@ import {
   type TouchEvent,
 } from "react";
 import { cn } from "@repo/ui/lib/utils";
+import { BrowserBar } from "./browser-bar";
 
 export type ShowcaseSlide = {
   name: string;
@@ -148,15 +149,7 @@ export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
                   front ? "shadow-2xl" : "shadow-lg",
                 )}
               >
-                <div className="flex items-center gap-3 border-b border-slate-200 bg-[#F4F5F7] px-4 py-3">
-                  <div aria-hidden="true" className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#D0490F]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#F4B350]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#3BAA72]" />
-                  </div>
-                  <span className="flex-1 truncate rounded-md bg-white px-3 py-1 text-center text-xs font-medium text-slate-500">
-                    {item.host}
-                  </span>
+                <BrowserBar host={item.host}>
                   {front ? (
                     <span
                       aria-hidden="true"
@@ -165,7 +158,7 @@ export function HeroShowcase({ slides, label, nextLabel }: HeroShowcaseProps) {
                       {upNext} →
                     </span>
                   ) : null}
-                </div>
+                </BrowserBar>
                 <div className="relative flex-1 bg-[#0B1220]">
                   {/* Every card is on screen in the stack, so none can wait
                       for lazy loading; the first one is preloaded. */}

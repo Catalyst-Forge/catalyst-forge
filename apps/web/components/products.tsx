@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { type Messages } from "@/lib/i18n";
 import { cn } from "@repo/ui/lib/utils";
+import { BrowserBar } from "./browser-bar";
 import { ConversionLink } from "./conversion-link";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
@@ -70,16 +71,7 @@ export function Products({ messages }: ProductsProps) {
                     tabIndex={-1}
                     target="_blank"
                   >
-                    <div className="flex items-center gap-3 px-4 py-2.5">
-                      <div aria-hidden="true" className="flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-[#D0490F]" />
-                        <span className="h-2 w-2 rounded-full bg-[#F4B350]" />
-                        <span className="h-2 w-2 rounded-full bg-[#3BAA72]" />
-                      </div>
-                      <span className="flex-1 truncate rounded-md bg-white px-3 py-0.5 text-center text-xs font-medium text-slate-500">
-                        {new URL(product.href).host}
-                      </span>
-                    </div>
+                    <BrowserBar host={new URL(product.href).host} size="sm" />
                     <div
                       className={cn(
                         "relative aspect-[16/9] overflow-hidden",

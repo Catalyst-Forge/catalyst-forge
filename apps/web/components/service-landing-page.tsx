@@ -21,6 +21,7 @@ import {
   serviceSlugs,
   type ServiceSlug,
 } from "@/lib/service-pages";
+import { BrowserBar } from "./browser-bar";
 import { ConversionLink } from "./conversion-link";
 import { CtaSection } from "./cta-section";
 import { FloatingWhatsapp } from "./floating-whatsapp";
@@ -43,6 +44,12 @@ export function ServiceLandingPage({
   const page = getServicePage(locale, slug);
   const ui = getServiceUi(locale);
   const proofProjects = getServiceProofProjects(locale, slug);
+  // The first proof project with a screenshot fills the hero's right side.
+  const heroShot = proofProjects.flatMap((project) =>
+    "image" in project && project.image
+      ? [{ image: project.image, title: project.title }]
+      : [],
+  )[0];
   const alternateHrefs = getServiceLanguagePaths(slug);
   const otherServices = serviceSlugs.filter((other) => other !== slug);
 
@@ -76,12 +83,12 @@ export function ServiceLandingPage({
           {/* /88 is not on Tailwind's opacity scale, so that class was never
               generated and the watermark showed through at full strength. */}
           <div className="absolute inset-0 bg-[#163453]/90" />
-          <div className="section-container relative z-10 flex min-h-[78svh] items-center py-12 sm:py-16 md:py-20">
+          <div className="section-container relative z-10 grid min-h-[78svh] items-center gap-10 py-12 sm:py-16 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
             <Reveal className="max-w-4xl" direction="up" instant>
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#FFB79C] sm:text-base">
                 {page.eyebrow}
               </p>
-              <h1 className="mt-5 max-w-5xl text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 max-w-5xl text-3xl font-bold tracking-tight sm:text-5xl">
                 {page.headline}
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-xl">
@@ -128,6 +135,40 @@ export function ServiceLandingPage({
                 ))}
               </dl>
             </Reveal>
+
+            {heroShot ? (
+              <Reveal
+                className="mx-auto w-full max-w-md lg:max-w-none"
+                direction="right"
+                instant
+              >
+                {/* Same destination as the demo button, so it stays out of the tab order. */}
+                <ConversionLink
+                  className="group block overflow-hidden rounded-xl border border-white/20 bg-white shadow-2xl ring-1 ring-black/5 transition duration-300 hover:-translate-y-1"
+                  eventLabel={`service_hero_demo_${page.slug}`}
+                  eventName="demo_click"
+                  href={page.demoHref}
+                  rel="noreferrer"
+                  tabIndex={-1}
+                  target="_blank"
+                >
+                  <BrowserBar host={new URL(page.demoHref).host} />
+                  <div className="relative aspect-[16/9] bg-[#0B1220]">
+                    <Image
+                      alt={messages.products.imageAlt.replace(
+                        "{name}",
+                        heroShot.title,
+                      )}
+                      className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                      fill
+                      priority
+                      sizes="(min-width: 1024px) 520px, (min-width: 768px) 448px, 90vw"
+                      src={heroShot.image}
+                    />
+                  </div>
+                </ConversionLink>
+              </Reveal>
+            ) : null}
           </div>
         </section>
 

@@ -10,6 +10,7 @@ import {
   Target,
 } from "lucide-react";
 import { type Messages } from "@/lib/i18n";
+import { BrowserBar } from "@/components/browser-bar";
 import { Reveal } from "@/components/reveal";
 import { ScrollParallax } from "@/components/scroll-parallax";
 import { getPortfolioPath } from "@/lib/locale-paths";
@@ -78,13 +79,21 @@ export function ProjectDetailPage({
           <Reveal direction="left" instant>
             <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
               {project.image ? (
-                <Image
-                  alt={project.title}
-                  className="w-full object-cover"
-                  height={450}
-                  src={project.image}
-                  width={900}
-                />
+                <>
+                  {project.demoUrl ? (
+                    <BrowserBar host={new URL(project.demoUrl).host} />
+                  ) : null}
+                  {/* The page's main visual, above the fold on every device. */}
+                  <Image
+                    alt={project.title}
+                    className="w-full object-cover"
+                    height={450}
+                    priority
+                    sizes="(min-width: 1280px) 700px, (min-width: 1024px) 56vw, 100vw"
+                    src={project.image}
+                    width={900}
+                  />
+                </>
               ) : (
                 <div className="h-[300px]">
                   <ProjectCover
