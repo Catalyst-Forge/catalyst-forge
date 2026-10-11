@@ -47,7 +47,10 @@ export function Navbar({ messages, locale }: NavbarProps) {
               <span className="block truncate text-[1.05rem] font-bold tracking-tight text-[#1B3A5C] min-[390px]:text-lg sm:text-2xl">
                 {messages.brand.name}
               </span>
-              <span className="hidden text-sm font-semibold uppercase tracking-[0.14em] text-[#1A1A2E]/70 xl:block">
+              <span
+                className="hidden text-sm font-semibold uppercase tracking-[0.14em] text-[#1A1A2E]/70 xl:block"
+                lang="en"
+              >
                 {messages.brand.tagline}
               </span>
             </span>
@@ -77,8 +80,20 @@ export function Navbar({ messages, locale }: NavbarProps) {
               className="shrink-0 p-0.5 [&_a]:px-2 [&_a]:py-1.5 [&_a]:text-xs sm:p-1 sm:[&_a]:px-3 sm:[&_a]:text-sm"
               currentLocale={locale}
               locales={[
-                { code: "id", href: "/", label: messages.language.id },
-                { code: "en", href: "/en", label: messages.language.en },
+                {
+                  ariaLabel: `${messages.language.id} - ${messages.language.idName}`,
+                  code: "id",
+                  href: "/",
+                  label: messages.language.id,
+                  lang: "id",
+                },
+                {
+                  ariaLabel: `${messages.language.en} - ${messages.language.enName}`,
+                  code: "en",
+                  href: "/en",
+                  label: messages.language.en,
+                  lang: "en",
+                },
               ]}
             />
             <a

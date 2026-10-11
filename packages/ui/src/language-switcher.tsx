@@ -7,6 +7,13 @@ export type LanguageSwitcherLocale = {
   code: string;
   label: string;
   href: string;
+  /**
+   * Spoken name of the link, for visible labels that are only a code ("EN").
+   * Keep the visible label inside it so voice-control users can say what they see.
+   */
+  ariaLabel?: string;
+  /** Language the link switches to (BCP 47). Sets lang and hreflang. */
+  lang?: string;
 };
 
 export interface LanguageSwitcherProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -44,6 +51,7 @@ export function LanguageSwitcher({
         return (
           <a
             aria-current={isActive ? "page" : undefined}
+            aria-label={locale.ariaLabel}
             className={cn(
               "rounded-full px-3 py-1.5 text-sm font-bold leading-none transition-colors",
               isActive
@@ -51,7 +59,9 @@ export function LanguageSwitcher({
                 : "text-[#1A1A2E] hover:bg-[#FAF8F5]",
             )}
             href={locale.href}
+            hrefLang={locale.lang}
             key={locale.code}
+            lang={locale.lang}
             onClick={() => persistLocale(locale.code)}
           >
             {locale.label}

@@ -41,7 +41,10 @@ export function Footer({ messages, locale }: FooterProps) {
                 <p className="text-xl font-bold tracking-tight sm:text-2xl">
                   {messages.brand.name}
                 </p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-white/62 sm:text-base sm:tracking-[0.14em]">
+                <p
+                  className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-white/62 sm:text-base sm:tracking-[0.14em]"
+                  lang="en"
+                >
                   {messages.brand.tagline}
                 </p>
               </div>
@@ -108,8 +111,20 @@ export function Footer({ messages, locale }: FooterProps) {
                 className="mt-6"
                 currentLocale={locale}
                 locales={[
-                  { code: "id", href: "/", label: messages.language.id },
-                  { code: "en", href: "/en", label: messages.language.en },
+                  {
+                    ariaLabel: `${messages.language.id} - ${messages.language.idName}`,
+                    code: "id",
+                    href: "/",
+                    label: messages.language.id,
+                    lang: "id",
+                  },
+                  {
+                    ariaLabel: `${messages.language.en} - ${messages.language.enName}`,
+                    code: "en",
+                    href: "/en",
+                    label: messages.language.en,
+                    lang: "en",
+                  },
                 ]}
               />
             </div>
@@ -123,13 +138,13 @@ export function Footer({ messages, locale }: FooterProps) {
           </p>
           <div className="flex gap-4">
             <a
-              className="text-sm font-semibold text-white/58 transition hover:text-white"
+              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
               href={locale === "en" ? "/en/privacy" : "/privacy"}
             >
               {messages.footer.privacy}
             </a>
             <a
-              className="text-sm font-semibold text-white/58 transition hover:text-white"
+              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
               href={locale === "en" ? "/en/terms" : "/terms"}
             >
               {messages.footer.terms}

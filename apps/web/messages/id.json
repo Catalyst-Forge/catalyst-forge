@@ -12,7 +12,9 @@
   "language": {
     "label": "Bahasa",
     "id": "ID",
-    "en": "EN"
+    "en": "EN",
+    "idName": "Bahasa Indonesia",
+    "enName": "English"
   },
   "navbar": {
     "about": "Tentang",
