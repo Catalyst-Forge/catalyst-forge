@@ -105,7 +105,7 @@ export function ProjectDetailPage({
                 <h2 className="text-lg font-bold uppercase tracking-[0.14em] text-[#C4430D]">
                   {locale === "id" ? "Ringkasan" : "Overview"}
                 </h2>
-                <p className="mt-3 text-lg leading-relaxed text-[#1A1A2E]/78">
+                <p className="mt-3 text-lg leading-relaxed text-[#1A1A2E]/80">
                   {project.summary}
                 </p>
               </div>
@@ -157,7 +157,7 @@ export function ProjectDetailPage({
                   <h2 className="mt-4 text-lg font-bold text-[#1B3A5C]">
                     {locale === "id" ? "Masalah" : "Problem"}
                   </h2>
-                  <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/74">
+                  <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/75">
                     {project.problem}
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export function ProjectDetailPage({
                   <h2 className="mt-4 text-lg font-bold text-[#1B3A5C]">
                     {locale === "id" ? "Solusi" : "Solution"}
                   </h2>
-                  <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/74">
+                  <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/75">
                     {project.solution}
                   </p>
                 </div>
@@ -187,7 +187,7 @@ export function ProjectDetailPage({
                   <h2 className="mt-4 text-lg font-bold text-[#1B3A5C]">
                     {locale === "id" ? "Dampak" : "Impact"}
                   </h2>
-                  <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/74">
+                  <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/75">
                     {project.impact}
                   </p>
                 </div>
@@ -212,7 +212,7 @@ export function ProjectDetailPage({
                   <Reveal delay={i * 60} direction="up">
                     <div className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
-                      <span className="text-base font-semibold text-[#1A1A2E]/78">
+                      <span className="text-base font-semibold text-[#1A1A2E]/80">
                         {f}
                       </span>
                     </div>
@@ -236,7 +236,7 @@ export function ProjectDetailPage({
             {project.metrics.map((m, i) => (
               <li key={m}>
                 <Reveal delay={i * 80} direction="up">
-                  <div className="rounded-xl border border-[#E8531A]/12 bg-[#FFF4EF] p-6">
+                  <div className="rounded-xl border border-[#E8531A]/10 bg-[#FFF4EF] p-6">
                     {/* Decorative index; the list already numbers the items. */}
                     <span
                       aria-hidden="true"
@@ -263,7 +263,7 @@ export function ProjectDetailPage({
               <h2 className="text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
                 {p.cta.headline}
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#1A1A2E]/72">
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#1A1A2E]/75">
                 {p.cta.subtext}
               </p>
               <a

@@ -247,7 +247,7 @@ function ProjectCard({
           ) : null}
 
           {/* Metrics */}
-          <div className="mt-5 rounded-lg border border-[#E8531A]/12 bg-[#FFF4EF] p-4">
+          <div className="mt-5 rounded-lg border border-[#E8531A]/10 bg-[#FFF4EF] p-4">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#C4430D]">
               {messages.portfolioPage.metricsLabel}
             </p>

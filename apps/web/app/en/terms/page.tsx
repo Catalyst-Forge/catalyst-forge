@@ -42,7 +42,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 1. Acceptance of Terms
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 By accessing and using the CatalystForge website
                 (catalystforge.web.id), you agree to be bound by these terms of
                 service. If you do not agree, please do not use this site.
@@ -53,7 +53,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 2. Service Description
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 CatalystForge provides software development services including
                 company profiles, CRM, HRIS, POS, AI support, dashboards, and
                 business operational systems. This site serves as a portfolio
@@ -66,7 +66,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 3. Intellectual Property
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 All content on this site — including text, design, logos, and
                 demo code — is owned by CatalystForge and protected by copyright
                 law. Demo products shown are capability illustrations and are
@@ -78,7 +78,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 4. Limitation of Liability
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 The site and its content are provided &ldquo;as is&rdquo;
                 without any warranty. CatalystForge shall not be liable for any
                 direct, indirect, incidental, or consequential damages arising
@@ -90,7 +90,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 5. Third-Party Links
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 This site may contain links to third-party websites. We do not
                 control and are not responsible for the content or privacy
                 practices of those sites.
@@ -101,7 +101,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 6. Changes to Terms
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 We reserve the right to modify these terms at any time. Changes
                 will be effective immediately upon posting on this page.
                 Continued use of the site after changes constitutes acceptance
@@ -113,7 +113,7 @@ export default function TermsPageEn() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 7. Governing Law
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 These terms are governed by and construed in accordance with the
                 laws of the Republic of Indonesia. Any disputes shall be
                 resolved through the competent courts in Indonesia.
@@ -122,7 +122,7 @@ export default function TermsPageEn() {
 
             <div>
               <h2 className="text-xl font-bold text-[#1B3A5C]">8. Contact</h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 For questions about these terms, contact:
               </p>
               <p className="mt-2 font-semibold text-[#C4430D]">

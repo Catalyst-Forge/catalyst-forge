@@ -32,7 +32,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
               {messages.caseStudies.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:mt-6 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/75 sm:mt-6 sm:text-lg">
               {messages.caseStudies.description}
             </p>
           </Reveal>
@@ -53,14 +53,14 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
                 <h3 className="mt-4 text-xl font-bold tracking-tight text-[#1B3A5C] sm:text-2xl">
                   {project.title}
                 </h3>
-                <p className="mt-2 text-base font-semibold leading-relaxed text-[#1A1A2E]/72">
+                <p className="mt-2 text-base font-semibold leading-relaxed text-[#1A1A2E]/75">
                   {project.client}
                 </p>
-                <p className="mt-5 border-t border-slate-200 pt-5 text-base leading-relaxed text-[#1A1A2E]/74">
+                <p className="mt-5 border-t border-slate-200 pt-5 text-base leading-relaxed text-[#1A1A2E]/75">
                   {project.summary}
                 </p>
 
-                <div className="mt-6 rounded-lg border border-[#E8531A]/12 bg-[#FFF4EF] p-4">
+                <div className="mt-6 rounded-lg border border-[#E8531A]/10 bg-[#FFF4EF] p-4">
                   <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#C4430D]">
                     {messages.caseStudies.metricsLabel}
                   </p>
@@ -68,7 +68,7 @@ export function CaseStudies({ messages }: CaseStudiesProps) {
                     {project.metrics.map((metric) => (
                       <li className="flex gap-2" key={metric}>
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#E8531A]" />
-                        <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
+                        <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/80">
                           {metric}
                         </span>
                       </li>

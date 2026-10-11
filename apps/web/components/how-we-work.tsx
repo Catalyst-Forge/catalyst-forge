@@ -22,7 +22,7 @@ export function HowWeWork({ messages }: HowWeWorkProps) {
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
               {messages.howWeWork.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:mt-6 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/75 sm:mt-6 sm:text-lg">
               {messages.howWeWork.description}
             </p>
           </Reveal>
@@ -51,7 +51,7 @@ export function HowWeWork({ messages }: HowWeWorkProps) {
                     <h3 className="mt-5 text-xl font-bold tracking-tight text-[#1B3A5C] sm:mt-6 sm:text-2xl">
                       {step.title}
                     </h3>
-                    <p className="mt-4 text-base leading-relaxed text-[#1A1A2E]/72">
+                    <p className="mt-4 text-base leading-relaxed text-[#1A1A2E]/75">
                       {step.description}
                     </p>
                   </article>

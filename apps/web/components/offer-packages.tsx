@@ -21,7 +21,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
               {messages.offers.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:mt-6 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/75 sm:mt-6 sm:text-lg">
               {messages.offers.description}
             </p>
           </Reveal>
@@ -40,7 +40,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
                     <Rocket className="h-7 w-7" />
                   </div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/12 bg-[#FAF8F5] px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/10 bg-[#FAF8F5] px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
                     <Clock3 className="h-4 w-4 text-[#E8531A]" />
                     {timelineLabel}: {offer.timeline}
                   </span>
@@ -57,7 +57,7 @@ export function OfferPackages({ messages }: OfferPackagesProps) {
                   {offer.deliverables.map((item) => (
                     <li className="flex gap-3" key={item}>
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
-                      <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/76">
+                      <span className="text-sm font-semibold leading-6 text-[#1A1A2E]/80">
                         {item}
                       </span>
                     </li>

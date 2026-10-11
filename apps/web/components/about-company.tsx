@@ -26,7 +26,7 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
               {messages.about.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:mt-6 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/75 sm:mt-6 sm:text-lg">
               {messages.about.description}
             </p>
 
@@ -34,7 +34,7 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
               {messages.about.highlights.map((highlight) => (
                 <li className="flex gap-3" key={highlight}>
                   <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#E8531A]" />
-                  <p className="text-base leading-relaxed text-[#1A1A2E]/76">
+                  <p className="text-base leading-relaxed text-[#1A1A2E]/80">
                     {highlight}
                   </p>
                 </li>
@@ -74,7 +74,7 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
                         <h3 className="text-xl font-bold tracking-tight text-[#1B3A5C]">
                           {value.label}
                         </h3>
-                        <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/72">
+                        <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/75">
                           {value.text}
                         </p>
                       </div>

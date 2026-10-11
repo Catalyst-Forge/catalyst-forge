@@ -46,7 +46,7 @@ export function Hero({ messages }: HeroProps) {
             </h1>
           </Reveal>
           <Reveal instant delay={170} direction="left">
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/88 sm:mt-7 md:text-xl">
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/90 sm:mt-7 md:text-xl">
               {messages.hero.subheadline}
             </p>
           </Reveal>

@@ -84,7 +84,7 @@ export function ServiceLandingPage({
               <h1 className="mt-5 max-w-5xl text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 {page.headline}
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/78 sm:text-xl">
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-xl">
                 {page.lede}
               </p>
 
@@ -121,7 +121,7 @@ export function ServiceLandingPage({
                     <dt className="text-xs font-bold uppercase tracking-[0.16em] text-[#FFB79C]">
                       {item.label}
                     </dt>
-                    <dd className="mt-2 text-sm font-semibold leading-6 text-white/86">
+                    <dd className="mt-2 text-sm font-semibold leading-6 text-white/90">
                       {item.value}
                     </dd>
                   </div>
@@ -153,7 +153,7 @@ export function ServiceLandingPage({
                       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EF] text-[#E8531A]">
                         <Target className="h-5 w-5" />
                       </span>
-                      <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/78">
+                      <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/80">
                         {problem}
                       </p>
                     </div>
@@ -237,14 +237,14 @@ export function ServiceLandingPage({
                 <li key={step.label}>
                   <Reveal className="h-full" delay={index * 100} direction="up">
                     <div className="h-full rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm sm:p-6">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/12 bg-white px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-[#1B3A5C]/10 bg-white px-3 py-1.5 text-xs font-bold text-[#1B3A5C]">
                         <Clock3 className="h-4 w-4 text-[#E8531A]" />
                         {ui.step} {index + 1}
                       </span>
                       <h3 className="mt-5 text-xl font-bold text-[#1B3A5C]">
                         {step.label}
                       </h3>
-                      <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                      <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/75">
                         {step.text}
                       </p>
                     </div>
@@ -268,7 +268,7 @@ export function ServiceLandingPage({
                 <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl">
                   {page.proofTitle}
                 </h2>
-                <p className="mt-5 text-base leading-relaxed text-white/74 sm:text-lg">
+                <p className="mt-5 text-base leading-relaxed text-white/75 sm:text-lg">
                   {page.proofText}
                 </p>
                 {proofProjects.some((project) => project.demoUrl) ? (
@@ -322,7 +322,7 @@ export function ServiceLandingPage({
                     <h3 className="text-lg font-bold text-[#1B3A5C]">
                       {item.question}
                     </h3>
-                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/75">
                       {item.answer}
                     </p>
                   </div>
@@ -364,7 +364,7 @@ export function ServiceLandingPage({
                         <h3 className="text-xl font-bold text-[#1B3A5C]">
                           {service.shortName}
                         </h3>
-                        <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/72">
+                        <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/75">
                           {service.summary}
                         </p>
                         <span className="mt-auto inline-flex items-center gap-2 pt-5 text-base font-bold text-[#D0490F] transition group-hover:text-[#1B3A5C]">
@@ -406,7 +406,7 @@ function Point({ text }: { text: string }) {
   return (
     <li className="flex gap-3">
       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#E8531A]" />
-      <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/76">
+      <p className="text-base font-semibold leading-relaxed text-[#1A1A2E]/80">
         {text}
       </p>
     </li>

@@ -46,16 +46,16 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 1. Data yang Kami Kumpulkan
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Saat Anda mengisi formulir kontak di situs ini, kami
                 mengumpulkan:
               </p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/78">
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/80">
                 <li>Nama lengkap</li>
                 <li>Alamat email</li>
                 <li>Pesan atau kebutuhan yang Anda sampaikan</li>
               </ul>
-              <p className="mt-2 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-2 leading-relaxed text-[#1A1A2E]/80">
                 Kami <strong>tidak</strong> mengumpulkan data sensitif, data
                 pembayaran, atau informasi identitas pribadi di luar yang
                 disebutkan di atas.
@@ -66,10 +66,10 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 2. Tujuan Pengumpulan Data
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Data yang Anda berikan digunakan semata-mata untuk:
               </p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/78">
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/80">
                 <li>Menanggapi pertanyaan atau permintaan estimasi Anda</li>
                 <li>
                   Mengirim informasi layanan yang relevan jika Anda
@@ -83,14 +83,14 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 3. Cookie dan Tracking
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Situs ini hanya menggunakan cookie esensial yang diperlukan
                 untuk fungsi dasar situs (seperti preferensi bahasa). Kami{" "}
                 <strong>tidak</strong> menggunakan cookie pelacakan pihak ketiga
                 untuk iklan, kecuali Anda memberikan persetujuan eksplisit
                 melalui banner cookie.
               </p>
-              <p className="mt-2 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-2 leading-relaxed text-[#1A1A2E]/80">
                 Jika di masa mendatang kami mengaktifkan layanan analitik
                 (seperti Google Analytics), data akan dikumpulkan hanya setelah
                 Anda memberikan persetujuan melalui mekanisme opt-in.
@@ -101,7 +101,7 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 4. Penyimpanan dan Keamanan Data
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Data kontak disimpan di server kami yang berlokasi di VPS dengan
                 akses terbatas. Kami menerapkan langkah keamanan teknis dan
                 organisasional untuk melindungi data dari akses tidak sah,
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-bold text-[#1B3A5C]">
                 5. Berbagi Data dengan Pihak Ketiga
               </h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Kami <strong>tidak</strong> menjual, menyewakan, atau membagikan
                 data pribadi Anda kepada pihak ketiga untuk tujuan pemasaran.
                 Data hanya dapat dibagikan jika diwajibkan oleh hukum atau
@@ -123,11 +123,11 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="text-xl font-bold text-[#1B3A5C]">6. Hak Anda</h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Sesuai dengan Undang-Undang Perlindungan Data Pribadi (UU PDP)
                 Indonesia, Anda memiliki hak untuk:
               </p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/78">
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-[#1A1A2E]/80">
                 <li>Mengakses data pribadi Anda yang kami simpan</li>
                 <li>Meminta koreksi atau penghapusan data</li>
                 <li>Menarik kembali persetujuan pemrosesan data</li>
@@ -137,7 +137,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="text-xl font-bold text-[#1B3A5C]">7. Kontak</h2>
-              <p className="mt-3 leading-relaxed text-[#1A1A2E]/78">
+              <p className="mt-3 leading-relaxed text-[#1A1A2E]/80">
                 Untuk pertanyaan tentang kebijakan privasi ini atau permintaan
                 terkait data Anda, hubungi kami di:
               </p>

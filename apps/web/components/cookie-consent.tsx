@@ -86,7 +86,7 @@ export function CookieConsent({ copy }: { copy: CookieConsentCopy }) {
       role="region"
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:py-4">
-        <div className="min-w-0 text-sm leading-relaxed text-[#1A1A2E]/78">
+        <div className="min-w-0 text-sm leading-relaxed text-[#1A1A2E]/80">
           <span className="font-bold text-[#1B3A5C]" id={titleId}>
             {t.title}
           </span>{" "}

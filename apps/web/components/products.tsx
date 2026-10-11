@@ -40,10 +40,10 @@ export function Products({ messages }: ProductsProps) {
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-[#1B3A5C] sm:text-3xl md:text-5xl">
               {messages.products.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/72 sm:mt-6 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-[#1A1A2E]/75 sm:mt-6 sm:text-lg">
               {messages.products.description}
             </p>
-            <p className="mx-auto mt-4 max-w-2xl rounded-lg border border-[#E8531A]/18 bg-[#FFF4EF] px-4 py-3 text-sm font-semibold leading-6 text-[#1B3A5C]">
+            <p className="mx-auto mt-4 max-w-2xl rounded-lg border border-[#E8531A]/20 bg-[#FFF4EF] px-4 py-3 text-sm font-semibold leading-6 text-[#1B3A5C]">
               {messages.products.demoNote}
             </p>
           </Reveal>
@@ -67,7 +67,7 @@ export function Products({ messages }: ProductsProps) {
                   <h3 className="relative mt-6 text-2xl font-bold tracking-tight text-[#1B3A5C]">
                     {product.name}
                   </h3>
-                  <p className="relative mt-4 text-base leading-relaxed text-[#1A1A2E]/72 md:min-h-24">
+                  <p className="relative mt-4 text-base leading-relaxed text-[#1A1A2E]/75 md:min-h-24">
                     {product.description}
                   </p>
                   <div className="relative mt-6 flex flex-col items-start gap-3 md:mt-auto md:pt-6">

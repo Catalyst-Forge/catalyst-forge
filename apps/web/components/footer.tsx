@@ -44,14 +44,14 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
                   {messages.brand.name}
                 </p>
                 <p
-                  className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-white/62 sm:text-base sm:tracking-[0.14em]"
+                  className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-white/65 sm:text-base sm:tracking-[0.14em]"
                   lang="en"
                 >
                   {messages.brand.tagline}
                 </p>
               </div>
             </div>
-            <p className="mt-5 max-w-sm text-base leading-relaxed text-white/74">
+            <p className="mt-5 max-w-sm text-base leading-relaxed text-white/75">
               {messages.metadata.description}
             </p>
           </Reveal>
@@ -64,7 +64,7 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
                 {navItems.map((item) => (
                   <li key={item.href}>
                     <a
-                      className="block text-base font-semibold text-white/78 transition hover:text-[#F58A60]"
+                      className="block text-base font-semibold text-white/80 transition hover:text-[#F58A60]"
                       href={item.href}
                     >
                       {item.label}
@@ -82,7 +82,7 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
               <h2 className="text-2xl font-bold tracking-tight">
                 {messages.footer.contactTitle}
               </h2>
-              <ul className="mt-5 grid gap-3 text-base leading-relaxed text-white/78">
+              <ul className="mt-5 grid gap-3 text-base leading-relaxed text-white/80">
                 <li>
                   <a
                     className="flex min-w-0 items-center gap-3 transition hover:text-[#F58A60]"
@@ -133,21 +133,21 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
           </Reveal>
         </ScrollParallax>
       </div>
-      <div className="border-t border-white/12 py-5">
+      <div className="border-t border-white/10 py-5">
         <div className="section-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           {/* The copyright line is English in both dictionaries. */}
-          <p className="text-base leading-relaxed text-white/68" lang="en">
+          <p className="text-base leading-relaxed text-white/70" lang="en">
             {messages.footer.copyright}
           </p>
           <div className="flex gap-4 sm:pr-16">
             <a
-              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
+              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/60 transition hover:text-white"
               href={locale === "en" ? "/en/privacy" : "/privacy"}
             >
               {messages.footer.privacy}
             </a>
             <a
-              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/58 transition hover:text-white"
+              className="inline-flex min-h-6 items-center text-sm font-semibold text-white/60 transition hover:text-white"
               href={locale === "en" ? "/en/terms" : "/terms"}
             >
               {messages.footer.terms}

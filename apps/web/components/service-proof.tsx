@@ -55,7 +55,7 @@ export function ServiceProofCard({
             {project.sector ? `, ${project.sector}` : ""}
           </p>
         ) : null}
-        <p className="mt-4 text-base leading-relaxed text-white/78">
+        <p className="mt-4 text-base leading-relaxed text-white/80">
           {project.summary}
         </p>
 
@@ -63,7 +63,7 @@ export function ServiceProofCard({
           {project.metrics.map((metric) => (
             <li className="flex gap-2" key={metric}>
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#FFB79C]" />
-              <span className="text-sm font-semibold leading-6 text-white/86">
+              <span className="text-sm font-semibold leading-6 text-white/90">
                 {metric}
               </span>
             </li>
