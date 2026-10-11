@@ -8,7 +8,9 @@ const nextConfig = {
   outputFileTracingRoot: path.join(__dirname, "../../"),
   experimental: {},
   images: {
-    unoptimized: true,
+    // Resized WebP from the standalone server (sharp is traced into it). The
+    // cache lives in each release, so a deploy also refreshes changed images.
+    minimumCacheTTL: 86400,
   },
   transpilePackages: ["@repo/ui", "@repo/config"],
   headers,
