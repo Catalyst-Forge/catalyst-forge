@@ -214,15 +214,15 @@
       },
       {
         "avatar": "https://i.pravatar.cc/100?img=3",
-        "name": "Al Hilal Hamzi",
-        "title": "Mahasiswa Universitas Malikussaleh",
+        "name": "Universitas Malikussaleh",
+        "title": "Riset Akuakultur",
         "company": "Sistem Pakar Udang Vaname",
         "quote": "Sistem pakar untuk mendiagnosa penyakit udang vaname menggunakan metode Naive Bayes dan Certainty Factor sebagai pendukung analisis berbasis pengetahuan."
       },
       {
         "avatar": "https://i.pravatar.cc/100?img=5",
-        "name": "Silfa",
-        "title": "RS Prima Inti Medika",
+        "name": "RS Prima Inti Medika",
+        "title": "Layanan Kesehatan",
         "company": "Pomeng Chatbot",
         "quote": "Pomeng Chatbot dikembangkan sebagai asisten guide untuk membantu pengguna mendapatkan arahan dan informasi layanan RS Prima Inti Medika dengan lebih mudah."
       }
@@ -253,8 +253,8 @@
       },
       {
         "project": "Sistem Pakar Udang Vaname",
-        "client": "Al Hilal Hamzi",
-        "context": "Mahasiswa Universitas Malikussaleh",
+        "client": "Universitas Malikussaleh",
+        "context": "Riset Akuakultur",
         "problem": "Diagnosa penyakit udang vaname membutuhkan pendekatan berbasis gejala dan tingkat keyakinan.",
         "solution": "Sistem pakar menggunakan metode Naive Bayes dan Certainty Factor.",
         "impact": "Analisis diagnosa menjadi lebih terstruktur sebagai pendukung penelitian dan pengambilan keputusan.",
@@ -266,8 +266,8 @@
       },
       {
         "project": "Pomeng Chatbot",
-        "client": "Silfa",
-        "context": "RS Prima Inti Medika",
+        "client": "RS Prima Inti Medika",
+        "context": "Layanan Kesehatan",
         "problem": "Pengguna membutuhkan panduan cepat untuk memahami informasi dan arahan layanan rumah sakit.",
         "solution": "Chatbot assistant guide untuk menjawab kebutuhan informasi pengguna.",
         "impact": "Akses informasi layanan menjadi lebih mudah, cepat, dan ramah pengguna.",
@@ -386,7 +386,7 @@
         "slug": "sistem-pakar-udang",
         "kind": "client",
         "title": "Sistem Pakar Udang Vaname",
-        "client": "Al Hilal Hamzi — Universitas Malikussaleh",
+        "client": "Universitas Malikussaleh",
         "category": "Research",
         "year": "2024",
         "summary": "Sistem pakar berbasis pengetahuan untuk diagnosa penyakit udang vaname menggunakan metode Naive Bayes dan Certainty Factor sebagai pendukung penelitian.",

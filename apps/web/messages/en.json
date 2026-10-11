@@ -214,15 +214,15 @@
       },
       {
         "avatar": "https://i.pravatar.cc/100?img=3",
-        "name": "Al Hilal Hamzi",
-        "title": "Student at Universitas Malikussaleh",
+        "name": "Universitas Malikussaleh",
+        "title": "Aquaculture Research",
         "company": "Vannamei Shrimp Expert System",
         "quote": "An expert system for diagnosing vannamei shrimp diseases using Naive Bayes and Certainty Factor methods as a knowledge-based analysis support tool."
       },
       {
         "avatar": "https://i.pravatar.cc/100?img=5",
-        "name": "Silfa",
-        "title": "RS Prima Inti Medika",
+        "name": "RS Prima Inti Medika",
+        "title": "Healthcare Services",
         "company": "Pomeng Chatbot",
         "quote": "Pomeng Chatbot was developed as an assistant guide to help users access directions and service information for RS Prima Inti Medika more easily."
       }
@@ -253,8 +253,8 @@
       },
       {
         "project": "Vannamei Shrimp Expert System",
-        "client": "Al Hilal Hamzi",
-        "context": "Student at Universitas Malikussaleh",
+        "client": "Universitas Malikussaleh",
+        "context": "Aquaculture Research",
         "problem": "Vannamei shrimp disease diagnosis requires symptom-based analysis and confidence scoring.",
         "solution": "An expert system using Naive Bayes and Certainty Factor methods.",
         "impact": "Diagnosis analysis becomes more structured for research support and decision-making.",
@@ -266,8 +266,8 @@
       },
       {
         "project": "Pomeng Chatbot",
-        "client": "Silfa",
-        "context": "RS Prima Inti Medika",
+        "client": "RS Prima Inti Medika",
+        "context": "Healthcare Services",
         "problem": "Users need quick guidance to understand hospital service information and directions.",
         "solution": "A chatbot assistant guide that answers user information needs.",
         "impact": "Service information becomes easier, faster, and more user-friendly to access.",
@@ -386,7 +386,7 @@
         "slug": "expert-system-vannamei",
         "kind": "client",
         "title": "Vannamei Shrimp Expert System",
-        "client": "Al Hilal Hamzi — Universitas Malikussaleh",
+        "client": "Universitas Malikussaleh",
         "category": "Research",
         "year": "2024",
         "summary": "Knowledge-based expert system for vannamei shrimp disease diagnosis using Naive Bayes and Certainty Factor methods — supporting academic research.",
