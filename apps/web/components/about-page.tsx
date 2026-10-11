@@ -1,5 +1,6 @@
 import type { Messages } from "@/lib/i18n";
 import Image from "next/image";
+import { CountUp } from "@/components/count-up";
 import { CtaSection } from "@/components/cta-section";
 import { Reveal } from "@/components/reveal";
 
@@ -44,7 +45,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
                   {stat.label}
                 </dt>
                 <dd className="font-heading text-3xl font-extrabold tracking-tight text-[#1B3A5C]">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </dd>
               </div>
             ))}

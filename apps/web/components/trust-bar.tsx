@@ -1,4 +1,5 @@
 import { type Messages } from "@/lib/i18n";
+import { CountUp } from "./count-up";
 import { Reveal } from "./reveal";
 
 type TrustBarProps = {
@@ -19,7 +20,7 @@ export function TrustBar({ messages }: TrustBarProps) {
                   {stat.label}
                 </dt>
                 <dd className="font-heading text-3xl font-extrabold tracking-tight text-[#1B3A5C] sm:text-4xl">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </dd>
               </div>
             ))}
