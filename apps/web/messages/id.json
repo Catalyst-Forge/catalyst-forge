@@ -62,20 +62,7 @@
       "Fokus pada aplikasi web, dashboard, otomasi, dan integrasi API",
       "Mengutamakan komunikasi jelas, scope terukur, dan hasil yang bisa dipakai"
     ],
-    "values": [
-      {
-        "label": "Konsultatif",
-        "text": "Kami mulai dari masalah bisnis, bukan dari template teknologi."
-      },
-      {
-        "label": "Andal",
-        "text": "Setiap solusi disiapkan agar stabil, aman, dan mudah dirawat."
-      },
-      {
-        "label": "Skalabel",
-        "text": "Arsitektur dibuat bertahap agar bisa berkembang mengikuti kebutuhan."
-      }
-    ],
+    "teamTitle": "Tim di balik CatalystForge",
     "teamCta": "Lihat Tim Kami"
   },
   "offers": {
@@ -130,40 +117,41 @@
     "demoNote": "Demo berikut adalah referensi flow dan kualitas interface. Versi produksi akan disesuaikan dengan data, role, approval, dan proses bisnis Anda.",
     "learnMore": "Buka Demo",
     "serviceCta": "Lihat Layanan",
+    "imageAlt": "Tampilan demo {name}",
     "items": [
       {
-        "name": "AI Support",
-        "description": "Layanan AI & Chatbot Cerdas untuk menjawab pelanggan lebih cepat dan konsisten.",
-        "href": "https://ai.catalystforge.web.id",
-        "cta": "Buka Demo AI Support",
-        "serviceHref": "/ai-support"
-      },
-      {
         "name": "CRM",
-        "description": "Manajemen Hubungan Pelanggan untuk memperkuat pipeline, follow-up, dan retensi.",
+        "description": "Pipeline penjualan, kontak, dan follow-up tim sales dalam satu dashboard, sehingga tidak ada lead yang terlewat.",
         "href": "https://crm.catalystforge.web.id",
-        "cta": "Buka Demo CRM",
+        "image": "/images/portfolio/crm.webp",
         "serviceHref": "/custom-crm"
       },
       {
         "name": "HRIS",
-        "description": "Sistem HR & Kepegawaian Terintegrasi untuk data karyawan, absensi, dan administrasi.",
+        "description": "Data karyawan, absensi, cuti, dan payroll terkelola rapi tanpa spreadsheet berlapis.",
         "href": "https://hris.catalystforge.web.id",
-        "cta": "Buka Demo HRIS",
+        "image": "/images/portfolio/hris.webp",
         "serviceHref": "/custom-hris"
       },
       {
         "name": "POS",
-        "description": "Sistem Kasir & Penjualan Modern untuk transaksi, stok, dan laporan cabang.",
+        "description": "Kasir cepat dengan QRIS, stok real-time, dan laporan penjualan per cabang.",
         "href": "https://pos.catalystforge.web.id",
-        "cta": "Buka Demo POS",
+        "image": "/images/portfolio/pos.webp",
         "serviceHref": "/custom-pos"
       },
       {
+        "name": "AI Support",
+        "description": "Chatbot AI yang menjawab pelanggan 24/7 dari knowledge base bisnis Anda, lalu meneruskan ke tim saat dibutuhkan.",
+        "href": "https://ai.catalystforge.web.id",
+        "image": "/images/portfolio/ai-support.webp",
+        "serviceHref": "/ai-support"
+      },
+      {
         "name": "Company Profile",
-        "description": "Website Korporat Profesional yang membangun kredibilitas dan kepercayaan pasar.",
+        "description": "Website perusahaan yang cepat, rapi di HP, dan mudah ditemukan di Google untuk membangun kepercayaan calon klien.",
         "href": "https://company.catalystforge.web.id",
-        "cta": "Buka Demo Company Profile",
+        "image": "/images/portfolio/company.webp",
         "serviceHref": "/company-profile"
       }
     ]

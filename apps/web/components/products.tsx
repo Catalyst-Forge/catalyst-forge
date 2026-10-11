@@ -1,13 +1,7 @@
-import {
-  ArrowRight,
-  Bot,
-  Building,
-  MonitorSmartphone,
-  ShoppingCart,
-  UsersRound,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { type Messages } from "@/lib/i18n";
+import { cn } from "@repo/ui/lib/utils";
 import { ConversionLink } from "./conversion-link";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
@@ -16,15 +10,12 @@ type ProductsProps = {
   messages: Messages;
 };
 
-const productIcons: LucideIcon[] = [
-  Bot,
-  UsersRound,
-  Building,
-  ShoppingCart,
-  MonitorSmartphone,
-];
+/** The first two products get wide tiles; the rest share the row below. */
+const FEATURED_COUNT = 2;
 
 export function Products({ messages }: ProductsProps) {
+  const items = messages.products.items;
+
   return (
     <section className="section-padding overflow-hidden bg-white">
       <div className="section-container">
@@ -49,47 +40,99 @@ export function Products({ messages }: ProductsProps) {
           </Reveal>
         </ScrollParallax>
 
-        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {messages.products.items.map((product, index) => {
-            const Icon = productIcons[index] ?? MonitorSmartphone;
+        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+          {items.map((product, index) => {
+            const featured = index < FEATURED_COUNT;
+            // With an odd count the last tile would sit alone in the
+            // two-column tablet grid, so it spans the row instead.
+            const spansTabletRow =
+              index === items.length - 1 && items.length % 2 === 1;
 
             return (
               <Reveal
-                className="h-full"
+                className={cn(
+                  "h-full",
+                  featured ? "lg:col-span-3" : "lg:col-span-2",
+                  spansTabletRow && "md:col-span-2 lg:col-span-2",
+                )}
                 delay={index * 100}
                 direction={index % 2 === 0 ? "left" : "right"}
                 key={product.name}
               >
-                <article className="product-card-motion group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#E8531A]/30 hover:shadow-xl sm:p-7">
-                  <div className="relative flex h-14 w-14 items-center justify-center rounded-lg bg-[#FAF8F5] text-[#E8531A] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#FFF4EF]">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                  <h3 className="relative mt-6 text-2xl font-bold tracking-tight text-[#1B3A5C]">
-                    {product.name}
-                  </h3>
-                  <p className="relative mt-4 text-base leading-relaxed text-[#1A1A2E]/75 md:min-h-24">
-                    {product.description}
-                  </p>
-                  <div className="relative mt-6 flex flex-col items-start gap-3 md:mt-auto md:pt-6">
-                    <a
-                      aria-label={`${messages.products.serviceCta}: ${product.name}`}
-                      className="inline-flex items-center gap-2 text-base font-bold text-[#1B3A5C] transition hover:text-[#C4430D]"
-                      href={product.serviceHref}
+                <article className="product-card-motion group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-[#E8531A]/30 hover:shadow-xl">
+                  {/* Same destination as the demo link below, so it stays out of the tab order. */}
+                  <ConversionLink
+                    className="block border-b border-slate-200 bg-[#F4F5F7]"
+                    eventLabel={`demo_${product.name}`}
+                    eventName="demo_click"
+                    href={product.href}
+                    rel="noreferrer"
+                    tabIndex={-1}
+                    target="_blank"
+                  >
+                    <div className="flex items-center gap-3 px-4 py-2.5">
+                      <div aria-hidden="true" className="flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-[#D0490F]" />
+                        <span className="h-2 w-2 rounded-full bg-[#F4B350]" />
+                        <span className="h-2 w-2 rounded-full bg-[#3BAA72]" />
+                      </div>
+                      <span className="flex-1 truncate rounded-md bg-white px-3 py-0.5 text-center text-xs font-medium text-slate-500">
+                        {new URL(product.href).host}
+                      </span>
+                    </div>
+                    <div
+                      className={cn(
+                        "relative aspect-[16/9] overflow-hidden",
+                        spansTabletRow && "md:max-lg:aspect-[21/9]",
+                      )}
                     >
-                      {messages.products.serviceCta}
-                      <ArrowRight className="h-5 w-5" />
-                    </a>
-                    <ConversionLink
-                      className="inline-flex items-center gap-2 text-base font-bold text-[#C4430D] transition group-hover:text-[#1B3A5C]"
-                      eventLabel={`demo_${product.name}`}
-                      eventName="demo_click"
-                      href={product.href}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      {product.cta ?? messages.products.learnMore}
-                      <ArrowRight className="h-5 w-5" />
-                    </ConversionLink>
+                      <Image
+                        alt={messages.products.imageAlt.replace(
+                          "{name}",
+                          product.name,
+                        )}
+                        className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                        fill
+                        sizes={
+                          featured
+                            ? "(min-width: 1024px) 600px, (min-width: 768px) 50vw, 100vw"
+                            : "(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+                        }
+                        src={product.image}
+                      />
+                    </div>
+                  </ConversionLink>
+
+                  <div className="relative flex flex-1 flex-col p-5 sm:p-6">
+                    <h3 className="text-xl font-bold tracking-tight text-[#1B3A5C] sm:text-2xl">
+                      {product.name}
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-[#1A1A2E]/75">
+                      {product.description}
+                    </p>
+                    <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-6">
+                      <a
+                        aria-label={`${messages.products.serviceCta}: ${product.name}`}
+                        className="inline-flex items-center gap-2 text-base font-bold text-[#1B3A5C] transition hover:text-[#C4430D]"
+                        href={product.serviceHref}
+                      >
+                        {messages.products.serviceCta}
+                        <ArrowRight className="h-5 w-5" />
+                      </a>
+                      {/* The heading names the product; screen readers get it in the link name too. */}
+                      <ConversionLink
+                        aria-label={`${messages.products.learnMore} ${product.name}`}
+                        className="inline-flex items-center gap-2 text-base font-bold text-[#C4430D] transition hover:text-[#1B3A5C]"
+                        eventLabel={`demo_${product.name}`}
+                        eventName="demo_click"
+                        href={product.href}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        {messages.products.learnMore}
+                        <ArrowRight className="h-5 w-5" />
+                      </ConversionLink>
+                    </div>
                   </div>
                 </article>
               </Reveal>

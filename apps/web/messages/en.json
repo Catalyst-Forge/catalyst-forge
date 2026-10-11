@@ -62,20 +62,7 @@
       "Focused on web apps, dashboards, automation, and API integration",
       "Clear communication, measurable scope, and usable outcomes"
     ],
-    "values": [
-      {
-        "label": "Consultative",
-        "text": "We start from the business problem, not from a technology template."
-      },
-      {
-        "label": "Reliable",
-        "text": "Each solution is prepared to be stable, secure, and maintainable."
-      },
-      {
-        "label": "Scalable",
-        "text": "Architecture is built in stages so it can grow with your needs."
-      }
-    ],
+    "teamTitle": "The team behind CatalystForge",
     "teamCta": "Meet Our Team"
   },
   "offers": {
@@ -130,40 +117,41 @@
     "demoNote": "These demos show reference flows and interface quality. The production version is customized around your data, roles, approvals, and business process.",
     "learnMore": "Open Demo",
     "serviceCta": "View Service",
+    "imageAlt": "{name} demo screen",
     "items": [
       {
-        "name": "AI Support",
-        "description": "Smart AI & Chatbot Services to respond to customers faster and more consistently.",
-        "href": "https://ai.catalystforge.web.id",
-        "cta": "Open AI Support Demo",
-        "serviceHref": "/en/ai-support"
-      },
-      {
         "name": "CRM",
-        "description": "Customer Relationship Management to strengthen pipelines, follow-ups, and retention.",
+        "description": "Sales pipeline, contacts, and team follow-ups in one dashboard, so no lead slips through.",
         "href": "https://crm.catalystforge.web.id",
-        "cta": "Open CRM Demo",
+        "image": "/images/portfolio/crm.webp",
         "serviceHref": "/en/custom-crm"
       },
       {
         "name": "HRIS",
-        "description": "Integrated HR & Employee System for employee data, attendance, and administration.",
+        "description": "Employee data, attendance, leave, and payroll kept in order without layers of spreadsheets.",
         "href": "https://hris.catalystforge.web.id",
-        "cta": "Open HRIS Demo",
+        "image": "/images/portfolio/hris.webp",
         "serviceHref": "/en/custom-hris"
       },
       {
         "name": "POS",
-        "description": "Modern Cashier & Sales System for transactions, inventory, and branch reporting.",
+        "description": "Fast checkout with QRIS, real-time stock, and sales reports for every branch.",
         "href": "https://pos.catalystforge.web.id",
-        "cta": "Open POS Demo",
+        "image": "/images/portfolio/pos.webp",
         "serviceHref": "/en/custom-pos"
       },
       {
+        "name": "AI Support",
+        "description": "An AI chatbot that answers customers 24/7 from your business knowledge base and hands off to your team when needed.",
+        "href": "https://ai.catalystforge.web.id",
+        "image": "/images/portfolio/ai-support.webp",
+        "serviceHref": "/en/ai-support"
+      },
+      {
         "name": "Company Profile",
-        "description": "Professional Corporate Website that builds credibility and market trust.",
+        "description": "A company website that loads fast, looks right on phones, and is easy to find on Google, so prospects trust you.",
         "href": "https://company.catalystforge.web.id",
-        "cta": "Open Company Profile Demo",
+        "image": "/images/portfolio/company.webp",
         "serviceHref": "/en/company-profile"
       }
     ]

@@ -1,4 +1,4 @@
-import { ArrowRight, Building2 } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { type Messages } from "@/lib/i18n";
@@ -69,21 +69,23 @@ export function Hero({ messages }: HeroProps) {
             </div>
           </Reveal>
 
-          <ul className="mt-6 flex flex-wrap gap-2.5 sm:mt-9 sm:gap-3">
-            {messages.hero.trustIndicators.map((indicator, index) => (
-              <li key={indicator}>
-                <Reveal
-                  instant
-                  delay={320 + index * 70}
-                  direction={index % 2 === 0 ? "left" : "right"}
+          {/* Plain checks, not pills: pills next to the CTAs read as more buttons. */}
+          <Reveal instant delay={320} direction="left">
+            <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2.5 sm:mt-9 sm:flex sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+              {messages.hero.trustIndicators.map((indicator) => (
+                <li
+                  className="flex items-center gap-2 text-sm font-semibold text-white/85 sm:text-base"
+                  key={indicator}
                 >
-                  <span className="block rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white sm:px-5 sm:py-3 sm:text-base">
-                    {indicator}
-                  </span>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+                  <CheckCircle2
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0 text-[#F4784A] sm:h-5 sm:w-5"
+                  />
+                  {indicator}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </ParallaxLayer>
 
         <ParallaxLayer

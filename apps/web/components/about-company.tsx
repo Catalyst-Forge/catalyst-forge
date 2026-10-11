@@ -1,6 +1,8 @@
-import { ArrowRight, CheckCircle2, MapPin, Network, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { type Messages } from "@/lib/i18n";
+import { getTeamMembers } from "@/lib/team";
 import { Reveal } from "./reveal";
 import { ScrollParallax } from "./scroll-parallax";
 
@@ -8,9 +10,10 @@ type AboutCompanyProps = {
   messages: Messages;
 };
 
-const valueIcons = [MapPin, Network, ShieldCheck];
-
 export function AboutCompany({ messages }: AboutCompanyProps) {
+  const members = getTeamMembers(messages);
+  const photoAlt = messages.aboutPage.team.photoAlt;
+
   return (
     <section className="section-padding overflow-hidden bg-white">
       <div className="section-container grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-12">
@@ -51,40 +54,40 @@ export function AboutCompany({ messages }: AboutCompanyProps) {
           </Reveal>
         </ScrollParallax>
 
-        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1 lg:gap-5">
-          {messages.about.values.map((value, index) => {
-            const Icon = valueIcons[index] ?? ShieldCheck;
-
-            return (
-              <ScrollParallax
-                direction="up"
-                key={value.label}
-                maxOffset={26 + index * 6}
-              >
-                <Reveal
-                  delay={index * 110}
-                  direction={index % 2 === 0 ? "right" : "left"}
-                >
-                  <article className="h-full rounded-lg border border-slate-200 bg-[#FAF8F5] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-6">
-                    <div className="flex items-start gap-4 md:flex-col lg:flex-row">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white text-[#E8531A] shadow-sm">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold tracking-tight text-[#1B3A5C]">
-                          {value.label}
-                        </h3>
-                        <p className="mt-2 text-base leading-relaxed text-[#1A1A2E]/75">
-                          {value.text}
-                        </p>
-                      </div>
+        {/* Real faces instead of abstract values: clients want to know who they work with. */}
+        <ScrollParallax direction="up" maxOffset={30}>
+          <Reveal direction="right">
+            <div className="rounded-2xl border border-slate-200 bg-[#FAF8F5] p-4 shadow-sm sm:p-7">
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#1B3A5C]/70">
+                {messages.about.teamTitle}
+              </p>
+              <ul className="mt-4 grid grid-cols-2 gap-3 sm:mt-5 sm:gap-4">
+                {members.map((member) => (
+                  <li
+                    className="flex flex-col items-center rounded-xl bg-white px-3 py-5 text-center shadow-sm ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:px-5"
+                    key={member.name}
+                  >
+                    <div className="relative h-20 w-20 overflow-hidden rounded-full bg-[#1B3A5C] ring-4 ring-[#FFF4EF] sm:h-24 sm:w-24">
+                      <Image
+                        alt={photoAlt.replace("{name}", member.name)}
+                        className="object-cover object-top"
+                        fill
+                        sizes="96px"
+                        src={member.photo}
+                      />
                     </div>
-                  </article>
-                </Reveal>
-              </ScrollParallax>
-            );
-          })}
-        </div>
+                    <p className="mt-4 text-sm font-bold leading-snug text-[#1B3A5C] sm:text-base">
+                      {member.name}
+                    </p>
+                    <p className="mt-1.5 text-xs font-bold uppercase leading-snug tracking-[0.12em] text-[#C4430D]">
+                      {member.role}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </ScrollParallax>
       </div>
     </section>
   );

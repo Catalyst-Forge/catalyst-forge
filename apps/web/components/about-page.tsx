@@ -3,16 +3,11 @@ import Image from "next/image";
 import { CountUp } from "@/components/count-up";
 import { CtaSection } from "@/components/cta-section";
 import { Reveal } from "@/components/reveal";
+import { getTeamMembers } from "@/lib/team";
 
 export function AboutPage({ messages }: { messages: Messages }) {
   const a = messages.aboutPage;
-
-  const members = [
-    { ...a.team.bagas, photo: "/team/bagas-avatar.jpg" },
-    { ...a.team.alana, photo: "/team/alana-avatar.jpg" },
-    { ...a.team.hambali, photo: "/team/hambali-avatar.jpg" },
-    { ...a.team.faiz, photo: "/team/faiz-avatar.jpg" },
-  ];
+  const members = getTeamMembers(messages);
 
   return (
     <main
