@@ -18,7 +18,7 @@ export function TrustBar({ messages }: TrustBarProps) {
         <Reveal direction="up">
           <dl className="grid grid-cols-2 gap-6 lg:border-r lg:border-slate-200 lg:pr-12">
             {t.stats.map((stat) => (
-              <div className="flex flex-col-reverse gap-1" key={stat.label}>
+              <div className="flex flex-col-reverse justify-end gap-1" key={stat.label}>
                 <dt className="text-sm leading-snug text-[#1A1A2E]/65">
                   {stat.label}
                 </dt>

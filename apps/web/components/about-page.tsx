@@ -39,7 +39,7 @@ export function AboutPage({ messages }: { messages: Messages }) {
             {a.hero.stats.map((stat) => (
               <div
                 key={stat.value}
-                className="flex flex-col-reverse items-center gap-1 bg-white px-6 py-6 text-center"
+                className="flex flex-col-reverse items-center justify-end gap-1 bg-white px-6 py-6 text-center"
               >
                 <dt className="text-sm leading-snug text-[#1A1A2E]/70">
                   {stat.label}
