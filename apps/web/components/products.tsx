@@ -70,17 +70,27 @@ export function Products({ messages }: ProductsProps) {
                   <p className="relative mt-4 text-base leading-relaxed text-[#1A1A2E]/72 md:min-h-24">
                     {product.description}
                   </p>
-                  <ConversionLink
-                    className="relative mt-6 inline-flex items-center gap-2 text-base font-bold text-[#E8531A] transition group-hover:text-[#1B3A5C] md:mt-auto md:pt-6"
-                    eventLabel={`demo_${product.name}`}
-                    eventName="demo_click"
-                    href={product.href}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {product.cta ?? messages.products.learnMore}
-                    <ArrowRight className="h-5 w-5" />
-                  </ConversionLink>
+                  <div className="relative mt-6 flex flex-col items-start gap-3 md:mt-auto md:pt-6">
+                    <a
+                      aria-label={`${messages.products.serviceCta}: ${product.name}`}
+                      className="inline-flex items-center gap-2 text-base font-bold text-[#1B3A5C] transition hover:text-[#E8531A]"
+                      href={product.serviceHref}
+                    >
+                      {messages.products.serviceCta}
+                      <ArrowRight className="h-5 w-5" />
+                    </a>
+                    <ConversionLink
+                      className="inline-flex items-center gap-2 text-base font-bold text-[#E8531A] transition group-hover:text-[#1B3A5C]"
+                      eventLabel={`demo_${product.name}`}
+                      eventName="demo_click"
+                      href={product.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {product.cta ?? messages.products.learnMore}
+                      <ArrowRight className="h-5 w-5" />
+                    </ConversionLink>
+                  </div>
                 </article>
               </Reveal>
             );
