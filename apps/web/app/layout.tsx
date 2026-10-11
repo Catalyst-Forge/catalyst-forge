@@ -57,14 +57,13 @@ export const metadata: Metadata = {
     images: ["/twitter-image"],
   },
   icons: {
+    // favicon.ico carries 16/32/48px; Google Search wants a multiple of 48.
     icon: [
-      {
-        url: "/logo_icon_only.png",
-        type: "image/png",
-      },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    shortcut: "/logo_icon_only.png",
-    apple: "/logo_icon_only.png",
+    shortcut: "/favicon.ico",
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   ...(googleSiteVerification
     ? {

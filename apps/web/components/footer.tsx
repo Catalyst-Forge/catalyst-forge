@@ -37,7 +37,7 @@ export function Footer({ messages, locale, alternateHrefs }: FooterProps) {
                   className="object-cover"
                   fill
                   sizes="56px"
-                  src="/logo_icon_only.png"
+                  src="/logo-icon.png"
                 />
               </span>
               <div>
