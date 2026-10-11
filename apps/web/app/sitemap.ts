@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+import { DEFAULT_LOCALE, LOCALES } from "@/lib/i18n";
+import { getServicePath } from "@/lib/locale-paths";
 import { getAllPortfolioProjectPaths } from "@/lib/portfolio-paths";
 import { serviceSlugs } from "@/lib/service-pages";
 
@@ -18,10 +20,12 @@ const routes = [
     path,
     priority: path.startsWith("/en/") ? 0.5 : 0.6,
   })),
-  ...serviceSlugs.map((slug) => ({
-    path: `/${slug}`,
-    priority: 0.85,
-  })),
+  ...serviceSlugs.flatMap((slug) =>
+    LOCALES.map((locale) => ({
+      path: getServicePath(locale, slug),
+      priority: locale === DEFAULT_LOCALE ? 0.85 : 0.75,
+    })),
+  ),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
